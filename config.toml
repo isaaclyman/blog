@@ -1,0 +1,73 @@
+baseURL = "http://isaaclyman.com/blog"
+title = "Minimum Viable Blog"
+copyright = "© 2017 by Isaac Lyman. Site powered by Hugo and GitHub."
+publishDir = "docs"
+
+theme = "minimo"
+
+disqusShortname = "isaaclymanblog"
+googleAnalytics = "UA-104387168-1"
+Paginate = 5
+
+preserveTaxonomyNames = true
+
+[params]
+  description = "Software construction, logic, faith, and satire"
+  dateFormat = "Jan 2, 2006"
+  copyrightOwner = "Isaac Lyman"
+  copyrightStartYear = "2017"
+  favicon = "favicon.png"
+  hideEntryNavigation = false
+  customCSS = ["css/custom.css"]
+  customJS = ["js/custom.js"]
+  hideSocialMenu = false
+  showReadTime = true
+
+[params.seo]
+  # Title Separator: - – — · • * ⋆ | ~ « » < >
+  titleSeparator = "•"
+
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+
+# [social]
+#  facebook = ""
+
+[author]
+  name = "Isaac Lyman"
+
+[author.social]
+  twitter = "isaacandsuch"
+
+[permalinks]
+  page = "/:slug/"
+
+[[menu.main]]
+  name = "{ Posts }"
+  weight = 10
+  identifier = "posts"
+  url = "/"
+
+[[menu.main]]
+  name = "{ About }"
+  weight = 20
+  identifier = "about"
+  url = "/posts/introduction"
+
+[[menu.main]]
+  name = "{ Author }"
+  weight = 30
+  identifier = "author"
+  url = "http://isaaclyman.com"
+
+
+# Language Configuration
+defaultContentLanguage = "en"
+
+[languages]
+  # edit this block for your own language
+  [languages.en]
+    lang = "en"
+    languageName = "English"
+    weight = 1

@@ -3,7 +3,7 @@ title: "Choosing a job title"
 categories: ["career"]
 date: 2017-08-13T13:39:20-06:00
 description: "For people who code"
-draft: true
+draft: false
 genre: "Technology"
 tags: ["resume"]
 ---

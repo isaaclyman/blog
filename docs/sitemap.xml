@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://isaaclyman.com/blog/posts/choosing-a-job-title/</loc>
+    <lastmod>2017-08-13T13:39:20-06:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://isaaclyman.com/blog/posts/introduction/</loc>
     <lastmod>2017-08-12T11:16:33-06:00</lastmod>
   </url>
@@ -24,7 +29,14 @@
   </url>
   
   <url>
+    <loc>http://isaaclyman.com/blog/categories/career/</loc>
+    <lastmod>2017-08-13T13:39:20-06:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://isaaclyman.com/blog/categories/</loc>
+    <lastmod>2017-08-13T13:39:20-06:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -36,13 +48,19 @@
   
   <url>
     <loc>http://isaaclyman.com/blog/</loc>
-    <lastmod>2017-08-12T11:16:33-06:00</lastmod>
+    <lastmod>2017-08-13T13:39:20-06:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://isaaclyman.com/blog/posts/</loc>
-    <lastmod>2017-08-12T11:16:33-06:00</lastmod>
+    <lastmod>2017-08-13T13:39:20-06:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://isaaclyman.com/blog/tags/resume/</loc>
+    <lastmod>2017-08-13T13:39:20-06:00</lastmod>
     <priority>0</priority>
   </url>
   

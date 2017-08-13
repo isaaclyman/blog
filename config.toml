@@ -11,6 +11,8 @@ Paginate = 5
 
 preserveTaxonomyNames = true
 
+pygmentsstyle = "murphy"
+
 [params]
   description = "Software construction, logic, faith, and satire"
   dateFormat = "Jan 2, 2006"

@@ -1,7 +1,7 @@
 ---
 title: "Choosing a job title"
 categories: ["career"]
-date: 2017-08-13T13:39:20-06:00
+date: 2017-04-19T13:40:43.136Z
 description: "For people who code"
 draft: false
 genre: "Technology"

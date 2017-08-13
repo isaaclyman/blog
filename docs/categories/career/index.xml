@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Career on Minimum Viable Blog</title>
+    <link>http://isaaclyman.com/blog/categories/career/</link>
+    <description>Recent content in Career on Minimum Viable Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>© 2017 by Isaac Lyman. Site powered by Hugo and GitHub.</copyright>
+    <lastBuildDate>Sun, 13 Aug 2017 13:39:20 -0600</lastBuildDate>
+    
+	<atom:link href="http://isaaclyman.com/blog/categories/career/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Choosing a job title</title>
+      <link>http://isaaclyman.com/blog/posts/choosing-a-job-title/</link>
+      <pubDate>Sun, 13 Aug 2017 13:39:20 -0600</pubDate>
+      
+      <guid>http://isaaclyman.com/blog/posts/choosing-a-job-title/</guid>
+      <description>Are you a coder, programmer, developer, engineer, architect or something else? My first job was an underage, under-the-table weekend gig at a pizza parlor. I’d show up at the local strip mall early Saturday morning, stash my bike, and clock in. For me, the work was grueling. I would haul 50-pound bags of flour and 10-gallon buckets of water to a giant stand mixer, and once it finished spinning I’d lift armfuls of incredibly heavy dough to a metal table where I’d cut and oil portions weighed for each size of pizza that the shop sold.</description>
+    </item>
+    
+  </channel>
+</rss>

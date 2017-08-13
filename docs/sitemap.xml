@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>http://isaaclyman.com/blog/posts/introduction/</loc>
+    <lastmod>2017-08-12T11:16:33-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://isaaclyman.com/blog/posts/developer-driven-development/</loc>
+    <lastmod>2016-11-06T04:59:40+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://isaaclyman.com/blog/posts/if-doctors-were-like-coders/</loc>
+    <lastmod>2016-10-12T23:38:27+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://isaaclyman.com/blog/tags/agile/</loc>
+    <lastmod>2016-11-06T04:59:40+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://isaaclyman.com/blog/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://isaaclyman.com/blog/categories/development/</loc>
+    <lastmod>2016-11-06T04:59:40+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://isaaclyman.com/blog/</loc>
+    <lastmod>2017-08-12T11:16:33-06:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://isaaclyman.com/blog/posts/</loc>
+    <lastmod>2017-08-12T11:16:33-06:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://isaaclyman.com/blog/categories/satire/</loc>
+    <lastmod>2016-10-12T23:38:27+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://isaaclyman.com/blog/tags/software-construction/</loc>
+    <lastmod>2016-11-06T04:59:40+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://isaaclyman.com/blog/tags/</loc>
+    <lastmod>2016-11-06T04:59:40+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+</urlset>

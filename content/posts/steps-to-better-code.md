@@ -8,8 +8,6 @@ genre: "Technology"
 tags: ["beginners", "code quality"]
 ---
 
-#### A guide for beginners
-
 When you start out coding, you usually spend a year or two completely oblivious to the rules of “good code.” You may hear words like “elegant” or “clean” tossed around, but you can’t define them. That’s okay. For a programmer without any experience, there’s only one metric worth keeping tabs on: does it work?
 
 Soon, though, you’ll need to raise your expectations. Good code doesn’t just _work._ It’s simple, modular, testable, maintainable, thoughtful. Some of these terms may apply to your code without you even knowing it, but probably not. If you’re lucky, your team carefully plans and architects its code solutions and guides you gently, trusting that you’ll develop an intuition for well-written software. If you’re not lucky, they [wince](https://xkcd.com/1513/) [or](https://xkcd.com/1695/) [complain](https://xkcd.com/1833/) every time they see your code. Either way, you can get a lot of mileage out of learning a few universal principles.

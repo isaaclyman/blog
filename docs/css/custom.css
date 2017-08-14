@@ -78,6 +78,10 @@ h2, .list-title {
   font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
 }
 
+.list-item .meta {
+  margin-right: 6px;
+}
+
 .entry .meta span {
   color: #888;
   font-size: 14px;

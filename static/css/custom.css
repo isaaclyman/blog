@@ -32,6 +32,15 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
   font-weight: 300;
 }
 
+.main-menu a {
+  opacity: 0.5;
+}
+
+.main-menu a.current {
+  font-weight: 300;
+  opacity: 1;
+}
+
 .site-title, .list-title {
   text-transform: none;
 }

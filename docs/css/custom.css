@@ -109,10 +109,10 @@ h2, .list-title {
 code {
   background-color: #F8F8F8;
   border: 1px solid #CCC;
-  border-radius: 8%;
+  border-radius: 4px;
   color: #000;
   font-size: 19px;
-  padding: 3px 5px;
+  padding: 2px 5px;
 }
 
 div.highlight {

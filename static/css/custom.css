@@ -15,7 +15,8 @@ p, li {
 }
 
 blockquote {
-  border-left: .2em solid #ffcd00
+  border-left: .2em solid #ffcd00;
+  margin-top: 27px;
 }
 
 figcaption {
@@ -30,6 +31,10 @@ h1, h2, h3, h4, h5, h6, body,
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
   font-family: 'Oswald', Arial, sans-serif;
   font-weight: 300;
+}
+
+hr {
+  margin-top: 1.5em;
 }
 
 .main-menu a {

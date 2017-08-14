@@ -6,10 +6,20 @@
     <description>Recent content in Career on Minimum Viable Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>© 2017 by Isaac Lyman. Site powered by Hugo and GitHub.</copyright>
-    <lastBuildDate>Wed, 19 Apr 2017 13:40:43 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 14 Aug 2017 08:15:57 -0600</lastBuildDate>
     
 	<atom:link href="http://isaaclyman.com/blog/categories/career/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>The tech company scorecard</title>
+      <link>http://isaaclyman.com/blog/posts/the-tech-company-scorecard/</link>
+      <pubDate>Mon, 14 Aug 2017 08:15:57 -0600</pubDate>
+      
+      <guid>http://isaaclyman.com/blog/posts/the-tech-company-scorecard/</guid>
+      <description>I’ve created this system for rating technology companies based on the way they conduct business, their place in the community and how they treat their developers. It’s a work in progress and I welcome your commentary.
+There are 24 criteria under six categories. I would consider any company that scores positively on 12 or more of these criteria to be “a good place to work.” I have my doubts about whether any existing company could achieve a perfect score, so please don’t take it personally if your company comes up short in multiple areas.</description>
+    </item>
     
     <item>
       <title>Choosing a job title</title>

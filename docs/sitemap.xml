@@ -23,6 +23,11 @@
   </url>
   
   <url>
+    <loc>http://isaaclyman.com/blog/posts/8-css-gotchas/</loc>
+    <lastmod>2017-02-05T18:04:19+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://isaaclyman.com/blog/posts/developer-driven-development/</loc>
     <lastmod>2016-11-06T04:59:40+00:00</lastmod>
   </url>
@@ -63,8 +68,20 @@
   </url>
   
   <url>
+    <loc>http://isaaclyman.com/blog/tags/css/</loc>
+    <lastmod>2017-02-05T18:04:19+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://isaaclyman.com/blog/categories/development/</loc>
     <lastmod>2017-07-28T14:01:53-06:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://isaaclyman.com/blog/tags/front-end/</loc>
+    <lastmod>2017-02-05T18:04:19+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -88,7 +105,7 @@
   
   <url>
     <loc>http://isaaclyman.com/blog/categories/satire/</loc>
-    <lastmod>2016-10-12T23:38:27+00:00</lastmod>
+    <lastmod>2017-02-05T18:04:19+00:00</lastmod>
     <priority>0</priority>
   </url>
   

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Satire on Minimum Viable Blog</title>
-    <link>http://isaaclyman.com/blog/categories/satire/</link>
-    <description>Recent content in Satire on Minimum Viable Blog</description>
+    <title>Css on Minimum Viable Blog</title>
+    <link>http://isaaclyman.com/blog/tags/css/</link>
+    <description>Recent content in Css on Minimum Viable Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>© 2017 by Isaac Lyman. Site powered by Hugo and GitHub.</copyright>
     <lastBuildDate>Sun, 05 Feb 2017 18:04:19 +0000</lastBuildDate>
     
-	<atom:link href="http://isaaclyman.com/blog/categories/satire/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://isaaclyman.com/blog/tags/css/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -20,16 +20,6 @@
       <description>In every community there’s a coming-of-age process, a rite of passage that every newcomer must experience before he or she can really be considered an insider. For the CSS community, it goes something like this:
  Hey, this page is almost perfect. Can you just center that icon vertically? I told the boss we can roll it live in five minutes.
  For CSS junkies like me, lines like this provoke an involuntary nervous giggle, the kind of giggle you’ll hear if I tell you about the first time I got dumped or crashed my car.</description>
-    </item>
-    
-    <item>
-      <title>If doctors were like coders</title>
-      <link>http://isaaclyman.com/blog/posts/if-doctors-were-like-coders/</link>
-      <pubDate>Wed, 12 Oct 2016 23:38:27 +0000</pubDate>
-      
-      <guid>http://isaaclyman.com/blog/posts/if-doctors-were-like-coders/</guid>
-      <description>Problem The patient has a broken leg.
-Solution  Ask the patient to reproduce the exact scenario that resulted in the broken leg. Watch closely to see if the leg breaks again. Check for consistency by repeating the scenario a few more times. Explain that this isn’t an intended use case for the leg, and besides, it only affects one person. Ask the patient if, all things considered, he really wants to prioritize his broken leg over your other work.</description>
     </item>
     
   </channel>

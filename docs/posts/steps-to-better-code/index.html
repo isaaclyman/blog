@@ -210,14 +210,14 @@ ga('send', 'pageview');
 
 <p>This is a bad interface:</p>
 
-
-function addTwoNumbersTogether(number1, number2, memoizedResults, globalContext, sumElement, addFn) // returns an array
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span style="color: #228899; font-weight: bold">function</span> addTwoNumbersTogether(number1, number2, memoizedResults, globalContext, sumElement, addFn) <span style="color: #666666; font-style: italic">// returns an array</span>
+</pre></div>
 
 
 <p>This is a good interface:</p>
 
-
-function addTwoNumbersTogether(number1, number2) // returns a number
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span style="color: #228899; font-weight: bold">function</span> addTwoNumbersTogether(number1, number2) <span style="color: #666666; font-style: italic">// returns a number</span>
+</pre></div>
 
 
 <p>If an interface can be smaller, it should be. If a value you’re providing explicitly could be inferred from other values, it should be. If a method has more than a few parameters, you should ask yourself if you’re doing something wrong (although you might make an exception for dependency injected constructors).</p>
@@ -232,18 +232,18 @@ function addTwoNumbersTogether(number1, number2) // returns a number
 
 <p>Programmers’ instinctive urge to organize can work against them here. You may think an organized method looks like this:</p>
 
-
-function () {
-  var a = getA(),
-      b = getB(),
-      c = getC(),
-      d = getD();
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span style="color: #228899; font-weight: bold">function</span> () {
+  <span style="color: #228899; font-weight: bold">var</span> a <span style="color: #333333">=</span> getA(),
+      b <span style="color: #333333">=</span> getB(),
+      c <span style="color: #333333">=</span> getC(),
+      d <span style="color: #333333">=</span> getD();
 
   doSomething(b);
   doAnotherThing(a);
   doOtherStuff(c);
   finishUp(d);
 }
+</pre></div>
 
 
 <p><code>getA()</code> and its compatriots aren’t defined in this segment, but imagine that they return useful values.</p>
@@ -252,20 +252,20 @@ function () {
 
 <p>A better method looks like this:</p>
 
-
-function () {
-  var b = getB();
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span style="color: #228899; font-weight: bold">function</span> () {
+  <span style="color: #228899; font-weight: bold">var</span> b <span style="color: #333333">=</span> getB();
   doSomething(b);
 
-  var a = getA();
+  <span style="color: #228899; font-weight: bold">var</span> a <span style="color: #333333">=</span> getA();
   doAnotherThing(a);
 
-  var c = getC();
+  <span style="color: #228899; font-weight: bold">var</span> c <span style="color: #333333">=</span> getC();
   doOtherStuff(c);
 
-  var d = getD();
+  <span style="color: #228899; font-weight: bold">var</span> d <span style="color: #333333">=</span> getD();
   finishUp(d);
 }
+</pre></div>
 
 
 <p>Now it’s clear when a variable is going to be used: immediately after it’s declared.</p>
@@ -284,50 +284,50 @@ function () {
 
 <p>What I want you to consider is something more like “if hell”.</p>
 
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%">callApi().then(<span style="color: #228899; font-weight: bold">function</span> (result) {
+  <span style="color: #228899; font-weight: bold">try</span> {
+    <span style="color: #228899; font-weight: bold">if</span> (result.status <span style="color: #333333">===</span> <span style="color: #6666ff; font-weight: bold">0</span>) {
+      model.apiCall.success <span style="color: #333333">=</span> <span style="color: #228899; font-weight: bold">true</span>;
 
-callApi().then(function (result) {
-  try {
-    if (result.status === 0) {
-      model.apiCall.success = true;
+      <span style="color: #228899; font-weight: bold">if</span> (result.data.items.length <span style="color: #333333">&gt;</span> <span style="color: #6666ff; font-weight: bold">0</span>) {
+        model.apiCall.numOfItems <span style="color: #333333">=</span> result.data.items.length;
 
-      if (result.data.items.length > 0) {
-        model.apiCall.numOfItems = result.data.items.length;
-
-        if (isValid(result.data) {
-          model.apiCall.result = result.data;
+        <span style="color: #228899; font-weight: bold">if</span> (isValid(result.data) {
+          model.apiCall.result <span style="color: #333333">=</span> result.data;
         }
       }
     }
-  } catch (e) {
-    // suppress errors
+  } <span style="color: #228899; font-weight: bold">catch</span> (e) {
+    <span style="color: #666666; font-style: italic">// suppress errors</span>
   }
 });
+</pre></div>
 
 
 <p>Count the pairs of <code>{</code> curly braces <code>}</code>. Six, five of which are nested. <em>That’s too many</em>. This block of code is hard to read, partially because the code is about to creep off the right side of the screen and programmers <em>hate</em> horizontal scrolling, and partially because you have to read all the <code>if</code> conditions to figure out how you got to line 10.</p>
 
 <p>Now look at this:</p>
 
-
-callApi().then(function (result) {
-  if (result.status !== 0) {
-    return;
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%">callApi().then(<span style="color: #228899; font-weight: bold">function</span> (result) {
+  <span style="color: #228899; font-weight: bold">if</span> (result.status <span style="color: #333333">!==</span> <span style="color: #6666ff; font-weight: bold">0</span>) {
+    <span style="color: #228899; font-weight: bold">return</span>;
   }
 
-  model.apiCall.success = true;
+  model.apiCall.success <span style="color: #333333">=</span> <span style="color: #228899; font-weight: bold">true</span>;
 
-  if (result.data.items.length <= 0) {
-    return;
+  <span style="color: #228899; font-weight: bold">if</span> (result.data.items.length <span style="color: #333333">&lt;=</span> <span style="color: #6666ff; font-weight: bold">0</span>) {
+    <span style="color: #228899; font-weight: bold">return</span>;
   }
 
-  model.apiCall.numOfItems = result.data.items.length;
+  model.apiCall.numOfItems <span style="color: #333333">=</span> result.data.items.length;
 
-  if (!isValid(result.data)) {
-    return;
+  <span style="color: #228899; font-weight: bold">if</span> (<span style="color: #333333">!</span>isValid(result.data)) {
+    <span style="color: #228899; font-weight: bold">return</span>;
   }
 
-  model.apiCall.result = result.data;
+  model.apiCall.result <span style="color: #333333">=</span> result.data;
 });
+</pre></div>
 
 
 <p>That’s a lot better. We can clearly see the “normal path” for the code to follow, and only in abnormal situations does the code stray off into an <code>if</code> block. Debugging is much simpler. And if we want to add extra code to handle error conditions, it will be easy to add a couple of lines inside those <code>if</code> blocks (imagine if the <code>if</code> blocks in the original code had <code>else</code> blocks attached! The horror).</p>
@@ -340,18 +340,18 @@ callApi().then(function (result) {
 
 <p>This function is pure:</p>
 
-
-function getSumOfSquares(number1, number2) {
-  return (number1 * number1) + (number2 * number2);
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span style="color: #228899; font-weight: bold">function</span> getSumOfSquares(number1, number2) {
+  <span style="color: #228899; font-weight: bold">return</span> (number1 <span style="color: #333333">*</span> number1) <span style="color: #333333">+</span> (number2 <span style="color: #333333">*</span> number2);
 }
+</pre></div>
 
 
 <p>And this one is not:</p>
 
-
-function getSumOfExponents(number1, number2) {
-  scope.sum = Math.pow(number1, scope.exp) + Math.pow(number2, scope.exp);
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span style="color: #228899; font-weight: bold">function</span> getSumOfExponents(number1, number2) {
+  scope.sum <span style="color: #333333">=</span> <span style="color: #007722">Math</span>.pow(number1, scope.exp) <span style="color: #333333">+</span> <span style="color: #007722">Math</span>.pow(number2, scope.exp);
 }
+</pre></div>
 
 
 <p>If you want to debug the first function, everything you need is right there. You can paste it into a separate environment, like jsfiddle or the browser console, and play with it until you find out what’s wrong.</p>

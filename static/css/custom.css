@@ -4,7 +4,7 @@
   margin-right: 1em;
 }
 
-p, li, a, blockquote, figcaption {
+p, li, a, blockquote, figcaption, figcaption h4 {
   font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
 }
 
@@ -19,11 +19,15 @@ blockquote {
   margin-top: 27px;
 }
 
-figcaption {
+figure {
+  text-align: center;
+}
+
+figcaption, figcaption h4 {
   color: #888;
   font-size: 14px;
   margin-bottom: 16px;
-  margin-top: -10px;
+  margin-top: -5px;
   text-align: center;
 }
 
@@ -35,6 +39,10 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 
 hr {
   margin-top: 1.5em;
+}
+
+strong {
+  font-weight: bold;
 }
 
 .main-menu a {

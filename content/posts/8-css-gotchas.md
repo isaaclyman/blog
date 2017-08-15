@@ -2,7 +2,7 @@
 title: "8 CSS gotchas to start your morning off right"
 categories: ["satire"]
 date: 2017-02-05T18:04:19.831Z
-draft: true
+draft: false
 genre: "Satire"
 tags: ["css", "front end"]
 ---
@@ -13,7 +13,7 @@ In every community there’s a coming-of-age process, a rite of passage that eve
 
 For CSS junkies like me, lines like this provoke an involuntary nervous giggle, the kind of giggle you’ll hear if I tell you about the first time I got dumped or crashed my car. In the old days, before CSS Grid, before Flexbox, before “Computer Science” [got renamed to “Googling Stack Overflow,](http://www.theallium.com/engineering/computer-programming-to-be-officially-renamed-googling-stackoverflow/)” vertical centering was just something that CSS didn’t really do. It was like asking for a root beer float at McDonald’s. If you were persistent enough, eventually you’d get something that looked like what you wanted — but it would just be a polite facade, the veneer over a barely-contained puddle of disappointment.
 
-{{< figure src="/img/broken-facade.jpeg" title="Broken-down house" >}}
+{{< figure src="/blog/img/broken-facade.jpeg" alt="Broken-down house" >}}
 
 There were a few people who knew, offhand, five or six lines of clunky CSS that would do the trick. They were _janky_ lines, too. It was commonly known that if you recited them backwards, they would summon the fiery apparition of Herbie the Love Bug. The people who had them memorized were totally obsessed; they were the Web 1.0 version of crossfitters and vegans. They weren’t much good for web development in general, but boy, did they ever know how to put something exactly between the top and bottom of a `<div>`. By the time their Stack Overflow answers on the subject became obsolete, they were able to cash out their reputation points and retire early. It was a charmed life. Their homes in Seattle (the primordial soup that Silicon Valley evolved from) have been preserved for posterity. You can go by any time and see how they lived. All their countertops are exactly waist-height. Their paintings hang with a margin of exactly 3.5 feet above and below. Their shower-heads are in the middle of the wall and spray upward and downward with equal pressure.
 
@@ -35,13 +35,7 @@ You may think that setting the `width` property to `100%` on any element will ma
 
 First of all, this doesn’t work for inline elements (like `<span>` and `<i>`) and certain table elements. Second of all, it doesn’t work if its parent’s width isn’t explicitly specified — so good luck making it work inside an element that’s all funky-dory with flexbox. And lastly, `margin` properties are applied on top of the calculated width, so if your element has a margin on the left side, it’s gonna jut out like Aunt Marge’s pregnant belly.
 
-<figure name="ddba" id="ddba" class="graf graf--figure graf-after--p">
-
-<div class="aspectRatioPlaceholder is-locked" style="max-width: 210px; max-height: 113px;">![](https://cdn-images-1.medium.com/max/1800/1*BLeceeV94FZuauUHVWLwtg.gif)</div>
-
-<figcaption class="imageCaption">Trying to fit your content into a dynamically-sized <div></figcaption>
-
-</figure>
+{{< figure src="/blog/img/hamster-roll.gif" alt="Fat hamster doesn't fit" title="Trying to fit your content into a dynamically-sized div" >}}
 
 Just save yourself some trouble and make really small websites. Hopefully you won’t have to make anything that’s 100% of anything else.
 
@@ -61,7 +55,7 @@ Think about it for a minute. Pop open your IDE of choice and try it, if you want
 
 The answer, as you may have discovered, is actually _D) None of the above_. The last div appears just to the right of the first one. That’s right, CSS will blatantly ignore the stated order of your HTML elements and just do whatever the heck it wants. Or, [as the CSS spec states](https://www.w3.org/TR/CSS2/visuren.html#floats):
 
-> […] CSS cares nothing for your whims. Nothing for your dreams. Nothing for your foolish allocations of space and time and meaning. To discover CSS is to discover a space void of progress, a universe with no moral absolutes where your carefully-planned DOM structure is just a scream into the endless void. […] Nowhere shall this sublimity of chaos be more evident than in the interaction of such properties as `float`, `clear`, and `display`. You may say their names. You may vainly wish to invoke their powers. But tread lightly, because **youcannotcontrol them**.
+> […] CSS cares nothing for your whims. Nothing for your dreams. Nothing for your foolish allocations of space and time and meaning. To discover CSS is to discover a space void of progress, a universe with no moral absolutes where your carefully-planned DOM structure is just a scream into the endless void. […] Nowhere shall this sublimity of chaos be more evident than in the interaction of such properties as `float`, `clear`, and `display`. You may say their names. You may vainly wish to invoke their powers. But tread lightly, because **you cannot control them**.
 
 > Thus let it be written.
 
@@ -75,13 +69,7 @@ In the course of your career you may meet people who self-identify as “CSS gur
 
 The first few times you stumble upon the `z-index` attribute, you’ll brighten immediately. “Wow!” you’ll think. “This solves all my problems!” After three hours wondering why it doesn’t do anything, you’ll realize that you were wrong. `z-index` isn’t a functioning CSS property. It’s a cruel joke.
 
-<figure name="4611" id="4611" class="graf graf--figure graf--startsWithDoubleQuote graf-after--p">
-
-<div class="aspectRatioPlaceholder is-locked" style="max-width: 320px; max-height: 240px;">![](https://cdn-images-1.medium.com/max/1800/1*_eIH9eGWp3T3ScRj9l8RRQ.gif)</div>
-
-<figcaption class="imageCaption">“Maybe z-index will work this time.”</figcaption>
-
-</figure>
+{{< figure src="/blog/img/chair-fallen.gif" alt="Man falling off chair" title="\"Maybe z-index will work this time.\"" >}}
 
 Some believe that the maintainers of CSS penciled `z-index` into the spec in order to explore its possible use for situations where multiple elements share the same space; unfortunately, it is said, they never got around to specifying its behavior and it was only left in the documentation so that people would stop asking for it.
 
@@ -129,7 +117,7 @@ Which, like `z-index`, is more of a cruel joke than a functioning attribute. But
 
 `height: inherit;`
 
-`height: There standeth Minos horribly, and snarls; examines the transgressions at the entrance; judges, and sends according as he girds him. (_The Inferno_, Canto V);`
+`height: There standeth Minos horribly, and snarls; examines the transgressions at the entrance; judges, and sends according as he girds him. (The Inferno, Canto V);`
 
 I think it’s pretty obvious what each of these does. Needless to say, if you find yourself in a position where you need to use them, you’ve done something wrong already. You should go back and refactor your career.
 

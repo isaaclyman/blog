@@ -45,6 +45,19 @@ strong {
   font-weight: bold;
 }
 
+sup {
+  display: inline-block;
+  font-size: .65em;
+  line-height: 1.3em;
+  max-width: 500px;
+}
+
+sup:not(.inline)::before {
+  content: "Note: ";
+  font-size: 1.1em;
+  font-variant: small-caps;
+}
+
 .main-menu a {
   opacity: 0.5;
 }

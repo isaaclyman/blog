@@ -8,6 +8,7 @@ theme = "minimo"
 disqusShortname = "isaaclymanblog"
 googleAnalytics = "UA-104387168-1"
 Paginate = 5
+PaginatePath = "archive"
 
 preserveTaxonomyNames = true
 

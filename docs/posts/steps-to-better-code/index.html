@@ -210,13 +210,13 @@ ga('send', 'pageview');
 
 <p>This is a bad interface:</p>
 
-<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span style="color: #228899; font-weight: bold">function</span> addTwoNumbersTogether(number1, number2, memoizedResults, globalContext, sumElement, addFn) <span style="color: #666666; font-style: italic">// returns an array</span>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #228899; font-weight: bold">function</span> addTwoNumbersTogether(number1, number2, memoizedResults, globalContext, sumElement, addFn) <span style="color: #666666; font-style: italic">// returns an array</span>
 </pre></div>
 
 
 <p>This is a good interface:</p>
 
-<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span style="color: #228899; font-weight: bold">function</span> addTwoNumbersTogether(number1, number2) <span style="color: #666666; font-style: italic">// returns a number</span>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #228899; font-weight: bold">function</span> addTwoNumbersTogether(number1, number2) <span style="color: #666666; font-style: italic">// returns a number</span>
 </pre></div>
 
 
@@ -232,7 +232,7 @@ ga('send', 'pageview');
 
 <p>Programmers’ instinctive urge to organize can work against them here. You may think an organized method looks like this:</p>
 
-<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span style="color: #228899; font-weight: bold">function</span> () {
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #228899; font-weight: bold">function</span> () {
   <span style="color: #228899; font-weight: bold">var</span> a <span style="color: #333333">=</span> getA(),
       b <span style="color: #333333">=</span> getB(),
       c <span style="color: #333333">=</span> getC(),
@@ -252,7 +252,7 @@ ga('send', 'pageview');
 
 <p>A better method looks like this:</p>
 
-<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span style="color: #228899; font-weight: bold">function</span> () {
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #228899; font-weight: bold">function</span> () {
   <span style="color: #228899; font-weight: bold">var</span> b <span style="color: #333333">=</span> getB();
   doSomething(b);
 
@@ -284,7 +284,7 @@ ga('send', 'pageview');
 
 <p>What I want you to consider is something more like “if hell”.</p>
 
-<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%">callApi().then(<span style="color: #228899; font-weight: bold">function</span> (result) {
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>callApi().then(<span style="color: #228899; font-weight: bold">function</span> (result) {
   <span style="color: #228899; font-weight: bold">try</span> {
     <span style="color: #228899; font-weight: bold">if</span> (result.status <span style="color: #333333">===</span> <span style="color: #6666ff; font-weight: bold">0</span>) {
       model.apiCall.success <span style="color: #333333">=</span> <span style="color: #228899; font-weight: bold">true</span>;
@@ -308,7 +308,7 @@ ga('send', 'pageview');
 
 <p>Now look at this:</p>
 
-<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%">callApi().then(<span style="color: #228899; font-weight: bold">function</span> (result) {
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>callApi().then(<span style="color: #228899; font-weight: bold">function</span> (result) {
   <span style="color: #228899; font-weight: bold">if</span> (result.status <span style="color: #333333">!==</span> <span style="color: #6666ff; font-weight: bold">0</span>) {
     <span style="color: #228899; font-weight: bold">return</span>;
   }
@@ -340,7 +340,7 @@ ga('send', 'pageview');
 
 <p>This function is pure:</p>
 
-<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span style="color: #228899; font-weight: bold">function</span> getSumOfSquares(number1, number2) {
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #228899; font-weight: bold">function</span> getSumOfSquares(number1, number2) {
   <span style="color: #228899; font-weight: bold">return</span> (number1 <span style="color: #333333">*</span> number1) <span style="color: #333333">+</span> (number2 <span style="color: #333333">*</span> number2);
 }
 </pre></div>
@@ -348,7 +348,7 @@ ga('send', 'pageview');
 
 <p>And this one is not:</p>
 
-<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span style="color: #228899; font-weight: bold">function</span> getSumOfExponents(number1, number2) {
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #228899; font-weight: bold">function</span> getSumOfExponents(number1, number2) {
   scope.sum <span style="color: #333333">=</span> <span style="color: #007722">Math</span>.pow(number1, scope.exp) <span style="color: #333333">+</span> <span style="color: #007722">Math</span>.pow(number2, scope.exp);
 }
 </pre></div>

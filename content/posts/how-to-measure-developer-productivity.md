@@ -8,7 +8,7 @@ genre: "Technology"
 tags: ["productivity", "agile"]
 ---
 
-For this post, I anticipate a very skeptical audience--the common man's philosophy of management hasn't changed much since the Industrial Revolution, so what I'm about to say will be very uncomfortable for many managers and executives. To ease the pain, I'll be block-quoting imaginary objections that a manager might have, like this:
+For this post, I anticipate a very skeptical audience--the common man's philosophy of management hasn't changed much since the Industrial Revolution, so what I'm about to say will be very uncomfortable for some managers and executives. To ease the pain, I'll be block-quoting imaginary objections that a manager might have, like this:
 
 > Hi! I'm Marcos the middle manager, and I already don't like where this is going.
 
@@ -24,21 +24,19 @@ If you can believe it, there exists an even worse metric, and it's the one most 
 
 > Marcos here. I think I see where this is going. You want to work 20 hours a week and get paid like a full-time employee, huh? Don't we all.
 
-No, Marcos, not at all, and I resent the assumption that I am lazy or greedy. I work hard. I usually do fine on a 40 hour week, assuming I get a few weeks of vacation each year. I'm not asking to work less hours. What I'm asking for is permission to be as productive as I can possibly be, whether that means working six hours or 60.
+No, Marcos, not at all. I work hard. I usually do fine on a 40 hour week, assuming I get a few weeks of vacation each year. I'm not asking to work less hours. What I'm asking for is permission to be as productive as I can possibly be, whether that means working six hours or 60.
 
 Perhaps you've heard the term _cargo cult_. It's a concept that extends the ["post hoc ergo propter hoc"](https://en.wikipedia.org/wiki/Post_hoc_ergo_propter_hoc) logical fallacy. The idea is: if you replicate the circumstances and behaviors surrounding a particular example of success, then you will achieve the same success. This fallacy is particularly annoying in the many articles that detail the morning routine, wardrobe, or diet of various CEOs and millionaires, with the implication that if you arise, dress, and eat like them, one day you will _be_ like them. This is patently false.
 
 <sup>I think maybe everyone but me already knew what a cargo cult was. I first heard the phrase only a week or two ago, so I included a definition here.</sup>
 
-The 40 hour work week is a cargo cult. In fact, _any_ time requirement for developers would be a cargo cult, partially because it assumes that "time in chair" leads to "work produced," and partially because it doesn't actually measure the activities that are valuable to the company.
+The 40 hour work week is a cargo cult. In fact, _any_ time requirement for developers would be a cargo cult, partially because it assumes that "time in chair" correlates to "work produced," and partially because it doesn't actually measure the activities that are valuable to the company.
 
-One source of friction between managers and developers is this: developers want to build things and be productive, and managers want developers to do things that can be measured, analyzed and improved. Managers subsist on a high-data diet. If they can measure something, they will. If they can't measure something, they will correlate it with something they can. This is good business sense in many cases, but not this one.
+One possible source of friction between managers and developers is this: developers are trained to build things and be productive, and managers are trained to measure, analyze and improve processes. Managers subsist on a high-data diet. If they can measure something, they usually will. If they can't measure something, they will correlate it with something they can. This is good business sense in many cases, but here it can be problematic.
 
-The trouble with the measure-and-improve approach is that everyone loses. Managers often choose measurability over value, which makes the company poor and the developer unfulfilled.
+The trouble with the measure-and-improve approach is that managers risk choosing measurability over value, which makes the company poor and the developer unfulfilled.
 
-<sup>This is a terrible generalization and I'm sorry. There are plenty of managers out there who are smarter than this.</sup>
-
-Please try to understand: you, as a manager, cannot measure a developer's productivity on an individual level. Productivity in software development consists of multiple variables:
+To be clear: you, as a manager, cannot measure a developer's productivity on an individual level. Productivity in software development consists of multiple variables:
 
 * How many features are produced.
 * How much value these features provide.
@@ -47,11 +45,11 @@ Please try to understand: you, as a manager, cannot measure a developer's produc
 * The quality of the unit tests accompanying the code.
 * How quickly the code is written (all other things being equal, faster is indeed better. Of course, the other things are almost never equal).
 
-You can measure the first one and the last one. You cannot measure the others.
+You can easily measure the first one and the last one. You'll struggle to measure the others.
 
 > Whoa there, I think I have a pretty good idea of how big or complex my product's features are.
 
-No, you don't. It's [almost impossible](https://xkcd.com/1425/) for a non-developer to understand the difference between what is "hard to code" and what is "easy to code".
+Unfortunately, perceived complexity isn't a useful measurement. It's [almost impossible](https://xkcd.com/1425/) for a non-developer to understand the difference between what is "hard to code" and what is "easy to code".
 
 > Hmm. Okay, but at least I know if the code is good, right? By how fast and bug-free the feature is?
 
@@ -69,4 +67,4 @@ It seems like a reversal of the [carrot-and-stick methodology](https://en.wikipe
 
 > You mean to tell me that management isn't about forcing unwilling wage slaves to do as much distasteful work as possible?
 
-Please tell me you're being sarcastic, Marcos. 
+Please tell me you're being sarcastic, Marcos.

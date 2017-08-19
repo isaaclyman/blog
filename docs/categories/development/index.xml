@@ -6,10 +6,20 @@
     <description>Recent content in Development on Minimum Viable Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>© 2017 by Isaac Lyman. Site powered by Hugo and GitHub.</copyright>
-    <lastBuildDate>Fri, 28 Jul 2017 14:01:53 -0600</lastBuildDate>
+    <lastBuildDate>Sat, 19 Aug 2017 06:54:57 -0600</lastBuildDate>
     
 	<atom:link href="http://isaaclyman.com/blog/categories/development/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Lyman&#39;s Law</title>
+      <link>http://isaaclyman.com/blog/posts/lymans-law/</link>
+      <pubDate>Sat, 19 Aug 2017 06:54:57 -0600</pubDate>
+      
+      <guid>http://isaaclyman.com/blog/posts/lymans-law/</guid>
+      <description>A pretty-darned-optional part of being a software developer is getting a generally-applicable principle (a &amp;ldquo;law&amp;rdquo;) named after yourself. Most of the time, it seems, this happens unintentionally&amp;ndash;the law&amp;rsquo;s originator doesn&amp;rsquo;t necessarily foresee it becoming a pithy and oft-repeated internet adage. But if I could choose a principle to call &amp;ldquo;Lyman&amp;rsquo;s Law,&amp;rdquo; I think it might be this one:
+ Code accompanied by unit tests will have a higher standard of code quality than code written without unit tests, even if the unit tests themselves are not taken into account.</description>
+    </item>
     
     <item>
       <title>Steps to better code</title>

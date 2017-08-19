@@ -65,8 +65,8 @@ This is where actual management skills come into play. You need to speak with ea
 
 > Wait, you're saying I should reward temporary underperformers by telling them to take a break? That's not how management works.
 
-It seems like a reversal of the [carrot-and-stick methodology](https://en.wikipedia.org/wiki/Carrot_and_stick), right? That's because developers aren't mules. Neither carrots nor sticks will motivate them. If you can imagine a mule that loves pulling carts, takes pride in his work, and is always trying to do a better job, that's a much better analogy.
+It seems like a reversal of the [carrot-and-stick methodology](https://en.wikipedia.org/wiki/Carrot_and_stick), right? That's because developers aren't mules. Neither carrots nor sticks will motivate them. If you can imagine a mule that loves pulling carts, takes pride in his work, and is always trying to do a better job, that's a much better analogy. Development is immensely challenging and satisfying work, requiring the total devotion of one's brainpower, and any distraction--family problems, stress, boredom, depression--can significantly reduce one's capacity for it. Most developers are motivated to do their best work by the nature of the work itself. You don't need to push their buttons to get them to work hard.
 
-> Wait, you mean to tell me that management isn't about forcing unwilling wage slaves to do as much distasteful work as possible?
+> You mean to tell me that management isn't about forcing unwilling wage slaves to do as much distasteful work as possible?
 
-Please tell me you're being sarcastic, Marcos. Developers, by and large, have a real passion for code and for building things. And on a larger scale, people in general want to do a good job--there really is satisfaction in a productive day's work.
+Please tell me you're being sarcastic, Marcos. 

@@ -23,6 +23,6 @@ If you're feeling so inclined, I'm sure you could provide a code snippet showing
 
 You may say that there's a difference between *untested* code and *untestable* code. I say the difference is mostly academic. If testability is not an explicit goal of the code, the developer will almost always take the path of least resistance (or, at the very least, make several small mistakes) and build in a way that makes it impossible or prohibitively difficult to add unit tests without refactoring.
 
-To summarize my thesis: unit tests love code quality. The easiest thing to test is a loosely-coupled pure function with predictable outputs and a simple interface--and all these adjectives are hallmarks of clean code.
+To summarize my thesis: unit tests love code quality. The easiest thing to test is a loosely-coupled pure function with predictable outputs and a simple interface--and all of the above are hallmarks of clean code.
 
 If you have something to add, please share your thoughts in the comment section.

@@ -64,6 +64,12 @@ pygmentsstyle = "murphy"
   identifier = "author"
   url = "http://isaaclyman.com"
 
+[[menu.main]]
+  name = "{ RSS }"
+  weight = 40
+  identifier = "rss"
+  url = "/index.xml"
+
 
 # Language Configuration
 defaultContentLanguage = "en"

@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://isaaclyman.com/blog/posts/</loc>
+    <lastmod>2017-08-19T06:54:57-06:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://isaaclyman.com/blog/posts/lymans-law/</loc>
     <lastmod>2017-08-19T06:54:57-06:00</lastmod>
   </url>
@@ -92,12 +97,6 @@
   
   <url>
     <loc>http://isaaclyman.com/blog/</loc>
-    <lastmod>2017-08-19T06:54:57-06:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://isaaclyman.com/blog/posts/</loc>
     <lastmod>2017-08-19T06:54:57-06:00</lastmod>
     <priority>0</priority>
   </url>

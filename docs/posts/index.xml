@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Minimum Viable Blog</title>
+    <title>Archive on Minimum Viable Blog</title>
     <link>http://isaaclyman.com/blog/posts/</link>
-    <description>Recent content in Posts on Minimum Viable Blog</description>
+    <description>Recent content in Archive on Minimum Viable Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>© 2017 by Isaac Lyman. Site powered by Hugo and GitHub.</copyright>
     <lastBuildDate>Sat, 19 Aug 2017 06:54:57 -0600</lastBuildDate>

@@ -47,10 +47,10 @@ pygmentsstyle = "murphy"
   page = "/:slug/"
 
 [[menu.main]]
-  name = "{ Posts }"
+  name = "{ Archive }"
   weight = 10
   identifier = "posts"
-  url = "/"
+  url = "/posts/"
 
 [[menu.main]]
   name = "{ About }"

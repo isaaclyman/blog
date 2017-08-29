@@ -59,7 +59,7 @@ Hold that thought for a moment, and let's look at the worst case scenario. Suppo
 
 But guess who will? His team.
 
-This is where actual management skills come into play. A wise manager will speak with each member of the team on a regular basis and have enough trust and rapport with them that they will confide in him/her when they feel that a team member isn't pulling their weight. An effective manager will be able to detect when this information is accurate and when someone is just trying to undermine their teammate (hopefully this is rare). And an intuitive manager will be able to determine if the underperforming person is truly an underperformer (and needs to be let go) or is just in a bad headspace (and needs a pep talk and a vacation).
+This is where actual management skills come into play. A competent manager will speak with each member of the team on a regular basis and have enough trust and rapport with them that they will confide in him/her when they feel that a team member isn't pulling their weight. An effective manager will be able to detect when this information is accurate and when someone is just trying to undermine their teammate (hopefully this is rare). And an intuitive manager will be able to determine if the underperforming person is truly an underperformer (and needs to be let go) or is just in a bad headspace (and needs a pep talk and a vacation).
 
 > Wait, you're saying I should reward temporary underperformers by telling them to take a break? That's not how management works.
 

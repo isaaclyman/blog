@@ -1,0 +1,21 @@
+# GENRES
+Satire
+Self
+Technology
+
+# TAGS
+agile
+beginners
+code quality
+css
+front end
+productivity
+resume
+software construction
+
+# CATEGORIES
+career
+development
+satire
+self
+management

@@ -6,7 +6,7 @@
     <description>Recent content in Tags on Minimum Viable Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>© 2017 by Isaac Lyman. Site powered by Hugo and GitHub.</copyright>
-    <lastBuildDate>Sun, 06 Nov 2016 04:59:40 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 26 Sep 2017 09:26:15 -0600</lastBuildDate>
     
 	<atom:link href="http://isaaclyman.com/blog/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>Agile</title>
       <link>http://isaaclyman.com/blog/tags/agile/</link>
-      <pubDate>Sun, 06 Nov 2016 04:59:40 +0000</pubDate>
+      <pubDate>Tue, 26 Sep 2017 09:26:15 -0600</pubDate>
       
       <guid>http://isaaclyman.com/blog/tags/agile/</guid>
       <description></description>
@@ -53,6 +53,15 @@
       <pubDate>Sun, 05 Feb 2017 18:04:19 +0000</pubDate>
       
       <guid>http://isaaclyman.com/blog/tags/front-end/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Productivity</title>
+      <link>http://isaaclyman.com/blog/tags/productivity/</link>
+      <pubDate>Tue, 26 Sep 2017 09:26:15 -0600</pubDate>
+      
+      <guid>http://isaaclyman.com/blog/tags/productivity/</guid>
       <description></description>
     </item>
     

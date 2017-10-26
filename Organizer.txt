@@ -10,12 +10,14 @@ code quality
 css
 front end
 productivity
+projects
 resume
 software construction
 
 # CATEGORIES
 career
 development
+product
 satire
 self
 management

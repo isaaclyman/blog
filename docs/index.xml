@@ -6,10 +6,21 @@
     <description>Recent content on Minimum Viable Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>© 2017 by Isaac Lyman. Site powered by Hugo and GitHub.</copyright>
-    <lastBuildDate>Tue, 26 Sep 2017 09:26:15 -0600</lastBuildDate>
+    <lastBuildDate>Thu, 26 Oct 2017 13:08:38 -0600</lastBuildDate>
     
 	<atom:link href="http://isaaclyman.com/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Introducing Edward the App</title>
+      <link>http://isaaclyman.com/blog/posts/introducing-edward-write-better/</link>
+      <pubDate>Thu, 26 Oct 2017 13:08:38 -0600</pubDate>
+      
+      <guid>http://isaaclyman.com/blog/posts/introducing-edward-write-better/</guid>
+      <description>Introduction It all started with a really simple question: what if word processors all suck?
+Take Microsoft Word, for example. It&amp;rsquo;s a great formatting and layout tool. Remember WordArt? WordArt was fun: if you wanted giant leopard-print 3D words in your document, WordArt had it covered.
+But you had to know what you wanted to write with those leopard-print words, and that was your real problem anyway. When you can&amp;rsquo;t figure out what comes next, Word just doesn&amp;rsquo;t have your back.</description>
+    </item>
     
     <item>
       <title>Agile in real life</title>

@@ -4,7 +4,12 @@
   
   <url>
     <loc>http://isaaclyman.com/blog/posts/</loc>
-    <lastmod>2017-10-26T13:08:38-06:00</lastmod>
+    <lastmod>2017-11-03T13:49:58-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://isaaclyman.com/blog/posts/edward-beginners-guide/</loc>
+    <lastmod>2017-11-03T13:49:58-06:00</lastmod>
   </url>
   
   <url>
@@ -100,6 +105,18 @@
   </url>
   
   <url>
+    <loc>http://isaaclyman.com/blog/categories/documentation/</loc>
+    <lastmod>2017-11-03T13:49:58-06:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://isaaclyman.com/blog/tags/edward/</loc>
+    <lastmod>2017-11-03T13:49:58-06:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://isaaclyman.com/blog/tags/front-end/</loc>
     <lastmod>2017-02-05T18:04:19+00:00</lastmod>
     <priority>0</priority>
@@ -107,13 +124,13 @@
   
   <url>
     <loc>http://isaaclyman.com/blog/</loc>
-    <lastmod>2017-10-26T13:08:38-06:00</lastmod>
+    <lastmod>2017-11-03T13:49:58-06:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://isaaclyman.com/blog/categories/product/</loc>
-    <lastmod>2017-10-26T13:08:38-06:00</lastmod>
+    <lastmod>2017-11-03T13:49:58-06:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -125,7 +142,7 @@
   
   <url>
     <loc>http://isaaclyman.com/blog/tags/projects/</loc>
-    <lastmod>2017-10-26T13:08:38-06:00</lastmod>
+    <lastmod>2017-11-03T13:49:58-06:00</lastmod>
     <priority>0</priority>
   </url>
   

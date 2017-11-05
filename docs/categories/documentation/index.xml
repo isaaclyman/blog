@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Product on Minimum Viable Blog</title>
-    <link>http://isaaclyman.com/blog/categories/product/</link>
-    <description>Recent content in Product on Minimum Viable Blog</description>
+    <title>Documentation on Minimum Viable Blog</title>
+    <link>http://isaaclyman.com/blog/categories/documentation/</link>
+    <description>Recent content in Documentation on Minimum Viable Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>© 2017 by Isaac Lyman. Site powered by Hugo and GitHub.</copyright>
     <lastBuildDate>Fri, 03 Nov 2017 13:49:58 -0600</lastBuildDate>
     
-	<atom:link href="http://isaaclyman.com/blog/categories/product/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://isaaclyman.com/blog/categories/documentation/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -21,18 +21,6 @@
 This post will introduce you to Edward&amp;rsquo;s major features.
 Edward has these main pages:
  Plan  A plan is a set of general notes that you&amp;rsquo;ll want to refer back to as you write your book, no matter which chapter you&amp;rsquo;re working on.</description>
-    </item>
-    
-    <item>
-      <title>Introducing Edward the App</title>
-      <link>http://isaaclyman.com/blog/posts/introducing-edward-write-better/</link>
-      <pubDate>Thu, 26 Oct 2017 13:08:38 -0600</pubDate>
-      
-      <guid>http://isaaclyman.com/blog/posts/introducing-edward-write-better/</guid>
-      <description>Introduction Edward is a web app designed to help aspiring authors write their first book.
-It all started with a really simple question: what if word processors all suck?
-Take Microsoft Word, for example. It&amp;rsquo;s a great formatting and layout tool. Remember WordArt? WordArt was fun: if you wanted giant leopard-print 3D words in your document, WordArt had it covered.
-But you had to know what you wanted to write with those leopard-print words, and that was your real problem anyway.</description>
     </item>
     
   </channel>

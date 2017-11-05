@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Product on Minimum Viable Blog</title>
-    <link>http://isaaclyman.com/blog/categories/product/</link>
-    <description>Recent content in Product on Minimum Viable Blog</description>
+    <title>Edward on Minimum Viable Blog</title>
+    <link>http://isaaclyman.com/blog/tags/edward/</link>
+    <description>Recent content in Edward on Minimum Viable Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>© 2017 by Isaac Lyman. Site powered by Hugo and GitHub.</copyright>
     <lastBuildDate>Fri, 03 Nov 2017 13:49:58 -0600</lastBuildDate>
     
-	<atom:link href="http://isaaclyman.com/blog/categories/product/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://isaaclyman.com/blog/tags/edward/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>

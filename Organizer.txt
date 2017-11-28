@@ -1,4 +1,5 @@
 # GENRES
+Belief
 Satire
 Self
 Technology
@@ -12,7 +13,6 @@ edward
 front end
 productivity
 projects
-religion
 resume
 software construction
 
@@ -20,7 +20,9 @@ software construction
 career
 development
 documentation
+politics
 product
+religion
 satire
 self
 management

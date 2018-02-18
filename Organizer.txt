@@ -1,5 +1,6 @@
 # GENRES
 Belief
+Politics
 Satire
 Self
 Technology

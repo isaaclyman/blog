@@ -12,7 +12,7 @@ PaginatePath = "archive"
 
 preserveTaxonomyNames = true
 
-pygmentsstyle = "murphy"
+pygmentsstyle = "colorful"
 
 [params]
   description = "Software construction, logic, faith, and satire"

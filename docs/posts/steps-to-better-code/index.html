@@ -216,11 +216,11 @@ ga('send', 'pageview');
 
 <p>This is a bad interface:</p>
 
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#289;font-weight:bold">function</span> addTwoNumbersTogether(number1, number2, memoizedResults, globalContext, sumElement, addFn) <span style="color:#f00;background-color:#faa">// returns an array</span></code></pre></div>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#080;font-weight:bold">function</span> addTwoNumbersTogether(number1, number2, memoizedResults, globalContext, sumElement, addFn) <span style="color:#f00;background-color:#faa">// returns an array</span></code></pre></div>
 
 <p>This is a good interface:</p>
 
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#289;font-weight:bold">function</span> addTwoNumbersTogether(number1, number2) <span style="color:#f00;background-color:#faa">// returns a number</span></code></pre></div>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#080;font-weight:bold">function</span> addTwoNumbersTogether(number1, number2) <span style="color:#f00;background-color:#faa">// returns a number</span></code></pre></div>
 
 <p>If an interface can be smaller, it should be. If a value you’re providing explicitly could be inferred from other values, it should be. If a method has more than a few parameters, you should ask yourself if you’re doing something wrong (although you might make an exception for dependency injected constructors).</p>
 
@@ -234,8 +234,8 @@ ga('send', 'pageview');
 
 <p>Programmers’ instinctive urge to organize can work against them here. You may think an organized method looks like this:</p>
 
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#289;font-weight:bold">function</span> () {
-  <span style="color:#289;font-weight:bold">var</span> a <span style="color:#333">=</span> getA(),
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#080;font-weight:bold">function</span> () {
+  <span style="color:#080;font-weight:bold">var</span> a <span style="color:#333">=</span> getA(),
       b <span style="color:#333">=</span> getB(),
       c <span style="color:#333">=</span> getC(),
       d <span style="color:#333">=</span> getD();
@@ -252,17 +252,17 @@ ga('send', 'pageview');
 
 <p>A better method looks like this:</p>
 
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#289;font-weight:bold">function</span> () {
-  <span style="color:#289;font-weight:bold">var</span> b <span style="color:#333">=</span> getB();
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#080;font-weight:bold">function</span> () {
+  <span style="color:#080;font-weight:bold">var</span> b <span style="color:#333">=</span> getB();
   doSomething(b);
 
-  <span style="color:#289;font-weight:bold">var</span> a <span style="color:#333">=</span> getA();
+  <span style="color:#080;font-weight:bold">var</span> a <span style="color:#333">=</span> getA();
   doAnotherThing(a);
 
-  <span style="color:#289;font-weight:bold">var</span> c <span style="color:#333">=</span> getC();
+  <span style="color:#080;font-weight:bold">var</span> c <span style="color:#333">=</span> getC();
   doOtherStuff(c);
 
-  <span style="color:#289;font-weight:bold">var</span> d <span style="color:#333">=</span> getD();
+  <span style="color:#080;font-weight:bold">var</span> d <span style="color:#333">=</span> getD();
   finishUp(d);
 }</code></pre></div>
 
@@ -282,43 +282,43 @@ ga('send', 'pageview');
 
 <p>What I want you to consider is something more like “if hell”.</p>
 
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">callApi().then(<span style="color:#289;font-weight:bold">function</span> (result) {
-  <span style="color:#289;font-weight:bold">try</span> {
-    <span style="color:#289;font-weight:bold">if</span> (result.status <span style="color:#333">===</span> <span style="color:#66f;font-weight:bold">0</span>) {
-      model.apiCall.success <span style="color:#333">=</span> <span style="color:#289;font-weight:bold">true</span>;
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">callApi().then(<span style="color:#080;font-weight:bold">function</span> (result) {
+  <span style="color:#080;font-weight:bold">try</span> {
+    <span style="color:#080;font-weight:bold">if</span> (result.status <span style="color:#333">===</span> <span style="color:#00d;font-weight:bold">0</span>) {
+      model.apiCall.success <span style="color:#333">=</span> <span style="color:#080;font-weight:bold">true</span>;
 
-      <span style="color:#289;font-weight:bold">if</span> (result.data.items.length <span style="color:#333">&gt;</span> <span style="color:#66f;font-weight:bold">0</span>) {
+      <span style="color:#080;font-weight:bold">if</span> (result.data.items.length <span style="color:#333">&gt;</span> <span style="color:#00d;font-weight:bold">0</span>) {
         model.apiCall.numOfItems <span style="color:#333">=</span> result.data.items.length;
 
-        <span style="color:#289;font-weight:bold">if</span> (isValid(result.data) {
+        <span style="color:#080;font-weight:bold">if</span> (isValid(result.data) {
           model.apiCall.result <span style="color:#333">=</span> result.data;
         }
       }
     }
-  } <span style="color:#289;font-weight:bold">catch</span> (e) {
-    <span style="color:#666;font-style:italic">// suppress errors
-</span><span style="color:#666;font-style:italic"></span>  }
+  } <span style="color:#080;font-weight:bold">catch</span> (e) {
+    <span style="color:#888">// suppress errors
+</span><span style="color:#888"></span>  }
 });</code></pre></div>
 
 <p>Count the pairs of <code>{</code> curly braces <code>}</code>. Six, five of which are nested. <em>That’s too many</em>. This block of code is hard to read, partially because the code is about to creep off the right side of the screen and programmers <em>hate</em> horizontal scrolling, and partially because you have to read all the <code>if</code> conditions to figure out how you got to line 10.</p>
 
 <p>Now look at this:</p>
 
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">callApi().then(<span style="color:#289;font-weight:bold">function</span> (result) {
-  <span style="color:#289;font-weight:bold">if</span> (result.status <span style="color:#333">!==</span> <span style="color:#66f;font-weight:bold">0</span>) {
-    <span style="color:#289;font-weight:bold">return</span>;
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">callApi().then(<span style="color:#080;font-weight:bold">function</span> (result) {
+  <span style="color:#080;font-weight:bold">if</span> (result.status <span style="color:#333">!==</span> <span style="color:#00d;font-weight:bold">0</span>) {
+    <span style="color:#080;font-weight:bold">return</span>;
   }
 
-  model.apiCall.success <span style="color:#333">=</span> <span style="color:#289;font-weight:bold">true</span>;
+  model.apiCall.success <span style="color:#333">=</span> <span style="color:#080;font-weight:bold">true</span>;
 
-  <span style="color:#289;font-weight:bold">if</span> (result.data.items.length <span style="color:#333">&lt;=</span> <span style="color:#66f;font-weight:bold">0</span>) {
-    <span style="color:#289;font-weight:bold">return</span>;
+  <span style="color:#080;font-weight:bold">if</span> (result.data.items.length <span style="color:#333">&lt;=</span> <span style="color:#00d;font-weight:bold">0</span>) {
+    <span style="color:#080;font-weight:bold">return</span>;
   }
 
   model.apiCall.numOfItems <span style="color:#333">=</span> result.data.items.length;
 
-  <span style="color:#289;font-weight:bold">if</span> (<span style="color:#333">!</span>isValid(result.data)) {
-    <span style="color:#289;font-weight:bold">return</span>;
+  <span style="color:#080;font-weight:bold">if</span> (<span style="color:#333">!</span>isValid(result.data)) {
+    <span style="color:#080;font-weight:bold">return</span>;
   }
 
   model.apiCall.result <span style="color:#333">=</span> result.data;
@@ -334,14 +334,14 @@ ga('send', 'pageview');
 
 <p>This function is pure:</p>
 
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#289;font-weight:bold">function</span> getSumOfSquares(number1, number2) {
-  <span style="color:#289;font-weight:bold">return</span> (number1 <span style="color:#333">*</span> number1) <span style="color:#333">+</span> (number2 <span style="color:#333">*</span> number2);
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#080;font-weight:bold">function</span> getSumOfSquares(number1, number2) {
+  <span style="color:#080;font-weight:bold">return</span> (number1 <span style="color:#333">*</span> number1) <span style="color:#333">+</span> (number2 <span style="color:#333">*</span> number2);
 }</code></pre></div>
 
 <p>And this one is not:</p>
 
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#289;font-weight:bold">function</span> getSumOfExponents(number1, number2) {
-  scope.sum <span style="color:#333">=</span> <span style="color:#072">Math</span>.pow(number1, scope.exp) <span style="color:#333">+</span> <span style="color:#072">Math</span>.pow(number2, scope.exp);
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#080;font-weight:bold">function</span> getSumOfExponents(number1, number2) {
+  scope.sum <span style="color:#333">=</span> <span style="color:#007020">Math</span>.pow(number1, scope.exp) <span style="color:#333">+</span> <span style="color:#007020">Math</span>.pow(number2, scope.exp);
 }</code></pre></div>
 
 <p>If you want to debug the first function, everything you need is right there. You can paste it into a separate environment, like jsfiddle or the browser console, and play with it until you find out what’s wrong.</p>

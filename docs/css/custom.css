@@ -146,6 +146,7 @@ code {
   border: 1px solid #CCC;
   border-radius: 4px;
   color: #000;
+  display: inline-block;
   font-size: 19px;
   padding: 2px 5px;
 }
@@ -153,6 +154,11 @@ code {
 div.highlight {
   border: 2px dashed rgba(255, 205, 0, 0.7);
   border-radius: 2px;
+}
+
+div.highlight code {
+  background-color: transparent;
+  border: none;
 }
 
 pre {

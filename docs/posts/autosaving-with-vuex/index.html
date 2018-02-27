@@ -161,75 +161,60 @@ ga('send', 'pageview');
 <h1 id="how-to-do-it">How to do it</h1>
 
 <p>First, you&rsquo;ll need a basic <code>index.html</code> file. It will contain a div for Vue to attach to, <code>&lt;script&gt;</code> tags for the libraries we need, a <code>&lt;script&gt;</code> tag for our JavaScript file, and a <code>&lt;style&gt;</code> tag to make things look just a little bit nicer.</p>
-
-<pre><code class="language-HTML">&lt;body&gt;
-  &lt;div id=&quot;app&quot;&gt;&lt;/div&gt;
-&lt;/body&gt;
-&lt;script src=&quot;https://cdn.jsdelivr.net/npm/vue&quot;&gt;&lt;/script&gt;
-&lt;script src=&quot;https://unpkg.com/vuex@3.0.1/dist/vuex.js&quot;&gt;&lt;/script&gt;
-&lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.5/lodash.min.js&quot;&gt;&lt;/script&gt;
-&lt;script src=&quot;./index.js&quot;&gt;&lt;/script&gt;
-&lt;style&gt;
-  textarea {
-    height: 100px;
-    width: 300px;
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-HTML" data-lang="HTML">&lt;<span style="color:#070">body</span>&gt;
+  &lt;<span style="color:#070">div</span> <span style="color:#00c">id</span><span style="color:#333">=</span><span style="background-color:#fff0f0">&#34;app&#34;</span>&gt;&lt;/<span style="color:#070">div</span>&gt;
+&lt;/<span style="color:#070">body</span>&gt;
+&lt;<span style="color:#070">script</span> <span style="color:#00c">src</span><span style="color:#333">=</span><span style="background-color:#fff0f0">&#34;https://cdn.jsdelivr.net/npm/vue&#34;</span>&gt;&lt;/<span style="color:#070">script</span>&gt;
+&lt;<span style="color:#070">script</span> <span style="color:#00c">src</span><span style="color:#333">=</span><span style="background-color:#fff0f0">&#34;https://unpkg.com/vuex@3.0.1/dist/vuex.js&#34;</span>&gt;&lt;/<span style="color:#070">script</span>&gt;
+&lt;<span style="color:#070">script</span> <span style="color:#00c">src</span><span style="color:#333">=</span><span style="background-color:#fff0f0">&#34;https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.5/lodash.min.js&#34;</span>&gt;&lt;/<span style="color:#070">script</span>&gt;
+&lt;<span style="color:#070">script</span> <span style="color:#00c">src</span><span style="color:#333">=</span><span style="background-color:#fff0f0">&#34;./index.js&#34;</span>&gt;&lt;/<span style="color:#070">script</span>&gt;
+&lt;<span style="color:#070">style</span>&gt;
+  <span style="color:#070">textarea</span> {
+    <span style="color:#080;font-weight:bold">height</span>: <span style="color:#00d;font-weight:bold">100</span><span style="color:#339;font-weight:bold">px</span>;
+    <span style="color:#080;font-weight:bold">width</span>: <span style="color:#00d;font-weight:bold">300</span><span style="color:#339;font-weight:bold">px</span>;
   }
-&lt;/style&gt;
-</code></pre>
-
+&lt;/<span style="color:#070">style</span>&gt;</code></pre></div>
 <p>You can see we&rsquo;re pulling in Vue, Vuex, Lodash, and our own JavaScript file named <code>index.js</code>. And that&rsquo;s it for this file.</p>
 
 <p>Create the <code>index.js</code> file. We&rsquo;ll start it out by bootstrapping our Vue app:</p>
-
-<pre><code class="language-javascript">var app = new Vue({
-  el: '#app',
-  template: '&lt;div&gt;&lt;/div&gt;',
-})
-</code></pre>
-
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#080;font-weight:bold">var</span> app <span style="color:#333">=</span> <span style="color:#080;font-weight:bold">new</span> Vue({
+  el<span style="color:#333">:</span> <span style="background-color:#fff0f0">&#39;#app&#39;</span>,
+  template<span style="color:#333">:</span> <span style="background-color:#fff0f0">&#39;&lt;div&gt;&lt;/div&gt;&#39;</span>,
+})</code></pre></div>
 <p>You should keep this piece of code at the bottom of your <code>index.js</code> file, as it will refer to everything we build from here on out.</p>
 
 <p>Vue will find the element that matches the <code>el</code> selector and take control of it. All it does at the moment is put another <code>&lt;div&gt;&lt;/div&gt;</code> inside of it. We&rsquo;ll have it do something more interesting in a moment.</p>
 
 <p>Now let&rsquo;s create a component that lets the user enter text:</p>
-
-<pre><code class="language-javascript">Vue.component('text-entry', {
-  template: '&lt;textarea v-model=&quot;content&quot; @keyup=&quot;registerChange&quot;&gt;&lt;/textarea&gt;',
-  data: function () {
-    return {
-      content: '' // This is the initial value of the textarea
-    }
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">Vue.component(<span style="background-color:#fff0f0">&#39;text-entry&#39;</span>, {
+  template<span style="color:#333">:</span> <span style="background-color:#fff0f0">&#39;&lt;textarea v-model=&#34;content&#34; @keyup=&#34;registerChange&#34;&gt;&lt;/textarea&gt;&#39;</span>,
+  data<span style="color:#333">:</span> <span style="color:#080;font-weight:bold">function</span> () {
+    <span style="color:#080;font-weight:bold">return</span> {
+      content<span style="color:#333">:</span> <span style="background-color:#fff0f0">&#39;&#39;</span> <span style="color:#888">// This is the initial value of the textarea
+</span><span style="color:#888"></span>    }
   },
-  methods: {
-    registerChange: function () {
-      // We'll do something whenever the textarea changes
-    }
+  methods<span style="color:#333">:</span> {
+    registerChange<span style="color:#333">:</span> <span style="color:#080;font-weight:bold">function</span> () {
+      <span style="color:#888">// We&#39;ll do something whenever the textarea changes
+</span><span style="color:#888"></span>    }
   }
-})
-</code></pre>
-
+})</code></pre></div>
 <p>This will display a textarea and update the value of <code>content</code> whenever the user types in it. Let&rsquo;s add it to our app by updating the Vue constructor:</p>
-
-<pre><code class="language-javascript">var app = new Vue({
-  el: '#app',
-  template: '&lt;div&gt; &lt;text-entry&gt;&lt;/text-entry&gt; &lt;/div&gt;',
-})
-</code></pre>
-
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#080;font-weight:bold">var</span> app <span style="color:#333">=</span> <span style="color:#080;font-weight:bold">new</span> Vue({
+  el<span style="color:#333">:</span> <span style="background-color:#fff0f0">&#39;#app&#39;</span>,
+  template<span style="color:#333">:</span> <span style="background-color:#fff0f0">&#39;&lt;div&gt; &lt;text-entry&gt;&lt;/text-entry&gt; &lt;/div&gt;&#39;</span>,
+})</code></pre></div>
 <p>Now we should see a textarea in our app. Next, we create a Vuex store:</p>
-
-<pre><code class="language-javascript">var store = new Vuex.Store({
-  state: {
-    content: ''
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#080;font-weight:bold">var</span> store <span style="color:#333">=</span> <span style="color:#080;font-weight:bold">new</span> Vuex.Store({
+  state<span style="color:#333">:</span> {
+    content<span style="color:#333">:</span> <span style="background-color:#fff0f0">&#39;&#39;</span>
   },
-  mutations: {
-    'UPDATE_CONTENT': function (state, newContent) {
-      state.content = newContent
+  mutations<span style="color:#333">:</span> {
+    <span style="background-color:#fff0f0">&#39;UPDATE_CONTENT&#39;</span><span style="color:#333">:</span> <span style="color:#080;font-weight:bold">function</span> (state, newContent) {
+      state.content <span style="color:#333">=</span> newContent
     }
   }
-})
-</code></pre>
-
+})</code></pre></div>
 <p>This is a pretty basic Vuex store. It has one piece of data and one mutation. When we commit the mutation, it will save whatever we pass in as the new value of <code>content</code>.</p>
 
 <p>We need this store in three places:</p>
@@ -241,89 +226,77 @@ ga('send', 'pageview');
 </ul>
 
 <p>Once we do all of these, our <code>index.js</code> file should look like this:</p>
-
-<pre><code class="language-javascript">var store = new Vuex.Store({
-  state: {
-    content: ''
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#080;font-weight:bold">var</span> store <span style="color:#333">=</span> <span style="color:#080;font-weight:bold">new</span> Vuex.Store({
+  state<span style="color:#333">:</span> {
+    content<span style="color:#333">:</span> <span style="background-color:#fff0f0">&#39;&#39;</span>
   },
-  mutations: {
-    'UPDATE_CONTENT': function (state, newContent) {
-      state.content = newContent
+  mutations<span style="color:#333">:</span> {
+    <span style="background-color:#fff0f0">&#39;UPDATE_CONTENT&#39;</span><span style="color:#333">:</span> <span style="color:#080;font-weight:bold">function</span> (state, newContent) {
+      state.content <span style="color:#333">=</span> newContent
     }
   }
 })
 
-Vue.component('text-entry', {
-  template: '&lt;textarea v-model=&quot;content&quot; @keyup=&quot;registerChange&quot;&gt;&lt;/textarea&gt;',
-  data: function () {
-    return {
-      content: this.$store.state.content
+Vue.component(<span style="background-color:#fff0f0">&#39;text-entry&#39;</span>, {
+  template<span style="color:#333">:</span> <span style="background-color:#fff0f0">&#39;&lt;textarea v-model=&#34;content&#34; @keyup=&#34;registerChange&#34;&gt;&lt;/textarea&gt;&#39;</span>,
+  data<span style="color:#333">:</span> <span style="color:#080;font-weight:bold">function</span> () {
+    <span style="color:#080;font-weight:bold">return</span> {
+      content<span style="color:#333">:</span> <span style="color:#080;font-weight:bold">this</span>.$store.state.content
     }
   },
-  methods: {
-    registerChange: function () {
-      this.$store.commit('UPDATE_CONTENT', this.content)
+  methods<span style="color:#333">:</span> {
+    registerChange<span style="color:#333">:</span> <span style="color:#080;font-weight:bold">function</span> () {
+      <span style="color:#080;font-weight:bold">this</span>.$store.commit(<span style="background-color:#fff0f0">&#39;UPDATE_CONTENT&#39;</span>, <span style="color:#080;font-weight:bold">this</span>.content)
     }
   }
 })
 
-var app = new Vue({
-  el: '#app',
-  template: '&lt;div&gt; &lt;text-entry&gt;&lt;/text-entry&gt; &lt;/div&gt;',
-  store: store
-})
-</code></pre>
-
+<span style="color:#080;font-weight:bold">var</span> app <span style="color:#333">=</span> <span style="color:#080;font-weight:bold">new</span> Vue({
+  el<span style="color:#333">:</span> <span style="background-color:#fff0f0">&#39;#app&#39;</span>,
+  template<span style="color:#333">:</span> <span style="background-color:#fff0f0">&#39;&lt;div&gt; &lt;text-entry&gt;&lt;/text-entry&gt; &lt;/div&gt;&#39;</span>,
+  store<span style="color:#333">:</span> store
+})</code></pre></div>
 <p>To demonstrate our autosaving feature, we&rsquo;ll need a place to store data that will persist after a page refresh. I won&rsquo;t go to the trouble of creating a web server for this purpose. Let&rsquo;s use LocalStorage instead:</p>
-
-<pre><code class="language-javascript">var storageKey = 'content'
-var api = {
-  load: function () {
-    var json = window.localStorage.getItem(storageKey) || JSON.stringify('')
-    return JSON.parse(json)
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#080;font-weight:bold">var</span> storageKey <span style="color:#333">=</span> <span style="background-color:#fff0f0">&#39;content&#39;</span>
+<span style="color:#080;font-weight:bold">var</span> api <span style="color:#333">=</span> {
+  load<span style="color:#333">:</span> <span style="color:#080;font-weight:bold">function</span> () {
+    <span style="color:#080;font-weight:bold">var</span> json <span style="color:#333">=</span> <span style="color:#007020">window</span>.localStorage.getItem(storageKey) <span style="color:#333">||</span> JSON.stringify(<span style="background-color:#fff0f0">&#39;&#39;</span>)
+    <span style="color:#080;font-weight:bold">return</span> JSON.parse(json)
   },
-  save: _.debounce(function (content, callback) {
-    window.localStorage.setItem(storageKey, JSON.stringify(content))
+  save<span style="color:#333">:</span> _.debounce(<span style="color:#080;font-weight:bold">function</span> (content, callback) {
+    <span style="color:#007020">window</span>.localStorage.setItem(storageKey, JSON.stringify(content))
     callback()
-  }, 1000, { maxWait: 3000 })
-}
-</code></pre>
-
+  }, <span style="color:#00d;font-weight:bold">1000</span>, { maxWait<span style="color:#333">:</span> <span style="color:#00d;font-weight:bold">3000</span> })
+}</code></pre></div>
 <p>Our fake API has two methods, <code>save</code> and <code>load</code>. <code>load</code> attempts to get the app state out of LocalStorage, and if it isn&rsquo;t there, returns an empty string. <code>save</code> sets the value of our LocalStorage key, then invokes a callback. We&rsquo;re using Lodash&rsquo;s handy <code>debounce</code> method here to ensure that <code>save</code> is never called more than once per second. This is important because if we don&rsquo;t debounce the method, it will be called every time the user types a key. That isn&rsquo;t so bad for LocalStorage, but if you were doing XHR requests to an actual web server, a user doing 70 words per minute could be submitting several requests per second, which would slow things down for them and for you. I&rsquo;ve also used the <code>maxWait</code> parameter, which ensures that if the user types continuously, the content is autosaved every three seconds.</p>
 
 <p>Okay, now we can create a Vuex plugin to autosave the content of the textarea. A Vuex plugin is a function that accepts the Vuex store as an argument. It can then subscribe to the store in order to be notified of every state change.</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#080;font-weight:bold">var</span> autosaverPlugin <span style="color:#333">=</span> <span style="color:#080;font-weight:bold">function</span> (store) {
+  store.commit(<span style="background-color:#fff0f0">&#39;UPDATE_CONTENT&#39;</span>, api.load())
 
-<pre><code class="language-javascript">var autosaverPlugin = function (store) {
-  store.commit('UPDATE_CONTENT', api.load())
-
-  store.subscribe(function (mutation, state) {
-    if (mutation.type === 'UPDATE_CONTENT') {
-      api.save(mutation.payload, function () {
-        // This callback doesn't need to do anything yet
-      })
-      return
+  store.subscribe(<span style="color:#080;font-weight:bold">function</span> (mutation, state) {
+    <span style="color:#080;font-weight:bold">if</span> (mutation.type <span style="color:#333">===</span> <span style="background-color:#fff0f0">&#39;UPDATE_CONTENT&#39;</span>) {
+      api.save(mutation.payload, <span style="color:#080;font-weight:bold">function</span> () {
+        <span style="color:#888">// This callback doesn&#39;t need to do anything yet
+</span><span style="color:#888"></span>      })
+      <span style="color:#080;font-weight:bold">return</span>
     }
   })
-}
-</code></pre>
-
+}</code></pre></div>
 <p>When the plugin is first loaded, we immediately load the application state from LocalStorage and commit it as a mutation. Then we subscribe to the Vuex store. Every time a mutation is committed, we&rsquo;ll be notified. We can check the mutation type to make sure it&rsquo;s a content update, then send the payload on to our fake API to save it in LocalStorage.</p>
 
 <p>Now let&rsquo;s add this plugin to our Vuex declaration:</p>
-
-<pre><code class="language-javascript">var store = new Vuex.Store({
-  state: {
-    content: ''
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#080;font-weight:bold">var</span> store <span style="color:#333">=</span> <span style="color:#080;font-weight:bold">new</span> Vuex.Store({
+  state<span style="color:#333">:</span> {
+    content<span style="color:#333">:</span> <span style="background-color:#fff0f0">&#39;&#39;</span>
   },
-  mutations: {
-    'UPDATE_CONTENT': function (state, newContent) {
-      state.content = newContent
+  mutations<span style="color:#333">:</span> {
+    <span style="background-color:#fff0f0">&#39;UPDATE_CONTENT&#39;</span><span style="color:#333">:</span> <span style="color:#080;font-weight:bold">function</span> (state, newContent) {
+      state.content <span style="color:#333">=</span> newContent
     }
   },
-  plugins: [autosaverPlugin]
-})
-</code></pre>
-
+  plugins<span style="color:#333">:</span> [autosaverPlugin]
+})</code></pre></div>
 <p>So far so good! If you type in the textarea, wait one second, and refresh the page, you&rsquo;ll see your changes persist. And your Vue component doesn&rsquo;t even have to worry about it; the Vuex plugin is doing all the heavy lifting.</p>
 
 <h1 id="one-last-touch">One last touch</h1>
@@ -331,64 +304,52 @@ var api = {
 <p>This is great, but we could use a way to indicate to the user that their work has been saved. This reassures the user and helps you to see that the app is working. Let&rsquo;s add some text that says either &ldquo;Saving&hellip;&rdquo; or &ldquo;Saved&rdquo;.</p>
 
 <p>First, let&rsquo;s add some state to the Vuex store:</p>
-
-<pre><code class="language-javascript">var store = new Vuex.Store({
-  state: {
-    content: '',
-    saveStatus: 'Saved'
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#080;font-weight:bold">var</span> store <span style="color:#333">=</span> <span style="color:#080;font-weight:bold">new</span> Vuex.Store({
+  state<span style="color:#333">:</span> {
+    content<span style="color:#333">:</span> <span style="background-color:#fff0f0">&#39;&#39;</span>,
+    saveStatus<span style="color:#333">:</span> <span style="background-color:#fff0f0">&#39;Saved&#39;</span>
   },
-  mutations: {
-    'SET_SAVE_STATUS': function (state, newSaveStatus) {
-      state.saveStatus = newSaveStatus
+  mutations<span style="color:#333">:</span> {
+    <span style="background-color:#fff0f0">&#39;SET_SAVE_STATUS&#39;</span><span style="color:#333">:</span> <span style="color:#080;font-weight:bold">function</span> (state, newSaveStatus) {
+      state.saveStatus <span style="color:#333">=</span> newSaveStatus
     },
-    'UPDATE_CONTENT': function (state, newContent) {
-      state.content = newContent
+    <span style="background-color:#fff0f0">&#39;UPDATE_CONTENT&#39;</span><span style="color:#333">:</span> <span style="color:#080;font-weight:bold">function</span> (state, newContent) {
+      state.content <span style="color:#333">=</span> newContent
     }
   },
-  plugins: [autosaverPlugin]
-})
-</code></pre>
-
+  plugins<span style="color:#333">:</span> [autosaverPlugin]
+})</code></pre></div>
 <p><code>saveStatus</code> will contain a string that indicates to the user whether their work has been saved. And <code>SET_SAVE_STATUS</code> will update it.</p>
 
 <p>Now let&rsquo;s create a component that displays it:</p>
-
-<pre><code class="language-javascript">Vue.component('saving-indicator', {
-  template: '&lt;div&gt;{{ saveStatus }}&lt;/div&gt;',
-  computed: {
-    saveStatus: function () {
-      return this.$store.state.saveStatus
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">Vue.component(<span style="background-color:#fff0f0">&#39;saving-indicator&#39;</span>, {
+  template<span style="color:#333">:</span> <span style="background-color:#fff0f0">&#39;&lt;div&gt;{{ saveStatus }}&lt;/div&gt;&#39;</span>,
+  computed<span style="color:#333">:</span> {
+    saveStatus<span style="color:#333">:</span> <span style="color:#080;font-weight:bold">function</span> () {
+      <span style="color:#080;font-weight:bold">return</span> <span style="color:#080;font-weight:bold">this</span>.$store.state.saveStatus
     }
   }
-})
-</code></pre>
-
+})</code></pre></div>
 <p>And let&rsquo;s display it above the textarea by modifying the app template:</p>
-
-<pre><code class="language-javascript">var app = new Vue({
-  el: '#app',
-  template: '&lt;div&gt; &lt;saving-indicator&gt;&lt;/saving-indicator&gt; &lt;text-entry&gt;&lt;/text-entry&gt; &lt;/div&gt;',
-  store: store
-})
-</code></pre>
-
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#080;font-weight:bold">var</span> app <span style="color:#333">=</span> <span style="color:#080;font-weight:bold">new</span> Vue({
+  el<span style="color:#333">:</span> <span style="background-color:#fff0f0">&#39;#app&#39;</span>,
+  template<span style="color:#333">:</span> <span style="background-color:#fff0f0">&#39;&lt;div&gt; &lt;saving-indicator&gt;&lt;/saving-indicator&gt; &lt;text-entry&gt;&lt;/text-entry&gt; &lt;/div&gt;&#39;</span>,
+  store<span style="color:#333">:</span> store
+})</code></pre></div>
 <p>Now let&rsquo;s update our autosaver plugin to commit mutations to <code>saveStatus</code>:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#080;font-weight:bold">var</span> autosaverPlugin <span style="color:#333">=</span> <span style="color:#080;font-weight:bold">function</span> (store) {
+  store.commit(<span style="background-color:#fff0f0">&#39;UPDATE_CONTENT&#39;</span>, api.load())
 
-<pre><code class="language-javascript">var autosaverPlugin = function (store) {
-  store.commit('UPDATE_CONTENT', api.load())
-
-  store.subscribe(function (mutation, state) {
-    if (mutation.type === 'UPDATE_CONTENT') {
-      store.commit('SET_SAVE_STATUS', 'Saving...')
-      api.save(mutation.payload, function () {
-        store.commit('SET_SAVE_STATUS', 'Saved')
+  store.subscribe(<span style="color:#080;font-weight:bold">function</span> (mutation, state) {
+    <span style="color:#080;font-weight:bold">if</span> (mutation.type <span style="color:#333">===</span> <span style="background-color:#fff0f0">&#39;UPDATE_CONTENT&#39;</span>) {
+      store.commit(<span style="background-color:#fff0f0">&#39;SET_SAVE_STATUS&#39;</span>, <span style="background-color:#fff0f0">&#39;Saving...&#39;</span>)
+      api.save(mutation.payload, <span style="color:#080;font-weight:bold">function</span> () {
+        store.commit(<span style="background-color:#fff0f0">&#39;SET_SAVE_STATUS&#39;</span>, <span style="background-color:#fff0f0">&#39;Saved&#39;</span>)
       })
-      return
+      <span style="color:#080;font-weight:bold">return</span>
     }
   })
-}
-</code></pre>
-
+}</code></pre></div>
 <p>And, at long last, our <code>index.js</code> file looks like the one in the example repo. Take a look here: <a href="https://github.com/isaaclyman/vuex-autosaver/blob/master/index.js">https://github.com/isaaclyman/vuex-autosaver/blob/master/index.js</a></p>
 
 <p>Try it out! When you type in the textarea, the message says &ldquo;Saving&hellip;&rdquo; and once you finish, it says &ldquo;Saved&rdquo;. Just like in Google Docs. This is some superstar web development right here.</p>

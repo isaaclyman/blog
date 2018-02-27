@@ -12,7 +12,8 @@ PaginatePath = "archive"
 
 preserveTaxonomyNames = true
 
-pygmentsstyle = "colorful"
+pygmentsStyle = "colorful"
+pygmentsCodeFences = "true"
 
 [params]
   description = "Software construction, logic, faith, and satire"

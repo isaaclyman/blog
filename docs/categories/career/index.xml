@@ -6,10 +6,20 @@
     <description>Recent content in Career on Minimum Viable Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>© 2017 by Isaac Lyman. Site powered by Hugo and GitHub.</copyright>
-    <lastBuildDate>Mon, 18 Dec 2017 09:56:50 -0700</lastBuildDate>
+    <lastBuildDate>Thu, 08 Feb 2018 11:11:40 -0700</lastBuildDate>
     
 	<atom:link href="http://isaaclyman.com/blog/categories/career/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Starting a business for your app</title>
+      <link>http://isaaclyman.com/blog/posts/starting-a-business/</link>
+      <pubDate>Thu, 08 Feb 2018 11:11:40 -0700</pubDate>
+      
+      <guid>http://isaaclyman.com/blog/posts/starting-a-business/</guid>
+      <description>Disclaimer: I am not a lawyer and this is not legal advice. Before starting a business, you should consult your own lawyer.
+We developers are uniquely positioned to start our own companies. I don&amp;rsquo;t mean to downplay the importance of managers, accountants, salespeople, and everyone else who makes a business come together, but devs bring something very rare to the table: the ability to call forth an entire high-value product from the abyss, using no raw materials whatsoever.</description>
+    </item>
     
     <item>
       <title>Privilege by mail</title>

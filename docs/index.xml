@@ -6,10 +6,19 @@
     <description>Recent content on Minimum Viable Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>© 2017 by Isaac Lyman. Site powered by Hugo and GitHub.</copyright>
-    <lastBuildDate>Fri, 29 Jun 2018 09:11:11 -0600</lastBuildDate>
+    <lastBuildDate>Thu, 23 Aug 2018 08:44:30 -0600</lastBuildDate>
     
 	<atom:link href="http://isaaclyman.com/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>A future without time zones</title>
+      <link>http://isaaclyman.com/blog/posts/time-zones/</link>
+      <pubDate>Thu, 23 Aug 2018 08:44:30 -0600</pubDate>
+      
+      <guid>http://isaaclyman.com/blog/posts/time-zones/</guid>
+      <description>You&amp;rsquo;re a software engineer living in Idaho. You wake up with the sun at 2PM, Greenwich Mean Time, which everyone just calls &amp;ldquo;UN Time&amp;rdquo; since the United Nations adopted it as the universal time standard a few years ago. Soon nobody will call it anything. That&amp;rsquo;ll just be what time it is. Regardless of whether you&amp;rsquo;re in Idaho, DC, Ireland, Nepal or New Zealand, all the clocks will say 2:00 PM at the same time.</description>
+    </item>
     
     <item>
       <title>Hiring in tech? Don&#39;t compete on price</title>

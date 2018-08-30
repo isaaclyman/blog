@@ -4,7 +4,12 @@
   
   <url>
     <loc>http://isaaclyman.com/blog/posts/</loc>
-    <lastmod>2018-08-23T08:44:30-06:00</lastmod>
+    <lastmod>2018-08-29T07:00:45-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://isaaclyman.com/blog/posts/https/</loc>
+    <lastmod>2018-08-29T07:00:45-06:00</lastmod>
   </url>
   
   <url>
@@ -135,7 +140,7 @@
   
   <url>
     <loc>http://isaaclyman.com/blog/tags/beginners/</loc>
-    <lastmod>2018-03-20T08:28:52-06:00</lastmod>
+    <lastmod>2018-08-29T07:00:45-06:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -171,7 +176,7 @@
   
   <url>
     <loc>http://isaaclyman.com/blog/categories/development/</loc>
-    <lastmod>2018-03-20T08:28:52-06:00</lastmod>
+    <lastmod>2018-08-29T07:00:45-06:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -213,7 +218,7 @@
   
   <url>
     <loc>http://isaaclyman.com/blog/</loc>
-    <lastmod>2018-08-23T08:44:30-06:00</lastmod>
+    <lastmod>2018-08-29T07:00:45-06:00</lastmod>
     <priority>0</priority>
   </url>
   

@@ -212,7 +212,7 @@ console.log(<span style="background-color:#fff0f0">&#39;Mario sends Janice&#39;<
 <span style="color:#080;font-weight:bold">var</span> marioKey <span style="color:#333">=</span> computeExchange(numberFromJanice, marioSecret, p);
 
 console.log(<span style="background-color:#fff0f0">&#39;Their shared key should match:&#39;</span>, janiceKey, marioKey);</code></pre></div>
-<p>(Note that this won&rsquo;t work for slightly larger values of <code>p</code>, <code>g</code>, <code>janiceSecret</code>, and <code>marioSecret</code>, because JavaScript doesn&rsquo;t handle big numbers very well.)</p>
+<p>(Note that this won&rsquo;t work for slightly larger values of <code>p</code>, <code>g</code>, <code>janiceSecret</code>, and <code>marioSecret</code>, because JavaScript doesn&rsquo;t handle big numbers very well. It&rsquo;ll work just fine in Python.)</p>
 
 <p>Both <code>janiceKey</code> and <code>marioKey</code> evaluate to 16. That number is very special. It was never exchanged in a note. Natalia has never seen it. Natalia can&rsquo;t reverse the equation because she doesn&rsquo;t know Janice or Mario&rsquo;s secret number. The best she can do is guess what their secret number might have been and try to figure out the encoding/decoding key based on that. For small numbers like the ones we used, she can probably do that. But if Janice&rsquo;s and Mario&rsquo;s secret keys are very large numbers, like 115 792 089 237 316 195 423 570 985 008 687 907 853 269 984 665 640 564 039 457 584 007 913 129 639 935 (a 256-bit number), then it becomes prohibitively difficult. And there&rsquo;s definitely no way Natalia will figure out their shared key and decode the message before the challenge ends, you run out of patience, or someone dies of old age.</p>
 

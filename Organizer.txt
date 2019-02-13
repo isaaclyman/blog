@@ -14,6 +14,7 @@ css
 edward
 front end
 health
+javascript
 productivity
 projects
 resume

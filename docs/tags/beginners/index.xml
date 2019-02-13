@@ -6,10 +6,20 @@
     <description>Recent content in Beginners on Minimum Viable Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>© 2017 by Isaac Lyman. Site powered by Hugo and GitHub.</copyright>
-    <lastBuildDate>Wed, 29 Aug 2018 07:00:45 -0600</lastBuildDate>
+    <lastBuildDate>Wed, 13 Feb 2019 09:01:52 -0700</lastBuildDate>
     
 	<atom:link href="http://isaaclyman.com/blog/tags/beginners/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>What to learn first</title>
+      <link>http://isaaclyman.com/blog/posts/what-to-learn-first/</link>
+      <pubDate>Wed, 13 Feb 2019 09:01:52 -0700</pubDate>
+      
+      <guid>http://isaaclyman.com/blog/posts/what-to-learn-first/</guid>
+      <description>I occasionally get a message from a brand-new developer who&amp;rsquo;s overwhelmed by all the technologies and choices that exist in the world of software development. Where do you even start? Some of these devs have seen job advertisements like the following:
+ This is for a standard, mid-level web development position. It lists 14 specific technologies, alludes to many more, and if that weren&amp;rsquo;t enough, it has an &amp;ldquo;etc.&amp;rdquo; Even as a senior software engineer at a billion-dollar company, I&amp;rsquo;m not sure what that &amp;ldquo;etc.</description>
+    </item>
     
     <item>
       <title>This is how HTTPS works</title>

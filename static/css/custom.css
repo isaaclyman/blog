@@ -1,11 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Oswald');
+@import url('https://fonts.googleapis.com/css?family=Lato');
 
 .main-menu li {
   margin-right: 1em;
 }
 
 p, li, a, blockquote, figcaption, figcaption h4, span {
-  font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+  font-family: 'Lato', Helvetica, sans-serif;
 }
 
 p, li {

@@ -6,10 +6,21 @@
     <description>Recent content in Beginners on Minimum Viable Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>© 2017 by Isaac Lyman. Site powered by Hugo and GitHub.</copyright>
-    <lastBuildDate>Wed, 13 Feb 2019 09:01:52 -0700</lastBuildDate>
+    <lastBuildDate>Sat, 09 Mar 2019 08:02:55 -0700</lastBuildDate>
     
 	<atom:link href="http://isaaclyman.com/blog/tags/beginners/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>I&#39;m writing a book for junior developers!</title>
+      <link>http://isaaclyman.com/blog/posts/im-writing-a-book/</link>
+      <pubDate>Sat, 09 Mar 2019 08:02:55 -0700</pubDate>
+      
+      <guid>http://isaaclyman.com/blog/posts/im-writing-a-book/</guid>
+      <description>I&amp;rsquo;m writing a book: a complete guide to your first year as a developer. And I&amp;rsquo;m looking for co-authors.
+It&amp;rsquo;s not a technical manual about Python or Kubernetes or Angular. And it&amp;rsquo;s not a deep-dive about refactoring or craftsmanship. It&amp;rsquo;s a guide to the other stuff: resume writing, getting that first job, ethics, career progression, what to do when you&amp;rsquo;re stuck.
+The book will be pay-what-you-want (minimum price of free).</description>
+    </item>
     
     <item>
       <title>What to learn first</title>

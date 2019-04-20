@@ -1,5 +1,6 @@
 # GENRES
 Belief
+Literature
 Politics
 Satire
 Self
@@ -24,6 +25,7 @@ software construction
 career
 development
 documentation
+literature
 politics
 product
 religion

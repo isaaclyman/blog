@@ -334,6 +334,15 @@ Path=/posts/1
 </tbody>
 </table>
 
+
+<figure >
+    
+        <img src="/blog/img/jmeter-udf.png" alt="JMeter user-defined variables" />
+    
+    
+</figure>
+
+
 <p>In JMeter, you can use <code>${ }</code> almost anywhere to pull in a variable or function. And the <code>__P(propertyName,defaultValue)</code> function pulls in a property (like the ones in our properties file) using the first argument, or falls back to the second argument if it can&rsquo;t find that property. That is, when JMeter wants to use the <code>Protocol</code> variable, it will look for a property named <code>Protocol</code>, and if it can&rsquo;t find it, it will set the <code>Protocol</code> variable to <code>&quot;https&quot;</code>. Properties and variables are different things and they don&rsquo;t have to have the same names&mdash;I&rsquo;ve just used identical names here for simplicity.</p>
 
 <p>Next, select your HTTP Request block. Set Protocol to <code>${Protocol}</code>, Server Name to <code>${Server}</code>, Port Number to <code>${Port}</code>, and Path to <code>${Path}</code>. If you run the test again, it should run just the same as it did last time.</p>

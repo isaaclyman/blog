@@ -5,6 +5,7 @@ Politics
 Satire
 Self
 Technology
+Language
 
 # TAGS
 agile
@@ -33,3 +34,4 @@ religion
 satire
 self
 management
+language

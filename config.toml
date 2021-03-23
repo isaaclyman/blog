@@ -42,7 +42,7 @@ pygmentsCodeFences = "true"
   name = "Isaac Lyman"
 
 [author.social]
-  twitter = "isaacandsuch"
+  twitter = "isaacdlyman"
 
 [permalinks]
   page = "/:slug/"

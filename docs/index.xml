@@ -6,10 +6,19 @@
     <description>Recent content on Minimum Viable Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>© 2017 by Isaac Lyman. Site powered by Hugo and GitHub.</copyright>
-    <lastBuildDate>Wed, 25 Aug 2021 15:12:29 -0600</lastBuildDate>
+    <lastBuildDate>Thu, 07 Oct 2021 18:06:30 -0600</lastBuildDate>
     
 	<atom:link href="http://isaaclyman.com/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Conversation classes: fighter, bard, tank, healer</title>
+      <link>http://isaaclyman.com/blog/posts/conversation-classes/</link>
+      <pubDate>Thu, 07 Oct 2021 18:06:30 -0600</pubDate>
+      
+      <guid>http://isaaclyman.com/blog/posts/conversation-classes/</guid>
+      <description>What kind of conversationalist are you? Do you often start the conversation in a group setting? Are you a chatterbox who can talk endlessly about anything at all? Do you wait on the sidelines, occasionally cracking a joke or adding an interesting detail? The answer may be &amp;ldquo;it depends.&amp;rdquo; A lot of us have gotten to where we are by knowing when to listen and when to talk&amp;mdash;and getting fairly good at both.</description>
+    </item>
     
     <item>
       <title>On Church</title>

@@ -6,10 +6,19 @@
     <description>Recent content in Career on Minimum Viable Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>© 2017 by Isaac Lyman. Site powered by Hugo and GitHub.</copyright>
-    <lastBuildDate>Sat, 09 Mar 2019 08:02:55 -0700</lastBuildDate>
+    <lastBuildDate>Fri, 22 Oct 2021 15:10:08 -0600</lastBuildDate>
     
 	<atom:link href="http://isaaclyman.com/blog/categories/career/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>What five tech recruiters get wrong (and right) about cold email</title>
+      <link>http://isaaclyman.com/blog/posts/five-recruiters/</link>
+      <pubDate>Fri, 22 Oct 2021 15:10:08 -0600</pubDate>
+      
+      <guid>http://isaaclyman.com/blog/posts/five-recruiters/</guid>
+      <description>Technical recruiters have an extraordinarily difficult job. The U.S. Bureau of Labor Statistics reports that in 2020 there were about two million people working in programming jobs across a few different categories. They also project that software developer employment will grow 22% by 2030, nearly three times the average rate for all occupations. And in 2019, IT trade group CompTIA reported a staggering 918,000 unfilled IT jobs over a period of three months.</description>
+    </item>
     
     <item>
       <title>I&#39;m writing a book for junior developers!</title>

@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<meta name='description' content='Let&rsquo;s talk about one of my favorite .NET features.
+IEnumerable is an interface for iterating over a collection. In other words, if something is an IEnumerable, you can mostly think of it like an Array or a List. You can use a foreach statement to loop through it, you can use LINQ to map or reduce it in a hundred different ways, or you can explicitly cast it to an array with .'>
+
+<meta property='og:title' content='C#: IEnumerable, yield return, and lazy evaluation • Isaac Lyman'>
+<meta property='og:description' content='Let&rsquo;s talk about one of my favorite .NET features.
+IEnumerable is an interface for iterating over a collection. In other words, if something is an IEnumerable, you can mostly think of it like an Array or a List. You can use a foreach statement to loop through it, you can use LINQ to map or reduce it in a hundred different ways, or you can explicitly cast it to an array with .'>
+<meta property='og:url' content='http://isaaclyman.com/blog/posts/csharp-ienumerable/'>
+<meta property='og:site_name' content='Minimum Viable Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts'><meta property='article:tag' content='csharp'><meta property='article:published_time' content='2021-11-22T10:13:03-07:00'/><meta property='article:modified_time' content='2021-11-22T10:13:03-07:00'/>
+
+<meta name="generator" content="Hugo 0.32.4" />
+
+  <title>C#: IEnumerable, yield return, and lazy evaluation • Isaac Lyman</title>
+  <link rel='canonical' href='http://isaaclyman.com/blog/posts/csharp-ienumerable/'>
+  
+  <link rel='icon' href='/blog/favicon.png'>
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Ubuntu:400,400i,700&subset=latin'>
+<link rel='stylesheet' href='/blog/css/main.d02777fd.css'>
+
+  <link rel='stylesheet' href='/blog/css/custom.css'>
+
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-104387168-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+
+</head>
+
+
+<body class='page'>
+  <div class='site'>
+    <header id='header' class='header-container'>
+      <div class='site-header'>
+        <nav id='navmenu' aria-label='Main Menu'>
+  <ul class='main-menu'>
+    
+    <li>
+      <a href='/blog/posts/' 
+        
+      >{ Archive }</a>
+    </li>
+    
+    <li>
+      <a href='/blog/posts/introduction' 
+        
+      >{ About }</a>
+    </li>
+    
+    <li>
+      <a href='http://isaaclyman.com' 
+        
+      >{ Author }</a>
+    </li>
+    
+    <li>
+      <a href='/blog/index.xml' 
+        
+      >{ RSS }</a>
+    </li>
+    
+  </ul>
+</nav>
+
+        <div class='site-info'>
+          
+          <p class='site-title title'>Minimum Viable Blog</p>
+          
+          <p class='site-description'>Software construction, opinion, and satire</p>
+        </div>
+      </div>
+    </header>
+
+
+<main class='main'>
+  <article lang='en' class='entry'>
+    <header class='entry-header'>
+  <div class='entry-info'>
+    <p class='entry-genre'>
+      Technology
+    </p>
+    <h1 class='entry-title title'>C#: IEnumerable, yield return, and lazy evaluation</h1>
+    
+  </div>
+  
+<div class='meta'>
+  <span class='posted-on'>
+    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+  <line x1="16" y1="2" x2="16" y2="6"/>
+  <line x1="8" y1="2" x2="8" y2="6"/>
+  <line x1="3" y1="10" x2="21" y2="10"/>
+  
+</svg>
+
+    <span class='screen-reader'>Posted on </span>
+    <time class='date' datetime='2021-11-22T10:13:03-07:00'>Nov 22, 2021</time>
+  </span>
+  
+  <span class='byline'>
+    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M21,21V20c0-2.76-4-5-9-5s-9,2.24-9,5v1"/>
+  <path d="M16,6.37A4,4,0,1,1,12.63,3,4,4,0,0,1,16,6.37Z"/>
+  
+</svg>
+
+    <span class='screen-reader'> by </span>
+    Isaac Lyman
+  </span>
+  
+  
+  <span class='reading-time'>
+    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <circle cx="12" cy="12" r="10"/>
+  <polyline points="12 6 12 12 15 15"/> 
+  
+</svg>
+
+    6 mins read
+  </span>
+  
+</div>
+
+
+</header>
+
+    <div class='entry-content'>
+  <p>Let&rsquo;s talk about one of my favorite .NET features.</p>
+
+<p><strong>IEnumerable</strong> is an interface for iterating over a collection. In other words, if something is an IEnumerable, you can mostly think of it like an Array or a List. You can use a <code>foreach</code> statement to loop through it, you can use LINQ to map or reduce it in a hundred different ways, or you can explicitly cast it to an array with <code>.ToArray()</code> and access elements by index. But there are a few things that make IEnumerables special&ndash;and a few things that make them tricky.</p>
+
+<p>IEnumerable is the return type from an <em>iterator</em>. An iterator is a method that uses the <code>yield return</code> keywords. <code>yield return</code> is different from a normal <code>return</code> statement because, while it does return a value from the function, it doesn&rsquo;t &ldquo;close the book&rdquo; on that function. The next time a value is expected, the function will continue executing statements <em>after</em> the <code>yield return</code> until it hits another <code>yield return</code> (or a <code>yield break</code>, or the end of the function block). In other words, you could write an iterator that looks like this:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs">IEnumerable&lt;<span style="color:#339;font-weight:bold">int</span>&gt; GetOneTwoThree() {
+  <span style="color:#080;font-weight:bold">yield</span> <span style="color:#080;font-weight:bold">return</span> <span style="color:#60e;font-weight:bold">1</span>;
+  <span style="color:#080;font-weight:bold">yield</span> <span style="color:#080;font-weight:bold">return</span> <span style="color:#60e;font-weight:bold">2</span>;
+  <span style="color:#080;font-weight:bold">yield</span> <span style="color:#080;font-weight:bold">return</span> <span style="color:#60e;font-weight:bold">3</span>;
+  <span style="color:#888">// We could put &#34;yield break;&#34; here but there&#39;s no need, the end of the function signals the same thing.
+</span><span style="color:#888"></span>}</code></pre></div>
+<p>When you call <code>GetOneTwoThree()</code> it will return an <code>IEnumerable&lt;int&gt;</code>. As mentioned above, there are a few things you can do with this:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#339;font-weight:bold">var</span> numbers = GetOneTwoThree();
+
+<span style="color:#080;font-weight:bold">foreach</span> (<span style="color:#339;font-weight:bold">var</span> number <span style="color:#080;font-weight:bold">in</span> numbers) {
+  <span style="color:#b06;font-weight:bold">Console</span>.WriteLine(number);
+  <span style="color:#888">// Output:
+</span><span style="color:#888"></span>  <span style="color:#888">// 1
+</span><span style="color:#888"></span>  <span style="color:#888">// 2
+</span><span style="color:#888"></span>  <span style="color:#888">// 3
+</span><span style="color:#888"></span>}
+
+<span style="color:#339;font-weight:bold">var</span> doubledNumbers = <span style="color:#b06;font-weight:bold">numbers</span>.Select(num =&gt; num * <span style="color:#60e;font-weight:bold">2</span>);
+
+<span style="color:#080;font-weight:bold">foreach</span> (<span style="color:#339;font-weight:bold">var</span> number <span style="color:#080;font-weight:bold">in</span> doubledNumbers) {
+  <span style="color:#b06;font-weight:bold">Console</span>.WriteLine(number);
+  <span style="color:#888">// Output:
+</span><span style="color:#888"></span>  <span style="color:#888">// 2
+</span><span style="color:#888"></span>  <span style="color:#888">// 4
+</span><span style="color:#888"></span>  <span style="color:#888">// 6
+</span><span style="color:#888"></span>}
+
+<span style="color:#339;font-weight:bold">var</span> numberArray = <span style="color:#b06;font-weight:bold">numbers</span>.ToArray();
+<span style="color:#b06;font-weight:bold">Console</span>.WriteLine(numberArray<span style="color:#00c">[0]</span>); // Output: <span style="color:#60e;font-weight:bold">1</span></code></pre></div>
+<p>You may notice that we&rsquo;re iterating over <code>numbers</code> multiple times. For a simple iterator like the one I&rsquo;ve written, that&rsquo;s technically okay to do. Every time we iterate over <code>numbers</code>, it will start over at the beginning of the iterator method and yield all the same values over again. (You can&rsquo;t expect this from every iterator; more on that later.)</p>
+
+<p><em>Lazy evaluation</em> (the opposite of <em>eager evaluation</em>) is when we wait to execute a piece of code until we absolutely, positively have to. When you call <code>GetOneTwoThree()</code>, you&rsquo;ll get a return value despite the fact that <em>none of the code in the function has actually been executed yet!</em> To prove it, run the following code in LINQPad.</p>
+
+<p>(If you&rsquo;re not familiar with LINQPad, you should check it out&ndash;it&rsquo;s a powerful, portable C# playground. But the only thing you need to know about it here is that it provides the magic <code>.Dump()</code> method, which outputs any value to the Results pane.)</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#339;font-weight:bold">bool</span> didTheCodeRun = <span style="color:#080;font-weight:bold">false</span>;
+
+<span style="color:#080;font-weight:bold">void</span> Main() {
+  <span style="color:#339;font-weight:bold">var</span> results = RunTheCode();
+  <span style="color:#b06;font-weight:bold">didTheCodeRun</span>.Dump();
+}
+
+IEnumerable&lt;<span style="color:#339;font-weight:bold">bool</span>&gt; RunTheCode() {
+  didTheCodeRun = <span style="color:#080;font-weight:bold">true</span>;
+  <span style="color:#080;font-weight:bold">yield</span> <span style="color:#080;font-weight:bold">return</span> <span style="color:#080;font-weight:bold">true</span>;
+}</code></pre></div>
+<p>The output of running <code>Main()</code> in the above snippet is <code>false</code>. That&rsquo;s right, after we run <code>RunTheCode()</code>, which explicitly sets <code>didTheCodeRun</code> to <code>true</code>, the value of <code>didTheCodeRun</code> is still <code>false</code>. None of the code in our iterator runs until we start iterating through the IEnumerable. It&rsquo;s lazily evaluated!</p>
+
+<p>This may seem counterintuitive, but in a lot of cases it&rsquo;s a good thing. What if you never end up iterating through the IEnumerable at all? Well, that&rsquo;s a bunch of code the computer didn&rsquo;t have to execute. Or what if you&rsquo;re using a LINQ method like <code>.First()</code> to try to find a specific item in the collection? You may not need to run <em>all</em> the code in the iterator to get the value you&rsquo;re looking for&ndash;and you won&rsquo;t. Once <code>.First()</code> finds a value that matches the predicate, it will stop iterating. If you&rsquo;re working with an IEnumerable that potentially has thousands of values (or more), you can save a lot of CPU cycles by only iterating as far as you need to.</p>
+
+<p>Of course, it&rsquo;s all up to you. You can iterate as much or as little as you want. Let&rsquo;s take a look at some of the ways to do that.</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#888">// Here&#39;s a variable to track execution of code in an iterator
+</span><span style="color:#888"></span><span style="color:#339;font-weight:bold">int</span> lastYielded = -<span style="color:#60e;font-weight:bold">1</span>;
+
+<span style="color:#888">// Here&#39;s an iterator for us to play with
+</span><span style="color:#888"></span>IEnumerable&lt;<span style="color:#339;font-weight:bold">int</span>&gt; GetOneToTen() {
+  <span style="color:#080;font-weight:bold">for</span> (<span style="color:#339;font-weight:bold">var</span> num = <span style="color:#60e;font-weight:bold">1</span>; num &lt;= <span style="color:#60e;font-weight:bold">10</span>; num++) {
+    lastYielded = num;
+    <span style="color:#080;font-weight:bold">yield</span> <span style="color:#080;font-weight:bold">return</span> num;
+  }
+}
+
+<span style="color:#080;font-weight:bold">void</span> Main() {
+  <span style="color:#339;font-weight:bold">var</span> numbers = GetOneToTen();
+  <span style="color:#b06;font-weight:bold">lastYielded</span>.Dump(); <span style="color:#888">// Output: -1
+</span><span style="color:#888"></span>
+  <span style="color:#888">// This gives us an &#39;instance&#39; of the iteration
+</span><span style="color:#888"></span>  <span style="color:#339;font-weight:bold">var</span> enumerator = <span style="color:#b06;font-weight:bold">numbers</span>.GetEnumerator();
+
+  <span style="color:#888">// This executes the iterator until the first `yield return` is reached
+</span><span style="color:#888"></span>  <span style="color:#b06;font-weight:bold">enumerator</span>.MoveNext();
+
+  <span style="color:#888">// This gives us the current (most recently yielded) value of the iterator
+</span><span style="color:#888"></span>  <span style="color:#b06;font-weight:bold">enumerator</span>.<span style="color:#b06;font-weight:bold">Current</span>.Dump(); <span style="color:#888">// Output: 1
+</span><span style="color:#888"></span>  <span style="color:#b06;font-weight:bold">lastYielded</span>.Dump(); <span style="color:#888">// Output: 1
+</span><span style="color:#888"></span>
+  <span style="color:#888">// This will iterate from 1 to 4, then stop
+</span><span style="color:#888"></span>  <span style="color:#080;font-weight:bold">foreach</span> (<span style="color:#339;font-weight:bold">var</span> num <span style="color:#080;font-weight:bold">in</span> numbers) {
+    <span style="color:#080;font-weight:bold">if</span> (num &gt;= <span style="color:#60e;font-weight:bold">4</span>) {
+      <span style="color:#080;font-weight:bold">break</span>;
+    }
+  }
+
+  <span style="color:#b06;font-weight:bold">lastYielded</span>.Dump(); <span style="color:#888">// Output: 4
+</span><span style="color:#888"></span>
+  <span style="color:#888">// This will not execute any code in the iterator.
+</span><span style="color:#888"></span>  <span style="color:#888">//  LINQ methods are lazily evaluated as well
+</span><span style="color:#888"></span>  <span style="color:#339;font-weight:bold">var</span> numbersTimesTwo = <span style="color:#b06;font-weight:bold">numbers</span>.Select(num =&gt; num * <span style="color:#60e;font-weight:bold">2</span>);
+  <span style="color:#b06;font-weight:bold">lastYielded</span>.Dump(); <span style="color:#888">// Output: 4
+</span><span style="color:#888"></span>
+  <span style="color:#888">// This will force the entire iterator to run, yielding all values
+</span><span style="color:#888"></span>  <span style="color:#339;font-weight:bold">var</span> arr = <span style="color:#b06;font-weight:bold">numbers</span>.ToArray();
+  <span style="color:#b06;font-weight:bold">lastYielded</span>.Dump(); <span style="color:#888">// Output: 10
+</span><span style="color:#888"></span>}</code></pre></div>
+<p>It&rsquo;s important to point out that many iterators are not as simple as the ones we&rsquo;ve been using here. An iterator could query a database, for example&ndash;including the unfortunate possibility that it might alter data, or that iterating through it twice might yield completely different results! Some tools (like ReSharper) will warn you against multiple enumeration for this reason. An iterator is, from one perspective, nothing more than a synchronous method that may not execute its code right away (or at all). And to muddy the waters just a little, not all iterators are synchronous; there&rsquo;s also an IAsyncEnumerable interface (you can loop through it with <code>await foreach</code>).</p>
+
+<p>Most of the time none of this is a problem. Almost all the time you can treat an IEnumerable like a List. But I&rsquo;ve learned the hard way not to rely on this&ndash;I once used <code>.Select()</code> to transform a collection while using an external variable to track a small piece of state on each iteration, then got very confused when the external variable wasn&rsquo;t updated later in the method. In the end I fixed the problem by forcing the iteration to complete with <code>.ToArray()</code>. (There are multiple ways to approach something like this, depending on the expected size of the collection and what you&rsquo;re trying to track.)</p>
+
+<p>Hopefully this overview helps you avoid running into issues when you create or consume IEnumerables in your own code (which is extremely likely, as they&rsquo;re everywhere in C#). Here are a couple of rules to remember:</p>
+
+<ol>
+<li>Try to avoid side effects when writing an iterator method. Anyone who uses the method should be able to treat it as though it synchronously returns an array. If an iterator changes or executes anything outside of itself, the caller may end up confused. This applies to functions passed to LINQ methods as well, since many of them return IEnumerable and are lazily evaluated.</li>
+<li>You should avoid iterating over the same IEnumerable multiple times. If you know you&rsquo;re going to access every value&ndash;for example, if you&rsquo;re iterating it using a <code>foreach</code> with no <code>break</code> or <code>return</code>&ndash;enumerate it sooner rather than later by coercing the IEnumerable to a List or Array type. Then use that List or Array for all future operations.</li>
+</ol>
+
+</div>
+
+    
+<footer class='entry-footer'>
+  
+    
+      
+      
+
+<div class='categories'>
+  <span class='category-icon'>
+    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M22,19a2,2,0,0,1-2,2H4a2,2,0,0,1-2-2V5A2,2,0,0,1,4,3H9l2,3h9a2,2,0,0,1,2,2Z"/>
+  
+</svg>
+
+  </span>
+  <span class='screen-reader'>Categories: </span><a class='category' href='/blog/categories/development'>development</a></div>
+
+    
+  
+    
+      
+      
+
+<div class='tags'>
+  <span class='tag-icon'>
+    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M20.59,13.41l-7.17,7.17a2,2,0,0,1-2.83,0L2,12V2H12l8.59,8.59A2,2,0,0,1,20.59,13.41Z"/>
+  <line x1="7" y1="7" x2="7" y2="7"/>
+  
+</svg>
+
+  </span>
+  <span class='screen-reader'>Tags: </span><a class='tag' href='/blog/tags/csharp'>csharp</a></div>
+
+    
+  
+</footer>
+
+
+  </article>
+
+  
+    
+<nav class='entry-nav'>
+  <div class='entry-nav-links'><div class='prev-entry'>
+      <a href='http://isaaclyman.com/blog/posts/five-recruiters/'>
+        <span aria-hidden='true'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="20" y1="12" x2="4" y2="12"/>
+  <polyline points="10 18 4 12 10 6"/>
+  
+</svg>
+ Previous</span>
+        <span class='screen-reader'>Previous post: </span>What five tech recruiters get wrong (and right) about cold email</a>
+    </div></div>
+</nav>
+
+
+  
+
+  
+    <div class='comments-container'>
+  <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "isaaclymanblog" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+  
+</main>
+
+    <footer id='footer' class='footer-container'>
+      <div class='footer'>
+        <div class='social'>
+  <nav aria-label='Social Menu'>
+    <ul class='social-menu'><li>
+        <a href='https://twitter.com/isaacdlyman' target='_blank' rel='noopener'>
+          <span class='screen-reader'>Open Twitter account in new tab</span>
+          <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+  
+</svg>
+
+        </a>
+      </li></ul>
+  </nav>
+</div>
+
+        <div class='copyright'>
+          <p>© 2017 by Isaac Lyman. Site powered by Hugo and GitHub.</p>
+
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <script src='/blog/js/main.af838dd5.js'></script>
+  
+    <script src='/blog/js/custom.js'></script>
+  
+
+</body>
+
+</html>
+

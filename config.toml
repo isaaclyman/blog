@@ -16,7 +16,7 @@ pygmentsStyle = "colorful"
 pygmentsCodeFences = "true"
 
 [params]
-  description = "Software construction, opinion, and satire"
+  description = "Software construction, opinion, and self"
   dateFormat = "Jan 2, 2006"
   copyrightOwner = "Isaac Lyman"
   copyrightStartYear = "2017"

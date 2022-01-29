@@ -3,6 +3,7 @@ Belief
 Literature
 Politics
 Satire
+Science
 Self
 Technology
 Language
@@ -35,6 +36,7 @@ politics
 product
 religion
 satire
+science
 self
 management
 language

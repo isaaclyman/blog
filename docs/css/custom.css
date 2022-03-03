@@ -55,6 +55,10 @@ strong {
   font-weight: bold;
 }
 
+em {
+  padding-right: 3px;
+}
+
 sup {
   display: inline-block;
   font-size: .65em;

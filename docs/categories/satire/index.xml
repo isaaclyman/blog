@@ -6,10 +6,19 @@
     <description>Recent content in Satire on Minimum Viable Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>© 2017 by Isaac Lyman. Site powered by Hugo and GitHub.</copyright>
-    <lastBuildDate>Sun, 05 Feb 2017 18:04:19 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 03 Mar 2022 10:06:11 -0700</lastBuildDate>
     
 	<atom:link href="http://isaaclyman.com/blog/categories/satire/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>New tech terms to learn in 2022</title>
+      <link>http://isaaclyman.com/blog/posts/tech-terms-2022/</link>
+      <pubDate>Thu, 03 Mar 2022 10:06:11 -0700</pubDate>
+      
+      <guid>http://isaaclyman.com/blog/posts/tech-terms-2022/</guid>
+      <description>Ad-hocumentation Good documentation is a developer&amp;rsquo;s best friend, and some products and tools have truly excellent docs because they pay people to maintain them. When you Google a library method and the first result is an official, up-to-date web page with a description, code sample, use cases, limitations, and type information&amp;mdash;all written and maintained by an actual human being? That&amp;rsquo;s paradise, my friend. Much of the time we&amp;rsquo;re not so lucky.</description>
+    </item>
     
     <item>
       <title>8 CSS gotchas to start your morning off right</title>

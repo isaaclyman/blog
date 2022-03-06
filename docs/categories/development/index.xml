@@ -6,10 +6,20 @@
     <description>Recent content in Development on Minimum Viable Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>© 2017 by Isaac Lyman. Site powered by Hugo and GitHub.</copyright>
-    <lastBuildDate>Mon, 22 Nov 2021 10:13:03 -0700</lastBuildDate>
+    <lastBuildDate>Sat, 05 Mar 2022 20:09:03 -0700</lastBuildDate>
     
 	<atom:link href="http://isaaclyman.com/blog/categories/development/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Lost AirPods, arrays, and sorting algorithms</title>
+      <link>http://isaaclyman.com/blog/posts/sorting-algorithms/</link>
+      <pubDate>Sat, 05 Mar 2022 20:09:03 -0700</pubDate>
+      
+      <guid>http://isaaclyman.com/blog/posts/sorting-algorithms/</guid>
+      <description>The search for the lost AirPod My wife Dylan is a math and physics teacher. Yesterday while she was on a Zoom call with a student I got a text message from her: &amp;ldquo;the kids have my AirPods.&amp;rdquo; She knew because her student was cracking up laughing at the babblings of our toddlers, captured by the built-in microphone on the AirPods.
+I tracked down the kids. They were carrying around an AirPod case with one AirPod in it.</description>
+    </item>
     
     <item>
       <title>C#: IEnumerable, yield return, and lazy evaluation</title>

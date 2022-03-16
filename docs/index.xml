@@ -6,10 +6,21 @@
     <description>Recent content on Minimum Viable Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>© 2017 by Isaac Lyman. Site powered by Hugo and GitHub.</copyright>
-    <lastBuildDate>Sat, 05 Mar 2022 20:09:03 -0700</lastBuildDate>
+    <lastBuildDate>Wed, 16 Mar 2022 11:42:11 -0600</lastBuildDate>
     
 	<atom:link href="http://isaaclyman.com/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>What is a puzzle game?</title>
+      <link>http://isaaclyman.com/blog/posts/puzzle-games/</link>
+      <pubDate>Wed, 16 Mar 2022 11:42:11 -0600</pubDate>
+      
+      <guid>http://isaaclyman.com/blog/posts/puzzle-games/</guid>
+      <description>I love puzzle games. I&amp;rsquo;m not always good at them, but I love them.
+I have yet to see the rules or expectations of puzzle games enumerated as such, so here are what I believe to be the basics.
+ Each puzzle must have a single unique solution. The correct solution must be discoverable by pure logic and elimination. The solve must include multiple interrelated pieces or steps. Multiple non-computerized strategies must be available to the player, though they need not be disclosed by the puzzle&amp;rsquo;s creator.</description>
+    </item>
     
     <item>
       <title>Lost AirPods, arrays, and sorting algorithms</title>

@@ -5,7 +5,7 @@
     <link>http://isaaclyman.com/blog/tags/csharp/</link>
     <description>Recent content in csharp on Minimum Viable Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <copyright>© 2017 by Isaac Lyman. Site powered by Hugo and GitHub.</copyright>
+    <copyright>© 2017 by Isaac Lyman. Site powered by Hugo and GitHub Pages.</copyright>
     <lastBuildDate>Mon, 22 Nov 2021 10:13:03 -0700</lastBuildDate><atom:link href="http://isaaclyman.com/blog/tags/csharp/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>C#: IEnumerable, yield return, and lazy evaluation</title>

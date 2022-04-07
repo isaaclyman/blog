@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>health on Minimum Viable Blog</title>
-    <link>http://isaaclyman.com/blog/tags/health/</link>
-    <description>Recent content in health on Minimum Viable Blog</description>
+    <title>ADHD on Minimum Viable Blog</title>
+    <link>http://isaaclyman.com/blog/tags/adhd/</link>
+    <description>Recent content in ADHD on Minimum Viable Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>© 2017 by Isaac Lyman. Site powered by Hugo and GitHub Pages.</copyright>
-    <lastBuildDate>Thu, 07 Apr 2022 12:00:00 -0600</lastBuildDate><atom:link href="http://isaaclyman.com/blog/tags/health/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 07 Apr 2022 12:00:00 -0600</lastBuildDate><atom:link href="http://isaaclyman.com/blog/tags/adhd/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>ADHD: Frequently Asked Questions</title>
       <link>http://isaaclyman.com/blog/posts/adhd-faq/</link>
@@ -28,16 +28,6 @@ I am not a doctor and this is not medical advice. Consult a doctor before beginn
     </item>
     
     <item>
-      <title>On body weight</title>
-      <link>http://isaaclyman.com/blog/posts/on-body-weight/</link>
-      <pubDate>Tue, 21 Dec 2021 11:56:22 -0600</pubDate>
-      
-      <guid>http://isaaclyman.com/blog/posts/on-body-weight/</guid>
-      <description>The New Year is coming up. Some of you are about to make harmful, unscientific, doomed resolutions, treating your body like Intel treats a microchip&amp;mdash;that is, trying to make it smaller and smaller year after year.
-In Western society, pervasive messages about body size teach us that being small means being worthy, healthy, desirable, motivated, in control; and that being large means being lazy, sick, stupid, secondary, an eyesore. All of these things are false.</description>
-    </item>
-    
-    <item>
       <title>4 things everyone should know about ADHD</title>
       <link>http://isaaclyman.com/blog/posts/adhd/</link>
       <pubDate>Sun, 04 Jul 2021 08:42:04 -0600</pubDate>
@@ -45,15 +35,6 @@ In Western society, pervasive messages about body size teach us that being small
       <guid>http://isaaclyman.com/blog/posts/adhd/</guid>
       <description>I am not a doctor and this does not constitute medical advice. Consult your physician before making any decision that could affect your health.
 I was diagnosed with ADHD this year. Frankly, the diagnosis blindsided me. On the advice of my therapist I had gone in to get tested for Autism Spectrum Disorder. We thought it might explain some of my difficulties in daily life and social interactions, and knowing about it would help me self-educate and thereby address it more effectively.</description>
-    </item>
-    
-    <item>
-      <title>Hiring in tech? Don&#39;t compete on price</title>
-      <link>http://isaaclyman.com/blog/posts/dont-compete-on-price/</link>
-      <pubDate>Fri, 29 Jun 2018 09:11:11 -0600</pubDate>
-      
-      <guid>http://isaaclyman.com/blog/posts/dont-compete-on-price/</guid>
-      <description>There&amp;rsquo;s a strong business case&amp;mdash;a financially sound, common-sense case&amp;mdash;for acquiring tech talent such as developers, designers, product managers, and QA engineers using quality-of-life values instead of competing on compensation. Conversations about this topic have been taking place in online developer communities for years, but it seems these ideas haven&amp;rsquo;t penetrated the larger tech and business world. If you read on, you&amp;rsquo;ll find there&amp;rsquo;s a wealth of compelling evidence in favor of offering shorter workdays and remote options to your employees as a hiring and loyalty incentive, rather than trying to out-pay the market.</description>
     </item>
     
   </channel>

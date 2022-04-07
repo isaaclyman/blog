@@ -81,3 +81,6 @@ defaultContentLanguage = "en"
     lang = "en"
     languageName = "English"
     weight = 1
+
+[markup.goldmark.renderer]
+unsafe= true

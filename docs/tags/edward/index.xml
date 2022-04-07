@@ -1,16 +1,12 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Edward on Minimum Viable Blog</title>
+    <title>edward on Minimum Viable Blog</title>
     <link>http://isaaclyman.com/blog/tags/edward/</link>
-    <description>Recent content in Edward on Minimum Viable Blog</description>
+    <description>Recent content in edward on Minimum Viable Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>© 2017 by Isaac Lyman. Site powered by Hugo and GitHub.</copyright>
-    <lastBuildDate>Fri, 03 Nov 2017 13:49:58 -0600</lastBuildDate>
-    
-	<atom:link href="http://isaaclyman.com/blog/tags/edward/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Fri, 03 Nov 2017 13:49:58 -0600</lastBuildDate><atom:link href="http://isaaclyman.com/blog/tags/edward/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>The Beginner&#39;s Guide to Edward</title>
       <link>http://isaaclyman.com/blog/posts/edward-beginners-guide/</link>

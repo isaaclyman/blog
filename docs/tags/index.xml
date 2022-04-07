@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Minimum Viable Blog</title>
@@ -6,103 +6,9 @@
     <description>Recent content in Tags on Minimum Viable Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>© 2017 by Isaac Lyman. Site powered by Hugo and GitHub.</copyright>
-    <lastBuildDate>Tue, 26 Sep 2017 09:26:15 -0600</lastBuildDate>
-    
-	<atom:link href="http://isaaclyman.com/blog/tags/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Tue, 21 Dec 2021 11:56:22 -0600</lastBuildDate><atom:link href="http://isaaclyman.com/blog/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Agile</title>
-      <link>http://isaaclyman.com/blog/tags/agile/</link>
-      <pubDate>Tue, 26 Sep 2017 09:26:15 -0600</pubDate>
-      
-      <guid>http://isaaclyman.com/blog/tags/agile/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Beginners</title>
-      <link>http://isaaclyman.com/blog/tags/beginners/</link>
-      <pubDate>Sat, 09 Mar 2019 08:02:55 -0700</pubDate>
-      
-      <guid>http://isaaclyman.com/blog/tags/beginners/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Business</title>
-      <link>http://isaaclyman.com/blog/tags/business/</link>
-      <pubDate>Wed, 12 Sep 2018 21:51:52 -0600</pubDate>
-      
-      <guid>http://isaaclyman.com/blog/tags/business/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Code quality</title>
-      <link>http://isaaclyman.com/blog/tags/code-quality/</link>
-      <pubDate>Sat, 19 Aug 2017 06:54:57 -0600</pubDate>
-      
-      <guid>http://isaaclyman.com/blog/tags/code-quality/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Csharp</title>
-      <link>http://isaaclyman.com/blog/tags/csharp/</link>
-      <pubDate>Mon, 22 Nov 2021 10:13:03 -0700</pubDate>
-      
-      <guid>http://isaaclyman.com/blog/tags/csharp/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Css</title>
-      <link>http://isaaclyman.com/blog/tags/css/</link>
-      <pubDate>Sun, 05 Feb 2017 18:04:19 +0000</pubDate>
-      
-      <guid>http://isaaclyman.com/blog/tags/css/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Edward</title>
-      <link>http://isaaclyman.com/blog/tags/edward/</link>
-      <pubDate>Fri, 03 Nov 2017 13:49:58 -0600</pubDate>
-      
-      <guid>http://isaaclyman.com/blog/tags/edward/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Español</title>
-      <link>http://isaaclyman.com/blog/tags/espa%C3%B1ol/</link>
-      <pubDate>Mon, 18 Dec 2017 09:56:50 -0700</pubDate>
-      
-      <guid>http://isaaclyman.com/blog/tags/espa%C3%B1ol/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Food</title>
-      <link>http://isaaclyman.com/blog/tags/food/</link>
-      <pubDate>Sat, 20 Mar 2021 12:43:55 -0600</pubDate>
-      
-      <guid>http://isaaclyman.com/blog/tags/food/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Front end</title>
-      <link>http://isaaclyman.com/blog/tags/front-end/</link>
-      <pubDate>Mon, 26 Feb 2018 16:57:30 -0700</pubDate>
-      
-      <guid>http://isaaclyman.com/blog/tags/front-end/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Health</title>
+      <title>health</title>
       <link>http://isaaclyman.com/blog/tags/health/</link>
       <pubDate>Tue, 21 Dec 2021 11:56:22 -0600</pubDate>
       
@@ -111,25 +17,43 @@
     </item>
     
     <item>
-      <title>Principiantes</title>
-      <link>http://isaaclyman.com/blog/tags/principiantes/</link>
-      <pubDate>Mon, 18 Dec 2017 09:56:50 -0700</pubDate>
+      <title>csharp</title>
+      <link>http://isaaclyman.com/blog/tags/csharp/</link>
+      <pubDate>Mon, 22 Nov 2021 10:13:03 -0700</pubDate>
       
-      <guid>http://isaaclyman.com/blog/tags/principiantes/</guid>
+      <guid>http://isaaclyman.com/blog/tags/csharp/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Productivity</title>
-      <link>http://isaaclyman.com/blog/tags/productivity/</link>
-      <pubDate>Wed, 12 Sep 2018 21:51:52 -0600</pubDate>
+      <title>food</title>
+      <link>http://isaaclyman.com/blog/tags/food/</link>
+      <pubDate>Sat, 20 Mar 2021 12:43:55 -0600</pubDate>
       
-      <guid>http://isaaclyman.com/blog/tags/productivity/</guid>
+      <guid>http://isaaclyman.com/blog/tags/food/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Projects</title>
+      <title>software construction</title>
+      <link>http://isaaclyman.com/blog/tags/software-construction/</link>
+      <pubDate>Tue, 11 Feb 2020 08:22:35 -0700</pubDate>
+      
+      <guid>http://isaaclyman.com/blog/tags/software-construction/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>beginners</title>
+      <link>http://isaaclyman.com/blog/tags/beginners/</link>
+      <pubDate>Sat, 09 Mar 2019 08:02:55 -0700</pubDate>
+      
+      <guid>http://isaaclyman.com/blog/tags/beginners/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>projects</title>
       <link>http://isaaclyman.com/blog/tags/projects/</link>
       <pubDate>Sat, 09 Mar 2019 08:02:55 -0700</pubDate>
       
@@ -138,7 +62,7 @@
     </item>
     
     <item>
-      <title>Resume</title>
+      <title>resume</title>
       <link>http://isaaclyman.com/blog/tags/resume/</link>
       <pubDate>Sat, 09 Mar 2019 08:02:55 -0700</pubDate>
       
@@ -147,11 +71,83 @@
     </item>
     
     <item>
-      <title>Software construction</title>
-      <link>http://isaaclyman.com/blog/tags/software-construction/</link>
-      <pubDate>Tue, 11 Feb 2020 08:22:35 -0700</pubDate>
+      <title>business</title>
+      <link>http://isaaclyman.com/blog/tags/business/</link>
+      <pubDate>Wed, 12 Sep 2018 21:51:52 -0600</pubDate>
       
-      <guid>http://isaaclyman.com/blog/tags/software-construction/</guid>
+      <guid>http://isaaclyman.com/blog/tags/business/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>productivity</title>
+      <link>http://isaaclyman.com/blog/tags/productivity/</link>
+      <pubDate>Wed, 12 Sep 2018 21:51:52 -0600</pubDate>
+      
+      <guid>http://isaaclyman.com/blog/tags/productivity/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>front end</title>
+      <link>http://isaaclyman.com/blog/tags/front-end/</link>
+      <pubDate>Mon, 26 Feb 2018 16:57:30 -0700</pubDate>
+      
+      <guid>http://isaaclyman.com/blog/tags/front-end/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>español</title>
+      <link>http://isaaclyman.com/blog/tags/espa%C3%B1ol/</link>
+      <pubDate>Mon, 18 Dec 2017 09:56:50 -0700</pubDate>
+      
+      <guid>http://isaaclyman.com/blog/tags/espa%C3%B1ol/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>principiantes</title>
+      <link>http://isaaclyman.com/blog/tags/principiantes/</link>
+      <pubDate>Mon, 18 Dec 2017 09:56:50 -0700</pubDate>
+      
+      <guid>http://isaaclyman.com/blog/tags/principiantes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>edward</title>
+      <link>http://isaaclyman.com/blog/tags/edward/</link>
+      <pubDate>Fri, 03 Nov 2017 13:49:58 -0600</pubDate>
+      
+      <guid>http://isaaclyman.com/blog/tags/edward/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>agile</title>
+      <link>http://isaaclyman.com/blog/tags/agile/</link>
+      <pubDate>Tue, 26 Sep 2017 09:26:15 -0600</pubDate>
+      
+      <guid>http://isaaclyman.com/blog/tags/agile/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>code quality</title>
+      <link>http://isaaclyman.com/blog/tags/code-quality/</link>
+      <pubDate>Sat, 19 Aug 2017 06:54:57 -0600</pubDate>
+      
+      <guid>http://isaaclyman.com/blog/tags/code-quality/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>css</title>
+      <link>http://isaaclyman.com/blog/tags/css/</link>
+      <pubDate>Sun, 05 Feb 2017 18:04:19 +0000</pubDate>
+      
+      <guid>http://isaaclyman.com/blog/tags/css/</guid>
       <description></description>
     </item>
     

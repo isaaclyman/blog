@@ -1,16 +1,12 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Food on Minimum Viable Blog</title>
+    <title>food on Minimum Viable Blog</title>
     <link>http://isaaclyman.com/blog/tags/food/</link>
-    <description>Recent content in Food on Minimum Viable Blog</description>
+    <description>Recent content in food on Minimum Viable Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>© 2017 by Isaac Lyman. Site powered by Hugo and GitHub.</copyright>
-    <lastBuildDate>Sat, 20 Mar 2021 12:43:55 -0600</lastBuildDate>
-    
-	<atom:link href="http://isaaclyman.com/blog/tags/food/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sat, 20 Mar 2021 12:43:55 -0600</lastBuildDate><atom:link href="http://isaaclyman.com/blog/tags/food/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>The most incredible things I&#39;ve ever eaten</title>
       <link>http://isaaclyman.com/blog/posts/mind-blowing-food/</link>

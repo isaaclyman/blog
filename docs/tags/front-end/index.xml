@@ -1,16 +1,12 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Front end on Minimum Viable Blog</title>
+    <title>front end on Minimum Viable Blog</title>
     <link>http://isaaclyman.com/blog/tags/front-end/</link>
-    <description>Recent content in Front end on Minimum Viable Blog</description>
+    <description>Recent content in front end on Minimum Viable Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>© 2017 by Isaac Lyman. Site powered by Hugo and GitHub.</copyright>
-    <lastBuildDate>Mon, 26 Feb 2018 16:57:30 -0700</lastBuildDate>
-    
-	<atom:link href="http://isaaclyman.com/blog/tags/front-end/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Mon, 26 Feb 2018 16:57:30 -0700</lastBuildDate><atom:link href="http://isaaclyman.com/blog/tags/front-end/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Autosaving with Vuex</title>
       <link>http://isaaclyman.com/blog/posts/autosaving-with-vuex/</link>

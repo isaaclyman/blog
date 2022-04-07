@@ -81,7 +81,7 @@ sup:not(.inline)::before {
   opacity: 1;
 }
 
-.site-title, .list-title {
+.site-title, .list-title, .list-title span {
   text-transform: none;
 }
 
@@ -89,7 +89,7 @@ h1, .site-title {
   font-size: 2.3em;
 }
 
-h2, .list-title {
+h2, .list-title, .list-title {
   font-size: 1.5em;
 }
 
@@ -113,8 +113,9 @@ h2, .list-title {
   font-style: normal;
 }
 
-.title {
+.title, .title span {
   font-family: 'Oswald', Arial, sans-serif;
+  font-style: normal;
   font-weight: 300;
 }
 
@@ -179,4 +180,10 @@ a.page-link {
 
 .page-link.current {
   color: #000;
+}
+
+.subtle-link {
+  color: rgba(0, 0, 0, 0.8);
+  font-size: 0.8em;
+  text-decoration: none;
 }

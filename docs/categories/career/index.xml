@@ -6,7 +6,17 @@
     <description>Recent content in career on Minimum Viable Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>© 2017 by Isaac Lyman. Site powered by Hugo and GitHub Pages.</copyright>
-    <lastBuildDate>Fri, 22 Oct 2021 15:10:08 -0600</lastBuildDate><atom:link href="http://isaaclyman.com/blog/categories/career/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 16 Apr 2022 10:14:15 -0600</lastBuildDate><atom:link href="http://isaaclyman.com/blog/categories/career/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cloud workstations: the future of remote work</title>
+      <link>http://isaaclyman.com/blog/posts/cloud-workstations/</link>
+      <pubDate>Sat, 16 Apr 2022 10:14:15 -0600</pubDate>
+      
+      <guid>http://isaaclyman.com/blog/posts/cloud-workstations/</guid>
+      <description>Application streaming is one of the emerging technologies I&amp;rsquo;m most bullish on. So far its full potential has flown under the radar, but there are companies doing impressive things with it:
+ Xbox Cloud Gaming, currently in beta, streams Xbox games from cloud servers with low latency even on an LTE connection. It&amp;rsquo;s powered by Rainway, whose streaming offering has pivoted from video games to fully-interactive streamed apps of every kind.</description>
+    </item>
+    
     <item>
       <title>What five tech recruiters get wrong (and right) about cold email</title>
       <link>http://isaaclyman.com/blog/posts/five-recruiters/</link>

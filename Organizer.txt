@@ -1,5 +1,6 @@
 # GENRES
 Belief
+Business
 Food
 Literature
 Politics

@@ -6,7 +6,16 @@
     <description>Recent content in Categories on Minimum Viable Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>© 2017 by Isaac Lyman. Site powered by Hugo and GitHub Pages.</copyright>
-    <lastBuildDate>Fri, 29 Apr 2022 09:06:51 -0600</lastBuildDate><atom:link href="http://isaaclyman.com/blog/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 09 May 2022 20:02:10 -0600</lastBuildDate><atom:link href="http://isaaclyman.com/blog/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>development</title>
+      <link>http://isaaclyman.com/blog/categories/development/</link>
+      <pubDate>Mon, 09 May 2022 20:02:10 -0600</pubDate>
+      
+      <guid>http://isaaclyman.com/blog/categories/development/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>management</title>
       <link>http://isaaclyman.com/blog/categories/management/</link>
@@ -67,15 +76,6 @@
       <pubDate>Sun, 20 Mar 2022 09:52:54 -0600</pubDate>
       
       <guid>http://isaaclyman.com/blog/categories/science/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>development</title>
-      <link>http://isaaclyman.com/blog/categories/development/</link>
-      <pubDate>Sat, 05 Mar 2022 20:09:03 -0700</pubDate>
-      
-      <guid>http://isaaclyman.com/blog/categories/development/</guid>
       <description></description>
     </item>
     

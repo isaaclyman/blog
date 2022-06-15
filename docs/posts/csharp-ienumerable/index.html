@@ -132,7 +132,7 @@ if (!doNotTrack) {
   
 </svg>
 
-    6 mins read
+    One min read
   </span>
   
 </div>
@@ -143,103 +143,7 @@ if (!doNotTrack) {
     <div class='entry-content'>
   <p>Let&rsquo;s talk about one of my favorite .NET features.</p>
 <p><strong>IEnumerable</strong> is an interface for iterating over a collection. In other words, if something is an IEnumerable, you can mostly think of it like an Array or a List. You can use a <code>foreach</code> statement to loop through it, you can use LINQ to map or reduce it in a hundred different ways, or you can explicitly cast it to an array with <code>.ToArray()</code> and access elements by index. But there are a few things that make IEnumerables special&ndash;and a few things that make them tricky.</p>
-<p>IEnumerable is the return type from an <em>iterator</em>. An iterator is a method that uses the <code>yield return</code> keywords. <code>yield return</code> is different from a normal <code>return</code> statement because, while it does return a value from the function, it doesn&rsquo;t &ldquo;close the book&rdquo; on that function. The next time a value is expected, the function will continue executing statements <em>after</em> the <code>yield return</code> until it hits another <code>yield return</code> (or a <code>yield break</code>, or the end of the function block). In other words, you could write an iterator that looks like this:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span>IEnumerable&lt;<span style="color:#339;font-weight:bold">int</span>&gt; GetOneTwoThree() {
-</span></span><span style="display:flex;"><span>  <span style="color:#080;font-weight:bold">yield</span> <span style="color:#080;font-weight:bold">return</span> <span style="color:#60e;font-weight:bold">1</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#080;font-weight:bold">yield</span> <span style="color:#080;font-weight:bold">return</span> <span style="color:#60e;font-weight:bold">2</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#080;font-weight:bold">yield</span> <span style="color:#080;font-weight:bold">return</span> <span style="color:#60e;font-weight:bold">3</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#888">// We could put &#34;yield break;&#34; here but there&#39;s no need, the end of the function signals the same thing.</span>
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>When you call <code>GetOneTwoThree()</code> it will return an <code>IEnumerable&lt;int&gt;</code>. As mentioned above, there are a few things you can do with this:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#339;font-weight:bold">var</span> numbers = GetOneTwoThree();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">foreach</span> (<span style="color:#339;font-weight:bold">var</span> number <span style="color:#080;font-weight:bold">in</span> numbers) {
-</span></span><span style="display:flex;"><span>  Console.WriteLine(number);
-</span></span><span style="display:flex;"><span>  <span style="color:#888">// Output:</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#888">// 1</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#888">// 2</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#888">// 3</span>
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#339;font-weight:bold">var</span> doubledNumbers = numbers.Select(num =&gt; num * <span style="color:#60e;font-weight:bold">2</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">foreach</span> (<span style="color:#339;font-weight:bold">var</span> number <span style="color:#080;font-weight:bold">in</span> doubledNumbers) {
-</span></span><span style="display:flex;"><span>  Console.WriteLine(number);
-</span></span><span style="display:flex;"><span>  <span style="color:#888">// Output:</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#888">// 2</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#888">// 4</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#888">// 6</span>
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#339;font-weight:bold">var</span> numberArray = numbers.ToArray();
-</span></span><span style="display:flex;"><span>Console.WriteLine(numberArray[<span style="color:#60e;font-weight:bold">0</span>]); <span style="color:#888">// Output: 1</span>
-</span></span></code></pre></div><p>You may notice that we&rsquo;re iterating over <code>numbers</code> multiple times. For a simple iterator like the one I&rsquo;ve written, that&rsquo;s technically okay to do. Every time we iterate over <code>numbers</code>, it will start over at the beginning of the iterator method and yield all the same values over again. (You can&rsquo;t expect this from every iterator; more on that later.)</p>
-<p><em>Lazy evaluation</em> (the opposite of <em>eager evaluation</em>) is when we wait to execute a piece of code until we absolutely, positively have to. When you call <code>GetOneTwoThree()</code>, you&rsquo;ll get a return value despite the fact that <em>none of the code in the function has actually been executed yet!</em> To prove it, run the following code in LINQPad.</p>
-<p>(If you&rsquo;re not familiar with LINQPad, you should check it out&ndash;it&rsquo;s a powerful, portable C# playground. But the only thing you need to know about it here is that it provides the magic <code>.Dump()</code> method, which outputs any value to the Results pane.)</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#339;font-weight:bold">bool</span> didTheCodeRun = <span style="color:#080;font-weight:bold">false</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">void</span> Main() {
-</span></span><span style="display:flex;"><span>  <span style="color:#339;font-weight:bold">var</span> results = RunTheCode();
-</span></span><span style="display:flex;"><span>  didTheCodeRun.Dump();
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>IEnumerable&lt;<span style="color:#339;font-weight:bold">bool</span>&gt; RunTheCode() {
-</span></span><span style="display:flex;"><span>  didTheCodeRun = <span style="color:#080;font-weight:bold">true</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#080;font-weight:bold">yield</span> <span style="color:#080;font-weight:bold">return</span> <span style="color:#080;font-weight:bold">true</span>;
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>The output of running <code>Main()</code> in the above snippet is <code>false</code>. That&rsquo;s right, after we run <code>RunTheCode()</code>, which explicitly sets <code>didTheCodeRun</code> to <code>true</code>, the value of <code>didTheCodeRun</code> is still <code>false</code>. None of the code in our iterator runs until we start iterating through the IEnumerable. It&rsquo;s lazily evaluated!</p>
-<p>This may seem counterintuitive, but in a lot of cases it&rsquo;s a good thing. What if you never end up iterating through the IEnumerable at all? Well, that&rsquo;s a bunch of code the computer didn&rsquo;t have to execute. Or what if you&rsquo;re using a LINQ method like <code>.First()</code> to try to find a specific item in the collection? You may not need to run <em>all</em> the code in the iterator to get the value you&rsquo;re looking for&ndash;and you won&rsquo;t. Once <code>.First()</code> finds a value that matches the predicate, it will stop iterating. If you&rsquo;re working with an IEnumerable that potentially has thousands of values (or more), you can save a lot of CPU cycles by only iterating as far as you need to.</p>
-<p>Of course, it&rsquo;s all up to you. You can iterate as much or as little as you want. Let&rsquo;s take a look at some of the ways to do that.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#888">// Here&#39;s a variable to track execution of code in an iterator</span>
-</span></span><span style="display:flex;"><span><span style="color:#339;font-weight:bold">int</span> lastYielded = -<span style="color:#60e;font-weight:bold">1</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#888">// Here&#39;s an iterator for us to play with</span>
-</span></span><span style="display:flex;"><span>IEnumerable&lt;<span style="color:#339;font-weight:bold">int</span>&gt; GetOneToTen() {
-</span></span><span style="display:flex;"><span>  <span style="color:#080;font-weight:bold">for</span> (<span style="color:#339;font-weight:bold">var</span> num = <span style="color:#60e;font-weight:bold">1</span>; num &lt;= <span style="color:#60e;font-weight:bold">10</span>; num++) {
-</span></span><span style="display:flex;"><span>    lastYielded = num;
-</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">yield</span> <span style="color:#080;font-weight:bold">return</span> num;
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">void</span> Main() {
-</span></span><span style="display:flex;"><span>  <span style="color:#339;font-weight:bold">var</span> numbers = GetOneToTen();
-</span></span><span style="display:flex;"><span>  lastYielded.Dump(); <span style="color:#888">// Output: -1</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#888">// This gives us an &#39;instance&#39; of the iteration</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#339;font-weight:bold">var</span> enumerator = numbers.GetEnumerator();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#888">// This executes the iterator until the first `yield return` is reached</span>
-</span></span><span style="display:flex;"><span>  enumerator.MoveNext();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#888">// This gives us the current (most recently yielded) value of the iterator</span>
-</span></span><span style="display:flex;"><span>  enumerator.Current.Dump(); <span style="color:#888">// Output: 1</span>
-</span></span><span style="display:flex;"><span>  lastYielded.Dump(); <span style="color:#888">// Output: 1</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#888">// This will iterate from 1 to 4, then stop</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#080;font-weight:bold">foreach</span> (<span style="color:#339;font-weight:bold">var</span> num <span style="color:#080;font-weight:bold">in</span> numbers) {
-</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">if</span> (num &gt;= <span style="color:#60e;font-weight:bold">4</span>) {
-</span></span><span style="display:flex;"><span>      <span style="color:#080;font-weight:bold">break</span>;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  lastYielded.Dump(); <span style="color:#888">// Output: 4</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#888">// This will not execute any code in the iterator.</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#888">//  LINQ methods are lazily evaluated as well</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#339;font-weight:bold">var</span> numbersTimesTwo = numbers.Select(num =&gt; num * <span style="color:#60e;font-weight:bold">2</span>);
-</span></span><span style="display:flex;"><span>  lastYielded.Dump(); <span style="color:#888">// Output: 4</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#888">// This will force the entire iterator to run, yielding all values</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#339;font-weight:bold">var</span> arr = numbers.ToArray();
-</span></span><span style="display:flex;"><span>  lastYielded.Dump(); <span style="color:#888">// Output: 10</span>
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>It&rsquo;s important to point out that many iterators are not as simple as the ones we&rsquo;ve been using here. An iterator could query a database, for example&ndash;including the unfortunate possibility that it might alter data, or that iterating through it twice might yield completely different results! Some tools (like ReSharper) will warn you against multiple enumeration for this reason. An iterator is, from one perspective, nothing more than a synchronous method that may not execute its code right away (or at all). And to muddy the waters just a little, not all iterators are synchronous; there&rsquo;s also an IAsyncEnumerable interface (you can loop through it with <code>await foreach</code>).</p>
-<p>Most of the time none of this is a problem. Almost all the time you can treat an IEnumerable like a List. But I&rsquo;ve learned the hard way not to rely on this&ndash;I once used <code>.Select()</code> to transform a collection while using an external variable to track a small piece of state on each iteration, then got very confused when the external variable wasn&rsquo;t updated later in the method. In the end I fixed the problem by forcing the iteration to complete with <code>.ToArray()</code>. (There are multiple ways to approach something like this, depending on the expected size of the collection and what you&rsquo;re trying to track.)</p>
-<p>Hopefully this overview helps you avoid running into issues when you create or consume IEnumerables in your own code (which is extremely likely, as they&rsquo;re everywhere in C#). Here are a couple of rules to remember:</p>
-<ol>
-<li>Try to avoid side effects when writing an iterator method. Anyone who uses the method should be able to treat it as though it synchronously returns an array. If an iterator changes or executes anything outside of itself, the caller may end up confused. This applies to functions passed to LINQ methods as well, since many of them return IEnumerable and are lazily evaluated.</li>
-<li>You should avoid iterating over the same IEnumerable multiple times. If you know you&rsquo;re going to access every value&ndash;for example, if you&rsquo;re iterating it using a <code>foreach</code> with no <code>break</code> or <code>return</code>&ndash;enumerate it sooner rather than later by coercing the IEnumerable to a List or Array type. Then use that List or Array for all future operations.</li>
-</ol>
+<p><strong>This article has been republished on The Overflow. <a href="https://stackoverflow.blog/2022/06/15/c-ienumerable-yield-return-and-lazy-evaluation/">Keep Reading</a></strong></p>
 
 </div>
 

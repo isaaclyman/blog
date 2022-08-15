@@ -6,7 +6,16 @@
     <description>Recent content in Tags on Minimum Viable Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>© 2017 by Isaac Lyman. Site powered by Hugo and GitHub Pages.</copyright>
-    <lastBuildDate>Fri, 29 Apr 2022 09:06:51 -0600</lastBuildDate><atom:link href="http://isaaclyman.com/blog/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 15 Aug 2022 14:22:14 -0600</lastBuildDate><atom:link href="http://isaaclyman.com/blog/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>csharp</title>
+      <link>http://isaaclyman.com/blog/tags/csharp/</link>
+      <pubDate>Mon, 15 Aug 2022 14:22:14 -0600</pubDate>
+      
+      <guid>http://isaaclyman.com/blog/tags/csharp/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>business</title>
       <link>http://isaaclyman.com/blog/tags/business/</link>
@@ -31,15 +40,6 @@
       <pubDate>Thu, 07 Apr 2022 12:00:00 -0600</pubDate>
       
       <guid>http://isaaclyman.com/blog/tags/health/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>csharp</title>
-      <link>http://isaaclyman.com/blog/tags/csharp/</link>
-      <pubDate>Mon, 22 Nov 2021 10:13:03 -0700</pubDate>
-      
-      <guid>http://isaaclyman.com/blog/tags/csharp/</guid>
       <description></description>
     </item>
     

@@ -5,7 +5,7 @@
   margin-right: 1em;
 }
 
-p, li, a, blockquote, figcaption, figcaption h4, span {
+p, li, a, blockquote, figcaption, figcaption h4 {
   font-family: 'Lato', Helvetica, sans-serif;
 }
 
@@ -153,7 +153,7 @@ code {
   border-radius: 4px;
   color: #000;
   display: inline-block;
-  font-size: 19px;
+  font-size: 16px;
   padding: 2px 5px;
 }
 

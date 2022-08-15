@@ -6,7 +6,17 @@
     <description>Recent content in csharp on Minimum Viable Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>© 2017 by Isaac Lyman. Site powered by Hugo and GitHub Pages.</copyright>
-    <lastBuildDate>Mon, 22 Nov 2021 10:13:03 -0700</lastBuildDate><atom:link href="http://isaaclyman.com/blog/tags/csharp/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 15 Aug 2022 14:22:14 -0600</lastBuildDate><atom:link href="http://isaaclyman.com/blog/tags/csharp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>C#: Equality overrides, hash codes, and dictionaries</title>
+      <link>http://isaaclyman.com/blog/posts/csharp-dictionary-hashcode/</link>
+      <pubDate>Mon, 15 Aug 2022 14:22:14 -0600</pubDate>
+      
+      <guid>http://isaaclyman.com/blog/posts/csharp-dictionary-hashcode/</guid>
+      <description>Consider the following C# class:
+class StringEquivalent { private string Value { get; } public StringEquivalent(string value) { Value = value; } public override string ToString() { return Value; } public override bool Equals(object obj) { if (obj == null) { return false; } return obj.ToString() == Value; } public override int GetHashCode() { return Value.GetHashCode(); } } You provide a string when you instantiate it and you can compare it with another instance or a string using the Equals override (I&amp;rsquo;m using LINQPad&amp;rsquo;s Dump() method to test it):</description>
+    </item>
+    
     <item>
       <title>C#: IEnumerable, yield return, and lazy evaluation</title>
       <link>http://isaaclyman.com/blog/posts/csharp-ienumerable/</link>

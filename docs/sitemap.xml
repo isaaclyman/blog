@@ -3,21 +3,27 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://isaaclyman.com/blog/posts/</loc>
-    <lastmod>2022-08-15T14:22:14-06:00</lastmod>
-  </url><url>
-    <loc>http://isaaclyman.com/blog/posts/csharp-dictionary-hashcode/</loc>
-    <lastmod>2022-08-15T14:22:14-06:00</lastmod>
+    <lastmod>2022-09-12T13:47:11-07:00</lastmod>
   </url><url>
     <loc>http://isaaclyman.com/blog/categories/</loc>
+    <lastmod>2022-09-12T13:47:11-07:00</lastmod>
+  </url><url>
+    <loc>http://isaaclyman.com/blog/posts/30-years/</loc>
+    <lastmod>2022-09-12T13:47:11-07:00</lastmod>
+  </url><url>
+    <loc>http://isaaclyman.com/blog/</loc>
+    <lastmod>2022-09-12T13:47:11-07:00</lastmod>
+  </url><url>
+    <loc>http://isaaclyman.com/blog/categories/self/</loc>
+    <lastmod>2022-09-12T13:47:11-07:00</lastmod>
+  </url><url>
+    <loc>http://isaaclyman.com/blog/posts/csharp-dictionary-hashcode/</loc>
     <lastmod>2022-08-15T14:22:14-06:00</lastmod>
   </url><url>
     <loc>http://isaaclyman.com/blog/tags/csharp/</loc>
     <lastmod>2022-08-15T14:22:14-06:00</lastmod>
   </url><url>
     <loc>http://isaaclyman.com/blog/categories/development/</loc>
-    <lastmod>2022-08-15T14:22:14-06:00</lastmod>
-  </url><url>
-    <loc>http://isaaclyman.com/blog/</loc>
     <lastmod>2022-08-15T14:22:14-06:00</lastmod>
   </url><url>
     <loc>http://isaaclyman.com/blog/tags/</loc>
@@ -27,9 +33,6 @@
     <lastmod>2022-05-28T09:29:35-06:00</lastmod>
   </url><url>
     <loc>http://isaaclyman.com/blog/categories/philosophy/</loc>
-    <lastmod>2022-05-28T09:29:35-06:00</lastmod>
-  </url><url>
-    <loc>http://isaaclyman.com/blog/categories/self/</loc>
     <lastmod>2022-05-28T09:29:35-06:00</lastmod>
   </url><url>
     <loc>http://isaaclyman.com/blog/posts/ado-yaml-pipelines/</loc>

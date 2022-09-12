@@ -6,7 +6,17 @@
     <description>Recent content on Minimum Viable Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>© 2017 by Isaac Lyman. Site powered by Hugo and GitHub Pages.</copyright>
-    <lastBuildDate>Mon, 15 Aug 2022 14:22:14 -0600</lastBuildDate><atom:link href="http://isaaclyman.com/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 12 Sep 2022 13:47:11 -0700</lastBuildDate><atom:link href="http://isaaclyman.com/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>I&#39;m 30.</title>
+      <link>http://isaaclyman.com/blog/posts/30-years/</link>
+      <pubDate>Mon, 12 Sep 2022 13:47:11 -0700</pubDate>
+      
+      <guid>http://isaaclyman.com/blog/posts/30-years/</guid>
+      <description>I turned 30 this year. Here are 15 things I&amp;rsquo;d tell my 15-year-old self if I could.
+Don&amp;rsquo;t take advice from someone you&amp;rsquo;d hate to be like. Someone who gives you advice, even cautionary advice, is recruiting you to be a little more like them. If you don&amp;rsquo;t want that, it&amp;rsquo;s okay to ignore them. Awful people are their own reward. It&amp;rsquo;s okay to stand up for yourself but it&amp;rsquo;s also okay to move on and leave jerks to their misery.</description>
+    </item>
+    
     <item>
       <title>C#: Equality overrides, hash codes, and dictionaries</title>
       <link>http://isaaclyman.com/blog/posts/csharp-dictionary-hashcode/</link>

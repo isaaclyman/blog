@@ -6,7 +6,16 @@
     <description>Recent content on Minimum Viable Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>© 2017 by Isaac Lyman. Site powered by Hugo and GitHub Pages.</copyright>
-    <lastBuildDate>Mon, 12 Sep 2022 13:47:11 -0700</lastBuildDate><atom:link href="http://isaaclyman.com/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 23 Sep 2022 08:50:34 -0600</lastBuildDate><atom:link href="http://isaaclyman.com/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Is code a performative speech act?</title>
+      <link>http://isaaclyman.com/blog/posts/code-performative-speech/</link>
+      <pubDate>Fri, 23 Sep 2022 08:50:34 -0600</pubDate>
+      
+      <guid>http://isaaclyman.com/blog/posts/code-performative-speech/</guid>
+      <description>Computer processing is the act by which the world of the computer is constructed. We can call it a world because it appears to exist unto itself, persisting its environment and taking scripted actions well outside of our awareness. Modern computers rarely shut off completely, so the illusion of persistence (&amp;ldquo;my user desktop is still there even when my computer is asleep; I just drop in on it now and then&amp;rdquo;) is not entirely an illusion.</description>
+    </item>
+    
     <item>
       <title>I&#39;m 30.</title>
       <link>http://isaaclyman.com/blog/posts/30-years/</link>

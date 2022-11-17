@@ -1,4 +1,5 @@
 # GENRES
+Apps
 Belief
 Business
 Food

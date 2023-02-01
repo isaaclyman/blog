@@ -6,7 +6,7 @@ publishDir = "docs"
 theme = "minimo"
 
 disqusShortname = "isaaclymanblog"
-googleAnalytics = "UA-104387168-1"
+googleAnalytics = "G-QX2T3WXRC9"
 Paginate = 5
 PaginatePath = "archive"
 

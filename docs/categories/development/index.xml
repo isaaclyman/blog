@@ -6,7 +6,16 @@
     <description>Recent content in development on Minimum Viable Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>© 2017 by Isaac Lyman. Site powered by Hugo and GitHub Pages.</copyright>
-    <lastBuildDate>Tue, 25 Oct 2022 12:23:02 -0600</lastBuildDate><atom:link href="http://isaaclyman.com/blog/categories/development/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 19 Apr 2023 11:04:02 -0600</lastBuildDate><atom:link href="http://isaaclyman.com/blog/categories/development/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Have we reached Peak Programming Languages?</title>
+      <link>http://isaaclyman.com/blog/posts/peak-programming-languages/</link>
+      <pubDate>Wed, 19 Apr 2023 11:04:02 -0600</pubDate>
+      
+      <guid>http://isaaclyman.com/blog/posts/peak-programming-languages/</guid>
+      <description>I’m relatively young on the programming scene (I wasn&amp;rsquo;t around when FORTRAN came out or anything) so this is a hubristic thing to say, but it feels like we’ve reached Peak Programming Languages. For anything you want to build and any way you want to build it, there&amp;rsquo;s a mature and popular language already available. Typically the community around it is robust and the syntax is delightful. I mean, just try writing a few lines of C# or Dart and tell me it doesn&amp;rsquo;t feel nice.</description>
+    </item>
+    
     <item>
       <title>Credit card chips and encryption in plain JavaScript</title>
       <link>http://isaaclyman.com/blog/posts/credit-card-microchip/</link>

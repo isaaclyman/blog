@@ -3,10 +3,19 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://isaaclyman.com/blog/posts/</loc>
-    <lastmod>2022-11-17T13:18:29-07:00</lastmod>
+    <lastmod>2023-04-19T11:04:02-06:00</lastmod>
+  </url><url>
+    <loc>http://isaaclyman.com/blog/categories/</loc>
+    <lastmod>2023-04-19T11:04:02-06:00</lastmod>
+  </url><url>
+    <loc>http://isaaclyman.com/blog/categories/development/</loc>
+    <lastmod>2023-04-19T11:04:02-06:00</lastmod>
+  </url><url>
+    <loc>http://isaaclyman.com/blog/posts/peak-programming-languages/</loc>
+    <lastmod>2023-04-19T11:04:02-06:00</lastmod>
   </url><url>
     <loc>http://isaaclyman.com/blog/</loc>
-    <lastmod>2022-11-17T13:18:29-07:00</lastmod>
+    <lastmod>2023-04-19T11:04:02-06:00</lastmod>
   </url><url>
     <loc>http://isaaclyman.com/blog/posts/wordle-competitors/</loc>
     <lastmod>2022-11-17T13:18:29-07:00</lastmod>
@@ -14,16 +23,10 @@
     <loc>http://isaaclyman.com/blog/posts/keyboard-buttons/</loc>
     <lastmod>2022-11-15T11:51:53-07:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/categories/</loc>
-    <lastmod>2022-11-15T11:51:53-07:00</lastmod>
-  </url><url>
     <loc>http://isaaclyman.com/blog/categories/product/</loc>
     <lastmod>2022-11-15T11:51:53-07:00</lastmod>
   </url><url>
     <loc>http://isaaclyman.com/blog/posts/credit-card-microchip/</loc>
-    <lastmod>2022-10-25T12:23:02-06:00</lastmod>
-  </url><url>
-    <loc>http://isaaclyman.com/blog/categories/development/</loc>
     <lastmod>2022-10-25T12:23:02-06:00</lastmod>
   </url><url>
     <loc>http://isaaclyman.com/blog/posts/logging-in/</loc>

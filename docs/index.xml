@@ -6,7 +6,19 @@
     <description>Recent content on Minimum Viable Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>© 2017 by Isaac Lyman. Site powered by Hugo and GitHub Pages.</copyright>
-    <lastBuildDate>Sun, 04 Jun 2023 10:41:39 -0600</lastBuildDate><atom:link href="http://isaaclyman.com/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 12 Jul 2023 09:58:47 -0600</lastBuildDate><atom:link href="http://isaaclyman.com/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mastodon is so simple, literally everyone already understands it</title>
+      <link>http://isaaclyman.com/blog/posts/everyone-understands-mastodon/</link>
+      <pubDate>Wed, 12 Jul 2023 09:58:47 -0600</pubDate>
+      
+      <guid>http://isaaclyman.com/blog/posts/everyone-understands-mastodon/</guid>
+      <description>One hundred percent of people&amp;rsquo;s confusion about Mastodon comes from journalists doing a bad job explaining it. It&amp;rsquo;s not complicated. In fact, it&amp;rsquo;s so simple that you already understand it, and you use something exactly like it every single day.
+I&amp;rsquo;m talking about email.
+If you understand one basic thing about email, you already know everything you need to know about Mastodon.
+It doesn&amp;rsquo;t matter what email website you use. It doesn&amp;rsquo;t matter what email websites your friends use.</description>
+    </item>
+    
     <item>
       <title>On tools of unusual advantage</title>
       <link>http://isaaclyman.com/blog/posts/tools-of-unusual-advantage/</link>

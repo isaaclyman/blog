@@ -6,7 +6,17 @@
     <description>Recent content on Minimum Viable Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>© 2017 by Isaac Lyman. Site powered by Hugo and GitHub Pages.</copyright>
-    <lastBuildDate>Wed, 12 Jul 2023 09:58:47 -0600</lastBuildDate><atom:link href="http://isaaclyman.com/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 19 Jul 2023 09:31:00 -0600</lastBuildDate><atom:link href="http://isaaclyman.com/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>On horoscopic projection</title>
+      <link>http://isaaclyman.com/blog/posts/horoscopic-projection/</link>
+      <pubDate>Wed, 19 Jul 2023 09:31:00 -0600</pubDate>
+      
+      <guid>http://isaaclyman.com/blog/posts/horoscopic-projection/</guid>
+      <description>Imagine you&amp;rsquo;ve misheard the lyrics to a song. You&amp;rsquo;ve interpreted it to be saying something the musician could not possibly have intended. This is a common experience: music adds sensory noise to speech, making it more difficult to decipher what&amp;rsquo;s being said. And people frequently mishear each other anyway, even when speaking clearly in a quiet place.
+Music also adds an emotional dimension to speech. Some people (myself included) have misheard the lyrics to a song and then formed an emotional attachment to them, resulting in disappointment when the true lyrics are known.</description>
+    </item>
+    
     <item>
       <title>Mastodon is so simple, literally everyone already understands it</title>
       <link>http://isaaclyman.com/blog/posts/everyone-understands-mastodon/</link>

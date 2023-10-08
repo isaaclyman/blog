@@ -3,7 +3,19 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://isaaclyman.com/blog/posts/</loc>
-    <lastmod>2023-07-27T09:51:52-06:00</lastmod>
+    <lastmod>2023-10-07T08:50:20-06:00</lastmod>
+  </url><url>
+    <loc>http://isaaclyman.com/blog/categories/</loc>
+    <lastmod>2023-10-07T08:50:20-06:00</lastmod>
+  </url><url>
+    <loc>http://isaaclyman.com/blog/</loc>
+    <lastmod>2023-10-07T08:50:20-06:00</lastmod>
+  </url><url>
+    <loc>http://isaaclyman.com/blog/posts/on-art/</loc>
+    <lastmod>2023-10-07T08:50:20-06:00</lastmod>
+  </url><url>
+    <loc>http://isaaclyman.com/blog/categories/philosophy/</loc>
+    <lastmod>2023-10-07T08:50:20-06:00</lastmod>
   </url><url>
     <loc>http://isaaclyman.com/blog/tags/business/</loc>
     <lastmod>2023-07-27T09:51:52-06:00</lastmod>
@@ -11,16 +23,10 @@
     <loc>http://isaaclyman.com/blog/categories/career/</loc>
     <lastmod>2023-07-27T09:51:52-06:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/categories/</loc>
-    <lastmod>2023-07-27T09:51:52-06:00</lastmod>
-  </url><url>
     <loc>http://isaaclyman.com/blog/posts/junior-developers/</loc>
     <lastmod>2023-07-27T09:51:52-06:00</lastmod>
   </url><url>
     <loc>http://isaaclyman.com/blog/categories/management/</loc>
-    <lastmod>2023-07-27T09:51:52-06:00</lastmod>
-  </url><url>
-    <loc>http://isaaclyman.com/blog/</loc>
     <lastmod>2023-07-27T09:51:52-06:00</lastmod>
   </url><url>
     <loc>http://isaaclyman.com/blog/tags/productivity/</loc>
@@ -30,9 +36,6 @@
     <lastmod>2023-07-27T09:51:52-06:00</lastmod>
   </url><url>
     <loc>http://isaaclyman.com/blog/posts/horoscopic-projection/</loc>
-    <lastmod>2023-07-19T09:31:00-06:00</lastmod>
-  </url><url>
-    <loc>http://isaaclyman.com/blog/categories/philosophy/</loc>
     <lastmod>2023-07-19T09:31:00-06:00</lastmod>
   </url><url>
     <loc>http://isaaclyman.com/blog/posts/everyone-understands-mastodon/</loc>

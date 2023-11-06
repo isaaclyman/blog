@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>business on Minimum Viable Blog</title>
+    <link>http://isaaclyman.com/blog/categories/business/</link>
+    <description>Recent content in business on Minimum Viable Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>© 2017 by Isaac Lyman. Site powered by Hugo and GitHub Pages.</copyright>
+    <lastBuildDate>Mon, 06 Nov 2023 08:01:28 -0700</lastBuildDate><atom:link href="http://isaaclyman.com/blog/categories/business/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Why &#39;Netflix with ads&#39; makes no sense</title>
+      <link>http://isaaclyman.com/blog/posts/netflix-with-ads/</link>
+      <pubDate>Mon, 06 Nov 2023 08:01:28 -0700</pubDate>
+      
+      <guid>http://isaaclyman.com/blog/posts/netflix-with-ads/</guid>
+      <description>At time of writing, Netflix&amp;rsquo;s Standard plan costs 15.49 USD, while its Standard with ads plan costs 6.99 USD. The difference between those prices is 8.50 USD; it costs more than twice as much to watch without ads.
+What&amp;rsquo;s the math on that one? Advertisers are estimated to pay up to 50 USD per thousand ad views. That&amp;rsquo;s five cents per view. In 2019, the average Netflix viewer watched about 2 hours per day—this number went up in 2020 during quarantine, but has likely come back down since.</description>
+    </item>
+    
+  </channel>
+</rss>

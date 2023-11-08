@@ -1,0 +1,5 @@
+@media print {
+  .entry-nav, .comments-container, .social, .entry-footer, .footer {
+    display: none;
+  }
+}

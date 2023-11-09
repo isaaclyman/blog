@@ -6,7 +6,20 @@
     <description>Recent content in beginners on Minimum Viable Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>© 2017 by Isaac Lyman. Site powered by Hugo and GitHub Pages.</copyright>
-    <lastBuildDate>Sat, 09 Mar 2019 08:02:55 -0700</lastBuildDate><atom:link href="http://isaaclyman.com/blog/tags/beginners/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 09 Nov 2023 11:42:33 -0700</lastBuildDate><atom:link href="http://isaaclyman.com/blog/tags/beginners/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>So software engineering isn&#39;t working out for you</title>
+      <link>http://isaaclyman.com/blog/posts/engineering-didnt-work-out/</link>
+      <pubDate>Thu, 09 Nov 2023 11:42:33 -0700</pubDate>
+      
+      <guid>http://isaaclyman.com/blog/posts/engineering-didnt-work-out/</guid>
+      <description>I used to be solidly on team &amp;ldquo;anyone can code.&amp;rdquo; That changed when I talked to my therapist about it.
+ME: I&amp;rsquo;m a big believer in neuroplasticity. I think anyone can learn to do anything, it&amp;rsquo;s just a matter of how long it takes.
+THERAPIST (visibly uncomfortable): I don&amp;rsquo;t think that&amp;rsquo;s fair.
+ME: Why not?
+THERAPIST: Well, for example, my partner and I have very different skills. I&amp;rsquo;m no good at some things she&amp;rsquo;s really good at, like math, and it wouldn&amp;rsquo;t matter how long I try to be good at them, I&amp;rsquo;d be wasting my time.</description>
+    </item>
+    
     <item>
       <title>I&#39;m writing a book for junior developers!</title>
       <link>http://isaaclyman.com/blog/posts/im-writing-a-book/</link>

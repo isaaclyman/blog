@@ -6,7 +6,17 @@
     <description>Recent content on Minimum Viable Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>© 2017 by Isaac Lyman. Site powered by Hugo and GitHub Pages.</copyright>
-    <lastBuildDate>Thu, 09 Nov 2023 11:42:33 -0700</lastBuildDate><atom:link href="http://isaaclyman.com/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 20 Nov 2023 11:00:28 -0700</lastBuildDate><atom:link href="http://isaaclyman.com/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The 3D object model of software construction</title>
+      <link>http://isaaclyman.com/blog/posts/3d-object-model-of-software/</link>
+      <pubDate>Mon, 20 Nov 2023 11:00:28 -0700</pubDate>
+      
+      <guid>http://isaaclyman.com/blog/posts/3d-object-model-of-software/</guid>
+      <description>Software projects are most efficient when, at any given time, each contributor is focused on a different concern. Like objects in 3D space, projects can be said to have surface area and volume:
+Surface area represents the number of opportunities to contribute—that is, how many people could efficiently work on the project at the same time. Volume represents the knowledge space of the project (measured, perhaps, in the total number of productive person-hours spent on it).</description>
+    </item>
+    
     <item>
       <title>So software engineering isn&#39;t working out for you</title>
       <link>http://isaaclyman.com/blog/posts/engineering-didnt-work-out/</link>

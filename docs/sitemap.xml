@@ -3,15 +3,27 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://isaaclyman.com/blog/posts/</loc>
-    <lastmod>2023-11-20T11:00:28-07:00</lastmod>
+    <lastmod>2023-11-22T18:19:25-07:00</lastmod>
   </url><url>
     <loc>http://isaaclyman.com/blog/categories/</loc>
-    <lastmod>2023-11-20T11:00:28-07:00</lastmod>
-  </url><url>
-    <loc>http://isaaclyman.com/blog/categories/development/</loc>
-    <lastmod>2023-11-20T11:00:28-07:00</lastmod>
+    <lastmod>2023-11-22T18:19:25-07:00</lastmod>
   </url><url>
     <loc>http://isaaclyman.com/blog/</loc>
+    <lastmod>2023-11-22T18:19:25-07:00</lastmod>
+  </url><url>
+    <loc>http://isaaclyman.com/blog/posts/software-upgrades-2023/</loc>
+    <lastmod>2023-11-22T18:19:25-07:00</lastmod>
+  </url><url>
+    <loc>http://isaaclyman.com/blog/categories/product/</loc>
+    <lastmod>2023-11-22T18:19:25-07:00</lastmod>
+  </url><url>
+    <loc>http://isaaclyman.com/blog/tags/productivity/</loc>
+    <lastmod>2023-11-22T18:19:25-07:00</lastmod>
+  </url><url>
+    <loc>http://isaaclyman.com/blog/tags/</loc>
+    <lastmod>2023-11-22T18:19:25-07:00</lastmod>
+  </url><url>
+    <loc>http://isaaclyman.com/blog/categories/development/</loc>
     <lastmod>2023-11-20T11:00:28-07:00</lastmod>
   </url><url>
     <loc>http://isaaclyman.com/blog/posts/3d-object-model-of-software/</loc>
@@ -24,9 +36,6 @@
     <lastmod>2023-11-09T11:42:33-07:00</lastmod>
   </url><url>
     <loc>http://isaaclyman.com/blog/posts/engineering-didnt-work-out/</loc>
-    <lastmod>2023-11-09T11:42:33-07:00</lastmod>
-  </url><url>
-    <loc>http://isaaclyman.com/blog/tags/</loc>
     <lastmod>2023-11-09T11:42:33-07:00</lastmod>
   </url><url>
     <loc>http://isaaclyman.com/blog/categories/business/</loc>
@@ -59,9 +68,6 @@
     <loc>http://isaaclyman.com/blog/categories/management/</loc>
     <lastmod>2023-07-27T09:51:52-06:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/tags/productivity/</loc>
-    <lastmod>2023-07-27T09:51:52-06:00</lastmod>
-  </url><url>
     <loc>http://isaaclyman.com/blog/posts/horoscopic-projection/</loc>
     <lastmod>2023-07-19T09:31:00-06:00</lastmod>
   </url><url>
@@ -84,9 +90,6 @@
     <lastmod>2022-11-17T13:18:29-07:00</lastmod>
   </url><url>
     <loc>http://isaaclyman.com/blog/posts/keyboard-buttons/</loc>
-    <lastmod>2022-11-15T11:51:53-07:00</lastmod>
-  </url><url>
-    <loc>http://isaaclyman.com/blog/categories/product/</loc>
     <lastmod>2022-11-15T11:51:53-07:00</lastmod>
   </url><url>
     <loc>http://isaaclyman.com/blog/posts/credit-card-microchip/</loc>

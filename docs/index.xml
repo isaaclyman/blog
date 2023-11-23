@@ -6,7 +6,19 @@
     <description>Recent content on Minimum Viable Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>© 2017 by Isaac Lyman. Site powered by Hugo and GitHub Pages.</copyright>
-    <lastBuildDate>Mon, 20 Nov 2023 11:00:28 -0700</lastBuildDate><atom:link href="http://isaaclyman.com/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 22 Nov 2023 18:19:25 -0700</lastBuildDate><atom:link href="http://isaaclyman.com/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>My 2022-2023 software upgrades</title>
+      <link>http://isaaclyman.com/blog/posts/software-upgrades-2023/</link>
+      <pubDate>Wed, 22 Nov 2023 18:19:25 -0700</pubDate>
+      
+      <guid>http://isaaclyman.com/blog/posts/software-upgrades-2023/</guid>
+      <description>I&amp;rsquo;ve made some big changes to my personal tech ecosystem over the last few years and discovered some great applications along the way. Here are a few standouts.
+Kagi Paid for by the user
+Replacement for: Google search, which I&amp;rsquo;ve used since at least 2004.
+If you&amp;rsquo;ve noticed your Google results have been getting steadily worse—or if you&amp;rsquo;re getting sick of having to scroll down below the fold to even see your results—you should sign up for a free trial of Kagi (rhymes with &amp;ldquo;doggy&amp;rdquo;), a search engine whose biggest con is also its biggest pro: you have to pay for it.</description>
+    </item>
+    
     <item>
       <title>The 3D object model of software construction</title>
       <link>http://isaaclyman.com/blog/posts/3d-object-model-of-software/</link>

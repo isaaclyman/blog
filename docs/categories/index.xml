@@ -6,7 +6,25 @@
     <description>Recent content in Categories on Minimum Viable Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>© 2017 by Isaac Lyman. Site powered by Hugo and GitHub Pages.</copyright>
-    <lastBuildDate>Sat, 25 Nov 2023 08:54:28 -0700</lastBuildDate><atom:link href="http://isaaclyman.com/blog/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 05 Dec 2023 11:22:31 -0700</lastBuildDate><atom:link href="http://isaaclyman.com/blog/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>business</title>
+      <link>http://isaaclyman.com/blog/categories/business/</link>
+      <pubDate>Tue, 05 Dec 2023 11:22:31 -0700</pubDate>
+      
+      <guid>http://isaaclyman.com/blog/categories/business/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>career</title>
+      <link>http://isaaclyman.com/blog/categories/career/</link>
+      <pubDate>Tue, 05 Dec 2023 11:22:31 -0700</pubDate>
+      
+      <guid>http://isaaclyman.com/blog/categories/career/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>philosophy</title>
       <link>http://isaaclyman.com/blog/categories/philosophy/</link>
@@ -31,24 +49,6 @@
       <pubDate>Mon, 20 Nov 2023 11:00:28 -0700</pubDate>
       
       <guid>http://isaaclyman.com/blog/categories/development/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>career</title>
-      <link>http://isaaclyman.com/blog/categories/career/</link>
-      <pubDate>Thu, 09 Nov 2023 11:42:33 -0700</pubDate>
-      
-      <guid>http://isaaclyman.com/blog/categories/career/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>business</title>
-      <link>http://isaaclyman.com/blog/categories/business/</link>
-      <pubDate>Mon, 06 Nov 2023 08:01:28 -0700</pubDate>
-      
-      <guid>http://isaaclyman.com/blog/categories/business/</guid>
       <description></description>
     </item>
     

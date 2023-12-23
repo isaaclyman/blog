@@ -3,7 +3,19 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://isaaclyman.com/blog/posts/</loc>
-    <lastmod>2023-12-05T11:22:31-07:00</lastmod>
+    <lastmod>2023-12-23T09:15:43-07:00</lastmod>
+  </url><url>
+    <loc>http://isaaclyman.com/blog/categories/</loc>
+    <lastmod>2023-12-23T09:15:43-07:00</lastmod>
+  </url><url>
+    <loc>http://isaaclyman.com/blog/</loc>
+    <lastmod>2023-12-23T09:15:43-07:00</lastmod>
+  </url><url>
+    <loc>http://isaaclyman.com/blog/posts/misunderstanding-yoda/</loc>
+    <lastmod>2023-12-23T09:15:43-07:00</lastmod>
+  </url><url>
+    <loc>http://isaaclyman.com/blog/categories/philosophy/</loc>
+    <lastmod>2023-12-23T09:15:43-07:00</lastmod>
   </url><url>
     <loc>http://isaaclyman.com/blog/categories/business/</loc>
     <lastmod>2023-12-05T11:22:31-07:00</lastmod>
@@ -11,17 +23,8 @@
     <loc>http://isaaclyman.com/blog/categories/career/</loc>
     <lastmod>2023-12-05T11:22:31-07:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/categories/</loc>
-    <lastmod>2023-12-05T11:22:31-07:00</lastmod>
-  </url><url>
-    <loc>http://isaaclyman.com/blog/</loc>
-    <lastmod>2023-12-05T11:22:31-07:00</lastmod>
-  </url><url>
     <loc>http://isaaclyman.com/blog/posts/dev-companies/</loc>
     <lastmod>2023-12-05T11:22:31-07:00</lastmod>
-  </url><url>
-    <loc>http://isaaclyman.com/blog/categories/philosophy/</loc>
-    <lastmod>2023-11-25T08:54:28-07:00</lastmod>
   </url><url>
     <loc>http://isaaclyman.com/blog/posts/tenets-of-media-consumption/</loc>
     <lastmod>2023-11-25T08:54:28-07:00</lastmod>

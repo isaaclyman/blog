@@ -5,13 +5,15 @@
     <link>http://isaaclyman.com/blog/categories/</link>
     <description>Recent content in Categories on Minimum Viable Blog</description>
     <generator>Hugo -- gohugo.io</generator>
+    <managingEditor>map[host:isaaclyman.com username:blog] (Isaac Lyman)</managingEditor>
+    <webMaster>map[host:isaaclyman.com username:blog] (Isaac Lyman)</webMaster>
     <copyright>© 2017 by Isaac Lyman. Site powered by Hugo and GitHub Pages.</copyright>
     <lastBuildDate>Sat, 23 Dec 2023 09:15:43 -0700</lastBuildDate><atom:link href="http://isaaclyman.com/blog/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>philosophy</title>
       <link>http://isaaclyman.com/blog/categories/philosophy/</link>
       <pubDate>Sat, 23 Dec 2023 09:15:43 -0700</pubDate>
-      
+      <author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
       <guid>http://isaaclyman.com/blog/categories/philosophy/</guid>
       <description></description>
     </item>
@@ -20,7 +22,7 @@
       <title>business</title>
       <link>http://isaaclyman.com/blog/categories/business/</link>
       <pubDate>Tue, 05 Dec 2023 11:22:31 -0700</pubDate>
-      
+      <author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
       <guid>http://isaaclyman.com/blog/categories/business/</guid>
       <description></description>
     </item>
@@ -29,7 +31,7 @@
       <title>career</title>
       <link>http://isaaclyman.com/blog/categories/career/</link>
       <pubDate>Tue, 05 Dec 2023 11:22:31 -0700</pubDate>
-      
+      <author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
       <guid>http://isaaclyman.com/blog/categories/career/</guid>
       <description></description>
     </item>
@@ -38,7 +40,7 @@
       <title>product</title>
       <link>http://isaaclyman.com/blog/categories/product/</link>
       <pubDate>Wed, 22 Nov 2023 18:19:25 -0700</pubDate>
-      
+      <author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
       <guid>http://isaaclyman.com/blog/categories/product/</guid>
       <description></description>
     </item>
@@ -47,7 +49,7 @@
       <title>development</title>
       <link>http://isaaclyman.com/blog/categories/development/</link>
       <pubDate>Mon, 20 Nov 2023 11:00:28 -0700</pubDate>
-      
+      <author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
       <guid>http://isaaclyman.com/blog/categories/development/</guid>
       <description></description>
     </item>
@@ -56,7 +58,7 @@
       <title>science</title>
       <link>http://isaaclyman.com/blog/categories/science/</link>
       <pubDate>Thu, 12 Oct 2023 18:34:59 -0600</pubDate>
-      
+      <author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
       <guid>http://isaaclyman.com/blog/categories/science/</guid>
       <description></description>
     </item>
@@ -65,7 +67,7 @@
       <title>management</title>
       <link>http://isaaclyman.com/blog/categories/management/</link>
       <pubDate>Thu, 27 Jul 2023 09:51:52 -0600</pubDate>
-      
+      <author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
       <guid>http://isaaclyman.com/blog/categories/management/</guid>
       <description></description>
     </item>
@@ -74,7 +76,7 @@
       <title>self</title>
       <link>http://isaaclyman.com/blog/categories/self/</link>
       <pubDate>Fri, 26 May 2023 16:26:54 -0600</pubDate>
-      
+      <author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
       <guid>http://isaaclyman.com/blog/categories/self/</guid>
       <description></description>
     </item>
@@ -83,7 +85,7 @@
       <title>literature</title>
       <link>http://isaaclyman.com/blog/categories/literature/</link>
       <pubDate>Tue, 12 Apr 2022 15:29:22 -0600</pubDate>
-      
+      <author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
       <guid>http://isaaclyman.com/blog/categories/literature/</guid>
       <description></description>
     </item>
@@ -92,7 +94,7 @@
       <title>food</title>
       <link>http://isaaclyman.com/blog/categories/food/</link>
       <pubDate>Sun, 10 Apr 2022 09:19:18 -0600</pubDate>
-      
+      <author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
       <guid>http://isaaclyman.com/blog/categories/food/</guid>
       <description></description>
     </item>
@@ -101,7 +103,7 @@
       <title>satire</title>
       <link>http://isaaclyman.com/blog/categories/satire/</link>
       <pubDate>Thu, 03 Mar 2022 10:06:11 -0700</pubDate>
-      
+      <author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
       <guid>http://isaaclyman.com/blog/categories/satire/</guid>
       <description></description>
     </item>
@@ -110,7 +112,7 @@
       <title>language</title>
       <link>http://isaaclyman.com/blog/categories/language/</link>
       <pubDate>Tue, 14 Apr 2020 15:26:41 -0600</pubDate>
-      
+      <author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
       <guid>http://isaaclyman.com/blog/categories/language/</guid>
       <description></description>
     </item>
@@ -119,7 +121,7 @@
       <title>politics</title>
       <link>http://isaaclyman.com/blog/categories/politics/</link>
       <pubDate>Thu, 23 Aug 2018 08:44:30 -0600</pubDate>
-      
+      <author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
       <guid>http://isaaclyman.com/blog/categories/politics/</guid>
       <description></description>
     </item>
@@ -128,7 +130,7 @@
       <title>documentation</title>
       <link>http://isaaclyman.com/blog/categories/documentation/</link>
       <pubDate>Fri, 03 Nov 2017 13:49:58 -0600</pubDate>
-      
+      <author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
       <guid>http://isaaclyman.com/blog/categories/documentation/</guid>
       <description></description>
     </item>

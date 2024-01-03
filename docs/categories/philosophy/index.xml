@@ -5,13 +5,15 @@
     <link>http://isaaclyman.com/blog/categories/philosophy/</link>
     <description>Recent content in philosophy on Minimum Viable Blog</description>
     <generator>Hugo -- gohugo.io</generator>
+    <managingEditor>map[host:isaaclyman.com username:blog] (Isaac Lyman)</managingEditor>
+    <webMaster>map[host:isaaclyman.com username:blog] (Isaac Lyman)</webMaster>
     <copyright>© 2017 by Isaac Lyman. Site powered by Hugo and GitHub Pages.</copyright>
     <lastBuildDate>Sat, 23 Dec 2023 09:15:43 -0700</lastBuildDate><atom:link href="http://isaaclyman.com/blog/categories/philosophy/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Misunderstanding Yoda</title>
       <link>http://isaaclyman.com/blog/posts/misunderstanding-yoda/</link>
       <pubDate>Sat, 23 Dec 2023 09:15:43 -0700</pubDate>
-      
+      <author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
       <guid>http://isaaclyman.com/blog/posts/misunderstanding-yoda/</guid>
       <description>In The Empire Strikes Back (1980), we see a famous exchange between Yoda (an archetypical &amp;ldquo;wise elder&amp;rdquo; figure) and Luke Skywalker, his young apprentice. They stand in a swamp where Luke&amp;rsquo;s spaceship lies submerged after a crash landing.
 LUKE: We&amp;rsquo;ll never get it out now.
@@ -23,7 +25,7 @@ LUKE: Master, moving stones around is one thing.</description>
       <title>Seven tenets of media consumption</title>
       <link>http://isaaclyman.com/blog/posts/tenets-of-media-consumption/</link>
       <pubDate>Sat, 25 Nov 2023 08:54:28 -0700</pubDate>
-      
+      <author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
       <guid>http://isaaclyman.com/blog/posts/tenets-of-media-consumption/</guid>
       <description>Media here refers to books, movies, journalism, music, video games, and other published content of any genre.
 Consumption is value-neutral. No one is evil for consuming a particular piece of media, nor is it possible to consume your way to virtue. Even so, some media causes harm. When a work targets a group based on any immutable trait, consumers have a social responsibility to respond with due outrage. Criticism is not censorship.</description>
@@ -33,7 +35,7 @@ Consumption is value-neutral. No one is evil for consuming a particular piece of
       <title>On the ethics of counterfactual messaging</title>
       <link>http://isaaclyman.com/blog/posts/on-counterfactual-messaging/</link>
       <pubDate>Sun, 29 Oct 2023 09:43:48 -0600</pubDate>
-      
+      <author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
       <guid>http://isaaclyman.com/blog/posts/on-counterfactual-messaging/</guid>
       <description>Suppose a given audience can, in a majority of some kind, be expected to misinterpret a piece of information when presented factually. Is it then justified to present counterfactual information calibrated to be misinterpreted so that a correct meaning will be received?
 &amp;ldquo;Misinterpretation&amp;rdquo; here includes not only a failure to understand the information as intended, but a failure to enact (or perform) it. The outcome is the same.
@@ -44,7 +46,7 @@ Take, for example, speed limits on public roads.</description>
       <title>On art</title>
       <link>http://isaaclyman.com/blog/posts/on-art/</link>
       <pubDate>Sat, 07 Oct 2023 08:50:20 -0600</pubDate>
-      
+      <author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
       <guid>http://isaaclyman.com/blog/posts/on-art/</guid>
       <description>Any 21st-century definition of art has to pass a few tests.
 It must include all commonly-understood examples of art such as paintings, novels, plays, movies, music, video games, sculptures, photographs, and poems. It must not therefore smell like an attempt to launder one&amp;rsquo;s personal likes and dislikes as though they were objective or authoritative, which unfortunately rules out many definitions given by philosophers whose names you would recognize. It must include Marcel Duchamp&amp;rsquo;s readymades.</description>
@@ -54,7 +56,7 @@ It must include all commonly-understood examples of art such as paintings, novel
       <title>On horoscopic projection</title>
       <link>http://isaaclyman.com/blog/posts/horoscopic-projection/</link>
       <pubDate>Wed, 19 Jul 2023 09:31:00 -0600</pubDate>
-      
+      <author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
       <guid>http://isaaclyman.com/blog/posts/horoscopic-projection/</guid>
       <description>Imagine you&amp;rsquo;ve misheard the lyrics to a song. You&amp;rsquo;ve interpreted it to be saying something the musician could not possibly have intended. This is a common experience: music adds sensory noise to speech, making it more difficult to decipher what&amp;rsquo;s being said. And people frequently mishear each other anyway, even when speaking clearly in a quiet place.
 Music also adds an emotional dimension to speech. Some people (myself included) have misheard the lyrics to a song and then formed an emotional attachment to them, resulting in disappointment when the true lyrics are known.</description>
@@ -64,7 +66,7 @@ Music also adds an emotional dimension to speech. Some people (myself included) 
       <title>On tools of unusual advantage</title>
       <link>http://isaaclyman.com/blog/posts/tools-of-unusual-advantage/</link>
       <pubDate>Sun, 04 Jun 2023 10:41:39 -0600</pubDate>
-      
+      <author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
       <guid>http://isaaclyman.com/blog/posts/tools-of-unusual-advantage/</guid>
       <description>People have an excessive tendency to reason by definition. We want to understand events in terms of principles; we prefer stories to systems; we like brevity more than nuance. When something doesn&amp;rsquo;t fit our framing, most of us close our eyes and fool ourselves that it does.
 This underpins the perennial debate of &amp;ldquo;X is good, X is evil.&amp;rdquo; Occasionally the topic, X, is a person, in which case the question is more or less answerable.</description>
@@ -74,7 +76,7 @@ This underpins the perennial debate of &amp;ldquo;X is good, X is evil.&amp;rdqu
       <title>Is code a performative speech act?</title>
       <link>http://isaaclyman.com/blog/posts/code-performative-speech/</link>
       <pubDate>Fri, 23 Sep 2022 08:50:34 -0600</pubDate>
-      
+      <author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
       <guid>http://isaaclyman.com/blog/posts/code-performative-speech/</guid>
       <description>Computer processing is the act by which the world of the computer is constructed. We can call it a world because it appears to exist unto itself, persisting its environment and taking scripted actions well outside of our awareness. Modern computers rarely shut off completely, so the illusion of persistence (&amp;ldquo;my user desktop is still there even when my computer is asleep; I just drop in on it now and then&amp;rdquo;) is not entirely an illusion.</description>
     </item>
@@ -83,7 +85,7 @@ This underpins the perennial debate of &amp;ldquo;X is good, X is evil.&amp;rdqu
       <title>On forbidden knowledge and transformative thought</title>
       <link>http://isaaclyman.com/blog/posts/unthink/</link>
       <pubDate>Sat, 28 May 2022 09:29:35 -0600</pubDate>
-      
+      <author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
       <guid>http://isaaclyman.com/blog/posts/unthink/</guid>
       <description>Depth and problematization You can&amp;rsquo;t unthink a thought. I&amp;rsquo;m speaking of thoughts outside the borders of what we have previously thought about. These thoughts are apt to unsettle us, even consume us for a period of time. Ultimately we will incorporate them into our normal thought patterns and move on, but we will be fundamentally different selves from that point on.
 These thoughts often can&amp;rsquo;t be communicated in the same words they were formed with.</description>
@@ -93,7 +95,7 @@ These thoughts often can&amp;rsquo;t be communicated in the same words they were
       <title>On absurdism, belief, and meaning</title>
       <link>http://isaaclyman.com/blog/posts/absurdism-belief-and-meaning/</link>
       <pubDate>Sun, 13 Feb 2022 12:07:35 -0700</pubDate>
-      
+      <author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
       <guid>http://isaaclyman.com/blog/posts/absurdism-belief-and-meaning/</guid>
       <description>[&amp;hellip;] a man is always prey to his truths. Once he has admitted them, he cannot free himself from them. One has to pay something.
 Albert Camus, The Myth of Sisyphus

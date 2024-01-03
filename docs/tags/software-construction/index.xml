@@ -5,13 +5,15 @@
     <link>http://isaaclyman.com/blog/tags/software-construction/</link>
     <description>Recent content in software construction on Minimum Viable Blog</description>
     <generator>Hugo -- gohugo.io</generator>
+    <managingEditor>map[host:isaaclyman.com username:blog] (Isaac Lyman)</managingEditor>
+    <webMaster>map[host:isaaclyman.com username:blog] (Isaac Lyman)</webMaster>
     <copyright>© 2017 by Isaac Lyman. Site powered by Hugo and GitHub Pages.</copyright>
     <lastBuildDate>Tue, 11 Feb 2020 08:22:35 -0700</lastBuildDate><atom:link href="http://isaaclyman.com/blog/tags/software-construction/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Load testing with Jmeter: an introduction</title>
       <link>http://isaaclyman.com/blog/posts/load-testing-jmeter/</link>
       <pubDate>Tue, 11 Feb 2020 08:22:35 -0700</pubDate>
-      
+      <author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
       <guid>http://isaaclyman.com/blog/posts/load-testing-jmeter/</guid>
       <description>Today we&amp;rsquo;re going to go from 0 to a configurable load testing script using JMeter, a free and popular load testing tool. We&amp;rsquo;ll be moving quickly, so hold on tight.
 What is load testing? If your app or service is very successful, hundreds of people might be using it at once. Lots of things can go wrong when a server is under heavy usage like that. It&amp;rsquo;s not economical to recruit hundreds of actual people to test your app manually, so your best choice is to use software to simulate it.</description>
@@ -21,7 +23,7 @@ What is load testing? If your app or service is very successful, hundreds of peo
       <title>Application environments</title>
       <link>http://isaaclyman.com/blog/posts/application-environments/</link>
       <pubDate>Tue, 13 Mar 2018 16:17:12 -0600</pubDate>
-      
+      <author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
       <guid>http://isaaclyman.com/blog/posts/application-environments/</guid>
       <description>What are environments, anyway? Most software companies have their product deployed to a few different environments, which have names like local, dev, test, stage, and production. On my first day as a developer I was confused about why there were so many steps between a developer&amp;rsquo;s computer and the app that customers used. It seemed inefficient and bureaucratic. I&amp;rsquo;ve come to appreciate those environments, though, and these days I break out in an ice-cold sweat if someone talks about deploying straight to production.</description>
     </item>

@@ -5,7 +5,6 @@ publishDir = "docs"
 
 theme = "minimo"
 
-disqusShortname = "isaaclymanblog"
 googleAnalytics = "G-QX2T3WXRC9"
 Paginate = 5
 PaginatePath = "archive"
@@ -56,16 +55,10 @@ ignoreErrors = ["error-remote-getjson"]
   url = "/posts/"
 
 [[menu.main]]
-  name = "{ About }"
+  name = "{ Contact }"
   weight = 20
-  identifier = "about"
+  identifier = "contact"
   url = "/posts/introduction"
-
-[[menu.main]]
-  name = "{ Author }"
-  weight = 30
-  identifier = "author"
-  url = "http://isaaclyman.com"
 
 [[menu.main]]
   name = "{ RSS }"

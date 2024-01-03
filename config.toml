@@ -42,8 +42,12 @@ ignoreErrors = ["error-remote-getjson"]
 [author]
   name = "Isaac Lyman"
 
+[author.email]
+  username = "blog"
+  host = "isaaclyman.com"
+
 [author.social]
-  twitter = "isaacdlyman"
+  mastodon = "@isaacdlyman"
 
 [permalinks]
   page = "/:slug/"

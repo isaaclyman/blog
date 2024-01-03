@@ -5,13 +5,15 @@
     <link>http://isaaclyman.com/blog/tags/</link>
     <description>Recent content in Tags on Minimum Viable Blog</description>
     <generator>Hugo -- gohugo.io</generator>
+    <managingEditor>map[host:isaaclyman.com username:blog] (Isaac Lyman)</managingEditor>
+    <webMaster>map[host:isaaclyman.com username:blog] (Isaac Lyman)</webMaster>
     <copyright>© 2017 by Isaac Lyman. Site powered by Hugo and GitHub Pages.</copyright>
     <lastBuildDate>Wed, 22 Nov 2023 18:19:25 -0700</lastBuildDate><atom:link href="http://isaaclyman.com/blog/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>productivity</title>
       <link>http://isaaclyman.com/blog/tags/productivity/</link>
       <pubDate>Wed, 22 Nov 2023 18:19:25 -0700</pubDate>
-      
+      <author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
       <guid>http://isaaclyman.com/blog/tags/productivity/</guid>
       <description></description>
     </item>
@@ -20,7 +22,7 @@
       <title>beginners</title>
       <link>http://isaaclyman.com/blog/tags/beginners/</link>
       <pubDate>Thu, 09 Nov 2023 11:42:33 -0700</pubDate>
-      
+      <author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
       <guid>http://isaaclyman.com/blog/tags/beginners/</guid>
       <description></description>
     </item>
@@ -29,7 +31,7 @@
       <title>business</title>
       <link>http://isaaclyman.com/blog/tags/business/</link>
       <pubDate>Thu, 27 Jul 2023 09:51:52 -0600</pubDate>
-      
+      <author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
       <guid>http://isaaclyman.com/blog/tags/business/</guid>
       <description></description>
     </item>
@@ -38,7 +40,7 @@
       <title>csharp</title>
       <link>http://isaaclyman.com/blog/tags/csharp/</link>
       <pubDate>Mon, 15 Aug 2022 14:22:14 -0600</pubDate>
-      
+      <author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
       <guid>http://isaaclyman.com/blog/tags/csharp/</guid>
       <description></description>
     </item>
@@ -47,7 +49,7 @@
       <title>ADHD</title>
       <link>http://isaaclyman.com/blog/tags/adhd/</link>
       <pubDate>Thu, 07 Apr 2022 12:00:00 -0600</pubDate>
-      
+      <author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
       <guid>http://isaaclyman.com/blog/tags/adhd/</guid>
       <description></description>
     </item>
@@ -56,7 +58,7 @@
       <title>health</title>
       <link>http://isaaclyman.com/blog/tags/health/</link>
       <pubDate>Thu, 07 Apr 2022 12:00:00 -0600</pubDate>
-      
+      <author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
       <guid>http://isaaclyman.com/blog/tags/health/</guid>
       <description></description>
     </item>
@@ -65,7 +67,7 @@
       <title>software construction</title>
       <link>http://isaaclyman.com/blog/tags/software-construction/</link>
       <pubDate>Tue, 11 Feb 2020 08:22:35 -0700</pubDate>
-      
+      <author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
       <guid>http://isaaclyman.com/blog/tags/software-construction/</guid>
       <description></description>
     </item>
@@ -74,7 +76,7 @@
       <title>food</title>
       <link>http://isaaclyman.com/blog/tags/food/</link>
       <pubDate>Fri, 29 Nov 2019 10:13:55 -0700</pubDate>
-      
+      <author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
       <guid>http://isaaclyman.com/blog/tags/food/</guid>
       <description></description>
     </item>
@@ -83,7 +85,7 @@
       <title>projects</title>
       <link>http://isaaclyman.com/blog/tags/projects/</link>
       <pubDate>Sat, 09 Mar 2019 08:02:55 -0700</pubDate>
-      
+      <author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
       <guid>http://isaaclyman.com/blog/tags/projects/</guid>
       <description></description>
     </item>
@@ -92,7 +94,7 @@
       <title>resume</title>
       <link>http://isaaclyman.com/blog/tags/resume/</link>
       <pubDate>Sat, 09 Mar 2019 08:02:55 -0700</pubDate>
-      
+      <author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
       <guid>http://isaaclyman.com/blog/tags/resume/</guid>
       <description></description>
     </item>
@@ -101,7 +103,7 @@
       <title>front end</title>
       <link>http://isaaclyman.com/blog/tags/front-end/</link>
       <pubDate>Mon, 26 Feb 2018 16:57:30 -0700</pubDate>
-      
+      <author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
       <guid>http://isaaclyman.com/blog/tags/front-end/</guid>
       <description></description>
     </item>
@@ -110,7 +112,7 @@
       <title>español</title>
       <link>http://isaaclyman.com/blog/tags/espa%C3%B1ol/</link>
       <pubDate>Mon, 18 Dec 2017 09:56:50 -0700</pubDate>
-      
+      <author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
       <guid>http://isaaclyman.com/blog/tags/espa%C3%B1ol/</guid>
       <description></description>
     </item>
@@ -119,7 +121,7 @@
       <title>principiantes</title>
       <link>http://isaaclyman.com/blog/tags/principiantes/</link>
       <pubDate>Mon, 18 Dec 2017 09:56:50 -0700</pubDate>
-      
+      <author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
       <guid>http://isaaclyman.com/blog/tags/principiantes/</guid>
       <description></description>
     </item>
@@ -128,7 +130,7 @@
       <title>edward</title>
       <link>http://isaaclyman.com/blog/tags/edward/</link>
       <pubDate>Fri, 03 Nov 2017 13:49:58 -0600</pubDate>
-      
+      <author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
       <guid>http://isaaclyman.com/blog/tags/edward/</guid>
       <description></description>
     </item>
@@ -137,7 +139,7 @@
       <title>agile</title>
       <link>http://isaaclyman.com/blog/tags/agile/</link>
       <pubDate>Tue, 26 Sep 2017 09:26:15 -0600</pubDate>
-      
+      <author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
       <guid>http://isaaclyman.com/blog/tags/agile/</guid>
       <description></description>
     </item>
@@ -146,7 +148,7 @@
       <title>code quality</title>
       <link>http://isaaclyman.com/blog/tags/code-quality/</link>
       <pubDate>Sat, 19 Aug 2017 06:54:57 -0600</pubDate>
-      
+      <author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
       <guid>http://isaaclyman.com/blog/tags/code-quality/</guid>
       <description></description>
     </item>
@@ -155,7 +157,7 @@
       <title>css</title>
       <link>http://isaaclyman.com/blog/tags/css/</link>
       <pubDate>Sun, 05 Feb 2017 18:04:19 +0000</pubDate>
-      
+      <author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
       <guid>http://isaaclyman.com/blog/tags/css/</guid>
       <description></description>
     </item>

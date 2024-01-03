@@ -47,7 +47,7 @@ ignoreErrors = ["error-remote-getjson"]
   host = "isaaclyman.com"
 
 [author.social]
-  mastodon = "@isaacdlyman"
+  mastodon = "@isaaclyman"
 
 [permalinks]
   page = "/:slug/"

@@ -15,6 +15,10 @@ p, li {
   max-width: 750px;
 }
 
+table {
+  table-layout: auto !important;
+}
+
 .list a {
   border-bottom: .11111em solid #ffcd00;
   color: #000;

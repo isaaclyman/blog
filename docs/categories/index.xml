@@ -8,7 +8,16 @@
     <managingEditor>map[host:isaaclyman.com username:blog] (Isaac Lyman)</managingEditor>
     <webMaster>map[host:isaaclyman.com username:blog] (Isaac Lyman)</webMaster>
     <copyright>© 2017 by Isaac Lyman. Site powered by Hugo and GitHub Pages.</copyright>
-    <lastBuildDate>Sat, 23 Dec 2023 09:15:43 -0700</lastBuildDate><atom:link href="http://isaaclyman.com/blog/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 26 Jan 2024 09:20:46 -0700</lastBuildDate><atom:link href="http://isaaclyman.com/blog/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>development</title>
+      <link>http://isaaclyman.com/blog/categories/development/</link>
+      <pubDate>Fri, 26 Jan 2024 09:20:46 -0700</pubDate>
+      <author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
+      <guid>http://isaaclyman.com/blog/categories/development/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>philosophy</title>
       <link>http://isaaclyman.com/blog/categories/philosophy/</link>
@@ -42,15 +51,6 @@
       <pubDate>Wed, 22 Nov 2023 18:19:25 -0700</pubDate>
       <author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
       <guid>http://isaaclyman.com/blog/categories/product/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>development</title>
-      <link>http://isaaclyman.com/blog/categories/development/</link>
-      <pubDate>Mon, 20 Nov 2023 11:00:28 -0700</pubDate>
-      <author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/categories/development/</guid>
       <description></description>
     </item>
     

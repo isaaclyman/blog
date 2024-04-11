@@ -1,58 +1,43 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>kryptos on Minimum Viable Blog</title>
+    <title>Kryptos on Minimum Viable Blog</title>
     <link>http://isaaclyman.com/blog/tags/kryptos/</link>
-    <description>Recent content in kryptos on Minimum Viable Blog</description>
+    <description>Recent content in Kryptos on Minimum Viable Blog</description>
     <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
     <managingEditor>map[host:isaaclyman.com username:blog] (Isaac Lyman)</managingEditor>
     <webMaster>map[host:isaaclyman.com username:blog] (Isaac Lyman)</webMaster>
     <copyright>© 2017 by Isaac Lyman. Site powered by Hugo and GitHub Pages.</copyright>
-    <lastBuildDate>Fri, 26 Jan 2024 09:20:46 -0700</lastBuildDate><atom:link href="http://isaaclyman.com/blog/tags/kryptos/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 26 Jan 2024 09:20:46 -0700</lastBuildDate>
+    <atom:link href="http://isaaclyman.com/blog/tags/kryptos/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Solving the CIA Kryptos code in TypeScript (Part 4)</title>
       <link>http://isaaclyman.com/blog/posts/kryptos-4/</link>
-      <pubDate>Fri, 26 Jan 2024 09:20:46 -0700</pubDate>
-      <author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
+      <pubDate>Fri, 26 Jan 2024 09:20:46 -0700</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
       <guid>http://isaaclyman.com/blog/posts/kryptos-4/</guid>
-      <description>You can find all the code for this series on GitHub.
-Kryptos 4 is, I repeat, unsolved. We&amp;rsquo;re very unlikely to solve it today. Enthusiastic codebreakers have been putting together clues and proposing theories for decades. At least half of them are like this:
-But hey, since we&amp;rsquo;ve got some code ready to go, we might as well try.
-Setup All the code we&amp;rsquo;ve written so far is available on GitHub.</description>
+      <description>You can find all the code for this series on GitHub.&#xA;Kryptos 4 is, I repeat, unsolved. We&amp;rsquo;re very unlikely to solve it today. Enthusiastic codebreakers have been putting together clues and proposing theories for decades. At least half of them are like this:&#xA;But hey, since we&amp;rsquo;ve got some code ready to go, we might as well try.&#xA;Setup All the code we&amp;rsquo;ve written so far is available on GitHub.</description>
     </item>
-    
     <item>
       <title>Solving the CIA Kryptos code in TypeScript (Part 3)</title>
       <link>http://isaaclyman.com/blog/posts/kryptos-3/</link>
-      <pubDate>Fri, 26 Jan 2024 09:15:46 -0700</pubDate>
-      <author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
+      <pubDate>Fri, 26 Jan 2024 09:15:46 -0700</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
       <guid>http://isaaclyman.com/blog/posts/kryptos-3/</guid>
-      <description>You can find all the code for this series on GitHub.
-Kryptos 3 is going to require more code than anything else so far. It&amp;rsquo;s encoded using both the types of transposition we covered in Part 2, plus a twist.
-It&amp;rsquo;s written out with a rectangle size of 86 and a block size of 7. The columns are stacked. A keyed columnar cipher is applied with the key &amp;lsquo;KRYPTOS&amp;rsquo;. (KRYPTOS is seven characters long, which is why our block size is 7.</description>
+      <description>You can find all the code for this series on GitHub.&#xA;Kryptos 3 is going to require more code than anything else so far. It&amp;rsquo;s encoded using both the types of transposition we covered in Part 2, plus a twist.&#xA;It&amp;rsquo;s written out with a rectangle size of 86 and a block size of 7. The columns are stacked. A keyed columnar cipher is applied with the key &amp;lsquo;KRYPTOS&amp;rsquo;. (KRYPTOS is seven characters long, which is why our block size is 7.</description>
     </item>
-    
     <item>
       <title>Solving the CIA Kryptos code in TypeScript (Part 2)</title>
       <link>http://isaaclyman.com/blog/posts/kryptos-2/</link>
-      <pubDate>Fri, 26 Jan 2024 09:11:46 -0700</pubDate>
-      <author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
+      <pubDate>Fri, 26 Jan 2024 09:11:46 -0700</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
       <guid>http://isaaclyman.com/blog/posts/kryptos-2/</guid>
-      <description>You can find all the code for this series on GitHub.
-In the previous post we solved Kryptos 1 and 2. Kryptos 3 is going to be a bit tougher. It doesn&amp;rsquo;t use our trusty Vigenere cipher. And it doesn&amp;rsquo;t use just one cipher, either; it uses two. We&amp;rsquo;ll learn them separately in this post, then use them together in the next one.
-Keyed columnar transposition We need to learn a transposition cipher, which is where the letters in a message are rearranged but not changed.</description>
+      <description>You can find all the code for this series on GitHub.&#xA;In the previous post we solved Kryptos 1 and 2. Kryptos 3 is going to be a bit tougher. It doesn&amp;rsquo;t use our trusty Vigenere cipher. And it doesn&amp;rsquo;t use just one cipher, either; it uses two. We&amp;rsquo;ll learn them separately in this post, then use them together in the next one.&#xA;Keyed columnar transposition We need to learn a transposition cipher, which is where the letters in a message are rearranged but not changed.</description>
     </item>
-    
     <item>
       <title>Solving the CIA Kryptos code in TypeScript (Part 1)</title>
       <link>http://isaaclyman.com/blog/posts/kryptos-1/</link>
-      <pubDate>Fri, 26 Jan 2024 09:05:46 -0700</pubDate>
-      <author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
+      <pubDate>Fri, 26 Jan 2024 09:05:46 -0700</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
       <guid>http://isaaclyman.com/blog/posts/kryptos-1/</guid>
-      <description>You can find all the code for this series on GitHub.
-On the campus of CIA headquarters in Virginia, United States, there&amp;rsquo;s a 34-year-old sculpture called Kryptos. It somewhat resembles a heavy copper flag waving in the wind. Cut out of its surface are 1,736 uppercase ASCII characters split into four encrypted messages and a Vigenere cipher table.
-The first three messages were decrypted in the 1990s, first by the NSA and CIA, who didn&amp;rsquo;t publicize their success, and then by a private-sector computer scientist, who did.</description>
+      <description>You can find all the code for this series on GitHub.&#xA;On the campus of CIA headquarters in Virginia, United States, there&amp;rsquo;s a 34-year-old sculpture called Kryptos. It somewhat resembles a heavy copper flag waving in the wind. Cut out of its surface are 1,736 uppercase ASCII characters split into four encrypted messages and a Vigenere cipher table.&#xA;The first three messages were decrypted in the 1990s, first by the NSA and CIA, who didn&amp;rsquo;t publicize their success, and then by a private-sector computer scientist, who did.</description>
     </item>
-    
   </channel>
 </rss>

@@ -39,14 +39,14 @@ ignoreErrors = ["error-remote-getjson"]
 # [social]
 #  facebook = ""
 
-[author]
+[params.author]
   name = "Isaac Lyman"
 
-[author.email]
+[params.author.email]
   username = "blog"
   host = "isaaclyman.com"
 
-[author.social]
+[params.author.social]
   mastodon = "@isaaclyman"
 
 [permalinks]
@@ -76,10 +76,13 @@ defaultContentLanguage = "en"
 
 [languages]
   # edit this block for your own language
-  [languages.en]
+  [languages.en.params]
     lang = "en"
     languageName = "English"
     weight = 1
 
 [markup.goldmark.renderer]
 unsafe= true
+
+[markup.highlight]
+  style = 'dracula'

@@ -8,17 +8,17 @@
 Hey, this page is almost perfect. Can you just center that icon vertically? I told the boss we can roll it live in five minutes.
 For CSS junkies like me, lines like this provoke an involuntary nervous giggle, the kind of giggle you’ll hear if I tell you about the first time I got dumped or crashed my car.'>
 
-<meta property='og:title' content='8 CSS gotchas to start your morning off right • Isaac Lyman'>
+<meta property='og:title' content='8 CSS gotchas to start your morning off right • Minimum Viable Blog'>
 <meta property='og:description' content='In every community there’s a coming-of-age process, a rite of passage that every newcomer must experience before he or she can really be considered an insider. For the CSS community, it goes something like this:
 Hey, this page is almost perfect. Can you just center that icon vertically? I told the boss we can roll it live in five minutes.
 For CSS junkies like me, lines like this provoke an involuntary nervous giggle, the kind of giggle you’ll hear if I tell you about the first time I got dumped or crashed my car.'>
 <meta property='og:url' content='http://isaaclyman.com/blog/posts/8-css-gotchas/'>
 <meta property='og:site_name' content='Minimum Viable Blog'>
-<meta property='og:type' content='article'><meta property='og:image' content='https://www.gravatar.com/avatar/75b0b92f72a161a16abe1d22ac107525?s=256'><meta property='article:section' content='Posts'><meta property='article:tag' content='css'><meta property='article:tag' content='front end'><meta property='article:published_time' content='2017-02-05T18:04:19Z'/><meta property='article:modified_time' content='2017-02-05T18:04:19Z'/>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts'><meta property='article:tag' content='css'><meta property='article:tag' content='front end'><meta property='article:published_time' content='2017-02-05T18:04:19Z'/><meta property='article:modified_time' content='2017-02-05T18:04:19Z'/>
 
-<meta name="generator" content="Hugo 0.110.0">
+<meta name="generator" content="Hugo 0.124.1">
 
-  <title>8 CSS gotchas to start your morning off right • Isaac Lyman</title>
+  <title>8 CSS gotchas to start your morning off right • Minimum Viable Blog</title>
   <link rel='canonical' href='http://isaaclyman.com/blog/posts/8-css-gotchas/'>
   
   <link rel='icon' href='/blog/favicon.png'>
@@ -109,18 +109,6 @@ if (!doNotTrack) {
     <time class='date' datetime='2017-02-05T18:04:19Z'>Feb 5, 2017</time>
   </span>
   
-  <span class='byline'>
-    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
-  <path d="M21,21V20c0-2.76-4-5-9-5s-9,2.24-9,5v1"/>
-  <path d="M16,6.37A4,4,0,1,1,12.63,3,4,4,0,0,1,16,6.37Z"/>
-  
-</svg>
-
-    <span class='screen-reader'> by </span>
-    Isaac Lyman
-  </span>
-  
   
   <span class='reading-time'>
     <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
@@ -145,7 +133,7 @@ if (!doNotTrack) {
 </blockquote>
 <p>For CSS junkies like me, lines like this provoke an involuntary nervous giggle, the kind of giggle you’ll hear if I tell you about the first time I got dumped or crashed my car. In the old days, before CSS Grid, before Flexbox, before “Computer Science” <a href="http://www.theallium.com/engineering/computer-programming-to-be-officially-renamed-googling-stackoverflow/">got renamed to “Googling Stack Overflow,</a>” vertical centering was just something that CSS didn’t really do. It was like asking for a root beer float at McDonald’s. If you were persistent enough, eventually you’d get something that looked like what you wanted — but it would just be a polite facade, the veneer over a barely-contained puddle of disappointment.</p>
 <figure><img src="/blog/img/broken-facade.jpeg"
-         alt="Broken-down house"/>
+    alt="Broken-down house">
 </figure>
 
 <p>There were a few people who knew, offhand, five or six lines of clunky CSS that would do the trick. They were <em>janky</em> lines, too. It was commonly known that if you recited them backwards, they would summon the fiery apparition of Herbie the Love Bug. The people who had them memorized were totally obsessed; they were the Web 1.0 version of crossfitters and vegans. They weren’t much good for web development in general, but boy, did they ever know how to put something exactly between the top and bottom of a <code>&lt;div&gt;</code>. By the time their Stack Overflow answers on the subject became obsolete, they were able to cash out their reputation points and retire early. It was a charmed life. Their homes in Seattle (the primordial soup that Silicon Valley evolved from) have been preserved for posterity. You can go by any time and see how they lived. All their countertops are exactly waist-height. Their paintings hang with a margin of exactly 3.5 feet above and below. Their shower-heads are in the middle of the wall and spray upward and downward with equal pressure.</p>
@@ -159,9 +147,9 @@ if (!doNotTrack) {
 <p>You may think that setting the <code>width</code> property to <code>100%</code> on any element will make it fill the entire horizontal space allotted to its parent element. But sometimes it won’t. Sorry, newbie.</p>
 <p>First of all, this doesn’t work for inline elements (like <code>&lt;span&gt;</code> and <code>&lt;i&gt;</code>) and certain table elements. Second of all, it doesn’t work if its parent’s width isn’t explicitly specified — so good luck making it work inside an element that’s all funky-dory with flexbox. And lastly, <code>margin</code> properties are applied on top of the calculated width, so if your element has a margin on the left side, it’s gonna jut out like Aunt Marge’s pregnant belly.</p>
 <figure><img src="/blog/img/hamster-roll.gif"
-         alt="Fat hamster doesn&#39;t fit"/><figcaption>
-            <h4>Trying to fit your content into a dynamically-sized div</h4>
-        </figcaption>
+    alt="Fat hamster doesn&#39;t fit"><figcaption>
+      <h4>Trying to fit your content into a dynamically-sized div</h4>
+    </figcaption>
 </figure>
 
 <p>Just save yourself some trouble and make really small websites. Hopefully you won’t have to make anything that’s 100% of anything else.</p>
@@ -193,9 +181,9 @@ if (!doNotTrack) {
 <h3 id="5z-index-isnt-a-real-css-attribute">5 — <code>z-index</code> isn’t a real CSS attribute</h3>
 <p>The first few times you stumble upon the <code>z-index</code> attribute, you’ll brighten immediately. “Wow!” you’ll think. “This solves all my problems!” After three hours wondering why it doesn’t do anything, you’ll realize that you were wrong. <code>z-index</code> isn’t a functioning CSS property. It’s a cruel joke.</p>
 <figure><img src="/blog/img/chair-fallen.gif"
-         alt="Man falling off chair"/><figcaption>
-            <h4>&#34;Maybe z-index will work this time.&#34;</h4>
-        </figcaption>
+    alt="Man falling off chair"><figcaption>
+      <h4>&#34;Maybe z-index will work this time.&#34;</h4>
+    </figcaption>
 </figure>
 
 <p>Some believe that the maintainers of CSS penciled <code>z-index</code> into the spec in order to explore its possible use for situations where multiple elements share the same space; unfortunately, it is said, they never got around to specifying its behavior and it was only left in the documentation so that people would stop asking for it.</p>
@@ -314,21 +302,7 @@ if (!doNotTrack) {
       <div class='footer'>
         <div class='social'>
   <nav aria-label='Social Menu'>
-    <ul class='social-menu'><li>
-        <a href='https://toot.cafe/@isaaclyman' target='_blank' rel='noopener'>
-          <span class='screen-reader'>Open Mastodon account in new tab</span>
-          <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
-  <path
-    fill="currentColor"
-    d="m 16.790203,18.219219 c 2.988785,-0.355807 5.589147,-2.186735 5.915304,-3.859031 0.515921,-2.635943 0.47441,-6.4327078 0.47441,-6.4327078 0,-5.1443873 -3.389069,-6.6536053 -3.389069,-6.6536053 C 18.082971,0.49258026 15.14904,0.16494061 12.100952,0.13973756 h -0.07413 c -3.0495684,0.0252031 -5.9820174,0.3528427 -7.6898947,1.13413734 0,0 -3.38758642,1.5077354 -3.38758642,6.6536053 l -0.00297,0.9814364 c -0.00593,0.9488204 -0.010378,2.0014184 0.016308,3.0999744 0.12305022,5.031715 0.92806522,9.992268 5.60397232,11.22277 2.155602,0.56781 4.0072848,0.686413 5.4987118,0.604874 2.702658,-0.148254 4.220771,-0.959199 4.220771,-0.959199 l -0.08895,-1.952495 c 0,0 -1.93174,0.607838 -4.102168,0.533712 C 9.9453442,21.384423 7.6770699,21.227278 7.3286748,18.60023 a 5.357872,5.357872 0 0 1 -0.048924,-0.735336 c 0,0 2.1111261,0.512956 4.7856142,0.634524 1.635233,0.07413 3.168173,-0.09488 4.726314,-0.280199 z m 2.391325,-3.661855 H 16.701251 V 8.5086329 c 0,-1.2734953 -0.539642,-1.9198795 -1.617443,-1.9198795 -1.191957,0 -1.789417,0.7664693 -1.789417,2.2845824 V 12.18383 H 10.827457 V 8.8718533 c 0,-1.5181132 -0.597461,-2.2845824 -1.7894166,-2.2845824 -1.077801,0 -1.6174428,0.6463841 -1.6174428,1.921362 V 14.555882 H 4.940321 V 8.3262814 c 0,-1.2734953 0.3261571,-2.2845824 0.9784713,-3.0332612 0.6760348,-0.7486789 1.5596241,-1.1326548 2.6581806,-1.1326548 1.2690477,0 2.2297281,0.4862707 2.8657351,1.4573293 l 0.618216,1.03036 0.618216,-1.03036 c 0.636006,-0.9710586 1.596688,-1.4573293 2.867218,-1.4573293 1.097074,0 1.980664,0.3839759 2.655216,1.1326548 0.655279,0.7486788 0.979954,1.7597659 0.979954,3.0332612 z"
-    id="path1"
-    style="stroke-width:1.48253" />
-  
-</svg>
-
-        </a>
-      </li></ul>
+    <ul class='social-menu'></ul>
   </nav>
 </div>
 

@@ -7,16 +7,16 @@
 <meta name='description' content='The search for the lost AirPod My wife Dylan is a math and physics teacher. Yesterday while she was on a Zoom call with a student I got a text message from her: &ldquo;the kids have my AirPods.&rdquo; She knew because her student was cracking up laughing at the babblings of our toddlers, captured by the built-in microphone on the AirPods.
 I tracked down the kids. They were carrying around an AirPod case with one AirPod in it.'>
 
-<meta property='og:title' content='Lost AirPods, arrays, and sorting algorithms • Isaac Lyman'>
+<meta property='og:title' content='Lost AirPods, arrays, and sorting algorithms • Minimum Viable Blog'>
 <meta property='og:description' content='The search for the lost AirPod My wife Dylan is a math and physics teacher. Yesterday while she was on a Zoom call with a student I got a text message from her: &ldquo;the kids have my AirPods.&rdquo; She knew because her student was cracking up laughing at the babblings of our toddlers, captured by the built-in microphone on the AirPods.
 I tracked down the kids. They were carrying around an AirPod case with one AirPod in it.'>
 <meta property='og:url' content='http://isaaclyman.com/blog/posts/sorting-algorithms/'>
 <meta property='og:site_name' content='Minimum Viable Blog'>
-<meta property='og:type' content='article'><meta property='og:image' content='https://www.gravatar.com/avatar/75b0b92f72a161a16abe1d22ac107525?s=256'><meta property='article:section' content='Posts'><meta property='article:published_time' content='2022-03-05T20:09:03-07:00'/><meta property='article:modified_time' content='2022-03-05T20:09:03-07:00'/>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts'><meta property='article:published_time' content='2022-03-05T20:09:03-07:00'/><meta property='article:modified_time' content='2022-03-05T20:09:03-07:00'/>
 
-<meta name="generator" content="Hugo 0.110.0">
+<meta name="generator" content="Hugo 0.124.1">
 
-  <title>Lost AirPods, arrays, and sorting algorithms • Isaac Lyman</title>
+  <title>Lost AirPods, arrays, and sorting algorithms • Minimum Viable Blog</title>
   <link rel='canonical' href='http://isaaclyman.com/blog/posts/sorting-algorithms/'>
   
   <link rel='icon' href='/blog/favicon.png'>
@@ -107,18 +107,6 @@ if (!doNotTrack) {
     <time class='date' datetime='2022-03-05T20:09:03-07:00'>Mar 5, 2022</time>
   </span>
   
-  <span class='byline'>
-    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
-  <path d="M21,21V20c0-2.76-4-5-9-5s-9,2.24-9,5v1"/>
-  <path d="M16,6.37A4,4,0,1,1,12.63,3,4,4,0,0,1,16,6.37Z"/>
-  
-</svg>
-
-    <span class='screen-reader'> by </span>
-    Isaac Lyman
-  </span>
-  
   
   <span class='reading-time'>
     <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
@@ -146,41 +134,41 @@ if (!doNotTrack) {
 <p>So if you ever lose an AirPod in a laundry basket, now you know what to do. But more importantly, you&rsquo;ve learned the two most common ways to search an array!</p>
 <h2 id="sequential-search">Sequential search</h2>
 <p>The first way is a <em>sequential search</em>, where you look at each item in turn. If the item is exactly what you&rsquo;re looking for, you&rsquo;re done. If not, you keep going. This is the slowest but easiest way to search an array (or a laundry basket). A sequential search function is built into most programming languages. In JavaScript, it&rsquo;s the <code>Array.find</code> method. In C#, it&rsquo;s the <code>Array.Find</code> or <code>IEnumerable.First</code> method. You don&rsquo;t need to write your own, but if you did it might look something like this:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span>T SequentialSearch&lt;T&gt;(IEnumerable&lt;T&gt; laundry, Func&lt;T, <span style="color:#339;font-weight:bold">bool</span>&gt; predicate) {
-</span></span><span style="display:flex;"><span>  <span style="color:#080;font-weight:bold">foreach</span> (<span style="color:#339;font-weight:bold">var</span> item <span style="color:#080;font-weight:bold">in</span> laundry) {
-</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">if</span> (predicate(item)) {
-</span></span><span style="display:flex;"><span>      <span style="color:#080;font-weight:bold">return</span> item;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span>T SequentialSearch&lt;T&gt;(IEnumerable&lt;T&gt; laundry, Func&lt;T, <span style="color:#8be9fd">bool</span>&gt; predicate) {
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">foreach</span> (<span style="color:#8be9fd">var</span> item <span style="color:#ff79c6">in</span> laundry) {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> (predicate(item)) {
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">return</span> item;
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>  }
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>  <span style="color:#080;font-weight:bold">return</span> <span style="color:#080;font-weight:bold">default</span>(T);
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">default</span>(T);
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><h2 id="binary-search">Binary search</h2>
 <p>Sometimes a sequential search is much too slow. This is where a <em>binary search</em> may come in handy. You divide the array in half, figure out (without checking each item) which half has what you want, then divide that one in half again and repeat. When your array is too small to divide in half anymore (that is, exactly one element) you&rsquo;re done. The classic example is an array of numbers sorted from smallest to largest. Say you&rsquo;re looking for the number 4. You find the midpoint of the array and see if it&rsquo;s smaller than, larger than, or equal to 4. If it&rsquo;s equal, you&rsquo;re done. If it&rsquo;s smaller, you ignore everything before the midpoint and start over with everything after the midpoint. If it&rsquo;s larger, you do the opposite: ignore everything <em>after</em> the midpoint and start over with everything before it. You might code it like this:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#339;font-weight:bold">long?</span> BinarySearch(<span style="color:#339;font-weight:bold">long</span>[] laundry, <span style="color:#339;font-weight:bold">long</span> searchTarget) {
-</span></span><span style="display:flex;"><span>  <span style="color:#339;font-weight:bold">var</span> startIndex = <span style="color:#60e;font-weight:bold">0</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#339;font-weight:bold">var</span> endIndex = laundry.Length - <span style="color:#60e;font-weight:bold">1</span>;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#8be9fd">long?</span> BinarySearch(<span style="color:#8be9fd">long</span>[] laundry, <span style="color:#8be9fd">long</span> searchTarget) {
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd">var</span> startIndex = <span style="color:#bd93f9">0</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd">var</span> endIndex = laundry.Length - <span style="color:#bd93f9">1</span>;
 </span></span><span style="display:flex;"><span>  
-</span></span><span style="display:flex;"><span>  <span style="color:#080;font-weight:bold">while</span> (startIndex &lt;= endIndex) {
-</span></span><span style="display:flex;"><span>    <span style="color:#339;font-weight:bold">var</span> midpointIndex = (endIndex + startIndex) / <span style="color:#60e;font-weight:bold">2</span>;
-</span></span><span style="display:flex;"><span>    <span style="color:#339;font-weight:bold">var</span> middleItem = laundry[midpointIndex];
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">while</span> (startIndex &lt;= endIndex) {
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">var</span> midpointIndex = (endIndex + startIndex) / <span style="color:#bd93f9">2</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">var</span> middleItem = laundry[midpointIndex];
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">if</span> (middleItem == searchTarget) {
-</span></span><span style="display:flex;"><span>      <span style="color:#080;font-weight:bold">return</span> middleItem;
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> (middleItem == searchTarget) {
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">return</span> middleItem;
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">if</span> (middleItem &gt; searchTarget) {
-</span></span><span style="display:flex;"><span>      endIndex = midpointIndex - <span style="color:#60e;font-weight:bold">1</span>;
-</span></span><span style="display:flex;"><span>      <span style="color:#080;font-weight:bold">continue</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> (middleItem &gt; searchTarget) {
+</span></span><span style="display:flex;"><span>      endIndex = midpointIndex - <span style="color:#bd93f9">1</span>;
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">continue</span>;
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">if</span> (middleItem &lt; searchTarget) {
-</span></span><span style="display:flex;"><span>      startIndex = midpointIndex + <span style="color:#60e;font-weight:bold">1</span>;
-</span></span><span style="display:flex;"><span>      <span style="color:#080;font-weight:bold">continue</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> (middleItem &lt; searchTarget) {
+</span></span><span style="display:flex;"><span>      startIndex = midpointIndex + <span style="color:#bd93f9">1</span>;
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">continue</span>;
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>  }
 </span></span><span style="display:flex;"><span>  
-</span></span><span style="display:flex;"><span>  <span style="color:#080;font-weight:bold">return</span> <span style="color:#080;font-weight:bold">null</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">null</span>;
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>I think I&rsquo;ve used a binary search maybe once. Most of the time you either don&rsquo;t need it (sequential search is a snap for arrays of a few hundred elements or so) or it&rsquo;s not an option&mdash;say, if there&rsquo;s no easy way to compare what you&rsquo;re looking for against a whole group of elements. If you&rsquo;re working with a very large array of numbers or words, that&rsquo;s an example of a case where binary search may be a good solution. Really, anything sortable could be a candidate.</p>
 <p>Speaking of sortable, what if you want to <em>sort</em> your laundry instead of find a lost AirPod? Say you want to sort it from smallest to largest. Baby socks should be all the way on the left, footie pajamas should be all the way on the right. There are a few different ways to do that.</p>
@@ -190,21 +178,21 @@ if (!doNotTrack) {
 <p>To selection sort your laundry, you start by pulling the top item of clothing out of the basket and putting it on the floor. Then you go through every other item of clothing one at a time. If it&rsquo;s smaller than the one on the floor, they switch places: the one on the floor goes in the basket, the smaller one goes on the floor. Once you&rsquo;ve been through the whole basket, you know for sure the item of clothing on the floor is the smallest one of all.</p>
 <p>You move that item to the left, then pull the next item from the top of the basket and start over. You&rsquo;re looking for the smallest item <em>of the remaining clothes</em>. Once you&rsquo;ve found it you put it next to the previous smallest item, grab another item from the basket, and do it all again. For each item in the basket, you have to go through the entire basket of unsorted clothes.</p>
 <p>Here&rsquo;s how you&rsquo;d code that:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#888">// This method switches two items in an array</span>
-</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">void</span> SwapItemsInArray&lt;T&gt;(T[] array, <span style="color:#339;font-weight:bold">int</span> index1, <span style="color:#339;font-weight:bold">int</span> index2) {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#6272a4">// This method switches two items in an array</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">void</span> SwapItemsInArray&lt;T&gt;(T[] array, <span style="color:#8be9fd">int</span> index1, <span style="color:#8be9fd">int</span> index2) {
 </span></span><span style="display:flex;"><span>  (array[index1], array[index2]) = (array[index2], array[index1]);
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">void</span> SelectionSort(<span style="color:#339;font-weight:bold">long</span>[] laundry) {
-</span></span><span style="display:flex;"><span>  <span style="color:#339;font-weight:bold">var</span> numberOfItems = laundry.Length;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">void</span> SelectionSort(<span style="color:#8be9fd">long</span>[] laundry) {
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd">var</span> numberOfItems = laundry.Length;
 </span></span><span style="display:flex;"><span>  
-</span></span><span style="display:flex;"><span>  <span style="color:#888">// We look at each element of the array. If it&#39;s not the minimum value</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#888">//  of the rest of the array, we swap it for the one that is.</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#080;font-weight:bold">for</span> (<span style="color:#339;font-weight:bold">var</span> outerLoopIndex = <span style="color:#60e;font-weight:bold">0</span>; outerLoopIndex &lt; numberOfItems; outerLoopIndex++) {
-</span></span><span style="display:flex;"><span>    <span style="color:#339;font-weight:bold">var</span> possibleMinimumIndex = outerLoopIndex;
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">// We look at each element of the array. If it&#39;s not the minimum value</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">//  of the rest of the array, we swap it for the one that is.</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">for</span> (<span style="color:#8be9fd">var</span> outerLoopIndex = <span style="color:#bd93f9">0</span>; outerLoopIndex &lt; numberOfItems; outerLoopIndex++) {
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">var</span> possibleMinimumIndex = outerLoopIndex;
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">for</span> (<span style="color:#339;font-weight:bold">var</span> innerLoopIndex = outerLoopIndex + <span style="color:#60e;font-weight:bold">1</span>; innerLoopIndex &lt; numberOfItems; innerLoopIndex++) {
-</span></span><span style="display:flex;"><span>      <span style="color:#080;font-weight:bold">if</span> (laundry[innerLoopIndex] &lt; laundry[possibleMinimumIndex]) {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">for</span> (<span style="color:#8be9fd">var</span> innerLoopIndex = outerLoopIndex + <span style="color:#bd93f9">1</span>; innerLoopIndex &lt; numberOfItems; innerLoopIndex++) {
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">if</span> (laundry[innerLoopIndex] &lt; laundry[possibleMinimumIndex]) {
 </span></span><span style="display:flex;"><span>        possibleMinimumIndex = innerLoopIndex;
 </span></span><span style="display:flex;"><span>      }
 </span></span><span style="display:flex;"><span>    }
@@ -218,23 +206,23 @@ if (!doNotTrack) {
 <p>Insertion sort is probably what you&rsquo;d do if you had to sort laundry by size in real life.</p>
 <p>You&rsquo;d pick an item out of the basket and put it on the floor. Cool, that item is sorted. Then you&rsquo;d pick another item. If it&rsquo;s bigger than the one on the floor, put it next to it on the right. If it&rsquo;s smaller, it goes on the left. Then take another item. If it&rsquo;s smaller than both the items on the floor, it goes to the left. If it&rsquo;s bigger than both, to the right. If it&rsquo;s in between, it goes in the middle. You&rsquo;d do this with all the clothes in the basket. When the basket is empty, all the clothes are sorted.</p>
 <p>Here&rsquo;s how you&rsquo;d code that:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#080;font-weight:bold">void</span> InsertionSort(<span style="color:#339;font-weight:bold">long</span>[] laundry) {
-</span></span><span style="display:flex;"><span>  <span style="color:#888">// We start at 1 here because the first item in the list is already sorted.</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#888">// On each iteration, everything left of loopIndex will be already sorted.</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#080;font-weight:bold">for</span> (<span style="color:#339;font-weight:bold">var</span> loopIndex = <span style="color:#60e;font-weight:bold">1</span>; loopIndex &lt; laundry.Length; loopIndex++) {
-</span></span><span style="display:flex;"><span>    <span style="color:#339;font-weight:bold">var</span> unsortedItem = laundry[loopIndex];
-</span></span><span style="display:flex;"><span>    <span style="color:#339;font-weight:bold">var</span> comparingItemIndex = loopIndex -<span style="color:#60e;font-weight:bold">1</span>;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#ff79c6">void</span> InsertionSort(<span style="color:#8be9fd">long</span>[] laundry) {
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">// We start at 1 here because the first item in the list is already sorted.</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">// On each iteration, everything left of loopIndex will be already sorted.</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">for</span> (<span style="color:#8be9fd">var</span> loopIndex = <span style="color:#bd93f9">1</span>; loopIndex &lt; laundry.Length; loopIndex++) {
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">var</span> unsortedItem = laundry[loopIndex];
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">var</span> comparingItemIndex = loopIndex -<span style="color:#bd93f9">1</span>;
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#888">// We go left from the current unsorted item, moving each item to the right</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#888">//  until we find something larger than the current item.</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">while</span> (comparingItemIndex &gt;= <span style="color:#60e;font-weight:bold">0</span> &amp;&amp; unsortedItem &lt; laundry[comparingItemIndex]) {
-</span></span><span style="display:flex;"><span>      laundry[comparingItemIndex + <span style="color:#60e;font-weight:bold">1</span>] = laundry[comparingItemIndex];
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">// We go left from the current unsorted item, moving each item to the right</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">//  until we find something larger than the current item.</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">while</span> (comparingItemIndex &gt;= <span style="color:#bd93f9">0</span> &amp;&amp; unsortedItem &lt; laundry[comparingItemIndex]) {
+</span></span><span style="display:flex;"><span>      laundry[comparingItemIndex + <span style="color:#bd93f9">1</span>] = laundry[comparingItemIndex];
 </span></span><span style="display:flex;"><span>      comparingItemIndex--;
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#888">// We set our unsorted item down to the left of the larger item.</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#888">// Now it&#39;s sorted.</span>
-</span></span><span style="display:flex;"><span>    laundry[comparingItemIndex + <span style="color:#60e;font-weight:bold">1</span>] = unsortedItem;
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">// We set our unsorted item down to the left of the larger item.</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">// Now it&#39;s sorted.</span>
+</span></span><span style="display:flex;"><span>    laundry[comparingItemIndex + <span style="color:#bd93f9">1</span>] = unsortedItem;
 </span></span><span style="display:flex;"><span>  }
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>Insertion sort has an average time complexity of <code>O(n²)</code>, but it can be very fast on small arrays&mdash;even faster than Quicksort, which we&rsquo;ll look at next.</p>
@@ -243,33 +231,33 @@ if (!doNotTrack) {
 <p>You start by picking an item of clothing (for best performance here you&rsquo;d pick something of medium size, like a t-shirt). You put it in the middle of the floor. Everything larger than the t-shirt goes in a pile to the right, and everything smaller than the t-shirt goes in a pile to the left. Then you focus on the left pile: pick something, put it center-left on the floor. Everything smaller than it goes to the left, everything larger than it goes to the right (but not further right than the t-shirt!). Switch to the right pile and do the same thing.</p>
 <p>Now you have four piles. You focus on each pile in turn, doing the same thing over and over again until you have eight piles. Do it again and you&rsquo;ll end up with 16 piles. Then 32. Then 64. You&rsquo;ll be done when the number of piles is the same as the number of items. And they&rsquo;ll be sorted perfectly from smallest to largest.</p>
 <p>Here&rsquo;s how you&rsquo;d code it:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#888">// This method switches two items in an array</span>
-</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">void</span> SwapItemsInArray&lt;T&gt;(T[] array, <span style="color:#339;font-weight:bold">int</span> index1, <span style="color:#339;font-weight:bold">int</span> index2) {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#6272a4">// This method switches two items in an array</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">void</span> SwapItemsInArray&lt;T&gt;(T[] array, <span style="color:#8be9fd">int</span> index1, <span style="color:#8be9fd">int</span> index2) {
 </span></span><span style="display:flex;"><span>  (array[index1], array[index2]) = (array[index2], array[index1]);
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#888">// This method divides a set into two subsets, where the items</span>
-</span></span><span style="display:flex;"><span><span style="color:#888">//  in the first subset are smaller than the items in the second</span>
-</span></span><span style="display:flex;"><span><span style="color:#888">//  subset.</span>
-</span></span><span style="display:flex;"><span><span style="color:#339;font-weight:bold">int</span> Partition(<span style="color:#339;font-weight:bold">long</span>[] laundry, <span style="color:#339;font-weight:bold">int</span> smallIndex, <span style="color:#339;font-weight:bold">int</span> largeIndex) {
-</span></span><span style="display:flex;"><span>  <span style="color:#888">// Pick an item (a &#34;pivot&#34;) to divide the set.</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#888">// There are many ways to pick an item, but a common way</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#888">//  is just to choose the last one.</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#339;font-weight:bold">var</span> tshirt = laundry[largeIndex];
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">// This method divides a set into two subsets, where the items</span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">//  in the first subset are smaller than the items in the second</span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">//  subset.</span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd">int</span> Partition(<span style="color:#8be9fd">long</span>[] laundry, <span style="color:#8be9fd">int</span> smallIndex, <span style="color:#8be9fd">int</span> largeIndex) {
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">// Pick an item (a &#34;pivot&#34;) to divide the set.</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">// There are many ways to pick an item, but a common way</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">//  is just to choose the last one.</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd">var</span> tshirt = laundry[largeIndex];
 </span></span><span style="display:flex;"><span>  
-</span></span><span style="display:flex;"><span>  <span style="color:#888">// We&#39;re going to leave the pivot in last place for now.</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#888">// We&#39;ll pick a placeholder, the first item in the array,</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#888">//  and swap it with the first thing we find that&#39;s smaller </span>
-</span></span><span style="display:flex;"><span>  <span style="color:#888">//  than a tshirt. Each time we do that we&#39;ll move to the next</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#888">//  item as our new placeholder.</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#888">// When we reach the pivot at the end of the array, everything</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#888">//  smaller than a tshirt will be left of the placeholder. So we </span>
-</span></span><span style="display:flex;"><span>  <span style="color:#888">//  can swap the pivot and the placeholder and everything will be</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#888">//  divided correctly.</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#339;font-weight:bold">var</span> possibleFootiesIndex = smallIndex - <span style="color:#60e;font-weight:bold">1</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">// We&#39;re going to leave the pivot in last place for now.</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">// We&#39;ll pick a placeholder, the first item in the array,</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">//  and swap it with the first thing we find that&#39;s smaller </span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">//  than a tshirt. Each time we do that we&#39;ll move to the next</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">//  item as our new placeholder.</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">// When we reach the pivot at the end of the array, everything</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">//  smaller than a tshirt will be left of the placeholder. So we </span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">//  can swap the pivot and the placeholder and everything will be</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">//  divided correctly.</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd">var</span> possibleFootiesIndex = smallIndex - <span style="color:#bd93f9">1</span>;
 </span></span><span style="display:flex;"><span>  
-</span></span><span style="display:flex;"><span>  <span style="color:#080;font-weight:bold">for</span> (<span style="color:#339;font-weight:bold">var</span> loopIndex = smallIndex; loopIndex &lt; largeIndex; loopIndex++) {
-</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">if</span> (laundry[loopIndex] &lt;= tshirt) {
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">for</span> (<span style="color:#8be9fd">var</span> loopIndex = smallIndex; loopIndex &lt; largeIndex; loopIndex++) {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> (laundry[loopIndex] &lt;= tshirt) {
 </span></span><span style="display:flex;"><span>      possibleFootiesIndex++;
 </span></span><span style="display:flex;"><span>      SwapItemsInArray(laundry, loopIndex, possibleFootiesIndex);
 </span></span><span style="display:flex;"><span>    }
@@ -278,27 +266,27 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span>  possibleFootiesIndex++;
 </span></span><span style="display:flex;"><span>  SwapItemsInArray(laundry, possibleFootiesIndex, largeIndex);
 </span></span><span style="display:flex;"><span>  
-</span></span><span style="display:flex;"><span>  <span style="color:#888">// Since we just did a swap, this is now the index of the pivot element.</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#080;font-weight:bold">return</span> possibleFootiesIndex;
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">// Since we just did a swap, this is now the index of the pivot element.</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">return</span> possibleFootiesIndex;
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">void</span> Quicksort(<span style="color:#339;font-weight:bold">long</span>[] laundry, <span style="color:#339;font-weight:bold">int</span> leftIndex, <span style="color:#339;font-weight:bold">int</span> rightIndex) {
-</span></span><span style="display:flex;"><span>  <span style="color:#080;font-weight:bold">if</span> (leftIndex &gt;= rightIndex) {
-</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">return</span>;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">void</span> Quicksort(<span style="color:#8be9fd">long</span>[] laundry, <span style="color:#8be9fd">int</span> leftIndex, <span style="color:#8be9fd">int</span> rightIndex) {
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">if</span> (leftIndex &gt;= rightIndex) {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span>;
 </span></span><span style="display:flex;"><span>  }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#888">// First we partition the array and get the pivot</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#339;font-weight:bold">var</span> pivotIndex = Partition(laundry, leftIndex, rightIndex);
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">// First we partition the array and get the pivot</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd">var</span> pivotIndex = Partition(laundry, leftIndex, rightIndex);
 </span></span><span style="display:flex;"><span>  
-</span></span><span style="display:flex;"><span>  <span style="color:#888">// Then we sort the left pile</span>
-</span></span><span style="display:flex;"><span>  Quicksort(laundry, leftIndex, pivotIndex - <span style="color:#60e;font-weight:bold">1</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">// Then we sort the left pile</span>
+</span></span><span style="display:flex;"><span>  Quicksort(laundry, leftIndex, pivotIndex - <span style="color:#bd93f9">1</span>);
 </span></span><span style="display:flex;"><span>  
-</span></span><span style="display:flex;"><span>  <span style="color:#888">// Then we sort the right pile</span>
-</span></span><span style="display:flex;"><span>  Quicksort(laundry, pivotIndex + <span style="color:#60e;font-weight:bold">1</span>, rightIndex);
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">// Then we sort the right pile</span>
+</span></span><span style="display:flex;"><span>  Quicksort(laundry, pivotIndex + <span style="color:#bd93f9">1</span>, rightIndex);
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#888">// You could use these to quicksort an array like so:</span>
-</span></span><span style="display:flex;"><span><span style="color:#888">// Quicksort(myArray, 0, myArray.Length - 1);</span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">// You could use these to quicksort an array like so:</span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">// Quicksort(myArray, 0, myArray.Length - 1);</span>
 </span></span></code></pre></div><p>Quicksort is commonly used in web browsers to implement JavaScript&rsquo;s <code>Array.sort()</code> method (although they may opt to use a different algorithm for very small arrays).</p>
 <p>Quicksort is not a <em>stable sorting algorithm.</em> This means if you have elements in the array that are equal to each other, they may not appear in the same order after the sort! In other words, if you have several 3s in the array, the first 3 before sorting might be the last 3 after sorting. They&rsquo;ll still be sorted correctly, though&mdash;all the 3s will end up next to each other&mdash;so most of the time it doesn&rsquo;t matter.</p>
 <p>In Big O notation, quicksort&rsquo;s time complexity averages <code>O(n log n)</code> but can be <code>O(n²)</code> in the worst case. <code>O(n log n)</code> is pretty good, about as good as we can generally expect from a sorting algorithm. <code>O(n²)</code> is pretty bad, and would only happen if you choose the worst possible pivot in every case. For example, the code above would perform poorly on an pre-sorted array since it would always choose the largest element in each subset as the pivot, causing the maximum number of swaps. To avoid this, implementations of Quicksort sometimes sample a few random elements from each subset and use their median as a pivot.</p>
@@ -308,25 +296,25 @@ if (!doNotTrack) {
 <p>Then you start over. Hooray! Again compare each item with the one on its right, but stop when you&rsquo;ve reached the second-to-last item (since we know the last item is sorted). The second-largest item will end up second from the right, and you can ignore it on the next go-around. We call this &ldquo;bubble sort&rdquo; because on each loop the largest unsorted item goes as far to the right as it can go (toward the &ldquo;top&rdquo; of the list), like a bubble rising to the top of a pond.</p>
 <p>Do it again and again and again until you can make a full loop without swapping any items. Then you&rsquo;re done. At most you&rsquo;ll have done as many loops as there are items of clothing.</p>
 <p>Here&rsquo;s how you&rsquo;d code it:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#888">// This method switches two items in an array</span>
-</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">void</span> SwapItemsInArray&lt;T&gt;(T[] array, <span style="color:#339;font-weight:bold">int</span> index1, <span style="color:#339;font-weight:bold">int</span> index2) {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#6272a4">// This method switches two items in an array</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">void</span> SwapItemsInArray&lt;T&gt;(T[] array, <span style="color:#8be9fd">int</span> index1, <span style="color:#8be9fd">int</span> index2) {
 </span></span><span style="display:flex;"><span>  (array[index1], array[index2]) = (array[index2], array[index1]);
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">void</span> BubbleSort(<span style="color:#339;font-weight:bold">long</span>[] laundry) {
-</span></span><span style="display:flex;"><span>  <span style="color:#080;font-weight:bold">for</span> (<span style="color:#339;font-weight:bold">var</span> outerLoopIndex = <span style="color:#60e;font-weight:bold">0</span>; outerLoopIndex &lt; laundry.Length; outerLoopIndex++) {
-</span></span><span style="display:flex;"><span>    <span style="color:#339;font-weight:bold">var</span> lastUnsortedIndex = laundry.Length - outerLoopIndex;
-</span></span><span style="display:flex;"><span>    <span style="color:#339;font-weight:bold">var</span> isSorted = <span style="color:#080;font-weight:bold">true</span>;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">void</span> BubbleSort(<span style="color:#8be9fd">long</span>[] laundry) {
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">for</span> (<span style="color:#8be9fd">var</span> outerLoopIndex = <span style="color:#bd93f9">0</span>; outerLoopIndex &lt; laundry.Length; outerLoopIndex++) {
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">var</span> lastUnsortedIndex = laundry.Length - outerLoopIndex;
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">var</span> isSorted = <span style="color:#ff79c6">true</span>;
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">for</span> (<span style="color:#339;font-weight:bold">var</span> innerLoopIndex = <span style="color:#60e;font-weight:bold">0</span>; innerLoopIndex &lt; lastUnsortedIndex - <span style="color:#60e;font-weight:bold">1</span>; innerLoopIndex++) {
-</span></span><span style="display:flex;"><span>      <span style="color:#080;font-weight:bold">if</span> (laundry[innerLoopIndex] &gt; laundry[innerLoopIndex + <span style="color:#60e;font-weight:bold">1</span>]) {
-</span></span><span style="display:flex;"><span>        SwapItemsInArray(laundry, innerLoopIndex, innerLoopIndex + <span style="color:#60e;font-weight:bold">1</span>);
-</span></span><span style="display:flex;"><span>        isSorted = <span style="color:#080;font-weight:bold">false</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">for</span> (<span style="color:#8be9fd">var</span> innerLoopIndex = <span style="color:#bd93f9">0</span>; innerLoopIndex &lt; lastUnsortedIndex - <span style="color:#bd93f9">1</span>; innerLoopIndex++) {
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">if</span> (laundry[innerLoopIndex] &gt; laundry[innerLoopIndex + <span style="color:#bd93f9">1</span>]) {
+</span></span><span style="display:flex;"><span>        SwapItemsInArray(laundry, innerLoopIndex, innerLoopIndex + <span style="color:#bd93f9">1</span>);
+</span></span><span style="display:flex;"><span>        isSorted = <span style="color:#ff79c6">false</span>;
 </span></span><span style="display:flex;"><span>      }
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">if</span> (isSorted) {
-</span></span><span style="display:flex;"><span>      <span style="color:#080;font-weight:bold">break</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> (isSorted) {
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">break</span>;
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>  }
 </span></span><span style="display:flex;"><span>}
@@ -339,44 +327,44 @@ if (!doNotTrack) {
 <p>Now go through all the <em>groups</em> two at a time. Pick up the first item of the left group in your left hand, the first item of the right group in your right hand. Compare them and put the smaller item in a brand new group. Whichever hand is empty, pick up the next item from the pile on that side. Again, compare the items you&rsquo;re holding and add the smaller one to the new group. Refill the empty hand as before. If the pile on that side is empty, then add the item in your other hand to the new group, and add each remaining item from that pile to the new group as well. Your new group will be sorted.</p>
 <p>Once all the groups are sorted you can start again, sorting two (larger) groups at a time into a new group. Eventually you&rsquo;ll only have one group left and your laundry will be sorted.</p>
 <p>Here&rsquo;s how you&rsquo;d code it:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#080;font-weight:bold">void</span> MergeSort(<span style="color:#339;font-weight:bold">long</span>[] laundry) {
-</span></span><span style="display:flex;"><span>  <span style="color:#080;font-weight:bold">if</span> (laundry.Length &lt;= <span style="color:#60e;font-weight:bold">1</span>) {
-</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">return</span>;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#ff79c6">void</span> MergeSort(<span style="color:#8be9fd">long</span>[] laundry) {
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">if</span> (laundry.Length &lt;= <span style="color:#bd93f9">1</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span>;
 </span></span><span style="display:flex;"><span>  }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#888">// Divide the pile into two piles</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#339;font-weight:bold">var</span> midpointIndex = laundry.Length / <span style="color:#60e;font-weight:bold">2</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#339;font-weight:bold">var</span> leftPile = laundry.Take(midpointIndex).ToArray();
-</span></span><span style="display:flex;"><span>  <span style="color:#339;font-weight:bold">var</span> rightPile = laundry.Skip(midpointIndex).ToArray();
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">// Divide the pile into two piles</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd">var</span> midpointIndex = laundry.Length / <span style="color:#bd93f9">2</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd">var</span> leftPile = laundry.Take(midpointIndex).ToArray();
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd">var</span> rightPile = laundry.Skip(midpointIndex).ToArray();
 </span></span><span style="display:flex;"><span>  
-</span></span><span style="display:flex;"><span>  <span style="color:#888">// Sort each pile using this same method</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">// Sort each pile using this same method</span>
 </span></span><span style="display:flex;"><span>  MergeSort(leftPile);
 </span></span><span style="display:flex;"><span>  MergeSort(rightPile);
 </span></span><span style="display:flex;"><span>  
-</span></span><span style="display:flex;"><span>  <span style="color:#888">// Treat `laundry` as a whole new pile and walk through the left and right</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#888">//  piles. On each step put the smaller element next in the new pile.</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#339;font-weight:bold">int</span> leftPileIndex = <span style="color:#60e;font-weight:bold">0</span>, rightPileIndex = <span style="color:#60e;font-weight:bold">0</span>, newPileIndex = <span style="color:#60e;font-weight:bold">0</span>;
-</span></span><span style="display:flex;"><span>  <span style="color:#080;font-weight:bold">while</span> (leftPileIndex &lt; leftPile.Length &amp;&amp; rightPileIndex &lt; rightPile.Length) {
-</span></span><span style="display:flex;"><span>    <span style="color:#080;font-weight:bold">if</span> (leftPile[leftPileIndex] &lt; rightPile[rightPileIndex]) {
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">// Treat `laundry` as a whole new pile and walk through the left and right</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">//  piles. On each step put the smaller element next in the new pile.</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd">int</span> leftPileIndex = <span style="color:#bd93f9">0</span>, rightPileIndex = <span style="color:#bd93f9">0</span>, newPileIndex = <span style="color:#bd93f9">0</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">while</span> (leftPileIndex &lt; leftPile.Length &amp;&amp; rightPileIndex &lt; rightPile.Length) {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> (leftPile[leftPileIndex] &lt; rightPile[rightPileIndex]) {
 </span></span><span style="display:flex;"><span>      laundry[newPileIndex] = leftPile[leftPileIndex];
 </span></span><span style="display:flex;"><span>      leftPileIndex++;
-</span></span><span style="display:flex;"><span>    } <span style="color:#080;font-weight:bold">else</span> {
+</span></span><span style="display:flex;"><span>    } <span style="color:#ff79c6">else</span> {
 </span></span><span style="display:flex;"><span>      laundry[newPileIndex] = rightPile[rightPileIndex];
 </span></span><span style="display:flex;"><span>      rightPileIndex++;
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>    newPileIndex++;
 </span></span><span style="display:flex;"><span>  }
 </span></span><span style="display:flex;"><span>  
-</span></span><span style="display:flex;"><span>  <span style="color:#888">// Finish adding any leftover items in the left pile to the new pile...</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#080;font-weight:bold">while</span> (leftPileIndex &lt; leftPile.Length) {
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">// Finish adding any leftover items in the left pile to the new pile...</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">while</span> (leftPileIndex &lt; leftPile.Length) {
 </span></span><span style="display:flex;"><span>    laundry[newPileIndex] = leftPile[leftPileIndex];
 </span></span><span style="display:flex;"><span>    newPileIndex++;
 </span></span><span style="display:flex;"><span>    leftPileIndex++;
 </span></span><span style="display:flex;"><span>  }
 </span></span><span style="display:flex;"><span>  
-</span></span><span style="display:flex;"><span>  <span style="color:#888">// ...and do the same for any leftover items in the right pile.</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#888">// There will only be leftovers in one pile!</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#080;font-weight:bold">while</span> (rightPileIndex &lt; rightPile.Length) {
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">// ...and do the same for any leftover items in the right pile.</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">// There will only be leftovers in one pile!</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">while</span> (rightPileIndex &lt; rightPile.Length) {
 </span></span><span style="display:flex;"><span>    laundry[newPileIndex] = rightPile[rightPileIndex];
 </span></span><span style="display:flex;"><span>    newPileIndex++;
 </span></span><span style="display:flex;"><span>    rightPileIndex++;
@@ -393,18 +381,18 @@ if (!doNotTrack) {
 <p>In other words, you should almost always start with whatever form of <code>Array.sort()</code> is built into your programming language or platform. That will be the easiest thing for you and any other programmers who use your code. And if you find out it&rsquo;s too slow, only then should you implement your own sorting algorithm (very carefully, and with plenty of unit tests).</p>
 <h2 id="what-array-is-evolving">What? Array is evolving!</h2>
 <p>Most arrays don&rsquo;t need to be sorted. And much of the time an array is not the best thing for what you&rsquo;re trying to do. If you ever see an <code>Array.find()</code> inside of a loop, for example, you should take a closer look and see if you&rsquo;d be better off transforming the array into something else. Take the following code:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#080;font-weight:bold">void</span> MatchPeopleToAddresses(Person[] people, Address[] addresses) {
-</span></span><span style="display:flex;"><span>  <span style="color:#080;font-weight:bold">foreach</span> (<span style="color:#339;font-weight:bold">var</span> person <span style="color:#080;font-weight:bold">in</span> people) {
-</span></span><span style="display:flex;"><span>    <span style="color:#339;font-weight:bold">var</span> matchingAddress = addresses.First(ad =&gt; ad.PersonName == person.Name);
-</span></span><span style="display:flex;"><span>    person.Address = <span style="background-color:#fff0f0">$&#34;{matchingAddress.StreetAddress} {matchingAddress.CityState} {matchingAddress.Zip}&#34;</span>;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#ff79c6">void</span> MatchPeopleToAddresses(Person[] people, Address[] addresses) {
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">foreach</span> (<span style="color:#8be9fd">var</span> person <span style="color:#ff79c6">in</span> people) {
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">var</span> matchingAddress = addresses.First(ad =&gt; ad.PersonName == person.Name);
+</span></span><span style="display:flex;"><span>    person.Address = <span style="color:#f1fa8c">$&#34;{matchingAddress.StreetAddress} {matchingAddress.CityState} {matchingAddress.Zip}&#34;</span>;
 </span></span><span style="display:flex;"><span>  }
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>This is a pretty common sort of operation. We have data in two arrays and we want to match them up according to some common property. The problem is that we&rsquo;re iterating through <code>addresses</code> on each loop&mdash;it&rsquo;s a loop inside a loop!&mdash;and evaluating each <code>Address</code> multiple times. We don&rsquo;t have to do that. Consider this:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#080;font-weight:bold">void</span> MatchPeopleToAddresses2(Person[] people, Address[] addresses) {
-</span></span><span style="display:flex;"><span>  <span style="color:#339;font-weight:bold">var</span> addressesByPersonName = addresses.ToDictionary(ad =&gt; ad.PersonName);
-</span></span><span style="display:flex;"><span>  <span style="color:#080;font-weight:bold">foreach</span> (<span style="color:#339;font-weight:bold">var</span> person <span style="color:#080;font-weight:bold">in</span> people) {
-</span></span><span style="display:flex;"><span>    <span style="color:#339;font-weight:bold">var</span> matchingAddress = addressesByPersonName[person.Name];
-</span></span><span style="display:flex;"><span>    person.Address = <span style="background-color:#fff0f0">$&#34;{matchingAddress.StreetAddress} {matchingAddress.CityState} {matchingAddress.Zip}&#34;</span>;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#ff79c6">void</span> MatchPeopleToAddresses2(Person[] people, Address[] addresses) {
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd">var</span> addressesByPersonName = addresses.ToDictionary(ad =&gt; ad.PersonName);
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">foreach</span> (<span style="color:#8be9fd">var</span> person <span style="color:#ff79c6">in</span> people) {
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">var</span> matchingAddress = addressesByPersonName[person.Name];
+</span></span><span style="display:flex;"><span>    person.Address = <span style="color:#f1fa8c">$&#34;{matchingAddress.StreetAddress} {matchingAddress.CityState} {matchingAddress.Zip}&#34;</span>;
 </span></span><span style="display:flex;"><span>  }
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>We start with one official, all-the-way-through iteration of <code>addresses</code>. We add all the elements to a Dictionary (you might know it in other languages as an object, an associative array, or a hash table) where the keys come from the <code>PersonName</code> field. Then on each iteration of the <code>foreach</code> loop, all we have to do is look up the address by that key. Hash table lookups are <code>O(1)</code>, which is as good as it gets. A hash table lookup will <em>always</em> be fast enough. Sometimes it isn&rsquo;t ideal for other reasons, but speed is a foregone conclusion.</p>
@@ -484,21 +472,7 @@ if (!doNotTrack) {
       <div class='footer'>
         <div class='social'>
   <nav aria-label='Social Menu'>
-    <ul class='social-menu'><li>
-        <a href='https://toot.cafe/@isaaclyman' target='_blank' rel='noopener'>
-          <span class='screen-reader'>Open Mastodon account in new tab</span>
-          <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
-  <path
-    fill="currentColor"
-    d="m 16.790203,18.219219 c 2.988785,-0.355807 5.589147,-2.186735 5.915304,-3.859031 0.515921,-2.635943 0.47441,-6.4327078 0.47441,-6.4327078 0,-5.1443873 -3.389069,-6.6536053 -3.389069,-6.6536053 C 18.082971,0.49258026 15.14904,0.16494061 12.100952,0.13973756 h -0.07413 c -3.0495684,0.0252031 -5.9820174,0.3528427 -7.6898947,1.13413734 0,0 -3.38758642,1.5077354 -3.38758642,6.6536053 l -0.00297,0.9814364 c -0.00593,0.9488204 -0.010378,2.0014184 0.016308,3.0999744 0.12305022,5.031715 0.92806522,9.992268 5.60397232,11.22277 2.155602,0.56781 4.0072848,0.686413 5.4987118,0.604874 2.702658,-0.148254 4.220771,-0.959199 4.220771,-0.959199 l -0.08895,-1.952495 c 0,0 -1.93174,0.607838 -4.102168,0.533712 C 9.9453442,21.384423 7.6770699,21.227278 7.3286748,18.60023 a 5.357872,5.357872 0 0 1 -0.048924,-0.735336 c 0,0 2.1111261,0.512956 4.7856142,0.634524 1.635233,0.07413 3.168173,-0.09488 4.726314,-0.280199 z m 2.391325,-3.661855 H 16.701251 V 8.5086329 c 0,-1.2734953 -0.539642,-1.9198795 -1.617443,-1.9198795 -1.191957,0 -1.789417,0.7664693 -1.789417,2.2845824 V 12.18383 H 10.827457 V 8.8718533 c 0,-1.5181132 -0.597461,-2.2845824 -1.7894166,-2.2845824 -1.077801,0 -1.6174428,0.6463841 -1.6174428,1.921362 V 14.555882 H 4.940321 V 8.3262814 c 0,-1.2734953 0.3261571,-2.2845824 0.9784713,-3.0332612 0.6760348,-0.7486789 1.5596241,-1.1326548 2.6581806,-1.1326548 1.2690477,0 2.2297281,0.4862707 2.8657351,1.4573293 l 0.618216,1.03036 0.618216,-1.03036 c 0.636006,-0.9710586 1.596688,-1.4573293 2.867218,-1.4573293 1.097074,0 1.980664,0.3839759 2.655216,1.1326548 0.655279,0.7486788 0.979954,1.7597659 0.979954,3.0332612 z"
-    id="path1"
-    style="stroke-width:1.48253" />
-  
-</svg>
-
-        </a>
-      </li></ul>
+    <ul class='social-menu'></ul>
   </nav>
 </div>
 

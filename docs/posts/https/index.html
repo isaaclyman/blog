@@ -6,15 +6,15 @@
 <meta name='viewport' content='width=device-width, initial-scale=1'>
 <meta name='description' content='From handshake to hash'>
 
-<meta property='og:title' content='This is how HTTPS works • Isaac Lyman'>
+<meta property='og:title' content='This is how HTTPS works • Minimum Viable Blog'>
 <meta property='og:description' content='From handshake to hash'>
 <meta property='og:url' content='http://isaaclyman.com/blog/posts/https/'>
 <meta property='og:site_name' content='Minimum Viable Blog'>
-<meta property='og:type' content='article'><meta property='og:image' content='https://www.gravatar.com/avatar/75b0b92f72a161a16abe1d22ac107525?s=256'><meta property='article:section' content='Posts'><meta property='article:tag' content='beginners'><meta property='article:published_time' content='2018-08-29T07:00:45-06:00'/><meta property='article:modified_time' content='2018-08-29T07:00:45-06:00'/>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts'><meta property='article:tag' content='beginners'><meta property='article:published_time' content='2018-08-29T07:00:45-06:00'/><meta property='article:modified_time' content='2018-08-29T07:00:45-06:00'/>
 
-<meta name="generator" content="Hugo 0.110.0">
+<meta name="generator" content="Hugo 0.124.1">
 
-  <title>This is how HTTPS works • Isaac Lyman</title>
+  <title>This is how HTTPS works • Minimum Viable Blog</title>
   <link rel='canonical' href='http://isaaclyman.com/blog/posts/https/'>
   
   <link rel='icon' href='/blog/favicon.png'>
@@ -109,18 +109,6 @@ if (!doNotTrack) {
     <time class='date' datetime='2018-08-29T07:00:45-06:00'>Aug 29, 2018</time>
   </span>
   
-  <span class='byline'>
-    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
-  <path d="M21,21V20c0-2.76-4-5-9-5s-9,2.24-9,5v1"/>
-  <path d="M16,6.37A4,4,0,1,1,12.63,3,4,4,0,0,1,16,6.37Z"/>
-  
-</svg>
-
-    <span class='screen-reader'> by </span>
-    Isaac Lyman
-  </span>
-  
   
   <span class='reading-time'>
     <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
@@ -154,54 +142,54 @@ if (!doNotTrack) {
 <p>This idea is called a <a href="https://en.wikipedia.org/wiki/Symmetric-key_algorithm">symmetric-key algorithm</a> and we use it all the time! It&rsquo;s a great way to encode and decode secret messages.</p>
 <p>All that&rsquo;s left is to figure out how to exchange the secret number. Janice knows some cool things about <a href="https://en.wikipedia.org/wiki/Prime_number">prime numbers</a> and has an idea of how to do this.</p>
 <p>First, Janice picks two prime numbers, called <em>p</em> and <em>g</em>. She sends them to Mario; it&rsquo;s okay if Natalia sees them.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#080;font-weight:bold">var</span> p <span style="color:#333">=</span> <span style="color:#00d;font-weight:bold">23</span>;
-</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">var</span> g <span style="color:#333">=</span> <span style="color:#00d;font-weight:bold">5</span>;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">var</span> p <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">23</span>;
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">var</span> g <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">5</span>;
 </span></span></code></pre></div><p>Then Janice picks a secret number, any number she wants. Let&rsquo;s say that number is 3.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#080;font-weight:bold">var</span> janiceSecret <span style="color:#333">=</span> <span style="color:#00d;font-weight:bold">3</span>;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">var</span> janiceSecret <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">3</span>;
 </span></span></code></pre></div><p>She creates the following function:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#080;font-weight:bold">function</span> computeExchange(g, secret, p) {
-</span></span><span style="display:flex;"><span>  <span style="color:#080;font-weight:bold">var</span> exchange <span style="color:#333">=</span> <span style="color:#007020">Math</span>.pow(g, secret) <span style="color:#333">%</span> p;
-</span></span><span style="display:flex;"><span>  <span style="color:#080;font-weight:bold">return</span> exchange;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">function</span> computeExchange(g, secret, p) {
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">var</span> exchange <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">Math</span>.pow(g, secret) <span style="color:#ff79c6">%</span> p;
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">return</span> exchange;
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>So she&rsquo;ll raise <code>g</code> to the power of <code>secret</code>, divide by <code>p</code>, and return the remainder of that division.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>computeExchange(g, janiceSecret, p);
-</span></span><span style="display:flex;"><span><span style="color:#333">&gt;</span> <span style="color:#00d;font-weight:bold">10</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>computeExchange(g, janiceSecret, p);
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">&gt;</span> <span style="color:#bd93f9">10</span>
 </span></span></code></pre></div><p>The answer is 10. Janice sends that number to Mario.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#080;font-weight:bold">var</span> numberFromJanice <span style="color:#333">=</span> <span style="color:#00d;font-weight:bold">10</span>;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">var</span> numberFromJanice <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">10</span>;
 </span></span></code></pre></div><p>Then Mario chooses a secret number, say 8, and runs the same function.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#080;font-weight:bold">var</span> marioSecret <span style="color:#333">=</span> <span style="color:#00d;font-weight:bold">8</span>;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">var</span> marioSecret <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">8</span>;
 </span></span><span style="display:flex;"><span>computeExchange(g, marioSecret, p);
-</span></span><span style="display:flex;"><span><span style="color:#333">&gt;</span> <span style="color:#00d;font-weight:bold">16</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">&gt;</span> <span style="color:#bd93f9">16</span>
 </span></span></code></pre></div><p>Mario gets 16 and sends that number to Janice.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#080;font-weight:bold">var</span> numberFromMario <span style="color:#333">=</span> <span style="color:#00d;font-weight:bold">16</span>;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">var</span> numberFromMario <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">16</span>;
 </span></span></code></pre></div><p>There&rsquo;s just one more step. Janice runs the function again, but instead of using <code>g</code>, she uses the number Mario just sent her.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>computeExchange(numberFromMario, janiceSecret, p);
-</span></span><span style="display:flex;"><span><span style="color:#333">&gt;</span> <span style="color:#00d;font-weight:bold">2</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>computeExchange(numberFromMario, janiceSecret, p);
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">&gt;</span> <span style="color:#bd93f9">2</span>
 </span></span></code></pre></div><p>And Mario does the same: he runs the function again, but replaces <code>g</code> with the number Janice sent him.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>computeExchange(numberFromJanice, marioSecret, p);
-</span></span><span style="display:flex;"><span><span style="color:#333">&gt;</span> <span style="color:#00d;font-weight:bold">2</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>computeExchange(numberFromJanice, marioSecret, p);
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">&gt;</span> <span style="color:#bd93f9">2</span>
 </span></span></code></pre></div><p>Both of them got the number 2! Is this a coincidence? No, it&rsquo;s not. In fact, it&rsquo;s a mathematical certainty. Regardless of the prime numbers they choose as <code>p</code> and <code>g</code>, and no matter what they choose as their secret numbers, they&rsquo;ll end up with the same number&ndash;not necessarily 2. In this case, they&rsquo;ll use 2 as the secret number to encode and decode their message. This is called a <a href="https://en.wikipedia.org/wiki/Diffie%E2%80%93Hellman_key_exchange">Diffie-Hellman key exchange</a>. Let&rsquo;s pick some different numbers and do it again:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#080;font-weight:bold">function</span> computeExchange(g, secret, p) {
-</span></span><span style="display:flex;"><span>  <span style="color:#080;font-weight:bold">var</span> exchange <span style="color:#333">=</span> <span style="color:#007020">Math</span>.pow(g, secret) <span style="color:#333">%</span> p;
-</span></span><span style="display:flex;"><span>  <span style="color:#080;font-weight:bold">return</span> exchange;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">function</span> computeExchange(g, secret, p) {
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">var</span> exchange <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">Math</span>.pow(g, secret) <span style="color:#ff79c6">%</span> p;
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">return</span> exchange;
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">var</span> p <span style="color:#333">=</span> <span style="color:#00d;font-weight:bold">29</span>;
-</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">var</span> g <span style="color:#333">=</span> <span style="color:#00d;font-weight:bold">7</span>;
-</span></span><span style="display:flex;"><span>console.log(<span style="background-color:#fff0f0">&#39;p and g are:&#39;</span>, p, g)
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">var</span> p <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">29</span>;
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">var</span> g <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">7</span>;
+</span></span><span style="display:flex;"><span>console.log(<span style="color:#f1fa8c">&#39;p and g are:&#39;</span>, p, g)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">var</span> janiceSecret <span style="color:#333">=</span> <span style="color:#00d;font-weight:bold">8</span>;
-</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">var</span> marioSecret <span style="color:#333">=</span> <span style="color:#00d;font-weight:bold">5</span>;
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">var</span> janiceSecret <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">8</span>;
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">var</span> marioSecret <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">5</span>;
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">var</span> numberFromJanice <span style="color:#333">=</span> computeExchange(g, janiceSecret, p);
-</span></span><span style="display:flex;"><span>console.log(<span style="background-color:#fff0f0">&#39;Janice sends Mario&#39;</span>, numberFromJanice);
-</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">var</span> numberFromMario <span style="color:#333">=</span> computeExchange(g, marioSecret, p);
-</span></span><span style="display:flex;"><span>console.log(<span style="background-color:#fff0f0">&#39;Mario sends Janice&#39;</span>, numberFromMario);
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">var</span> numberFromJanice <span style="color:#ff79c6">=</span> computeExchange(g, janiceSecret, p);
+</span></span><span style="display:flex;"><span>console.log(<span style="color:#f1fa8c">&#39;Janice sends Mario&#39;</span>, numberFromJanice);
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">var</span> numberFromMario <span style="color:#ff79c6">=</span> computeExchange(g, marioSecret, p);
+</span></span><span style="display:flex;"><span>console.log(<span style="color:#f1fa8c">&#39;Mario sends Janice&#39;</span>, numberFromMario);
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">var</span> janiceKey <span style="color:#333">=</span> computeExchange(numberFromMario, janiceSecret, p);
-</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">var</span> marioKey <span style="color:#333">=</span> computeExchange(numberFromJanice, marioSecret, p);
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">var</span> janiceKey <span style="color:#ff79c6">=</span> computeExchange(numberFromMario, janiceSecret, p);
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">var</span> marioKey <span style="color:#ff79c6">=</span> computeExchange(numberFromJanice, marioSecret, p);
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>console.log(<span style="background-color:#fff0f0">&#39;Their shared key should match:&#39;</span>, janiceKey, marioKey);
+</span></span><span style="display:flex;"><span>console.log(<span style="color:#f1fa8c">&#39;Their shared key should match:&#39;</span>, janiceKey, marioKey);
 </span></span></code></pre></div><p>(Note that this won&rsquo;t work for slightly larger values of <code>p</code>, <code>g</code>, <code>janiceSecret</code>, and <code>marioSecret</code>, because JavaScript doesn&rsquo;t handle big numbers very well. It&rsquo;ll work just fine in Python.)</p>
 <p>Both <code>janiceKey</code> and <code>marioKey</code> evaluate to 16. That number is very special. It was never exchanged in a note. Natalia has never seen it. Natalia can&rsquo;t reverse the equation because she doesn&rsquo;t know Janice or Mario&rsquo;s secret number. The best she can do is guess what their secret number might have been and try to figure out the encoding/decoding key based on that. For small numbers like the ones we used, she can probably do that. But if Janice&rsquo;s and Mario&rsquo;s secret keys are very large numbers, like 115 792 089 237 316 195 423 570 985 008 687 907 853 269 984 665 640 564 039 457 584 007 913 129 639 935 (a 256-bit number), then it becomes prohibitively difficult. And there&rsquo;s definitely no way Natalia will figure out their shared key and decode the message before the challenge ends, you run out of patience, or someone dies of old age.</p>
 <p>That&rsquo;s pretty much what your browser does every time you connect to a server that uses HTTPS. It&rsquo;s called a &ldquo;TLS handshake.&rdquo; Someone could be sniffing the Internet connection, reading every message your browser sends and receives from the very first moment, and still be unable to decode your messages once the shared key is determined. Pretty crazy, huh?</p>
@@ -296,21 +284,7 @@ if (!doNotTrack) {
       <div class='footer'>
         <div class='social'>
   <nav aria-label='Social Menu'>
-    <ul class='social-menu'><li>
-        <a href='https://toot.cafe/@isaaclyman' target='_blank' rel='noopener'>
-          <span class='screen-reader'>Open Mastodon account in new tab</span>
-          <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
-  <path
-    fill="currentColor"
-    d="m 16.790203,18.219219 c 2.988785,-0.355807 5.589147,-2.186735 5.915304,-3.859031 0.515921,-2.635943 0.47441,-6.4327078 0.47441,-6.4327078 0,-5.1443873 -3.389069,-6.6536053 -3.389069,-6.6536053 C 18.082971,0.49258026 15.14904,0.16494061 12.100952,0.13973756 h -0.07413 c -3.0495684,0.0252031 -5.9820174,0.3528427 -7.6898947,1.13413734 0,0 -3.38758642,1.5077354 -3.38758642,6.6536053 l -0.00297,0.9814364 c -0.00593,0.9488204 -0.010378,2.0014184 0.016308,3.0999744 0.12305022,5.031715 0.92806522,9.992268 5.60397232,11.22277 2.155602,0.56781 4.0072848,0.686413 5.4987118,0.604874 2.702658,-0.148254 4.220771,-0.959199 4.220771,-0.959199 l -0.08895,-1.952495 c 0,0 -1.93174,0.607838 -4.102168,0.533712 C 9.9453442,21.384423 7.6770699,21.227278 7.3286748,18.60023 a 5.357872,5.357872 0 0 1 -0.048924,-0.735336 c 0,0 2.1111261,0.512956 4.7856142,0.634524 1.635233,0.07413 3.168173,-0.09488 4.726314,-0.280199 z m 2.391325,-3.661855 H 16.701251 V 8.5086329 c 0,-1.2734953 -0.539642,-1.9198795 -1.617443,-1.9198795 -1.191957,0 -1.789417,0.7664693 -1.789417,2.2845824 V 12.18383 H 10.827457 V 8.8718533 c 0,-1.5181132 -0.597461,-2.2845824 -1.7894166,-2.2845824 -1.077801,0 -1.6174428,0.6463841 -1.6174428,1.921362 V 14.555882 H 4.940321 V 8.3262814 c 0,-1.2734953 0.3261571,-2.2845824 0.9784713,-3.0332612 0.6760348,-0.7486789 1.5596241,-1.1326548 2.6581806,-1.1326548 1.2690477,0 2.2297281,0.4862707 2.8657351,1.4573293 l 0.618216,1.03036 0.618216,-1.03036 c 0.636006,-0.9710586 1.596688,-1.4573293 2.867218,-1.4573293 1.097074,0 1.980664,0.3839759 2.655216,1.1326548 0.655279,0.7486788 0.979954,1.7597659 0.979954,3.0332612 z"
-    id="path1"
-    style="stroke-width:1.48253" />
-  
-</svg>
-
-        </a>
-      </li></ul>
+    <ul class='social-menu'></ul>
   </nav>
 </div>
 

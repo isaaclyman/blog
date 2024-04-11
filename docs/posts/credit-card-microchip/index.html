@@ -7,16 +7,16 @@
 <meta name='description' content='Your current credit card can be used in four different ways:
 Typing in the card number. We&rsquo;ve been using credit cards this way since 1950. Sliding the card&rsquo;s magnetic strip (the black stripe) through a card reader. This method was invented by IBM in the 1960s and has been in use ever since, but it&rsquo;s on its way out. In a few short years many credit cards will no longer have a magnetic strip.'>
 
-<meta property='og:title' content='Credit card chips and encryption in plain JavaScript • Isaac Lyman'>
+<meta property='og:title' content='Credit card chips and encryption in plain JavaScript • Minimum Viable Blog'>
 <meta property='og:description' content='Your current credit card can be used in four different ways:
 Typing in the card number. We&rsquo;ve been using credit cards this way since 1950. Sliding the card&rsquo;s magnetic strip (the black stripe) through a card reader. This method was invented by IBM in the 1960s and has been in use ever since, but it&rsquo;s on its way out. In a few short years many credit cards will no longer have a magnetic strip.'>
 <meta property='og:url' content='http://isaaclyman.com/blog/posts/credit-card-microchip/'>
 <meta property='og:site_name' content='Minimum Viable Blog'>
-<meta property='og:type' content='article'><meta property='og:image' content='https://www.gravatar.com/avatar/75b0b92f72a161a16abe1d22ac107525?s=256'><meta property='article:section' content='Posts'><meta property='article:published_time' content='2022-10-25T12:23:02-06:00'/><meta property='article:modified_time' content='2022-10-25T12:23:02-06:00'/>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts'><meta property='article:published_time' content='2022-10-25T12:23:02-06:00'/><meta property='article:modified_time' content='2022-10-25T12:23:02-06:00'/>
 
-<meta name="generator" content="Hugo 0.110.0">
+<meta name="generator" content="Hugo 0.124.1">
 
-  <title>Credit card chips and encryption in plain JavaScript • Isaac Lyman</title>
+  <title>Credit card chips and encryption in plain JavaScript • Minimum Viable Blog</title>
   <link rel='canonical' href='http://isaaclyman.com/blog/posts/credit-card-microchip/'>
   
   <link rel='icon' href='/blog/favicon.png'>
@@ -107,18 +107,6 @@ if (!doNotTrack) {
     <time class='date' datetime='2022-10-25T12:23:02-06:00'>Oct 25, 2022</time>
   </span>
   
-  <span class='byline'>
-    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
-  <path d="M21,21V20c0-2.76-4-5-9-5s-9,2.24-9,5v1"/>
-  <path d="M16,6.37A4,4,0,1,1,12.63,3,4,4,0,0,1,16,6.37Z"/>
-  
-</svg>
-
-    <span class='screen-reader'> by </span>
-    Isaac Lyman
-  </span>
-  
   
   <span class='reading-time'>
     <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
@@ -160,106 +148,106 @@ if (!doNotTrack) {
 <p>This isn&rsquo;t one of those times. Your credit card needs to supply a piece of information that the bank (but nobody else) can quickly decrypt.</p>
 <p>One way to do this is by using <em>symmetric key encryption</em> (also called <em>private key encryption</em>). This requires the credit card and the bank to have a shared, predetermined <em>key</em>: a string of bytes that can be used to encrypt or decrypt any message. That&rsquo;s no problem, since the card came from the bank in the first place; they can program the key into the card before they mail it to you.</p>
 <p>Let&rsquo;s implement a two-round symmetric key encryption algorithm in JavaScript. It will be far too simple and insecure to use in real life, but it&rsquo;ll illustrate how an algorithm like AES works. We&rsquo;ll be using the bitwise XOR operator <code>^</code>, which you probably don&rsquo;t see very often, but all you need to know is if <code>a ^ b === c</code>, then <code>c ^ a === b</code> and <code>c ^ b === a</code>.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#888">//
-</span></span></span><span style="display:flex;"><span><span style="color:#888">// ENCRYPTION
-</span></span></span><span style="display:flex;"><span><span style="color:#888">//
-</span></span></span><span style="display:flex;"><span><span style="color:#888"></span>
-</span></span><span style="display:flex;"><span><span style="color:#888">// This is the entry point. It converts your shared key to a number
-</span></span></span><span style="display:flex;"><span><span style="color:#888">//  and your message to an array of numbers, then encrypts it in two
-</span></span></span><span style="display:flex;"><span><span style="color:#888">//  steps. It converts the resulting array of numbers back to a string
-</span></span></span><span style="display:flex;"><span><span style="color:#888">//  and returns it.
-</span></span></span><span style="display:flex;"><span><span style="color:#888"></span><span style="color:#080;font-weight:bold">function</span> encrypt(sharedKey, message) {
-</span></span><span style="display:flex;"><span>  <span style="color:#080;font-weight:bold">const</span> numericKey <span style="color:#333">=</span> stringKeyToNumeric(sharedKey)
-</span></span><span style="display:flex;"><span>  <span style="color:#080;font-weight:bold">const</span> messageBytes <span style="color:#333">=</span> stringToIntArray(message)
-</span></span><span style="display:flex;"><span>  <span style="color:#080;font-weight:bold">const</span> r1 <span style="color:#333">=</span> encryptRound1(numericKey, messageBytes)
-</span></span><span style="display:flex;"><span>  <span style="color:#080;font-weight:bold">const</span> r2 <span style="color:#333">=</span> encryptRound2(numericKey, r1)
-</span></span><span style="display:flex;"><span>  <span style="color:#080;font-weight:bold">const</span> encrypted <span style="color:#333">=</span> intArrayToString(r2)
-</span></span><span style="display:flex;"><span>  <span style="color:#080;font-weight:bold">return</span> encrypted
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#6272a4">//
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">// ENCRYPTION
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">//
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">// This is the entry point. It converts your shared key to a number
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">//  and your message to an array of numbers, then encrypts it in two
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">//  steps. It converts the resulting array of numbers back to a string
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">//  and returns it.
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span><span style="color:#8be9fd;font-style:italic">function</span> encrypt(sharedKey, message) {
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> numericKey <span style="color:#ff79c6">=</span> stringKeyToNumeric(sharedKey)
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> messageBytes <span style="color:#ff79c6">=</span> stringToIntArray(message)
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> r1 <span style="color:#ff79c6">=</span> encryptRound1(numericKey, messageBytes)
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> r2 <span style="color:#ff79c6">=</span> encryptRound2(numericKey, r1)
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> encrypted <span style="color:#ff79c6">=</span> intArrayToString(r2)
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">return</span> encrypted
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">function</span> encryptRound1(numericKey, byteArray) {
-</span></span><span style="display:flex;"><span>  <span style="color:#888">// Create a &#34;round key&#34; so we aren&#39;t using the same key for every step
-</span></span></span><span style="display:flex;"><span><span style="color:#888"></span>  <span style="color:#080;font-weight:bold">const</span> roundKey <span style="color:#333">=</span> numericKey <span style="color:#333">^</span> <span style="color:#00d;font-weight:bold">4321</span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">function</span> encryptRound1(numericKey, byteArray) {
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">// Create a &#34;round key&#34; so we aren&#39;t using the same key for every step
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>  <span style="color:#ff79c6">const</span> roundKey <span style="color:#ff79c6">=</span> numericKey <span style="color:#ff79c6">^</span> <span style="color:#bd93f9">4321</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#888">// For each character in the message, XOR it with the round key
-</span></span></span><span style="display:flex;"><span><span style="color:#888"></span>  <span style="color:#080;font-weight:bold">return</span> byteArray.map(<span style="color:#080;font-weight:bold">byte</span> =&gt; <span style="color:#080;font-weight:bold">byte</span> <span style="color:#333">^</span> roundKey)
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">// For each character in the message, XOR it with the round key
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>  <span style="color:#ff79c6">return</span> byteArray.map(<span style="color:#ff79c6">byte</span> =&gt; <span style="color:#ff79c6">byte</span> <span style="color:#ff79c6">^</span> roundKey)
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">function</span> encryptRound2(numericKey, byteArray) {
-</span></span><span style="display:flex;"><span>  <span style="color:#080;font-weight:bold">const</span> roundKey <span style="color:#333">=</span> numericKey <span style="color:#333">%</span> <span style="color:#00d;font-weight:bold">1234</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#080;font-weight:bold">const</span> newBytes <span style="color:#333">=</span> byteArray.slice()
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">function</span> encryptRound2(numericKey, byteArray) {
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> roundKey <span style="color:#ff79c6">=</span> numericKey <span style="color:#ff79c6">%</span> <span style="color:#bd93f9">1234</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> newBytes <span style="color:#ff79c6">=</span> byteArray.slice()
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#888">// &#34;Rotate&#34; the array (move the last element to the beginning) roundKey times
-</span></span></span><span style="display:flex;"><span><span style="color:#888"></span>  <span style="color:#080;font-weight:bold">for</span> (<span style="color:#080;font-weight:bold">let</span> step <span style="color:#333">=</span> <span style="color:#00d;font-weight:bold">0</span>; step <span style="color:#333">&lt;</span> roundKey; step<span style="color:#333">++</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">// &#34;Rotate&#34; the array (move the last element to the beginning) roundKey times
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>  <span style="color:#ff79c6">for</span> (<span style="color:#8be9fd;font-style:italic">let</span> step <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>; step <span style="color:#ff79c6">&lt;</span> roundKey; step<span style="color:#ff79c6">++</span>) {
 </span></span><span style="display:flex;"><span>    newBytes.unshift(newBytes.pop())
 </span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>  <span style="color:#080;font-weight:bold">return</span> newBytes
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">return</span> newBytes
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#888">//
-</span></span></span><span style="display:flex;"><span><span style="color:#888">// DECRYPTION
-</span></span></span><span style="display:flex;"><span><span style="color:#888">//
-</span></span></span><span style="display:flex;"><span><span style="color:#888"></span>
-</span></span><span style="display:flex;"><span><span style="color:#888">// The other entry point. It does the same thing as `encrypt` but backwards.
-</span></span></span><span style="display:flex;"><span><span style="color:#888"></span><span style="color:#080;font-weight:bold">function</span> decrypt(sharedKey, encrypted) {
-</span></span><span style="display:flex;"><span>  <span style="color:#080;font-weight:bold">const</span> numericKey <span style="color:#333">=</span> stringKeyToNumeric(sharedKey)
-</span></span><span style="display:flex;"><span>  <span style="color:#080;font-weight:bold">const</span> messageBytes <span style="color:#333">=</span> stringToIntArray(encrypted)
-</span></span><span style="display:flex;"><span>  <span style="color:#080;font-weight:bold">const</span> r1 <span style="color:#333">=</span> decryptRound1(numericKey, messageBytes)
-</span></span><span style="display:flex;"><span>  <span style="color:#080;font-weight:bold">const</span> r2 <span style="color:#333">=</span> decryptRound2(numericKey, r1)
-</span></span><span style="display:flex;"><span>  <span style="color:#080;font-weight:bold">const</span> message <span style="color:#333">=</span> intArrayToString(r2)
-</span></span><span style="display:flex;"><span>  <span style="color:#080;font-weight:bold">return</span> message
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">//
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">// DECRYPTION
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">//
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">// The other entry point. It does the same thing as `encrypt` but backwards.
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span><span style="color:#8be9fd;font-style:italic">function</span> decrypt(sharedKey, encrypted) {
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> numericKey <span style="color:#ff79c6">=</span> stringKeyToNumeric(sharedKey)
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> messageBytes <span style="color:#ff79c6">=</span> stringToIntArray(encrypted)
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> r1 <span style="color:#ff79c6">=</span> decryptRound1(numericKey, messageBytes)
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> r2 <span style="color:#ff79c6">=</span> decryptRound2(numericKey, r1)
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> message <span style="color:#ff79c6">=</span> intArrayToString(r2)
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">return</span> message
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">function</span> decryptRound1(numericKey, byteArray) {
-</span></span><span style="display:flex;"><span>  <span style="color:#080;font-weight:bold">const</span> roundKey <span style="color:#333">=</span> numericKey <span style="color:#333">%</span> <span style="color:#00d;font-weight:bold">1234</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#080;font-weight:bold">const</span> newBytes <span style="color:#333">=</span> byteArray.slice()
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">function</span> decryptRound1(numericKey, byteArray) {
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> roundKey <span style="color:#ff79c6">=</span> numericKey <span style="color:#ff79c6">%</span> <span style="color:#bd93f9">1234</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> newBytes <span style="color:#ff79c6">=</span> byteArray.slice()
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#888">// &#34;Unrotate&#34; the array roundKey times
-</span></span></span><span style="display:flex;"><span><span style="color:#888"></span>  <span style="color:#080;font-weight:bold">for</span> (<span style="color:#080;font-weight:bold">let</span> step <span style="color:#333">=</span> <span style="color:#00d;font-weight:bold">0</span>; step <span style="color:#333">&lt;</span> roundKey; step<span style="color:#333">++</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">// &#34;Unrotate&#34; the array roundKey times
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>  <span style="color:#ff79c6">for</span> (<span style="color:#8be9fd;font-style:italic">let</span> step <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>; step <span style="color:#ff79c6">&lt;</span> roundKey; step<span style="color:#ff79c6">++</span>) {
 </span></span><span style="display:flex;"><span>    newBytes.push(newBytes.shift())
 </span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>  <span style="color:#080;font-weight:bold">return</span> newBytes
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">return</span> newBytes
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">function</span> decryptRound2(numericKey, byteArray) {
-</span></span><span style="display:flex;"><span>  <span style="color:#080;font-weight:bold">const</span> roundKey <span style="color:#333">=</span> numericKey <span style="color:#333">^</span> <span style="color:#00d;font-weight:bold">4321</span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">function</span> decryptRound2(numericKey, byteArray) {
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> roundKey <span style="color:#ff79c6">=</span> numericKey <span style="color:#ff79c6">^</span> <span style="color:#bd93f9">4321</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#888">// XOR each character with the same round key, which gives us the original
-</span></span></span><span style="display:flex;"><span><span style="color:#888"></span>  <span style="color:#080;font-weight:bold">return</span> byteArray.map(<span style="color:#080;font-weight:bold">byte</span> =&gt; <span style="color:#080;font-weight:bold">byte</span> <span style="color:#333">^</span> roundKey)
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">// XOR each character with the same round key, which gives us the original
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>  <span style="color:#ff79c6">return</span> byteArray.map(<span style="color:#ff79c6">byte</span> =&gt; <span style="color:#ff79c6">byte</span> <span style="color:#ff79c6">^</span> roundKey)
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#888">//
-</span></span></span><span style="display:flex;"><span><span style="color:#888">// UTILITY
-</span></span></span><span style="display:flex;"><span><span style="color:#888">//
-</span></span></span><span style="display:flex;"><span><span style="color:#888"></span>
-</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">function</span> stringToIntArray(message) {
-</span></span><span style="display:flex;"><span>  <span style="color:#080;font-weight:bold">return</span> message.split(<span style="background-color:#fff0f0">&#39;&#39;</span>).map(<span style="color:#080;font-weight:bold">char</span> =&gt; <span style="color:#080;font-weight:bold">char</span>.charCodeAt(<span style="color:#00d;font-weight:bold">0</span>))
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">//
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">// UTILITY
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">//
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">function</span> stringToIntArray(message) {
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">return</span> message.split(<span style="color:#f1fa8c">&#39;&#39;</span>).map(<span style="color:#ff79c6">char</span> =&gt; <span style="color:#ff79c6">char</span>.charCodeAt(<span style="color:#bd93f9">0</span>))
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">function</span> intArrayToString(intArray) {
-</span></span><span style="display:flex;"><span>  <span style="color:#080;font-weight:bold">return</span> intArray.map(<span style="color:#080;font-weight:bold">int</span> =&gt; <span style="color:#007020">String</span>.fromCharCode(<span style="color:#080;font-weight:bold">int</span>)).join(<span style="background-color:#fff0f0">&#39;&#39;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">function</span> intArrayToString(intArray) {
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">return</span> intArray.map(<span style="color:#ff79c6">int</span> =&gt; <span style="color:#8be9fd;font-style:italic">String</span>.fromCharCode(<span style="color:#ff79c6">int</span>)).join(<span style="color:#f1fa8c">&#39;&#39;</span>)
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">function</span> stringKeyToNumeric(key) {
-</span></span><span style="display:flex;"><span>  <span style="color:#080;font-weight:bold">const</span> fourDigitCodes <span style="color:#333">=</span> key.split(<span style="background-color:#fff0f0">&#39;&#39;</span>).map(<span style="color:#080;font-weight:bold">char</span> =&gt; <span style="color:#080;font-weight:bold">char</span>.charCodeAt(<span style="color:#00d;font-weight:bold">0</span>).toString().padStart(<span style="color:#00d;font-weight:bold">4</span>, <span style="background-color:#fff0f0">&#39;0&#39;</span>))
-</span></span><span style="display:flex;"><span>  <span style="color:#080;font-weight:bold">const</span> numericKey <span style="color:#333">=</span> <span style="color:#007020">Number</span>(fourDigitCodes.join(<span style="background-color:#fff0f0">&#39;&#39;</span>))
-</span></span><span style="display:flex;"><span>  <span style="color:#080;font-weight:bold">return</span> numericKey
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">function</span> stringKeyToNumeric(key) {
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> fourDigitCodes <span style="color:#ff79c6">=</span> key.split(<span style="color:#f1fa8c">&#39;&#39;</span>).map(<span style="color:#ff79c6">char</span> =&gt; <span style="color:#ff79c6">char</span>.charCodeAt(<span style="color:#bd93f9">0</span>).toString().padStart(<span style="color:#bd93f9">4</span>, <span style="color:#f1fa8c">&#39;0&#39;</span>))
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> numericKey <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">Number</span>(fourDigitCodes.join(<span style="color:#f1fa8c">&#39;&#39;</span>))
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">return</span> numericKey
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#888">//
-</span></span></span><span style="display:flex;"><span><span style="color:#888">// TEST PROGRAM
-</span></span></span><span style="display:flex;"><span><span style="color:#888">//
-</span></span></span><span style="display:flex;"><span><span style="color:#888"></span>
-</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">const</span> message <span style="color:#333">=</span> <span style="background-color:#fff0f0">&#34;Hello there.&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">const</span> sharedKey <span style="color:#333">=</span> <span style="background-color:#fff0f0">&#34;ABCDEF&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">//
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">// TEST PROGRAM
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">//
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">const</span> message <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;Hello there.&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">const</span> sharedKey <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;ABCDEF&#34;</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>console.log(<span style="background-color:#fff0f0">&#39;Message:&#39;</span>, message) <span style="color:#888">// =&gt; Message: Hello there.
-</span></span></span><span style="display:flex;"><span><span style="color:#888"></span>
-</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">const</span> encrypted <span style="color:#333">=</span> encrypt(sharedKey, message)
-</span></span><span style="display:flex;"><span>console.log(<span style="background-color:#fff0f0">&#39;Encrypted:&#39;</span>, encrypted) <span style="color:#888">// =&gt; Encrypted: ႎჁ႕ႉႄ႓ႄ჏Ⴉႄႍႍ
-</span></span></span><span style="display:flex;"><span><span style="color:#888"></span>
-</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">const</span> decrypted <span style="color:#333">=</span> decrypt(sharedKey, encrypted)
-</span></span><span style="display:flex;"><span>console.log(<span style="background-color:#fff0f0">&#39;Decrypted:&#39;</span>, decrypted) <span style="color:#888">// =&gt; Decrypted: Hello there.
+</span></span><span style="display:flex;"><span>console.log(<span style="color:#f1fa8c">&#39;Message:&#39;</span>, message) <span style="color:#6272a4">// =&gt; Message: Hello there.
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">const</span> encrypted <span style="color:#ff79c6">=</span> encrypt(sharedKey, message)
+</span></span><span style="display:flex;"><span>console.log(<span style="color:#f1fa8c">&#39;Encrypted:&#39;</span>, encrypted) <span style="color:#6272a4">// =&gt; Encrypted: ႎჁ႕ႉႄ႓ႄ჏Ⴉႄႍႍ
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">const</span> decrypted <span style="color:#ff79c6">=</span> decrypt(sharedKey, encrypted)
+</span></span><span style="display:flex;"><span>console.log(<span style="color:#f1fa8c">&#39;Decrypted:&#39;</span>, decrypted) <span style="color:#6272a4">// =&gt; Decrypted: Hello there.
 </span></span></span></code></pre></div><p>Go ahead, paste this into a REPL and play with it if you&rsquo;d like.</p>
 <p>Some of you might be saying &ldquo;<em>this</em> is what you call simple?!&rdquo; And others might be saying &ldquo;this is way too simple, where are the lookup tables and block ciphers?&rdquo; Look, I can&rsquo;t please everyone but I <em>can</em> upset everyone, so that&rsquo;s what I went with.</p>
 <p>Let&rsquo;s put this code in context. If my credit card&rsquo;s microchip has the shared key <code>&quot;ABCDEF&quot;</code> programmed into it and my bank knows to use that key for messages that come from me, here&rsquo;s a simplified example of how a purchase authorization might go:</p>
@@ -287,72 +275,72 @@ if (!doNotTrack) {
 <p>Back to credit cards. The bank can program a public/private key pair onto your credit card and then <em>completely forget</em> the private key. They don&rsquo;t need to store it anywhere. They only need to hold onto the public key. They&rsquo;ll use it for two purposes: to decrypt messages sent from your card <em>and</em> to prove those messages came from you, not them.</p>
 <p>This eliminates the first risk of symmetric keys: fraud committed by the bank itself. As long as they can prove they didn&rsquo;t keep your private key after they programmed your card, they can&rsquo;t be accused of generating fake transactions. It also eliminates the second risk. Your private key isn&rsquo;t stored on any Internet-connected server; it only lives in one place in the entire world, and that&rsquo;s inside your credit card. Sure, your public key could be stolen. But the only thing the thieves could do with it is read your transactions. They wouldn&rsquo;t be able to create new ones.</p>
 <p>Let&rsquo;s implement some asymmetric encryption in JavaScript. This will illustrate how an algorithm like RSA works.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#888">//
-</span></span></span><span style="display:flex;"><span><span style="color:#888">// ENCRYPTION
-</span></span></span><span style="display:flex;"><span><span style="color:#888">//
-</span></span></span><span style="display:flex;"><span><span style="color:#888"></span>
-</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">function</span> encrypt(privateKey, message) {
-</span></span><span style="display:flex;"><span>  <span style="color:#080;font-weight:bold">const</span> messageBytes <span style="color:#333">=</span> stringToIntArray(message)
-</span></span><span style="display:flex;"><span>  <span style="color:#080;font-weight:bold">const</span> [modulus, exponent] <span style="color:#333">=</span> privateKey
-</span></span><span style="display:flex;"><span>  <span style="color:#080;font-weight:bold">const</span> encrypted <span style="color:#333">=</span> messageBytes.map(<span style="color:#080;font-weight:bold">byte</span> =&gt; (BigInt(<span style="color:#080;font-weight:bold">byte</span>) <span style="color:#333">**</span> exponent) <span style="color:#333">%</span> modulus)
-</span></span><span style="display:flex;"><span>  <span style="color:#080;font-weight:bold">return</span> intArrayToString(encrypted)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#6272a4">//
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">// ENCRYPTION
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">//
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">function</span> encrypt(privateKey, message) {
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> messageBytes <span style="color:#ff79c6">=</span> stringToIntArray(message)
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> [modulus, exponent] <span style="color:#ff79c6">=</span> privateKey
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> encrypted <span style="color:#ff79c6">=</span> messageBytes.map(<span style="color:#ff79c6">byte</span> =&gt; (BigInt(<span style="color:#ff79c6">byte</span>) <span style="color:#ff79c6">**</span> exponent) <span style="color:#ff79c6">%</span> modulus)
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">return</span> intArrayToString(encrypted)
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#888">//
-</span></span></span><span style="display:flex;"><span><span style="color:#888">// DECRYPTION
-</span></span></span><span style="display:flex;"><span><span style="color:#888">//
-</span></span></span><span style="display:flex;"><span><span style="color:#888"></span>
-</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">function</span> decrypt(publicKey, encrypted) {
-</span></span><span style="display:flex;"><span>  <span style="color:#080;font-weight:bold">const</span> encryptedBytes <span style="color:#333">=</span> stringToIntArray(encrypted)
-</span></span><span style="display:flex;"><span>  <span style="color:#080;font-weight:bold">const</span> [modulus, exponent] <span style="color:#333">=</span> publicKey
-</span></span><span style="display:flex;"><span>  <span style="color:#080;font-weight:bold">const</span> decrypted <span style="color:#333">=</span> encryptedBytes.map(<span style="color:#080;font-weight:bold">byte</span> =&gt; (BigInt(<span style="color:#080;font-weight:bold">byte</span>) <span style="color:#333">**</span> exponent) <span style="color:#333">%</span> modulus)
-</span></span><span style="display:flex;"><span>  <span style="color:#080;font-weight:bold">return</span> intArrayToString(decrypted)
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">//
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">// DECRYPTION
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">//
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">function</span> decrypt(publicKey, encrypted) {
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> encryptedBytes <span style="color:#ff79c6">=</span> stringToIntArray(encrypted)
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> [modulus, exponent] <span style="color:#ff79c6">=</span> publicKey
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> decrypted <span style="color:#ff79c6">=</span> encryptedBytes.map(<span style="color:#ff79c6">byte</span> =&gt; (BigInt(<span style="color:#ff79c6">byte</span>) <span style="color:#ff79c6">**</span> exponent) <span style="color:#ff79c6">%</span> modulus)
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">return</span> intArrayToString(decrypted)
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#888">//
-</span></span></span><span style="display:flex;"><span><span style="color:#888">// UTILITY
-</span></span></span><span style="display:flex;"><span><span style="color:#888">//
-</span></span></span><span style="display:flex;"><span><span style="color:#888"></span>
-</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">function</span> stringToIntArray(message) {
-</span></span><span style="display:flex;"><span>  <span style="color:#080;font-weight:bold">return</span> message.split(<span style="background-color:#fff0f0">&#39;&#39;</span>).map(<span style="color:#080;font-weight:bold">char</span> =&gt; <span style="color:#080;font-weight:bold">char</span>.charCodeAt(<span style="color:#00d;font-weight:bold">0</span>))
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">//
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">// UTILITY
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">//
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">function</span> stringToIntArray(message) {
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">return</span> message.split(<span style="color:#f1fa8c">&#39;&#39;</span>).map(<span style="color:#ff79c6">char</span> =&gt; <span style="color:#ff79c6">char</span>.charCodeAt(<span style="color:#bd93f9">0</span>))
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">function</span> intArrayToString(intArray) {
-</span></span><span style="display:flex;"><span>  <span style="color:#080;font-weight:bold">return</span> intArray.map(<span style="color:#080;font-weight:bold">int</span> =&gt; <span style="color:#007020">String</span>.fromCharCode(<span style="color:#007020">Number</span>(<span style="color:#080;font-weight:bold">int</span>))).join(<span style="background-color:#fff0f0">&#39;&#39;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">function</span> intArrayToString(intArray) {
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">return</span> intArray.map(<span style="color:#ff79c6">int</span> =&gt; <span style="color:#8be9fd;font-style:italic">String</span>.fromCharCode(<span style="color:#8be9fd;font-style:italic">Number</span>(<span style="color:#ff79c6">int</span>))).join(<span style="color:#f1fa8c">&#39;&#39;</span>)
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#888">//
-</span></span></span><span style="display:flex;"><span><span style="color:#888">// TEST PROGRAM
-</span></span></span><span style="display:flex;"><span><span style="color:#888">//
-</span></span></span><span style="display:flex;"><span><span style="color:#888"></span>
-</span></span><span style="display:flex;"><span><span style="color:#888">/* 
-</span></span></span><span style="display:flex;"><span><span style="color:#888">  Each key has two parts: a shared &#34;modulus&#34; and a non-shared &#34;exponent.&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#888">  Key generation is complex. These three numbers all have to be mathematically related.
-</span></span></span><span style="display:flex;"><span><span style="color:#888">  In real life the modulus would be a very large number in the ballpark of
-</span></span></span><span style="display:flex;"><span><span style="color:#888">  5353683424958100487553692737855921351167231508809347122534824314767512079033611122618
-</span></span></span><span style="display:flex;"><span><span style="color:#888">  8508861310385963124739442570162267402922655660049366578306762217485423974277904708682
-</span></span></span><span style="display:flex;"><span><span style="color:#888">  5660398049299993503929195152693455928734884540497474885533510411221183157745113097158
-</span></span></span><span style="display:flex;"><span><span style="color:#888">  7147857841470416503261588799943431828622126181414376019549024568602030872555448200000
-</span></span></span><span style="display:flex;"><span><span style="color:#888">  2641304272163777569374865564566594216223640291860534772832785404395599963806669068407
-</span></span></span><span style="display:flex;"><span><span style="color:#888">  0321707428203752195331410456415056194233539898345799623002726720980709094812380346346
-</span></span></span><span style="display:flex;"><span><span style="color:#888">  3583607751796240362096547051130726215056560026642532836575212569426651466587428695230
-</span></span></span><span style="display:flex;"><span><span style="color:#888">  1071376112504419090641365.
-</span></span></span><span style="display:flex;"><span><span style="color:#888">  The exponents would be somewhat smaller. Both exponents must be prime numbers.
-</span></span></span><span style="display:flex;"><span><span style="color:#888">
-</span></span></span><span style="display:flex;"><span><span style="color:#888">  We use the `n` suffix to get BigInts, since playing with exponents can exceed
-</span></span></span><span style="display:flex;"><span><span style="color:#888">  JavaScript&#39;s standard number limit pretty quickly.
-</span></span></span><span style="display:flex;"><span><span style="color:#888">*/</span>
-</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">const</span> privateKey <span style="color:#333">=</span> [<span style="color:#00d;font-weight:bold">25777</span>n, <span style="color:#00d;font-weight:bold">3</span>n]
-</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">const</span> publicKey <span style="color:#333">=</span> [<span style="color:#00d;font-weight:bold">25777</span>n, <span style="color:#00d;font-weight:bold">16971</span>n]
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">//
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">// TEST PROGRAM
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">//
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">/* 
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">  Each key has two parts: a shared &#34;modulus&#34; and a non-shared &#34;exponent.&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">  Key generation is complex. These three numbers all have to be mathematically related.
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">  In real life the modulus would be a very large number in the ballpark of
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">  5353683424958100487553692737855921351167231508809347122534824314767512079033611122618
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">  8508861310385963124739442570162267402922655660049366578306762217485423974277904708682
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">  5660398049299993503929195152693455928734884540497474885533510411221183157745113097158
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">  7147857841470416503261588799943431828622126181414376019549024568602030872555448200000
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">  2641304272163777569374865564566594216223640291860534772832785404395599963806669068407
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">  0321707428203752195331410456415056194233539898345799623002726720980709094812380346346
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">  3583607751796240362096547051130726215056560026642532836575212569426651466587428695230
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">  1071376112504419090641365.
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">  The exponents would be somewhat smaller. Both exponents must be prime numbers.
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">  We use the `n` suffix to get BigInts, since playing with exponents can exceed
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">  JavaScript&#39;s standard number limit pretty quickly.
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">*/</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">const</span> privateKey <span style="color:#ff79c6">=</span> [<span style="color:#bd93f9">25777</span>n, <span style="color:#bd93f9">3</span>n]
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">const</span> publicKey <span style="color:#ff79c6">=</span> [<span style="color:#bd93f9">25777</span>n, <span style="color:#bd93f9">16971</span>n]
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">const</span> message <span style="color:#333">=</span> <span style="background-color:#fff0f0">&#34;Four chinchillas&#34;</span>
-</span></span><span style="display:flex;"><span>console.log(<span style="background-color:#fff0f0">&#34;Message:&#34;</span>, message) <span style="color:#888">// =&gt; Message: Four chinchillas
-</span></span></span><span style="display:flex;"><span><span style="color:#888"></span>
-</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">const</span> encrypted <span style="color:#333">=</span> encrypt(privateKey, message)
-</span></span><span style="display:flex;"><span>console.log(<span style="background-color:#fff0f0">&#34;Encrypted:&#34;</span>, encrypted) <span style="color:#888">// =&gt; Encrypted: ớ֪൯⿟᭏䂦䁅宍㿵䂦䁅宍垐垐⣮ 
-</span></span></span><span style="display:flex;"><span><span style="color:#888"></span>
-</span></span><span style="display:flex;"><span><span style="color:#080;font-weight:bold">const</span> decrypted <span style="color:#333">=</span> decrypt(publicKey, encrypted)
-</span></span><span style="display:flex;"><span>console.log(<span style="background-color:#fff0f0">&#34;Decrypted:&#34;</span>, decrypted) <span style="color:#888">// =&gt; Decrypted: Four chinchillas
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">const</span> message <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;Four chinchillas&#34;</span>
+</span></span><span style="display:flex;"><span>console.log(<span style="color:#f1fa8c">&#34;Message:&#34;</span>, message) <span style="color:#6272a4">// =&gt; Message: Four chinchillas
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">const</span> encrypted <span style="color:#ff79c6">=</span> encrypt(privateKey, message)
+</span></span><span style="display:flex;"><span>console.log(<span style="color:#f1fa8c">&#34;Encrypted:&#34;</span>, encrypted) <span style="color:#6272a4">// =&gt; Encrypted: ớ֪൯⿟᭏䂦䁅宍㿵䂦䁅宍垐垐⣮ 
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">const</span> decrypted <span style="color:#ff79c6">=</span> decrypt(publicKey, encrypted)
+</span></span><span style="display:flex;"><span>console.log(<span style="color:#f1fa8c">&#34;Decrypted:&#34;</span>, decrypted) <span style="color:#6272a4">// =&gt; Decrypted: Four chinchillas
 </span></span></span></code></pre></div><p>A few things you might be thinking at this point:</p>
 <ul>
 <li><em>Wait, this is <strong>shorter</strong> than the other code snippet.</em> If that doesn&rsquo;t seem right, it&rsquo;s because it isn&rsquo;t. This is only the asymmetric part. In real life you&rsquo;d do some reversible encryption (&ldquo;padding&rdquo;) rounds before you use your asymmetric key so the encrypted text couldn&rsquo;t be cracked by a letter-frequency attack. But that&rsquo;s not the whole story either. Typically a message sender asymmetrically encrypts a randomly-generated key, uses that key to <em>symmetrically</em> encrypt the message, and sends the symmetrically encrypted message and asymmetrically encrypted key together. (This is because symmetric encryption is faster.)</li>
@@ -450,21 +438,7 @@ if (!doNotTrack) {
       <div class='footer'>
         <div class='social'>
   <nav aria-label='Social Menu'>
-    <ul class='social-menu'><li>
-        <a href='https://toot.cafe/@isaaclyman' target='_blank' rel='noopener'>
-          <span class='screen-reader'>Open Mastodon account in new tab</span>
-          <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
-  
-  <path
-    fill="currentColor"
-    d="m 16.790203,18.219219 c 2.988785,-0.355807 5.589147,-2.186735 5.915304,-3.859031 0.515921,-2.635943 0.47441,-6.4327078 0.47441,-6.4327078 0,-5.1443873 -3.389069,-6.6536053 -3.389069,-6.6536053 C 18.082971,0.49258026 15.14904,0.16494061 12.100952,0.13973756 h -0.07413 c -3.0495684,0.0252031 -5.9820174,0.3528427 -7.6898947,1.13413734 0,0 -3.38758642,1.5077354 -3.38758642,6.6536053 l -0.00297,0.9814364 c -0.00593,0.9488204 -0.010378,2.0014184 0.016308,3.0999744 0.12305022,5.031715 0.92806522,9.992268 5.60397232,11.22277 2.155602,0.56781 4.0072848,0.686413 5.4987118,0.604874 2.702658,-0.148254 4.220771,-0.959199 4.220771,-0.959199 l -0.08895,-1.952495 c 0,0 -1.93174,0.607838 -4.102168,0.533712 C 9.9453442,21.384423 7.6770699,21.227278 7.3286748,18.60023 a 5.357872,5.357872 0 0 1 -0.048924,-0.735336 c 0,0 2.1111261,0.512956 4.7856142,0.634524 1.635233,0.07413 3.168173,-0.09488 4.726314,-0.280199 z m 2.391325,-3.661855 H 16.701251 V 8.5086329 c 0,-1.2734953 -0.539642,-1.9198795 -1.617443,-1.9198795 -1.191957,0 -1.789417,0.7664693 -1.789417,2.2845824 V 12.18383 H 10.827457 V 8.8718533 c 0,-1.5181132 -0.597461,-2.2845824 -1.7894166,-2.2845824 -1.077801,0 -1.6174428,0.6463841 -1.6174428,1.921362 V 14.555882 H 4.940321 V 8.3262814 c 0,-1.2734953 0.3261571,-2.2845824 0.9784713,-3.0332612 0.6760348,-0.7486789 1.5596241,-1.1326548 2.6581806,-1.1326548 1.2690477,0 2.2297281,0.4862707 2.8657351,1.4573293 l 0.618216,1.03036 0.618216,-1.03036 c 0.636006,-0.9710586 1.596688,-1.4573293 2.867218,-1.4573293 1.097074,0 1.980664,0.3839759 2.655216,1.1326548 0.655279,0.7486788 0.979954,1.7597659 0.979954,3.0332612 z"
-    id="path1"
-    style="stroke-width:1.48253" />
-  
-</svg>
-
-        </a>
-      </li></ul>
+    <ul class='social-menu'></ul>
   </nav>
 </div>
 

@@ -9,8 +9,15 @@
     <managingEditor>map[host:isaaclyman.com username:blog] (Isaac Lyman)</managingEditor>
     <webMaster>map[host:isaaclyman.com username:blog] (Isaac Lyman)</webMaster>
     <copyright>© 2017 by Isaac Lyman. Site powered by Hugo and GitHub Pages.</copyright>
-    <lastBuildDate>Fri, 26 Jan 2024 09:20:46 -0700</lastBuildDate>
+    <lastBuildDate>Thu, 18 Apr 2024 09:10:21 -0600</lastBuildDate>
     <atom:link href="http://isaaclyman.com/blog/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Self</title>
+      <link>http://isaaclyman.com/blog/categories/self/</link>
+      <pubDate>Thu, 18 Apr 2024 09:10:21 -0600</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
+      <guid>http://isaaclyman.com/blog/categories/self/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Development</title>
       <link>http://isaaclyman.com/blog/categories/development/</link>
@@ -58,13 +65,6 @@
       <link>http://isaaclyman.com/blog/categories/management/</link>
       <pubDate>Thu, 27 Jul 2023 09:51:52 -0600</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
       <guid>http://isaaclyman.com/blog/categories/management/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Self</title>
-      <link>http://isaaclyman.com/blog/categories/self/</link>
-      <pubDate>Fri, 26 May 2023 16:26:54 -0600</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/categories/self/</guid>
       <description></description>
     </item>
     <item>

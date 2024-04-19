@@ -9,8 +9,15 @@
     <managingEditor>map[host:isaaclyman.com username:blog] (Isaac Lyman)</managingEditor>
     <webMaster>map[host:isaaclyman.com username:blog] (Isaac Lyman)</webMaster>
     <copyright>© 2017 by Isaac Lyman. Site powered by Hugo and GitHub Pages.</copyright>
-    <lastBuildDate>Fri, 26 Jan 2024 09:20:46 -0700</lastBuildDate>
+    <lastBuildDate>Thu, 18 Apr 2024 09:10:21 -0600</lastBuildDate>
     <atom:link href="http://isaaclyman.com/blog/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Health</title>
+      <link>http://isaaclyman.com/blog/tags/health/</link>
+      <pubDate>Thu, 18 Apr 2024 09:10:21 -0600</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
+      <guid>http://isaaclyman.com/blog/tags/health/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Kryptos</title>
       <link>http://isaaclyman.com/blog/tags/kryptos/</link>
@@ -51,13 +58,6 @@
       <link>http://isaaclyman.com/blog/tags/adhd/</link>
       <pubDate>Thu, 07 Apr 2022 12:00:00 -0600</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
       <guid>http://isaaclyman.com/blog/tags/adhd/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Health</title>
-      <link>http://isaaclyman.com/blog/tags/health/</link>
-      <pubDate>Thu, 07 Apr 2022 12:00:00 -0600</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/tags/health/</guid>
       <description></description>
     </item>
     <item>

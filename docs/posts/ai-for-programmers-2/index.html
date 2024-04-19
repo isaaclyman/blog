@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head><script src="/blog/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=blog/livereload" data-no-instant defer></script>
+  <meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<meta name='description' content='Large Language Models (like ChatGPT) write very convincing code snippets. Early in 2023, this discovery caused a lot of premature celebration among LinkedIn influencers: no longer was there any need for seasoned developers with their gatekept expertise, fastidious attitudes, and inconveniently high salaries. Now anyone with an Internet connection could ask an AI model to write the next big social media app, in JavaScript please, and throw in some blockchain while you&rsquo;re at it.'>
+
+<meta property='og:title' content='3 Types of AI-Assisted Programmers • Minimum Viable Blog'>
+<meta property='og:description' content='Large Language Models (like ChatGPT) write very convincing code snippets. Early in 2023, this discovery caused a lot of premature celebration among LinkedIn influencers: no longer was there any need for seasoned developers with their gatekept expertise, fastidious attitudes, and inconveniently high salaries. Now anyone with an Internet connection could ask an AI model to write the next big social media app, in JavaScript please, and throw in some blockchain while you&rsquo;re at it.'>
+<meta property='og:url' content='http://localhost:1313/blog/posts/ai-for-programmers-2/'>
+<meta property='og:site_name' content='Minimum Viable Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts'><meta property='article:published_time' content='2023-11-27T20:21:14-07:00'/><meta property='article:modified_time' content='2023-11-27T20:21:14-07:00'/>
+
+<meta name="generator" content="Hugo 0.124.1">
+
+  <title>3 Types of AI-Assisted Programmers • Minimum Viable Blog</title>
+  <link rel='canonical' href='http://localhost:1313/blog/posts/ai-for-programmers-2/'>
+  
+  <link rel='icon' href='/blog/favicon.png'>
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Ubuntu:400,400i,700&subset=latin'>
+<link rel='stylesheet' href='/blog/css/main.d02777fd.css'>
+
+  <link rel='stylesheet' href='/blog/css/custom.css'>
+
+  <link rel='stylesheet' href='/blog/css/print.css'>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QX2T3WXRC9"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-QX2T3WXRC9', { 'anonymize_ip': false });
+}
+</script>
+
+
+</head>
+
+
+<body class='page'>
+  <div class='site'>
+    <header id='header' class='header-container'>
+      <div class='site-header'>
+        <nav id='navmenu' aria-label='Main Menu'>
+  <ul class='main-menu'>
+    
+    <li>
+      <a href='/blog/posts/' 
+        
+      >{ Archive }</a>
+    </li>
+    
+    <li>
+      <a href='/blog/posts/introduction' 
+        
+      >{ Contact }</a>
+    </li>
+    
+    <li>
+      <a href='/blog/index.xml' 
+        
+      >{ RSS }</a>
+    </li>
+    
+  </ul>
+</nav>
+
+        <div class='site-info'>
+          
+          <p class='site-title title'>Minimum Viable Blog</p>
+          
+          <p class='site-description'>Software construction, opinion, and self</p>
+        </div>
+      </div>
+    </header>
+
+
+<main class='main'>
+  <article lang='en' class='entry'>
+    <header class='entry-header'>
+  <div class='entry-info'>
+    <p class="entry-genre">
+      Technology
+    </p>
+    <h1 class='entry-title title'>3 Types of AI-Assisted Programmers</h1>
+    
+  </div>
+  
+<div class='meta'>
+  <span class='posted-on'>
+    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+  <line x1="16" y1="2" x2="16" y2="6"/>
+  <line x1="8" y1="2" x2="8" y2="6"/>
+  <line x1="3" y1="10" x2="21" y2="10"/>
+  
+</svg>
+
+    <span class='screen-reader'>Posted on </span>
+    <time class='date' datetime='2023-11-27T20:21:14-07:00'>Nov 27, 2023</time>
+  </span>
+  
+  
+  <span class='reading-time'>
+    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <circle cx="12" cy="12" r="10"/>
+  <polyline points="12 6 12 12 15 15"/> 
+  
+</svg>
+
+    12 mins read
+  </span>
+  
+</div>
+
+
+</header>
+
+    <div class='entry-content'>
+  <p>Large Language Models (like ChatGPT) write very convincing code snippets. Early in 2023, this discovery caused a lot of premature celebration among LinkedIn influencers: no longer was there any need for seasoned developers with their gatekept expertise, fastidious attitudes, and inconveniently high salaries. Now anyone with an Internet connection could ask an AI model to write the next big social media app, in JavaScript please, and throw in some blockchain while you&rsquo;re at it.</p>
+<p>The promised wave of apps built entirely by AI never materialized. I&rsquo;m trying my best not to gloat about it.</p>
+<p>Still, there&rsquo;s a compelling case for AI as a programming tool. Code is a computer-oriented language. It has a small, unambiguous vocabulary and unbreakable syntax rules. Patterns and repetition are its bread and butter. It&rsquo;s predictable to a fault, which is why computers (and some humans, like myself) are so compatible with it. If anyone could write good code, it would be a computer. And if generative AI&rsquo;s greatest strength is its ability to model and imitate patterns, forming a fluid interface between humans and machines—<a href="https://stackoverflow.blog/2023/05/01/ai-isnt-the-app-its-the-ui/">as I&rsquo;ve previously argued</a>—wouldn&rsquo;t programming be the ideal use case for it?</p>
+<p>Well, yes and no. AI-powered programming tools have made a splash in the programming world, and they&rsquo;re probably not leaving anytime soon. But despite having arrived for junior, mid-level, and senior engineers all at once, not to mention people who don&rsquo;t know a struct from a hole in the wall, the risk/benefit calculation couldn&rsquo;t be more different depending on your level of experience. AI could be the tool that fast-tracks your career or it could be the obstacle that derails it. What matters isn&rsquo;t just <em>whether</em> you use it, but <em>how</em>.</p>
+<p>Let&rsquo;s take a look at what AI means for developers (and non-developers) at every stage.</p>
+<h2 id="the-no-code-entrepreneur">The no-code entrepreneur</h2>
+<p>Many people&rsquo;s first taste of programming came this year in the form of a ChatGPT conversation. It&rsquo;s a seductive experience: you can ask it to write an application in any major programming language and it will spit out code right up to the token limit—more than enough space for the typical &ldquo;tutorial-sized&rdquo; app. From there, you can ask for tweaks and bugfixes until you&rsquo;re satisfied with the output. And when you paste it into an IDE and it actually <em>works</em>, it feels like you&rsquo;ve cracked the industry wide open.</p>
+<p>The reason for this rosy first impression is that the problems are hidden under the surface. AI tools are trained on code from thousands of real projects with disparate levels of quality and completeness—that is, code that almost always runs and usually gets the job done, but is only occasionally reliable, maintainable, secure, or bug-free.</p>
+<p>Studies have found that tools like ChatGPT, GitHub Copilot, and Amazon CodeWhisperer deliver code that is &ldquo;valid&rdquo; (runs without errors) <a href="https://arxiv.org/pdf/2304.10778.pdf">about 90% of the time</a>, passes an average of 30% to 65% of unit tests, and is &ldquo;secure&rdquo; <a href="https://arxiv.org/pdf/2108.09293.pdf">about 60% of the time</a>. Note that these studies rely on well-written prompts created by engineers. Insignificant changes to the wording of a prompt can result in <a href="https://arxiv.org/pdf/2302.00438.pdf">significant differences</a> to the code output. And they only test the AI&rsquo;s ability to output &ldquo;snippets&rdquo;—small pieces of straightforward code. There is no data on AI&rsquo;s ability to write applications as complex as the average legacy app. It&rsquo;s probably unable to do so at all, just as ChatGPT is unable to write a coherent novel.</p>
+<p>So where does AI fit for people who can&rsquo;t code?</p>
+<p>Some would say it doesn&rsquo;t. The idea of AI-dependent programming ruffles a lot of feathers in the software community. A programmer is someone who knows how to code. How can you call yourself a programmer if you can&rsquo;t even write an <code>if</code> statement? But this misses the point. As only a programmer would need to be reminded, <code>if</code> statements (like all programming logic) aren&rsquo;t an asset, they&rsquo;re a liability. The best code is <a href="https://github.com/kelseyhightower/nocode">no code at all</a>, and second best is the minimum amount of code that solves the user&rsquo;s problem. If it were possible to build high-quality apps without writing a single line of code, there wouldn&rsquo;t be anything wrong with that.</p>
+<p>Unfortunately, it isn&rsquo;t, and probably won&rsquo;t ever be. Code, as a category, is nothing more and nothing less than being ridiculously specific about what you want. If your AI prompts are detailed enough to produce exactly the right code, you <em>are</em> coding in every way that matters. However, AI is non-deterministic; it doesn&rsquo;t always produce the same output from a given input. There&rsquo;s an element of randomness. So even prompts that qualify as code are <em>unpredictable</em> code, and unpredictability is the last thing you want after spending hours or weeks or months figuring out the minute details of a process. Anyone who spends time coding via AI prompts will eventually come to wish for something more direct, something more structured, something they can rely on to behave the same way at all times—they&rsquo;ll wish for programming languages and compilers.</p>
+<p>I predict AI will become a gateway drug for some future programmers. But there&rsquo;s another, more important niche it can fill, and it&rsquo;s one that&rsquo;s easy to overlook.</p>
+<p>There are many situations where software isn&rsquo;t needed, but code is. Professionals in other fields already use AI to write one-off SQL queries and VBA macros. It could also be used to create app prototypes for pitch decks, proof-of-concept workflows on the command line, or disposable data-scraping bots. If you need software, you&rsquo;ll have to work with a software professional. But if you just need a bit of short-lived code and are willing to deal with rough edges, there&rsquo;s nothing wrong with shaking the AI and seeing what falls out.</p>
+<p>Ultimately, this can only lead to more work for programmers. As AI bridges the gap between vision and first draft, early-stage software companies will proliferate, and any startup that goes to market will discover (sometimes very urgently) that they need engineers on staff. But for some of them, especially the ones that started out with fewer connections and less money, the fact they&rsquo;re able to reach that point at all will mean AI has done its job.</p>
+<h2 id="the-junior-engineer">The junior engineer</h2>
+<p>New programmers have the most to lose—and, in equal measure, the most to gain—from AI tools.</p>
+<p>Practically every junior developer feels overwhelmed at their first job. It&rsquo;s like moving to Spain after a year of Duolingo lessons: it&rsquo;ll be at least a few months, probably a lot longer, before you have a clue what&rsquo;s going on. Real-world applications aren&rsquo;t like the compilers you wrote during your senior year of college or the showcase projects you worked on at programming bootcamp. The depth and complexity are a hundred times greater, and the standards are higher—it can feel impossible to keep track of all the rules that will get you past a senior dev&rsquo;s PR reviews.</p>
+<p>All of this considered, it must be incredibly tempting for junior devs to pull up ChatGPT and see if it can take some of the pressure off. And for a little while they may get away with it. AI tools (as discussed earlier) are pretty good at the bare minimum, which is a lot better than nothing. And more importantly, they never respond with a blank page and a blinking cursor.</p>
+<p>But eventually it will be time to pay the piper. This is the greatest risk around AI code tools: developers who rely on them may never <em>become</em> good. If a developer habitually uses a code generator and relies on external feedback loops (PR reviews, integration tests, bug reports, etc.) to find problems, they&rsquo;ll never understand their own code. This will backfire, and it will be embarrassing. There are critical bugs, attack vectors, technical debt, and other problems in every production app that can only be fixed by someone who has a thorough and correct understanding of the code.</p>
+<p>The safest route for a junior developer is to stay away from AI tools. But it&rsquo;s not the only good route. If you use AI to <em>gain</em> understanding instead of circumventing it, it doesn&rsquo;t have to hold you back.</p>
+<p>For example, say you&rsquo;ve just finished writing a function and you&rsquo;re feeling uncertain about it. You&rsquo;ve read through it a couple times and fixed some formatting issues, but you still feel like it&rsquo;s not quite as efficient or idiomatic as it could be. Before you message a teammate or submit a PR, you could use AI to get another perspective: tell the AI what you&rsquo;re trying to do, ask it to write a function, and compare its code with yours.</p>
+<p>Keep in mind that generative AI is, by constraint, as mediocre as possible. You can&rsquo;t trust the output. The purpose of this exercise isn&rsquo;t to give you better code for free, it&rsquo;s to help you critique yourself. Maybe the AI used a standard method you forgot about, and it would help express your intent better. Maybe it was able to iterate your data set with a single loop instead of two nested ones. Maybe it didn&rsquo;t give you anything interesting or new; in that case, you probably didn&rsquo;t miss anything too obvious.</p>
+<p>You could also use AI to generate examples of syntax or patterns you&rsquo;re struggling to understand. If you&rsquo;re confused by null-coalescing operators, you could ask it to generate examples of their use in context. It won&rsquo;t generate high-quality code, but you need quantity, not quality. Repetition is the key to learning. If you&rsquo;ve been reading about the <a href="https://refactoring.guru/design-patterns/adapter">adapter pattern</a> and can&rsquo;t find an example of what it looks like in Dart, you can ask for a demonstration. The result may only be mediocre but it will be specific, which is what&rsquo;s valuable here.</p>
+<p>Whenever possible, you&rsquo;ll still want to learn from official documentation, hand-written code, programming blogs, and Stack Overflow answers. There&rsquo;s always a risk of AI saying something completely wrong. But if a snippet of subpar, made-to-order code would be enough to get you to the next step, AI can be a good resource.</p>
+<h2 id="the-senior-engineer">The senior engineer</h2>
+<p>As a senior engineer, you won&rsquo;t feel the same temptation to use AI as a replacement for fundamental skills. You already have those skills. Maybe you won&rsquo;t feel inclined to use it at all, and that&rsquo;s completely fine—you&rsquo;re never wrong for deciding not to use a particular tool.</p>
+<p>Some people wonder what purpose generative AI can possibly serve for an experienced dev. Half the time it spits out junk, half the time it writes something serviceable but not as good as you&rsquo;d write on your own. Why delegate your job to something that&rsquo;s objectively worse at it? To answer that question, it may help to clarify the boundary between yourself and AI. At its best, AI-written code only has about a 50/50 chance of doing what it&rsquo;s supposed to, and hardly any chance of accurately expressing its place in the context of an application. You&rsquo;re right: AI is not &ldquo;good&rdquo; at writing code. However, it is very, very fast. That&rsquo;s the expectation you should have. <strong>It&rsquo;s the AI&rsquo;s job to be fast, but it&rsquo;s your job to be good.</strong></p>
+<p>Editing and refactoring a piece of code is usually (not always) faster than writing it from scratch. I participated in the beta of GitHub Copilot, using it for contract work on my personal computer, and found that it noticeably increased my development speed. It did nothing for the correctness or maintainability of my code, of course. That was never its job. But by giving me something I could use (with substantial revision) about half the time, it saved a lot of keystrokes overall. Saving time isn&rsquo;t so great if you&rsquo;re getting paid by the hour, like I was. But if you&rsquo;re salaried, it can enable you to spend less time writing boilerplate and more time focused on development processes, code quality, documentation, or any of the other things that make your software sustainable.</p>
+<p>The pitfall to avoid here is using AI to increase velocity: delivering <em>more</em> features instead of better ones. Velocity is an imaginary, unreliable metric even on the best of teams; humans just aren&rsquo;t that consistent. And AI is even less so. If you allow expectations to form around your development speed with an AI tool, you&rsquo;ll find it can&rsquo;t keep the pace. There are some types of tasks where it excels, but others where it can&rsquo;t code itself out of a paper bag. It&rsquo;ll usually give you a boost, but often you&rsquo;ll be left to figure things out on your own.</p>
+<p>Again, this is a question of boundaries. AI is all about speed. If you reinvest the time it saves in more speed, instead of higher quality, you&rsquo;re squandering your own value as a developer. AI knows how to save time. <em>You</em> know how to architect and build great applications.</p>
+<p>AI can also be helpful when you need to cross into unfamiliar programming territory. At my day job I write SQL, C#, and TypeScript, but on occasion I&rsquo;ve had to write snippets of Groovy, MDX, or KQL. The spin-up time for an unfamiliar language is at least a couple of days, but it&rsquo;s all syntax. Like most senior devs, I can recognize good code by heuristic—the language is less important than the structure—but it still takes time to figure out how to declare a constant or iterate an array correctly. For occasions when you&rsquo;re outside your wheelhouse, AI can get you there faster. A quick generated snippet may be all you need if it&rsquo;s throwaway code. And if it&rsquo;s not, you can spend a little time polishing it up and still come out ahead.</p>
+<h2 id="the-future-of-programming-with-ai">The future of programming with AI</h2>
+<p>It&rsquo;s often argued that generative AI is only in its infancy and will improve by leaps and bounds as time goes on. But the burden of proof on that idea is very heavy. According to <a href="https://nonint.com/2023/06/10/the-it-in-ai-models-is-the-dataset/">one OpenAI engineer</a>, LLMs are little more than an approximation of their dataset. And for that dataset—the Internet as a whole—the most we can hope for is that it won&rsquo;t get worse. With the web&rsquo;s current incentive structure (SEO, content marketing, spam, and advertising) it seems very unlikely it will get better.</p>
+<p>My favorite definition of programming is &ldquo;teaching computers to make the same mistakes as humans.&rdquo; Nowhere is this more literally true than in generative AI. It&rsquo;s trained almost entirely <em>on</em> our mistakes. And as long as we keep writing open-source code for it to scrape, Copilot and CodeWhisperer will keep recycling our mistakes, converging toward the point of perfect, Platonic mediocrity. AI will become the most average programmer in the universe, albeit one that types a thousand words per minute.</p>
+<p>Some of you wouldn&rsquo;t hire a mediocre programmer no matter how fast and cheap they are. I have no argument with that. But if a firehose of mid-quality code could fit into your process somewhere, and you&rsquo;re wary of the pitfalls, AI can be a great tool to have in your team&rsquo;s toolbelt.</p>
+
+</div>
+
+    
+<footer class='entry-footer'>
+  
+    
+  
+    
+  
+</footer>
+
+
+  </article>
+
+  
+    
+<nav class='entry-nav'>
+  <div class='entry-nav-links'><div class='prev-entry'>
+      <a href='http://localhost:1313/blog/posts/tenets-of-media-consumption/'>
+        <span aria-hidden='true'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="20" y1="12" x2="4" y2="12"/>
+  <polyline points="10 18 4 12 10 6"/>
+  
+</svg>
+ Previous</span>
+        <span class='screen-reader'>Previous post: </span>Seven tenets of media consumption</a>
+    </div><div class='next-entry'>
+      <a href='http://localhost:1313/blog/posts/planet-of-belief/'>
+        <span class='screen-reader'>Next post: </span>On belief, performance, and effect<span aria-hidden='true'>Next <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="4" y1="12" x2="20" y2="12"/>
+  <polyline points="14 6 20 12 14 18"/>
+  
+</svg>
+</span>
+      </a>
+    </div></div>
+</nav>
+
+
+  
+
+  
+    <div class='comments-container'>
+  
+</div>
+
+  
+</main>
+
+    <footer id='footer' class='footer-container'>
+      <div class='footer'>
+        <div class='social'>
+  <nav aria-label='Social Menu'>
+    <ul class='social-menu'></ul>
+  </nav>
+</div>
+
+        <div class='copyright'>
+          <p>© 2017 by Isaac Lyman. Site powered by Hugo and GitHub Pages.</p>
+
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <script src='/blog/js/main.af838dd5.js'></script>
+  
+    <script src='/blog/js/custom.js'></script>
+  
+
+</body>
+
+</html>
+

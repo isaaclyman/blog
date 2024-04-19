@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head><script src="/blog/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=blog/livereload" data-no-instant defer></script>
+  <meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<meta name='description' content='Practically everyone who&rsquo;s caught up with me lately has had burning questions about AI. What&rsquo;s the deal with AI? Why is it in the Wall Street Journal? Do I use it at work? Is ChatGPT going to take my job? Is studying Computer Science even a good idea anymore?
+I&rsquo;ve previously written about the risks and benefits of AI from a business perspective. But I&rsquo;m a programmer by day, an individual contributor, writing C# and TypeScript for line-of-business applications most of you will never hear about.'>
+
+<meta property='og:title' content='AI: What does it mean for programmers? • Minimum Viable Blog'>
+<meta property='og:description' content='Practically everyone who&rsquo;s caught up with me lately has had burning questions about AI. What&rsquo;s the deal with AI? Why is it in the Wall Street Journal? Do I use it at work? Is ChatGPT going to take my job? Is studying Computer Science even a good idea anymore?
+I&rsquo;ve previously written about the risks and benefits of AI from a business perspective. But I&rsquo;m a programmer by day, an individual contributor, writing C# and TypeScript for line-of-business applications most of you will never hear about.'>
+<meta property='og:url' content='http://localhost:1313/blog/posts/ai-for-programmers/'>
+<meta property='og:site_name' content='Minimum Viable Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts'><meta property='article:published_time' content='2023-11-20T11:24:46-07:00'/><meta property='article:modified_time' content='2023-11-20T11:24:46-07:00'/>
+
+<meta name="generator" content="Hugo 0.124.1">
+
+  <title>AI: What does it mean for programmers? • Minimum Viable Blog</title>
+  <link rel='canonical' href='http://localhost:1313/blog/posts/ai-for-programmers/'>
+  
+  <link rel='icon' href='/blog/favicon.png'>
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Ubuntu:400,400i,700&subset=latin'>
+<link rel='stylesheet' href='/blog/css/main.d02777fd.css'>
+
+  <link rel='stylesheet' href='/blog/css/custom.css'>
+
+  <link rel='stylesheet' href='/blog/css/print.css'>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QX2T3WXRC9"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-QX2T3WXRC9', { 'anonymize_ip': false });
+}
+</script>
+
+
+</head>
+
+
+<body class='page'>
+  <div class='site'>
+    <header id='header' class='header-container'>
+      <div class='site-header'>
+        <nav id='navmenu' aria-label='Main Menu'>
+  <ul class='main-menu'>
+    
+    <li>
+      <a href='/blog/posts/' 
+        
+      >{ Archive }</a>
+    </li>
+    
+    <li>
+      <a href='/blog/posts/introduction' 
+        
+      >{ Contact }</a>
+    </li>
+    
+    <li>
+      <a href='/blog/index.xml' 
+        
+      >{ RSS }</a>
+    </li>
+    
+  </ul>
+</nav>
+
+        <div class='site-info'>
+          
+          <p class='site-title title'>Minimum Viable Blog</p>
+          
+          <p class='site-description'>Software construction, opinion, and self</p>
+        </div>
+      </div>
+    </header>
+
+
+<main class='main'>
+  <article lang='en' class='entry'>
+    <header class='entry-header'>
+  <div class='entry-info'>
+    <p class="entry-genre">
+      Technology
+    </p>
+    <h1 class='entry-title title'>AI: What does it mean for programmers?</h1>
+    
+  </div>
+  
+<div class='meta'>
+  <span class='posted-on'>
+    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+  <line x1="16" y1="2" x2="16" y2="6"/>
+  <line x1="8" y1="2" x2="8" y2="6"/>
+  <line x1="3" y1="10" x2="21" y2="10"/>
+  
+</svg>
+
+    <span class='screen-reader'>Posted on </span>
+    <time class='date' datetime='2023-11-20T11:24:46-07:00'>Nov 20, 2023</time>
+  </span>
+  
+  
+  <span class='reading-time'>
+    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <circle cx="12" cy="12" r="10"/>
+  <polyline points="12 6 12 12 15 15"/> 
+  
+</svg>
+
+    10 mins read
+  </span>
+  
+</div>
+
+
+</header>
+
+    <div class='entry-content'>
+  <p>Practically everyone who&rsquo;s caught up with me lately has had burning questions about AI. What&rsquo;s the deal with AI? Why is it in the Wall Street Journal? Do I use it at work? Is ChatGPT going to take my job? Is studying Computer Science even a good idea anymore?</p>
+<p>I&rsquo;ve previously written about <a href="https://stackoverflow.blog/2023/05/01/ai-isnt-the-app-its-the-ui/">the risks and benefits of AI</a> from a business perspective. But I&rsquo;m a programmer by day, an individual contributor, writing C# and TypeScript for line-of-business applications most of you will never hear about. I do what most programmers do. If there&rsquo;s any sector of the working class that has the AI revolution on its mind—and, if this year&rsquo;s thinkpieces and news articles are to be believed, has the most to lose from it—it&rsquo;s mine.</p>
+<p>So let&rsquo;s talk about AI from a programmer&rsquo;s perspective.</p>
+<h2 id="why-is-ai-a-big-deal-right-now">Why is AI a big deal right now?</h2>
+<p>Nearly all the buzz about AI over the last year has been caused by a single event: the unveiling of ChatGPT&rsquo;s public beta in November 2022. ChatGPT and its successor models have been described in terms ranging from from &ldquo;sparkling autocomplete&rdquo; to <a href="https://arxiv.org/abs/2303.12712">a &ldquo;spark&rdquo; of Artificial General Intelligence</a>, meaning a model that can understand and solve unfamiliar problems regardless of category.</p>
+<p>Keep in mind that several types of AI models have existed for decades. Computers have used them to beat humans at chess <a href="https://www.chess.com/article/view/machack-attack">since at least 1962</a>. Artists have used them to generate drawings <a href="https://computerhistory.org/blog/harold-cohen-and-aaron-a-40-year-collaboration/">since 1971</a>. Vehicles have used them to navigate autonomously <a href="https://news.stanford.edu/2019/01/16/stanfords-robotics-legacy/">since 1979</a>. As early as 1965, Nobel prize-winning scientist Herbert Simon <a href="https://www.researchgate.net/publication/233820788_AI_The_Tumultuous_History_of_the_Search_for_Artificial_Intelligence">predicted</a> that &ldquo;machines will be capable, within twenty years, of doing any work a man can do,&rdquo; and two years later, Turing Award-winner Marvin Minsky added that &ldquo;within a generation &hellip; the problem of creating &lsquo;artificial intelligence&rsquo; will substantially be solved.&rdquo;</p>
+<p>They were wrong, but perhaps only by an order of magnitude. Abstract statistical models, while falling short of true human versatility, are ubiquitous. Nearly every industry has found a use for them. We trust them to digitize books, translate human languages, recognize objects, verify human users, transcribe speech, enhance photos, and predict weather. All of these applications predate GPT by several years and are far more essential in our day-to-day lives.</p>
+<p>So why did ChatGPT blow our cultural mind?</p>
+<p>For starters, it was the first time a computer had ever convincingly presented itself as human in an uncontrolled context. Computers have been able to generate plausible sentences <a href="https://dl.acm.org/doi/10.1145/365153.365168">since the invention of ELIZA in 1966</a>. But the output of ELIZA, Markov chains, and similar models has never passed the sniff test. They provided responses with many of the words you&rsquo;d expect, but there was no sense of intent, knowledge, or individual will in them; they were all either too predictable or too chaotic, and added too little to the conversation.</p>
+<figure><img src="/blog/img/ELIZA.png">
+</figure>
+
+<p><small>A conversation with one version of ELIZA, the first natural language generation model. Thanks to <a href="https://web.njit.edu/~ronkowit/eliza.html">New Jersey Insitute of Technology</a> for making this model accessible online.</small></p>
+<figure><img src="/blog/img/MARKOV.png">
+</figure>
+
+<p><small>The output of a Markov chain generator primed with the poem &ldquo;&lsquo;Twas the Night Before Christmas&rdquo;. Thanks to <a href="https://projects.haykranen.nl/markov/demo/">Hay Kranen</a> for making this model accessible online.</small></p>
+<p>ChatGPT&rsquo;s biggest innovation was <em>scale</em>. It was primed on billions of human-written sentences scraped from the web, refined by human <a href="https://www.technologyreview.com/2023/03/03/1069311/inside-story-oral-history-how-chatgpt-built-openai/">response ratings</a>, and civilized by <a href="https://time.com/6247678/openai-chatgpt-kenya-workers/">Kenyan content moderators</a> over the course of months. There are some interesting techniques involved in the model itself, but the true secret to its success is an incredible amount of training data and fine-tuning. ChatGPT <em>still</em> doesn&rsquo;t have intent, knowledge, or will, but the up-front investment in its model pushed it beyond the uncanny valley. It responds like a human because all the robotic, meandering, cringeworthy responses it might otherwise generate have been painstakingly trimmed out of it.</p>
+<p>The other factor that made ChatGPT go viral was public access. The beta was intended to be a &ldquo;research preview,&rdquo; not a product launch and certainly not a technological revolution. Regardless, it was deployed to a friendly-looking web page that resembled a chatroom, the only barrier to access being an account signup form. It had never been so easy to talk to a natural language generator. And since most people weren&rsquo;t following the development of natural language processing or AI very closely in the first place, the handful of small steps forward represented by ChatGPT felt like a giant technological leap to early adopters.</p>
+<h2 id="should-programmers-use-ai">Should programmers use AI?</h2>
+<p>ChatGPT is intended to generate human language, but it also writes pretty convincing code. The intense structure and repetition of code make it, in theory, a great fit for predictive algorithms.</p>
+<p>AI code-writing tools predate ChatGPT, of course. Microsoft&rsquo;s IntelliCode was announced in 2017 and GitHub Copilot debuted in 2021. I participated in the beta of Copilot and found that it increased my development speed by generating mostly-usable code about half the time. It offered no benefits in terms of correctness or maintainability, but the speed boost was nice all the same.</p>
+<p>Studies have found that tools like ChatGPT and Copilot deliver code that is &ldquo;valid&rdquo; (runs without errors) <a href="https://arxiv.org/pdf/2304.10778.pdf">about 90% of the time</a>, passes an average of 30% to 65% of unit tests, and is &ldquo;secure&rdquo; <a href="https://arxiv.org/pdf/2108.09293.pdf">about 60% of the time</a>. Note that these studies rely on well-written prompts created by engineers; insignificant changes to the wording of a prompt can result in <a href="https://arxiv.org/pdf/2302.00438.pdf">significant differences</a> to the code output. And they only test the AI&rsquo;s ability to output &ldquo;snippets&rdquo;—small pieces of straightforward code. There is no data on AI&rsquo;s ability to write applications as complex as the average legacy app. It&rsquo;s probably unable to do so at all, just as ChatGPT is unable to write a coherent novel.</p>
+<p>At their best, AI tools write code that compiles just fine but only has about a 50/50 chance of doing what it&rsquo;s supposed to. AI is not &ldquo;good&rdquo; at writing code. However, it is very, very fast. That&rsquo;s the expectation users should have: <strong>it&rsquo;s the AI&rsquo;s job to be fast, but it&rsquo;s your job to be good.</strong></p>
+<p>The greatest risk around AI code tools is that new developers who use them may never <em>become</em> good. If a developer habitually uses a code generator and relies on external feedback loops (PR reviews, integration tests, bug reports, etc.) to find problems, they&rsquo;ll never understand their own code. This strategy will eventually backfire. There are critical bugs, security issues, UX failures, and other problems in every production app that can only be solved by someone who has a thorough and correct understanding of the code.</p>
+<p>So should you use an AI tool? That depends. It can help you deliver faster (which isn&rsquo;t much of a selling point if you&rsquo;re paid by the hour). But you should never commit code you don&rsquo;t understand. If you&rsquo;re able to pick apart the generated output and fix its problems, including discarding it completely if it&rsquo;s not suitable—or if you&rsquo;re willing to take the time to study it thoroughly, instead of naively committing it—then by all means, go ahead. On the other hand, if there&rsquo;s too much temptation to let it handle the tricky parts and it holds you back from learning and growing, it&rsquo;s best to turn it off.</p>
+<h2 id="will-ai-replace-programmers">Will AI replace programmers?</h2>
+<p>No experienced developer is losing sleep over AI.</p>
+<p>Writing code is only the smallest part of a developer&rsquo;s job. We spend most of our time attending meetings, clarifying and negotiating requirements, collaborating with managers and designers, researching, writing documentation, troubleshooting, threat modeling, managing automated processes, and ten or fifteen other things that don&rsquo;t directly result in lines of code. Writing code is easy. Writing the <em>right</em> code is extraordinarily difficult.</p>
+<p>Code is the tangible byproduct of a detailed, technical understanding of a process. Programming languages aren&rsquo;t complicated for the sake of being complicated; they&rsquo;re complicated because they have to express how to do something in a completely unambiguous way. No detail can be glossed over. No possibility can be ignored. Computers can&rsquo;t &ldquo;figure it out&rdquo; as they go along. Code, as a category, is nothing more and nothing less than being ridiculously specific about what you want.</p>
+<p>For AI to replace programmers, its users will need to learn that same specificity of thought. Their prompts will need to be meticulous and respond to edge cases. They&rsquo;ll need to lay out the correct order of operations. They&rsquo;ll have to describe how their application should behave in different environments, how it should handle hacking attempts and comply with legal requirements, what technologies it should integrate with, and how it should structure and store data.</p>
+<p>Any prompt specific enough to meet all these requirements is, by definition, code. However, AI is non-deterministic; it doesn&rsquo;t always produce the same output from a given input. There&rsquo;s an element of randomness. So even prompts that qualify as code are <em>unpredictable</em> code, and unpredictability is the last thing you want after spending hours or weeks or months figuring out the minute details of a process. Anyone who spends time coding via AI prompts will eventually come to wish for something more direct, something more structured, something they can rely on to behave the same way every day—they&rsquo;ll wish for programming languages and compilers.</p>
+<p>The Bureau of Labor Statistics projects that programming jobs will continue to grow at <a href="https://www.bls.gov/ooh/computer-and-information-technology/software-developers.htm">over eight times the average rate of all professions</a> over the next decade. Even now, after a years-long plague of high-profile layoffs, every indicator is that the industry will recover and continue to grow. If the latest flavor of AI were able to replace a workforce of highly-salaried professionals, Wall Street wouldn&rsquo;t hesitate. But there&rsquo;s no risk of this just yet. Machines can do incredible things, but they can&rsquo;t save us from having to think.</p>
+<h2 id="whats-the-future-of-ai">What&rsquo;s the future of AI?</h2>
+<p>&ldquo;Artificial Intelligence&rdquo; has a broad definition, covering everything from the thinking, feeling positronic brains of Isaac Asimov&rsquo;s <em>I, Robot</em> to the nearly deterministic chess-playing robots of the 20th century. In 2023, the world forgot the vast majority of that definition, becoming laser-focused on GPT models specifically and Large Language Models generally. But other types of AI still exist, some mature and some in their infancy. Incremental progress is sure to continue in the AI we use every day: our smartphones will take better pictures, our smart speakers will understand speech more accurately, and the weather forecast may even approach something you&rsquo;d call &ldquo;reliable.&rdquo;</p>
+<p>But that&rsquo;s not where the buzz is. Everyone is thinking about Artificial General Intelligence. Is AGI inevitable? If so, what field of AI will it proceed from?</p>
+<p>In 2011, scientists <a href="https://doi.org/10.1371/journal.pcbi.1001066">mapped the complete nervous system</a> of <em>C. elegans</em>, a species of roundworm. This has never been done for any other species. Though this map hasn&rsquo;t yet proved able to simulate or predict the behavior of the worm, it&rsquo;s the closest we&rsquo;ve come to understanding what <em>natural</em> intelligence looks like. <a href="https://doi.org/10.1371/journal.pcbi.1005283">Later</a> <a href="https://doi.org/10.1038/s41586-021-03284-x">studies</a> <a href="https://doi.org/10.1016/j.neuron.2023.09.043">have</a> yielded even more intricate insights into <em>C. elegans</em>&rsquo;s neurology. It feels like we&rsquo;re closer than ever to understanding the complex relationship between an organism and its environment. For my money, this kind of research is the bedrock on which AGI will develop.</p>
+<p>But there&rsquo;s a more important question, one that smarter writers than I will have to answer: Do we even <em>want</em> AGI? I&rsquo;d argue we&rsquo;re not ready for it. When and if machines are actually capable of replacing programmers (not to mention writers, artists, actors, and musicians) the entire social order of the world will have to change, much like it did during the industrial revolution. Science fiction loves to portray a glorious post-singularity future complete with hovercars and space elevators, but remember that science fiction is first and foremost a critique of the present, and fictional robots are above all a critique of humanity. If the future looks anything like we&rsquo;ve imagined it, we&rsquo;ve got work to do.</p>
+<p>In the meantime, we&rsquo;ll have to accept AI for what it is: a useful tool, certainly, but not as revolutionary as advertised.</p>
+
+</div>
+
+    
+<footer class='entry-footer'>
+  
+    
+  
+    
+  
+</footer>
+
+
+  </article>
+
+  
+    
+<nav class='entry-nav'>
+  <div class='entry-nav-links'><div class='prev-entry'>
+      <a href='http://localhost:1313/blog/posts/3d-object-model-of-software/'>
+        <span aria-hidden='true'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="20" y1="12" x2="4" y2="12"/>
+  <polyline points="10 18 4 12 10 6"/>
+  
+</svg>
+ Previous</span>
+        <span class='screen-reader'>Previous post: </span>The 3D object model of software construction</a>
+    </div><div class='next-entry'>
+      <a href='http://localhost:1313/blog/posts/software-upgrades-2023/'>
+        <span class='screen-reader'>Next post: </span>My top home software upgrades<span aria-hidden='true'>Next <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="4" y1="12" x2="20" y2="12"/>
+  <polyline points="14 6 20 12 14 18"/>
+  
+</svg>
+</span>
+      </a>
+    </div></div>
+</nav>
+
+
+  
+
+  
+    <div class='comments-container'>
+  
+</div>
+
+  
+</main>
+
+    <footer id='footer' class='footer-container'>
+      <div class='footer'>
+        <div class='social'>
+  <nav aria-label='Social Menu'>
+    <ul class='social-menu'></ul>
+  </nav>
+</div>
+
+        <div class='copyright'>
+          <p>© 2017 by Isaac Lyman. Site powered by Hugo and GitHub Pages.</p>
+
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <script src='/blog/js/main.af838dd5.js'></script>
+  
+    <script src='/blog/js/custom.js'></script>
+  
+
+</body>
+
+</html>
+

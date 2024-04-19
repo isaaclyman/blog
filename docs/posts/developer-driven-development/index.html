@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head><script src="/blog/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=blog/livereload" data-no-instant defer></script>
+  <meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<meta name='description' content='How we code at DirectScale, Inc.'>
+
+<meta property='og:title' content='Developer-driven development • Minimum Viable Blog'>
+<meta property='og:description' content='How we code at DirectScale, Inc.'>
+<meta property='og:url' content='http://localhost:1313/blog/posts/developer-driven-development/'>
+<meta property='og:site_name' content='Minimum Viable Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts'><meta property='article:tag' content='agile'><meta property='article:tag' content='software construction'><meta property='article:published_time' content='2016-11-06T04:59:40Z'/><meta property='article:modified_time' content='2016-11-06T04:59:40Z'/>
+
+<meta name="generator" content="Hugo 0.124.1">
+
+  <title>Developer-driven development • Minimum Viable Blog</title>
+  <link rel='canonical' href='http://localhost:1313/blog/posts/developer-driven-development/'>
+  
+  <link rel='icon' href='/blog/favicon.png'>
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Ubuntu:400,400i,700&subset=latin'>
+<link rel='stylesheet' href='/blog/css/main.d02777fd.css'>
+
+  <link rel='stylesheet' href='/blog/css/custom.css'>
+
+  <link rel='stylesheet' href='/blog/css/print.css'>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QX2T3WXRC9"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-QX2T3WXRC9', { 'anonymize_ip': false });
+}
+</script>
+
+
+</head>
+
+
+<body class='page'>
+  <div class='site'>
+    <header id='header' class='header-container'>
+      <div class='site-header'>
+        <nav id='navmenu' aria-label='Main Menu'>
+  <ul class='main-menu'>
+    
+    <li>
+      <a href='/blog/posts/' 
+        
+      >{ Archive }</a>
+    </li>
+    
+    <li>
+      <a href='/blog/posts/introduction' 
+        
+      >{ Contact }</a>
+    </li>
+    
+    <li>
+      <a href='/blog/index.xml' 
+        
+      >{ RSS }</a>
+    </li>
+    
+  </ul>
+</nav>
+
+        <div class='site-info'>
+          
+          <p class='site-title title'>Minimum Viable Blog</p>
+          
+          <p class='site-description'>Software construction, opinion, and self</p>
+        </div>
+      </div>
+    </header>
+
+
+<main class='main'>
+  <article lang='en' class='entry'>
+    <header class='entry-header'>
+  <div class='entry-info'>
+    <p class="entry-genre">
+      Technology
+    </p>
+    <h1 class='entry-title title'>Developer-driven development</h1>
+    
+    <p class='entry-subtitle'>
+      How we code at DirectScale, Inc.
+    </p>
+    
+  </div>
+  
+<div class='meta'>
+  <span class='posted-on'>
+    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+  <line x1="16" y1="2" x2="16" y2="6"/>
+  <line x1="8" y1="2" x2="8" y2="6"/>
+  <line x1="3" y1="10" x2="21" y2="10"/>
+  
+</svg>
+
+    <span class='screen-reader'>Posted on </span>
+    <time class='date' datetime='2016-11-06T04:59:40Z'>Nov 6, 2016</time>
+  </span>
+  
+  
+  <span class='reading-time'>
+    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <circle cx="12" cy="12" r="10"/>
+  <polyline points="12 6 12 12 15 15"/> 
+  
+</svg>
+
+    18 mins read
+  </span>
+  
+</div>
+
+
+</header>
+
+    <div class='entry-content'>
+  <p><em>NOTE: I moved on from DirectScale in late 2017. However, I stand by the principles I describe here, and I’ve made an effort to bring them on board at my new job.</em></p>
+<p><em>If you enjoy this article, you’ll love Your First Year in Code, a book of practical how-to and advice for new developers. If you’re considering a career in software, check it out. It’s a free download at <a href="https://leanpub.com/firstyearincode">https://leanpub.com/firstyearincode</a>.</em></p>
+<p>The company I work for is slowly losing its &ldquo;startup&rdquo; status. I’m trying not to be too nostalgic about it. After all, it means we’re doing well; a slew of truly impressive awards and contracts in recent months means we’re doing <em>great</em>. There’s a lot to be grateful for. At the same time, a lot is changing.</p>
+<p>As this transition has played out, we’ve had to upgrade a few things. We’ve hired a CTO and an Enterprise Architect. Phrases like &ldquo;PCI compliance&rdquo;, &ldquo;load testing&rdquo; and &ldquo;root cause analysis&rdquo; are becoming standard fare in the office. We’re becoming more cautious about deploying production code. We’re growing up.</p>
+<p>But a lot of things have stayed the same — we’re still the same company where it counts. When I arrived, I learned that the fight against technical debt was a high priority around here; it still is. Our counterculture attitude toward code reviews is still going strong. We still wear a lot of hats. We’re moving quickly, so we can only keep what works — some practices are being proven and others are being discarded. And thanks to the foresight of our early hires, there’s more of the former than the latter. Our development workflow has been the same for as long as I’ve been around. It works really well.</p>
+<p>I’ll go beyond that, though. We don’t keep doing things the same way just because it works. Practically anything <em>works</em> if you have unlimited time and funds and a few hardworking developers. <em>Works</em> is incidental. What matters more to me is that our process makes my Type-A, obsessive, engineer-personality heart feel good. We don’t waste a lot of time, our code base doesn’t get worse over time, I don’t have to build features I hate, and our workflow doesn’t frustrate me on a daily basis. If you’re a software engineer you must understand how good that sounds.</p>
+<p>Our secret ingredient, I’ve decided, is something like this:</p>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Writing code is easy. Software development is hard.</p>&mdash; DEV Community (@ThePracticalDev) <a href="https://twitter.com/ThePracticalDev/status/793853934544781312?ref_src=twsrc%5Etfw">November 2, 2016</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+
+<p>We do the second one.</p>
+<p>People in general (<em>including</em> developers) have a tendency to treat developers like code-writing machines, brainiacs who wear headphones and crank out <code>switch</code> statements. But this stereotype falls short of our full potential — otherwise, a developer’s value would be determined solely by her technical knowledge and typing speed. A developer at her best is a Swiss Army Knife for software — someone whose creative, insightful and rational thought process makes her a valuable part of any discussion in the company. Companies that appreciate this fact have happier, more productive developers — developers who (believe it or not) don’t spend 100% of their time staring at code. DirectScale excels at this.</p>
+<p>So enough hype: what exactly are we doing, and why am I convinced that it represents a set of common-sense best practices — not just for us, but for any software team? That’s a question that merits a multi-part answer. Let’s dive in.</p>
+<h2 id="what-we-dont-doever">What we don’t do (ever)</h2>
+<p>An average &ldquo;Agile&rdquo; workflow at an average company goes like this:</p>
+<ol>
+<li>Someone in a dark gray suit decides that a new feature should be built.</li>
+<li>He gathers with two other executives and blithely decides what the feature should do and what it should look like. No one’s consulted a developer yet (more on this later) so the whole idea is hopelessly naive.</li>
+<li>They pack up their conversation and send an email to the highest-ranking non-developer in the Code Zoo. They leave out a few important details.</li>
+<li>The non-developer (a project manager? A product owner? A scrum master? Insert the latest trend) writes up a set of business requirements based partially on the email, partially on her conception of the company’s mission, and partially on personal druthers. Over the next two days, these business requirements are mystically transformed into a set of user stories.</li>
+<li>A developer is assigned one of the user stories. If he’s extremely unlucky, he has to estimate how long it’s going to take him to finish; this involves both advanced calculus and a particular form of voodoo. He immediately starts thinking in code and has written 55 lines of pristine, elegant C♯ before he can stop himself. The connection between brain and keyboard is like Niagara Falls. The feature comes to life suddenly. He submits a pull request and kisses his fingertips like a French chef.</li>
+<li>The developer’s team lead reviews the pull request and rejects it with 17 explanatory comments: this code is not performant, this method doesn’t cover an edge case, that class reads like a horror novel, and the resultant feature doesn’t look anything like the original specification.</li>
+<li>The developer rewrites his code twice with plenty of back-and-forth from the team lead. Two days later they’re both satisfied with the result.</li>
+<li>The code is merged and deployed to production the same day.</li>
+<li>A few days later the executives read a brand-new set of release notes, very pleased with everything that happened during the sprint. One of them wonders why the feature he requested wasn’t built. He begins again at step 2.</li>
+</ol>
+<p>This obviously isn’t great. It’s the love-child of <a href="https://en.wikipedia.org/wiki/Chinese_whispers">Chinese Whispers</a>, Pictionary and 20 Questions, which may be great games but are not great ways to run a company. All the same, silicon’s best and brightest stand by it, it’s peddled by Agile coaches, and it’s the default methodology for young teams.</p>
+<p>We can do better, starting from the very first step.</p>
+<h2 id="developer-involvement-andbuy-in">Developer involvement and buy-in</h2>
+<p>At DirectScale, we don’t hire a bunch of Idea People to sit around and imagine up cool things for us to build. I hate to break it to you, but &ldquo;Idea Person&rdquo; isn’t a real job. Sorry. The fact is, <em>everyone</em> has ideas. Everyone can offer good suggestions for how your product can improve and what problems it can solve. Companies, in return, can encourage those ideas or they can repress them. Most companies choose to repress, albeit in subtle ways — leaving developers and designers out of product vision discussions, passing instructions and requests through a middleman, or writing off developer push-back as &ldquo;laziness&rdquo; and &ldquo;complaining.&rdquo;</p>
+<p>A better method is to make sure a representative from each phase of the development process is present in every meeting about every feature, from inception to completion. Instead of waiting until the next sprint to find out that your feature isn’t technically feasible, why not find out right now? Yes, this means your developers are spending a lot of time AFK (away from keyboard). But if you invite their feedback and listen to them, it also means that they’ll buy in — they’ll commit to the shared vision of the team and take ownership of the feature, which will mean faster and better turnaround on their part. For bigger features, you need more buy-in, which means more developers in the room.</p>
+<p>As I mentioned, this also prevents you from wasting several days dreaming up a feature that the developers can’t (or shouldn’t) build. As most of us have learned, features that seem straightforward can sometimes be incredibly complex, impossible or illegal. Nobody likes to find this out after the feature’s release date has already been scheduled.</p>
+<p>The most recent meeting I was in was a <a href="https://www.targetprocess.com/blog/2011/05/ux-meets-agile-design-studio-methodology/">Design Studio</a> for a large feature set which may come to represent DirectScale’s single largest source of income in future years. It’s the most important product vertical we’ve discussed all year. Guess who attended?</p>
+<ul>
+<li>A UX designer</li>
+<li>Three or four developers</li>
+<li>A graphic designer</li>
+<li>Our project manager</li>
+</ul>
+<p>The functionality we were going to build had not been described in great detail by the higher-ups and not a single C-Something-O or VP was present. It was all us. And why not? We had come prepared; our UX designer and project manager both have industry experience and they had interviewed several customers who might use the feature set. The executive team had expressed their expectations (without trying to control the creative process). We’d already had a few discussions in which we had defined the scope of the problem to be solved. And we were the ones who were going to build the thing, after all.</p>
+<p>Two and a half hours later (a longer meeting than usual, but worth it), we emerged with some sketches and a shared understanding of the first piece of the puzzle, each of us satisfied that our ideas had been a part of the result. That’s how our product comes to life.</p>
+<h2 id="dev-designs-code-reviews-inreverse">Dev designs (code reviews in reverse)</h2>
+<p>Once our ideas have metamorphosed into a prototype, we get ready to code. But we don’t open our IDE’s just yet.</p>
+<p>See, software construction is a lost art. Steve McConnell, author of <em>Code Complete</em>, spends a couple of impassioned chapters talking about the space between the creation of business requirements and the writing of code — the space when, according to him, the brightest architects in the office should be drawing detailed maps of every class, interface, interaction and data point that’s about to be written. From McConnell’s perspective, writing code with nothing but a user story or a design is like building a skyscraper without a blueprint.</p>
+<p>But somehow, <a href="http://dilbert.com/strip/2007-11-26">most companies have forgotten</a> how to plan.</p>
+<p>The problem is between steps 4 and 5 in our example Agile process. After the user stories were defined but before the developer started tickling the keyboard — what happened? In most cases, nothing.</p>
+<p>An experienced developer may be able to foresee all the work needed for simple tasks. But even the best of us run into unforeseen obstacles. We’ve all had that oh-crap moment when, just as we’re writing one final line of code, we realize that an entire set of situations isn’t accounted for in our logic.</p>
+<p>Then there’s the sinking feeling of discovering that a new member of the team has written an entire class to solve a problem that already has a standard, reusable solution elsewhere in the code. Five minutes of knowledge-sharing before coding began would have prevented three hours of reinventing the wheel.</p>
+<p>When code isn’t planned out <em>as code</em>, none of our well-intentioned processes can succeed: standards are ignored, reusability dies out, and code becomes more scattered and bug-ridden over time. Inside of a few short years, you’re dealing with legacy code (shudder). Certain issues will come out in the code review, but by then so much has gone to waste: hours of development time, several problem-solving cycles, and the developer’s enthusiasm and dedication.</p>
+<p>All of these problems could be avoided (or at least mitigated) by exactly the thing Steve McConnell recommended in 1993: planning ahead.</p>
+<p>At DirectScale, we’ve turned the code review on its head. Instead of reviewing code after the fact, we make sure it’s correct ahead of time. We plan ahead. We call this the Dev Design, and it looks a lot like a collaborative code review performed before anyone has written a single line of code. It works like this:</p>
+<ol>
+<li>A user story is created.</li>
+<li>A developer is assigned to design the work required for the story.</li>
+<li>The developer looks at the requirements, digs through the codebase for anything useful or relevant, researches the libraries and techniques that may be needed, and writes out a detailed, step-by-step description of how he would write the code needed to complete the user story. The resulting document (the Dev Design) includes all the variable names, caching techniques, classes, interfaces, and interactions that will end up in the code. In tricky cases, the developer may even include several lines of pseudocode.</li>
+<li>The developer schedules a meeting with the other developers on his team. Together they review the Dev Design and alter it as needed, suggesting alternative methods, sharing knowledge, and making architectural decisions.</li>
+<li>The team completes the tasks as specified in the Dev Design. If there’s a problem that forces them to diverge from it, they discuss it on the spot and decide what to do.</li>
+<li>Most of the time, no code review is required. The code is merged and submitted for QA as-is.</li>
+</ol>
+<p>The amount of back-and-forth we avoid by doing things this way really is phenomenal. At a previous company, under an especially finicky team lead, I averaged almost five rewrites per pull request. Now I average zero. Planning ahead ensures that things get done the right way, the first time.</p>
+<h2 id="20-time-not-the-googlekindhttpsgoogleblogblogspotcom200605googles-20-percent-time-in-actionhtml">20% time (not <a href="https://googleblog.blogspot.com/2006/05/googles-20-percent-time-in-action.html">the Google kind</a>)</h2>
+<p>At DirectScale we don’t allow technical debt to pile up. As technical debt gets older, it grows (just like regular debt) and when it reaches critical mass, it invariably ends up breaking the user experience and annoying clients. What’s worse, it frustrates coders and can cause serious instances of the &ldquo;<a href="https://www.theguardian.com/lifeandstyle/2014/may/24/this-column-change-life-what-the-hell-effect">what-the-hell effect</a>&rdquo; for anyone who has to work with the affected code.</p>
+<p>Resolving technical debt, though, is a counter-intuitive activity. For starters, it doesn’t look like anything. If a senior developer spends a week paying off technical debt — refactoring code, splitting classes, smoothing out kludges, accounting for edge cases — what does he have to show for it? Other developers will appreciate the difference, but anyone with the word &ldquo;manager&rdquo; in their job title is forced to go on faith. Nothing new can be shown to clients, no urgent bugs have been fixed, the application may not even be noticeably faster. If a product owner finds the line &ldquo;addressed technical debt&rdquo; in your release notes, how do they know you weren’t playing flick-the-paper-football all week? They don’t.
+But the &ldquo;debt&rdquo; analogy holds true for this situation. Say you’re in $15,000 of credit card debt. If you spend your next three paychecks paying it down, what do you have to show for it? Really not much — no new furniture, no fancy dinners, no repairs for your furnace or car. But you are <em>much better off</em> than you were. And you better know it.</p>
+<p>To prevent both managers and developers from getting too caught up in deadlines and features to invest in healthy code, we enforce a strict minimum: at least 20% of our time is spent fighting technical debt. That means one in every five user stories. A few times a week, we’re standardizing, refactoring, load testing, researching, creating developer resources. We’re doing things that our clients will never know about. But what they do know is that our software is more cutting-edge, reliable and delightful than anything they’ve ever used. And they aren’t afraid to say so.</p>
+<p>Although the work we do to address technical debt isn’t always exciting (refactoring, in particular, is one of the most challenging and tedious things a developer does) and although it doesn’t provide the instant gratification that feature-driven tasks do, it is rewarding. The feeling of tweaking and improving pure code for a day or two is something like the feeling of recovering from a cold: the world just seems brighter afterward. You look back and see that your code is sensible and maintainable in a way it wasn’t before — it looks like something out of a textbook. And your work pays off for months to come. Working with code that has been properly cared for is a constant relief.</p>
+<h2 id="story-despecialization">Story despecialization</h2>
+<p>Startups are infamous for requiring their employees to wear a lot of different hats. Some companies treat job titles as an afterthought; at various times you may end up being (as I have been) a back-end developer, a front-end developer, a QA engineer, a technical writer, a Spanish translator, a usability interviewer, and a printer support technician. Some people dislike this characteristic of small companies. I love it.</p>
+<p>On our team we encourage despecialization all the way down to individual user stories. In some companies this is called &ldquo;swarming.&rdquo; Our method goes like this: when a developer is ready for another task, he is assigned the topmost task on our priority board whether or not he worked on the other tasks in the user story (and whether or not he knows how to do it). Our team is responsible for a product, not a programming language — if you knew T-SQL, C#, .NET, JavaScript, Angular.JS and SASS when we hired you, that’s great. If not, you’ll learn as you complete the tasks that require them. This makes us more like artisans than assembly line workers. Our goal is to make sure that every one of us knows enough about every part of the source code to work with it effectively, especially in an urgent situation.</p>
+<p>This also ensures that our team passes the &ldquo;<a href="https://medium.nobl.io/the-bus-test-2338d474b193#.xi6oujm7c">bus test</a>&rdquo;: if a random member of our team were hit by a bus tomorrow, would we be able to continue without a hitch? Or would someone have to be assigned the uphill task of figuring out how to maintain the code that was under their jurisdiction? The bus test is especially telling at DirectScale, where I’m surrounded by highly talented and competent coworkers, people who are passionate about subjects I’m barely conversant in. But I like to think we’d pass it. Even if our most intelligent and hardworking employee were to die suddenly, the work would go forward. And no one would even miss me that much (I kid, I kid).</p>
+<h2 id="brown-bags-and-professional-development">Brown bags and professional development</h2>
+<p>DirectScale encourages a culture of constant learning and improving. This goes beyond sponsored PluralSight memberships or a company library. We recognize that the best teachers are the ones who work among us and the best classroom is the one where personal interactions and discussions are the lesson plan. To that end, we take time once or twice a month to learn from each other in a group setting. We call this a <a href="http://www.investopedia.com/terms/b/brown-bag-meeting.asp">brown bag</a>.</p>
+<p>This usually entails a presentation from someone in the company who knows more about a certain technology or skill than the rest of us. We’ve had brown bags about topics as diverse as CSS, teamwork, sleeping habits, and SQL debugging. Anything is fair game.</p>
+<p>Like despecialization, this helps us to pass the bus test. The amount of information a truly passionate person can communicate in an informal one-hour meeting is impressive.</p>
+<p>It also improves developer happiness. <a href="http://www.softwarebyrob.com/2006/10/31/nine-things-developers-want-more-than-money/">Developers are happiest when they are learning and growing</a>. My best days at work — the days when I come home beaming, totally jazzed about my job — have been the days that I learned a new framework or concept and started putting it to good use. We developers get a huge thrill out of learning new things.</p>
+<h2 id="why-sohappy">Why so happy?</h2>
+<p>I’ve spent a lot of time detailing the things that make me happy at work. And although I’ve tried to balance this by pointing out all the other benefits of our workplace methods and philosophies, I’m a little worried that someone will read this and totally miss the point. At some company, somewhere — a company that too many of my developer friends seem to have worked for — there is a group of middle managers who are stuck in the year 1906 and all they can think is &ldquo;Who cares if you’re happy?&rdquo; To them, developers are like dairy cows. You lock them in a cage, you milk them for as many lines of code as they’re willing to produce, and then you get rid of them. If one quits, another will take his place, so long as the salary is appealing enough.</p>
+<p>If you ever have the misfortune of managing someone with this attitude, I invite you to fire them.</p>
+<p>Here’s a news flash: <a href="http://www.itworld.com/article/2693429/big-data/study-proves-that-happy-programmers-are-better-programmers.html">happy</a> <a href="https://devzone.zend.com/5473/happy-developers-productive-developers/">developers</a> <a href="https://www.entrepreneur.com/article/249528">do</a> <a href="http://techbeacon.com/lessons-agile-happier-teams-are-more-productive-so-spread-cheer">incredible</a> <a href="http://www.sandeepmvp.com/developer-hapiness/">work</a>. In fact, this is almost a foregone conclusion — the question successful companies are asking isn’t &ldquo;Should we treat our developers well?&rdquo; It’s &ldquo;How can we make our developers happier?&rdquo;</p>
+<p>On the flip side, unhappy developers produce poor code for a little while and then quit. If you don’t treat developer happiness as a company-wide priority, you will eventually be forced to treat <a href="http://www.developerdotstar.com/mag/articles/software_team_turnover.html">developer turnover as a company-wide crisis</a>.</p>
+<p>I realize that as a developer it’s in my own best interest to say this. You could accuse me of being a diva. And maybe you’re right. But if I’m a diva, I’m a diva that bleeds excellent software from all ten fingertips. Right now the demand for divas like me <a href="https://itif.org/publications/2016/05/31/us-must-expand-computer-science-education-keep-demand-skilled-workforce-itif">is</a> <a href="http://www.seattletimes.com/seattle-news/education/with-surge-in-computer-science-majors-state-colleges-struggle-to-keep-pace/">through</a> <a href="http://www.geekwire.com/2014/analysis-examining-computer-science-education-explosion/">the</a> <a href="http://www.bls.gov/ooh/computer-and-information-technology/software-developers.htm">roof</a>. And I’m far from being the best or the brightest in my field.</p>
+<p>To put it simply, there are <em>no</em> benefits to trying to optimize developers the way you would optimize an assembly line at a cigarette factory. You have to let them do things their way. But you’ll be pleased with the results. Happy developers write good code. And developers who write good code are happy.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>I’ve given you just a peek at what it’s like to work for <a href="http://directscale.com/">a company that really understands software development</a>. I wish you could see the full panorama. I haven’t been a programmer for very long, all things considered, but it’s changed my entire outlook on the industry.</p>
+<p>As you’re probably aware, developers are the target of <a href="https://medium.com/@isaaclyman/how-to-recruit-me-e82580ae91f1">intense recruitment techniques</a>. I hear from recruiters regularly, and one of them even talked me into a lunch date a few months ago. I made sure to ask him a few simple questions:</p>
+<ul>
+<li>To what extent are developers involved in your design and discovery process?</li>
+<li>How do you address technical debt?</li>
+<li>How do code reviews go at your company?</li>
+<li>How much &ldquo;bad code&rdquo; would you say there is in your codebase?</li>
+</ul>
+<p>This made him uncomfortable. But (to his credit) he was honest with me: these weren’t high priorities at his company. I thanked him for lunch and let him know I wasn’t interested in any further conversations.</p>
+<p>Listen: if you still think that foosball and Coke make developers happy, I’m here to tell you they don’t. Sure, perks like that are nice. But what makes us developers really happy is solving challenges every day and building code that’s familiar, well-written and full of features we’re proud of.</p>
+<p>If you can’t offer us that, you really don’t have much to offer.</p>
+
+</div>
+
+    
+<footer class='entry-footer'>
+  
+    
+      
+      
+
+<div class='categories'>
+  <span class='category-icon'>
+    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M22,19a2,2,0,0,1-2,2H4a2,2,0,0,1-2-2V5A2,2,0,0,1,4,3H9l2,3h9a2,2,0,0,1,2,2Z"/>
+  
+</svg>
+
+  </span>
+  <span class='screen-reader'>Categories: </span><a class='category' href='/blog/categories/development'>development</a></div>
+
+    
+  
+    
+      
+      
+
+<div class='tags'>
+  <span class='tag-icon'>
+    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M20.59,13.41l-7.17,7.17a2,2,0,0,1-2.83,0L2,12V2H12l8.59,8.59A2,2,0,0,1,20.59,13.41Z"/>
+  <line x1="7" y1="7" x2="7" y2="7"/>
+  
+</svg>
+
+  </span>
+  <span class='screen-reader'>Tags: </span><a class='tag' href='/blog/tags/agile'>agile</a>, <a class='tag' href='/blog/tags/software-construction'>software construction</a></div>
+
+    
+  
+</footer>
+
+
+  </article>
+
+  
+    
+<nav class='entry-nav'>
+  <div class='entry-nav-links'><div class='prev-entry'>
+      <a href='http://localhost:1313/blog/posts/if-doctors-were-like-coders/'>
+        <span aria-hidden='true'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="20" y1="12" x2="4" y2="12"/>
+  <polyline points="10 18 4 12 10 6"/>
+  
+</svg>
+ Previous</span>
+        <span class='screen-reader'>Previous post: </span>If doctors were like coders</a>
+    </div><div class='next-entry'>
+      <a href='http://localhost:1313/blog/posts/8-css-gotchas/'>
+        <span class='screen-reader'>Next post: </span>8 CSS gotchas to start your morning off right<span aria-hidden='true'>Next <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="4" y1="12" x2="20" y2="12"/>
+  <polyline points="14 6 20 12 14 18"/>
+  
+</svg>
+</span>
+      </a>
+    </div></div>
+</nav>
+
+
+  
+
+  
+    <div class='comments-container'>
+  
+</div>
+
+  
+</main>
+
+    <footer id='footer' class='footer-container'>
+      <div class='footer'>
+        <div class='social'>
+  <nav aria-label='Social Menu'>
+    <ul class='social-menu'></ul>
+  </nav>
+</div>
+
+        <div class='copyright'>
+          <p>© 2017 by Isaac Lyman. Site powered by Hugo and GitHub Pages.</p>
+
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <script src='/blog/js/main.af838dd5.js'></script>
+  
+    <script src='/blog/js/custom.js'></script>
+  
+
+</body>
+
+</html>
+

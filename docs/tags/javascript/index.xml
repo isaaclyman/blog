@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Javascript on Minimum Viable Blog</title>
+    <link>http://localhost:1313/blog/tags/javascript/</link>
+    <description>Recent content in Javascript on Minimum Viable Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <managingEditor>map[host:isaaclyman.com username:blog] (Isaac Lyman)</managingEditor>
+    <webMaster>map[host:isaaclyman.com username:blog] (Isaac Lyman)</webMaster>
+    <copyright>© 2017 by Isaac Lyman. Site powered by Hugo and GitHub Pages.</copyright>
+    <lastBuildDate>Thu, 26 Aug 2021 08:53:24 -0700</lastBuildDate>
+    <atom:link href="http://localhost:1313/blog/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Some suggestions for JavaScript engineers</title>
+      <link>http://localhost:1313/blog/posts/suggestions-for-javascript-engineers/</link>
+      <pubDate>Thu, 26 Aug 2021 08:53:24 -0700</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
+      <guid>http://localhost:1313/blog/posts/suggestions-for-javascript-engineers/</guid>
+      <description>For years there&amp;rsquo;s been a bitter debate in the development community regarding JavaScript&amp;rsquo;s D&amp;amp;D alignment. Although few are brazen enough to argue that it&amp;rsquo;s Lawful, a full spectrum of opinions exists about whether it&amp;rsquo;s Good or Evil. In a surprising reversal, I&amp;rsquo;m told Jeff Atwood has recently taken the side of Evil, although he&amp;rsquo;s probably just trying to protect his &amp;ldquo;bad boy&amp;rdquo; reputation. I won&amp;rsquo;t share my opinion on the subject but perhaps a bit of history can shed some light.</description>
+    </item>
+  </channel>
+</rss>

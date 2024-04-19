@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head><script src="/blog/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=blog/livereload" data-no-instant defer></script>
+  <meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<meta name='description' content='There are plenty of arguments to be made for philosophical optimism in code. Code is art. Code is fun. Code helps us do things.
+But there&rsquo;s also value in pessimism, and on the balance, experienced developers tend to have more of it.
+What does philosophical pessimism look like for programmers? Let&rsquo;s break it down.
+Principle 1: Most code blows up; therefore, limit the blast radius.
+Programmers know it&rsquo;s rare for code to work perfectly on the first (or second or third) try, yet all too often we write it as though it will be operating in a predictable, frictionless environment.'>
+
+<meta property='og:title' content='A philosophical pessimism of code • Minimum Viable Blog'>
+<meta property='og:description' content='There are plenty of arguments to be made for philosophical optimism in code. Code is art. Code is fun. Code helps us do things.
+But there&rsquo;s also value in pessimism, and on the balance, experienced developers tend to have more of it.
+What does philosophical pessimism look like for programmers? Let&rsquo;s break it down.
+Principle 1: Most code blows up; therefore, limit the blast radius.
+Programmers know it&rsquo;s rare for code to work perfectly on the first (or second or third) try, yet all too often we write it as though it will be operating in a predictable, frictionless environment.'>
+<meta property='og:url' content='http://localhost:1313/blog/posts/code-pessimism/'>
+<meta property='og:site_name' content='Minimum Viable Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts'><meta property='article:published_time' content='2024-01-31T09:05:28-07:00'/><meta property='article:modified_time' content='2024-01-31T09:05:28-07:00'/>
+
+<meta name="generator" content="Hugo 0.124.1">
+
+  <title>A philosophical pessimism of code • Minimum Viable Blog</title>
+  <link rel='canonical' href='http://localhost:1313/blog/posts/code-pessimism/'>
+  
+  <link rel='icon' href='/blog/favicon.png'>
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Ubuntu:400,400i,700&subset=latin'>
+<link rel='stylesheet' href='/blog/css/main.d02777fd.css'>
+
+  <link rel='stylesheet' href='/blog/css/custom.css'>
+
+  <link rel='stylesheet' href='/blog/css/print.css'>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QX2T3WXRC9"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-QX2T3WXRC9', { 'anonymize_ip': false });
+}
+</script>
+
+
+</head>
+
+
+<body class='page'>
+  <div class='site'>
+    <header id='header' class='header-container'>
+      <div class='site-header'>
+        <nav id='navmenu' aria-label='Main Menu'>
+  <ul class='main-menu'>
+    
+    <li>
+      <a href='/blog/posts/' 
+        
+      >{ Archive }</a>
+    </li>
+    
+    <li>
+      <a href='/blog/posts/introduction' 
+        
+      >{ Contact }</a>
+    </li>
+    
+    <li>
+      <a href='/blog/index.xml' 
+        
+      >{ RSS }</a>
+    </li>
+    
+  </ul>
+</nav>
+
+        <div class='site-info'>
+          
+          <p class='site-title title'>Minimum Viable Blog</p>
+          
+          <p class='site-description'>Software construction, opinion, and self</p>
+        </div>
+      </div>
+    </header>
+
+
+<main class='main'>
+  <article lang='en' class='entry'>
+    <header class='entry-header'>
+  <div class='entry-info'>
+    <p class="entry-genre">
+      Technology
+    </p>
+    <h1 class='entry-title title'>A philosophical pessimism of code</h1>
+    
+  </div>
+  
+<div class='meta'>
+  <span class='posted-on'>
+    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+  <line x1="16" y1="2" x2="16" y2="6"/>
+  <line x1="8" y1="2" x2="8" y2="6"/>
+  <line x1="3" y1="10" x2="21" y2="10"/>
+  
+</svg>
+
+    <span class='screen-reader'>Posted on </span>
+    <time class='date' datetime='2024-01-31T09:05:28-07:00'>Jan 31, 2024</time>
+  </span>
+  
+  
+  <span class='reading-time'>
+    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <circle cx="12" cy="12" r="10"/>
+  <polyline points="12 6 12 12 15 15"/> 
+  
+</svg>
+
+    2 mins read
+  </span>
+  
+</div>
+
+
+</header>
+
+    <div class='entry-content'>
+  <p>There are plenty of arguments to be made for philosophical optimism in code. Code is art. Code is fun. Code helps us do things.</p>
+<p>But there&rsquo;s also value in pessimism, and on the balance, experienced developers tend to have more of it.</p>
+<p>What does philosophical pessimism look like for programmers? Let&rsquo;s break it down.</p>
+<p><strong>Principle 1:</strong> Most code blows up; therefore, limit the blast radius.</p>
+<p>Programmers know it&rsquo;s rare for code to work perfectly on the first (or second or third) try, yet all too often we write it as though it will be operating in a predictable, frictionless environment.</p>
+<p>Instead, it&rsquo;s better to assume every piece of code you write is a ticking time bomb. Put it in the smallest, tightest box you can, test it thoroughly, and try to keep it away from everything else. Make sure that when it blows up, you&rsquo;ll only have to fix it in one place, not everywhere.</p>
+<p>In practice, this is all about <a href="https://en.wikipedia.org/wiki/Information_hiding">information hiding</a>, <a href="https://en.wikipedia.org/wiki/Encapsulation_(computer_programming)">encapsulation</a>, and the <a href="https://en.wikipedia.org/wiki/Single_responsibility_principle">Single-Responsibility Principle</a>.</p>
+<p><strong>Principle 2:</strong> Most code gets thrown away; therefore, don&rsquo;t write it without supporting evidence.</p>
+<ul>
+<li>Most code blows up, so limit the blast radius</li>
+<li>Most code gets thrown away, so don&rsquo;t write it without evidence</li>
+<li>Most code is useless, so at least make it usable</li>
+<li>Most code is wrong, so be wrong as quickly and as</li>
+</ul>
+
+</div>
+
+    
+<footer class='entry-footer'>
+  
+    
+  
+    
+  
+</footer>
+
+
+  </article>
+
+  
+    
+<nav class='entry-nav'>
+  <div class='entry-nav-links'><div class='prev-entry'>
+      <a href='http://localhost:1313/blog/posts/kryptos-4/'>
+        <span aria-hidden='true'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="20" y1="12" x2="4" y2="12"/>
+  <polyline points="10 18 4 12 10 6"/>
+  
+</svg>
+ Previous</span>
+        <span class='screen-reader'>Previous post: </span>Solving the CIA Kryptos code in TypeScript (Part 4)</a>
+    </div><div class='next-entry'>
+      <a href='http://localhost:1313/blog/posts/illusions-of-social-media/'>
+        <span class='screen-reader'>Next post: </span>The illusion of social media<span aria-hidden='true'>Next <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="4" y1="12" x2="20" y2="12"/>
+  <polyline points="14 6 20 12 14 18"/>
+  
+</svg>
+</span>
+      </a>
+    </div></div>
+</nav>
+
+
+  
+
+  
+    <div class='comments-container'>
+  
+</div>
+
+  
+</main>
+
+    <footer id='footer' class='footer-container'>
+      <div class='footer'>
+        <div class='social'>
+  <nav aria-label='Social Menu'>
+    <ul class='social-menu'></ul>
+  </nav>
+</div>
+
+        <div class='copyright'>
+          <p>© 2017 by Isaac Lyman. Site powered by Hugo and GitHub Pages.</p>
+
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <script src='/blog/js/main.af838dd5.js'></script>
+  
+    <script src='/blog/js/custom.js'></script>
+  
+
+</body>
+
+</html>
+

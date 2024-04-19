@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head><script src="/blog/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=blog/livereload" data-no-instant defer></script>
+  <meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<meta name='description' content='I recently stumbled upon Software disenchantment, a post by Nikita Propokov. It called to mind Maciej Cegłowski&rsquo;s post The Website Obesity Crisis and several others in the same vein. Among people who write about software development, there&rsquo;s a growing consensus that our apps our getting larger, slower, and more broken, in an age when hardware should enable us to write apps that are faster, smaller, and more robust than ever. DOOM, which came out in 1996, can run on a pregnancy test and a hundred other unexpected devices; meanwhile, chat apps in 2022 use half a gigabyte of RAM (or more) while running in the background and sometimes lock up completely, even on very high-end late-model hardware.'>
+
+<meta property='og:title' content='Is software getting worse? • Minimum Viable Blog'>
+<meta property='og:description' content='I recently stumbled upon Software disenchantment, a post by Nikita Propokov. It called to mind Maciej Cegłowski&rsquo;s post The Website Obesity Crisis and several others in the same vein. Among people who write about software development, there&rsquo;s a growing consensus that our apps our getting larger, slower, and more broken, in an age when hardware should enable us to write apps that are faster, smaller, and more robust than ever. DOOM, which came out in 1996, can run on a pregnancy test and a hundred other unexpected devices; meanwhile, chat apps in 2022 use half a gigabyte of RAM (or more) while running in the background and sometimes lock up completely, even on very high-end late-model hardware.'>
+<meta property='og:url' content='http://localhost:1313/blog/posts/is-software-getting-worse/'>
+<meta property='og:site_name' content='Minimum Viable Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts'><meta property='article:published_time' content='2022-11-30T12:16:31-07:00'/><meta property='article:modified_time' content='2022-11-30T12:16:31-07:00'/>
+
+<meta name="generator" content="Hugo 0.124.1">
+
+  <title>Is software getting worse? • Minimum Viable Blog</title>
+  <link rel='canonical' href='http://localhost:1313/blog/posts/is-software-getting-worse/'>
+  
+  <link rel='icon' href='/blog/favicon.png'>
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Ubuntu:400,400i,700&subset=latin'>
+<link rel='stylesheet' href='/blog/css/main.d02777fd.css'>
+
+  <link rel='stylesheet' href='/blog/css/custom.css'>
+
+  <link rel='stylesheet' href='/blog/css/print.css'>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QX2T3WXRC9"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-QX2T3WXRC9', { 'anonymize_ip': false });
+}
+</script>
+
+
+</head>
+
+
+<body class='page'>
+  <div class='site'>
+    <header id='header' class='header-container'>
+      <div class='site-header'>
+        <nav id='navmenu' aria-label='Main Menu'>
+  <ul class='main-menu'>
+    
+    <li>
+      <a href='/blog/posts/' 
+        
+      >{ Archive }</a>
+    </li>
+    
+    <li>
+      <a href='/blog/posts/introduction' 
+        
+      >{ Contact }</a>
+    </li>
+    
+    <li>
+      <a href='/blog/index.xml' 
+        
+      >{ RSS }</a>
+    </li>
+    
+  </ul>
+</nav>
+
+        <div class='site-info'>
+          
+          <p class='site-title title'>Minimum Viable Blog</p>
+          
+          <p class='site-description'>Software construction, opinion, and self</p>
+        </div>
+      </div>
+    </header>
+
+
+<main class='main'>
+  <article lang='en' class='entry'>
+    <header class='entry-header'>
+  <div class='entry-info'>
+    <p class="entry-genre">
+      Technology
+    </p>
+    <h1 class='entry-title title'>Is software getting worse?</h1>
+    
+  </div>
+  
+<div class='meta'>
+  <span class='posted-on'>
+    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+  <line x1="16" y1="2" x2="16" y2="6"/>
+  <line x1="8" y1="2" x2="8" y2="6"/>
+  <line x1="3" y1="10" x2="21" y2="10"/>
+  
+</svg>
+
+    <span class='screen-reader'>Posted on </span>
+    <time class='date' datetime='2022-11-30T12:16:31-07:00'>Nov 30, 2022</time>
+  </span>
+  
+  
+  <span class='reading-time'>
+    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <circle cx="12" cy="12" r="10"/>
+  <polyline points="12 6 12 12 15 15"/> 
+  
+</svg>
+
+    11 mins read
+  </span>
+  
+</div>
+
+
+</header>
+
+    <div class='entry-content'>
+  <p>I recently stumbled upon <a href="https://tonsky.me/blog/disenchantment/">Software disenchantment</a>, a post by Nikita Propokov. It called to mind Maciej Cegłowski&rsquo;s post <a href="https://idlewords.com/talks/website_obesity.htm">The Website Obesity Crisis</a> and <a href="https://www.google.com/search?q=blog+post+about+how+the+web+is+bloated+and+slow">several others</a> in the same vein. Among people who write about software development, there&rsquo;s a growing consensus that our apps our getting larger, slower, and more broken, in an age when hardware should enable us to write apps that are faster, smaller, and more robust than ever. <em>DOOM</em>, which came out in 1996, can <a href="https://www.cnet.com/culture/programmer-makes-original-doom-playable-on-pregnancy-test/">run on a pregnancy test</a> and <a href="https://www.reddit.com/r/itrunsdoom/top/?t=all">a hundred other unexpected devices</a>; meanwhile, chat apps in 2022 use half a gigabyte of RAM (or more) while running in the background and sometimes lock up completely, even on very high-end late-model hardware.</p>
+<p>The aforementioned posts on this subject come across as about 80% fair and reasonable criticism, 20% out-of-touch grumbling. Or in other words:</p>
+<figure><img src="/blog/img/one-os.png"
+    alt="The Arrested Development &#39;banana&#39; meme, edited to have Lucille saying &#39;It&#39;s one operating system, Michael. What could it cost, 30 megabytes?&#39;">
+</figure>
+
+<p>Most developers know better than to say things like &ldquo;it&rsquo;s a smartphone OS, how hard can it be?&rdquo; or &ldquo;my spreadsheet app in the 90&rsquo;s was 10 kilobytes, how come <em>Factorio</em> is a full gigabyte?&rdquo; If you weren&rsquo;t there when it was built, you can&rsquo;t reliably estimate all the hard knocks and complexity that went into it.</p>
+<p>But that doesn&rsquo;t mean there&rsquo;s no room for objective criticism. Apps <em>are</em> slower than they used to be. And exponentially larger, without a corresponding increase in value. At the very least, there are optimization opportunities in almost any modern app. We could make them faster, probably by orders of magnitude. We could remove code. We could write tiny, purpose-built libraries. We could find new ways to compress assets.</p>
+<p>Why don&rsquo;t we?</p>
+<p>Propokov&rsquo;s answer is &ldquo;software engineers aren&rsquo;t taking pride in their work.&rdquo; There&rsquo;s some truth to that. But I strongly believe it&rsquo;s the natural human state to work hard and make excellent things, and we only fail to do so when something repeatedly stops us. So instead of relying on the <a href="https://humanparts.medium.com/laziness-does-not-exist-3af27e312d01">myth of laziness</a> to explain slow and buggy software, we should be asking &ldquo;what widespread forces and incentives are creating an environment where it&rsquo;s hard for software engineers to do their best work?&rdquo;</p>
+<p>I have a few answers to that.</p>
+<h2 id="speed-is-a-feature-reliability-is-nothing">Speed is a feature, reliability is nothing</h2>
+<p>Software is envisioned by engineers as networks of interacting components, inputs, and outputs. This model is both accurate and useful. However, it&rsquo;s not the way software is packaged, marketed, or sold. To businesspeople and customers, software is <em>a list of features</em>.</p>
+<p>Take an inventory management app as an example. Its marketing materials will consist of several high-res stock photos, a bold color palette, and statements like the following:</p>
+<ul>
+<li>Tracks inventory across multiple warehouses</li>
+<li>Integrates with Delivery Pro, Supply Chain Plus, and Super Point-of-Sale systems</li>
+<li>Weekly and monthly reporting at multiple levels</li>
+<li>Fine-grained access and security controls</li>
+<li>Instant updates across all terminals</li>
+<li>Runs on Windows, MacOS, and Linux</li>
+</ul>
+<p>These are falsifiable statements; either the software does these things or it does not. They can all be proven in a one-hour product demo. And only one deals with speed. The software may in fact be very slow, taking several seconds to respond to a button click, without making the &ldquo;instant updates&rdquo; claim a lie.</p>
+<p>We can all agree that speed affects a user&rsquo;s entire experience of an app. It&rsquo;s an important marker of quality. But it&rsquo;s difficult to sell. If you spend your time optimizing a core process while your competitor develops a new type of report, you&rsquo;ll lose eight of your next ten sales over it. If you poll your existing customers about what you should work on next, they&rsquo;re going to ask for features, not speed—unless the software is so slow it borders on unusable. And god forbid any red-blooded board of directors would ever allow the company to take a six-month detour from its product roadmap to work on technical debt. The pressure is always on us to build features, features, features.</p>
+<p>Programmers want to write fast apps. But the market doesn&rsquo;t care.</p>
+<p>You may notice reliability isn&rsquo;t on the list at all. How exactly would you say that? &ldquo;Bug-free?&rdquo; There&rsquo;s no way to ensure that, let alone prove it in a product demo. &ldquo;90% unit test coverage and a full suite of integration tests?&rdquo; Nobody knows what that means and if you explained it to them, they&rsquo;d be bored. There&rsquo;s no way to express reliability in a way customers will both believe and care about. The Agile age has taught them that bugs will inevitably exist and you&rsquo;ll fix them on an ongoing basis. And since there&rsquo;s no comprehensive way to measure defects in software (surely if we knew about them, we would have already fixed them?) it&rsquo;s not a feature that can be compared between products. We can invest time to test, refactor, and improve, but it&rsquo;s entirely possible no one will notice.</p>
+<p>Programmers want to write bug-free apps. But the market doesn&rsquo;t care.</p>
+<p>Disk usage isn&rsquo;t on the list either, though occasionally it appears in small, low-contrast print below a &ldquo;Download&rdquo; button. And of everything here, this one is perhaps least connected with competitiveness or quality in customers&rsquo; minds. When was the last time you blamed a developer (as opposed to yourself or your computer) when you ran out of disk space? Or chose between two video games based on download size? Probably never. You can find people who complain about the size of the latest <em>Call of Duty</em>, but the sequels <a href="https://www.ign.com/articles/call-of-duty-modern-warfare-2-crosses-1-billion-in-sales-faster-than-any-game-in-the-franchise">still make a billion dollars</a> the week they come out.</p>
+<p>Shrinking an executable or output bundle is thankless work. And it&rsquo;s often highly technical work, requiring an understanding of not just the app one is building but the hundreds of lower-level libraries it depends on. Furthermore, it&rsquo;s actively discouraged (&ldquo;don&rsquo;t reinvent the wheel&rdquo;), partially because it&rsquo;s a minefield. You may not know what a line of code is for, but <a href="https://www.chesterton.org/taking-a-fence-down/">that doesn&rsquo;t mean it&rsquo;s useless</a>. Maybe it&rsquo;s the difference between a working app and a broken one for the 0.01% of your customers that use Ubuntu on a smartphone. Maybe it&rsquo;s the one thing keeping the app from crashing to a halt every four years on Leap Day. Even the smallest utility function eventually develops into an artifact of non-obvious insitutional knowledge. It&rsquo;s just not worth messing with.</p>
+<p>Some programmers want to write smaller apps. But the benefits aren&rsquo;t there for the market <em>or</em> for us.</p>
+<h2 id="consumer-software-is-undervalued">Consumer software is undervalued</h2>
+<p>It&rsquo;s not hard to distribute an app. That&rsquo;s more or less what the Internet is for. But <em>selling</em> an app is like pulling teeth. The same general public who will pay $15 for a sandwich or a movie ticket—and then shrug and move on if they didn&rsquo;t like it—are <a href="https://theoatmeal.com/blog/apps">overcome by existential doubt</a> if an app they&rsquo;re interested in costs one (1) dollar. There are only two demographics that are willing to pay for good software: corporations and video gamers. We&rsquo;ve somehow blundered our way into a world where everyone else expects software to be free.</p>
+<p>This expectation has been devastating to the quality of consumer apps. Building an app costs anywhere from 50,000 to half a million dollars. If you can&rsquo;t get people to pay on the way in, you have to recoup costs some other way. And herein are the biggest causes of bloat and slowness in both web and native applications: user tracking, ads, marketing funnels, affiliate sales, subscription paywalls, counter-counter-measures for all the above, and a hundred even-less-reputable revenue streams. These things are frequently attributed to greed, but more often they&rsquo;re a result of desperation. Some of the most popular websites on the Internet are just barely scraping by.</p>
+<p>It&rsquo;s hard to overstate the waste and inefficiency of a system like this. You publish a unique, high-quality app for what you believe to be a fair price. It sits at 0 downloads, day after day. You rebuild it on a free trial/subscription model. It gets a few hundred downloads but only a handful of users convert to a paid plan, not nearly enough to cover your costs. You put ads in the free version, even though it breaks your UI designer&rsquo;s heart. You find out that ad views pay out in fractions of a cent. You put in more ads. Users (who, bafflingly, are still using the app for free) complain that there are too many ads. You add call-to-action modals to encourage users to pay for the ad-free experience. You find out most of them would sooner delete the app. You swap some ads for in-app purchases. Users complain about those, too. You add analytics and telemetry so you can figure out how to increase retention. You discover that &ldquo;retention&rdquo; and &ldquo;addiction&rdquo; might as well be synonyms. The cycle goes on, and before long you no longer have an app; you have a joyless revenue machine that exploits your users&rsquo; attention and privacy at every turn. And you&rsquo;re still not making very much money.</p>
+<p>We could avoid <em>all</em> of this if people were willing to pay for apps. But they&rsquo;re not. So apps are huge and slow and broken instead.</p>
+<h2 id="developers-dont-realize-the-power-they-have">Developers don&rsquo;t realize the power they have</h2>
+<p>Lest I be accused of blaming everyone but myself, let&rsquo;s examine the role of software developers. There has to be something we can do better.</p>
+<p>Even in a recession, developers have an extraordinary amount of leverage. We can insist on working with (or not working with) specific technologies. We can hold out for high salaries, benefits, and equity. We can change the culture and work environment of an entire company by exercising even the slightest amount of solidarity. Good programmers are hard to come by, and everyone knows it, and we know they know it.</p>
+<p>That&rsquo;s our power, and we can do more with it.</p>
+<p>We should set aside time in every sprint to resolve technical debt. We should procrastinate feature work now and then when there&rsquo;s an especially promising opportunity to optimize and improve our code. We should persuade our employers to sponsor open-source projects. We should create the expectation that we won&rsquo;t always be working on the product roadmap; our code and our industry expect more of us.</p>
+<p>Most of the time there won&rsquo;t be any negative consequences. Every other industry has professional standards and requirements that transcend any one job description. Why do we act like software development doesn&rsquo;t?</p>
+<p>The only caveat is that the incentives aren&rsquo;t in our favor. It&rsquo;s an uphill battle. Some managers won&rsquo;t be comfortable with us spending time on things they don&rsquo;t understand. Some salespeople will worry that our software isn&rsquo;t competitive. Investors will threaten to outsource our work to more pliable developers. It will be a while before customer attitudes and market forces shift. But if changing the state of modern software is a worthy goal, then it&rsquo;s worth the effort.</p>
+<h2 id="will-it-get-better">Will it get better?</h2>
+<p>It&rsquo;s hard to be optimistic about the future of software. Programmers were allowed to build tiny, highly-optimized apps in the 90&rsquo;s because there was no other choice. Their customers had 32 megabytes of RAM and a 200 megahertz single-core processor. If an app wasn&rsquo;t as lean as possible, it wouldn&rsquo;t run at all. Today, a two-year-old base-model Macbook Air has 250 times as much memory (not to mention much <em>faster</em> memory) and a quad-core processor with several times the speed on any one core. You can get away with a lot more now. And we do. We ship apps that are 90% dead weight. We don&rsquo;t optimize until someone complains. We package a full web browser installation with apps for sending messages, taking notes, even writing our own code (I&rsquo;m using one right now).</p>
+<p>The last two decades have been dedicated to making software development faster, easier, and more foolproof. And admittedly, we&rsquo;re creating apps faster than ever, with more features than ever, using less experienced developers than ever. It&rsquo;s not hard to see the appeal from a business perspective. But we&rsquo;re paying the price—and so are our customers, the power grid, and the planet.</p>
+<p>Things won&rsquo;t change overnight, probably not even in the next five years. But there are reasons to be hopeful.</p>
+<p>The latest wave of web programming languages and technologies (like <a href="https://webassembly.org/">WebAssembly</a>, <a href="https://esbuild.github.io/">ESBuild</a>, <a href="https://swc.rs/">SWC</a>, <a href="https://bun.sh/">Bun</a>, and <a href="https://yew.rs/">Yew</a>) is enabling new levels of speed and reliability, both at compile-time and runtime. <a href="https://www.rust-lang.org/">Rust</a>, noted for delivering the performance of C++ but the developer-friendliness of higher-level languages, is gaining popularity on web servers. Lightweight Electron alternatives like <a href="https://tauri.app/">Tauri</a> are poised to take over as the web developer&rsquo;s cross-platform framework of choice. <a href="https://en.wikipedia.org/wiki/Tree_shaking">Tree-shaking</a> is something we&rsquo;ve come to expect from compilers and bundlers.</p>
+<p>If the last 20 years have been making us more productive by making our apps less efficient, there&rsquo;s reason to think the next 20 will be about tackling our collective technical debt, improving efficiency without losing the productivity that&rsquo;s made software omnipresent in our lives.</p>
+
+</div>
+
+    
+<footer class='entry-footer'>
+  
+    
+  
+    
+  
+</footer>
+
+
+  </article>
+
+  
+    
+<nav class='entry-nav'>
+  <div class='entry-nav-links'><div class='prev-entry'>
+      <a href='http://localhost:1313/blog/posts/on-users/'>
+        <span aria-hidden='true'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="20" y1="12" x2="4" y2="12"/>
+  <polyline points="10 18 4 12 10 6"/>
+  
+</svg>
+ Previous</span>
+        <span class='screen-reader'>Previous post: </span>On users</a>
+    </div><div class='next-entry'>
+      <a href='http://localhost:1313/blog/posts/computers-cant-code/'>
+        <span class='screen-reader'>Next post: </span>Computers can&#39;t code<span aria-hidden='true'>Next <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="4" y1="12" x2="20" y2="12"/>
+  <polyline points="14 6 20 12 14 18"/>
+  
+</svg>
+</span>
+      </a>
+    </div></div>
+</nav>
+
+
+  
+
+  
+    <div class='comments-container'>
+  
+</div>
+
+  
+</main>
+
+    <footer id='footer' class='footer-container'>
+      <div class='footer'>
+        <div class='social'>
+  <nav aria-label='Social Menu'>
+    <ul class='social-menu'></ul>
+  </nav>
+</div>
+
+        <div class='copyright'>
+          <p>© 2017 by Isaac Lyman. Site powered by Hugo and GitHub Pages.</p>
+
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <script src='/blog/js/main.af838dd5.js'></script>
+  
+    <script src='/blog/js/custom.js'></script>
+  
+
+</body>
+
+</html>
+

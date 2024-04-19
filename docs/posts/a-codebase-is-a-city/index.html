@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head><script src="/blog/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=blog/livereload" data-no-instant defer></script>
+  <meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<meta name='description' content='Population: 60,000 sloc'>
+
+<meta property='og:title' content='A codebase is a city • Minimum Viable Blog'>
+<meta property='og:description' content='Population: 60,000 sloc'>
+<meta property='og:url' content='http://localhost:1313/blog/posts/a-codebase-is-a-city/'>
+<meta property='og:site_name' content='Minimum Viable Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts'><meta property='article:tag' content='software construction'><meta property='article:published_time' content='2017-11-20T14:50:08-07:00'/><meta property='article:modified_time' content='2017-11-20T14:50:08-07:00'/>
+
+<meta name="generator" content="Hugo 0.124.1">
+
+  <title>A codebase is a city • Minimum Viable Blog</title>
+  <link rel='canonical' href='http://localhost:1313/blog/posts/a-codebase-is-a-city/'>
+  
+  <link rel='icon' href='/blog/favicon.png'>
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Ubuntu:400,400i,700&subset=latin'>
+<link rel='stylesheet' href='/blog/css/main.d02777fd.css'>
+
+  <link rel='stylesheet' href='/blog/css/custom.css'>
+
+  <link rel='stylesheet' href='/blog/css/print.css'>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QX2T3WXRC9"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-QX2T3WXRC9', { 'anonymize_ip': false });
+}
+</script>
+
+
+</head>
+
+
+<body class='page'>
+  <div class='site'>
+    <header id='header' class='header-container'>
+      <div class='site-header'>
+        <nav id='navmenu' aria-label='Main Menu'>
+  <ul class='main-menu'>
+    
+    <li>
+      <a href='/blog/posts/' 
+        
+      >{ Archive }</a>
+    </li>
+    
+    <li>
+      <a href='/blog/posts/introduction' 
+        
+      >{ Contact }</a>
+    </li>
+    
+    <li>
+      <a href='/blog/index.xml' 
+        
+      >{ RSS }</a>
+    </li>
+    
+  </ul>
+</nav>
+
+        <div class='site-info'>
+          
+          <p class='site-title title'>Minimum Viable Blog</p>
+          
+          <p class='site-description'>Software construction, opinion, and self</p>
+        </div>
+      </div>
+    </header>
+
+
+<main class='main'>
+  <article lang='en' class='entry'>
+    <header class='entry-header'>
+  <div class='entry-info'>
+    <p class="entry-genre">
+      Technology
+    </p>
+    <h1 class='entry-title title'>A codebase is a city</h1>
+    
+    <p class='entry-subtitle'>
+      Population: 60,000 sloc
+    </p>
+    
+  </div>
+  
+<div class='meta'>
+  <span class='posted-on'>
+    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+  <line x1="16" y1="2" x2="16" y2="6"/>
+  <line x1="8" y1="2" x2="8" y2="6"/>
+  <line x1="3" y1="10" x2="21" y2="10"/>
+  
+</svg>
+
+    <span class='screen-reader'>Posted on </span>
+    <time class='date' datetime='2017-11-20T14:50:08-07:00'>Nov 20, 2017</time>
+  </span>
+  
+  
+  <span class='reading-time'>
+    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <circle cx="12" cy="12" r="10"/>
+  <polyline points="12 6 12 12 15 15"/> 
+  
+</svg>
+
+    2 mins read
+  </span>
+  
+</div>
+
+
+</header>
+
+    <div class='entry-content'>
+  <p>When I was eight years old my family moved from Salt Lake City to the Utah/Arizona border. My dad wanted to get away from the snow. Our new house was an suburban three-story that was taller than it was wide, part of a neighborhood whose streets were curling rays extending outward from a middle-class golf course.</p>
+<p>Any kid with a bike knows what to do in a new neighborhood. I wheeled out on evenings and weekends and learned the streets. It wasn&rsquo;t long before I could call up a mental map from point A to anywhere. All the same, for years to come I would occasionally discover cul-de-sacs or trails I&rsquo;d never noticed before. There&rsquo;s nothing quite like chasing a bird around an unfamiliar bend and across a vacant lot, and gradually realizing that you know where you are, but you&rsquo;ve passed through a wormhole and your whole concept of Bloomington Drive has been bent in half.</p>
+<p>I grew up without Google Maps. My future kids will wonder what that&rsquo;s like. I got lost a lot.</p>
+<p>Every city has a downtown. When you move into a new city, it takes a few days or weeks to figure out where you are relative to it. I mean, you know cardinally where you&rsquo;re at. But that doesn&rsquo;t count for anything until you know how to go &ldquo;the back way&rdquo; into town, how to escape rush hour traffic or where the best view is.</p>
+<p>Getting into a new codebase is like that. Right?</p>
+<p>Heaven help you if you&rsquo;ve moved into the software equivalent of Delhi or New York City, sprawling metropolises with 20 million lines of code or more. I&rsquo;ve never spent more than a few days in a place like that. I imagine your first move is to find something you can fix, something that isn&rsquo;t hopelessly interconnected with everything else. Something with inputs and outputs you can understand. You spend some time there and then you start following alleyways outward, expanding your perspective a little bit each month. You can&rsquo;t learn the whole city. You&rsquo;ll run out of RAM. Once you know enough to be useful, you&rsquo;ll start forgetting as much as you learn.</p>
+<p>I&rsquo;m more at home with the frontier capitals and lakeside college towns, the 50,000-line codebases that have only recently spawned their own zoning committees and city councils. A codebase like that can still change directions. A person with the right dream can make it big.</p>
+
+</div>
+
+    
+<footer class='entry-footer'>
+  
+    
+      
+      
+
+<div class='categories'>
+  <span class='category-icon'>
+    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M22,19a2,2,0,0,1-2,2H4a2,2,0,0,1-2-2V5A2,2,0,0,1,4,3H9l2,3h9a2,2,0,0,1,2,2Z"/>
+  
+</svg>
+
+  </span>
+  <span class='screen-reader'>Categories: </span><a class='category' href='/blog/categories/development'>development</a></div>
+
+    
+  
+    
+      
+      
+
+<div class='tags'>
+  <span class='tag-icon'>
+    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M20.59,13.41l-7.17,7.17a2,2,0,0,1-2.83,0L2,12V2H12l8.59,8.59A2,2,0,0,1,20.59,13.41Z"/>
+  <line x1="7" y1="7" x2="7" y2="7"/>
+  
+</svg>
+
+  </span>
+  <span class='screen-reader'>Tags: </span><a class='tag' href='/blog/tags/software-construction'>software construction</a></div>
+
+    
+  
+</footer>
+
+
+  </article>
+
+  
+    
+<nav class='entry-nav'>
+  <div class='entry-nav-links'><div class='prev-entry'>
+      <a href='http://localhost:1313/blog/posts/edward-beginners-guide/'>
+        <span aria-hidden='true'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="20" y1="12" x2="4" y2="12"/>
+  <polyline points="10 18 4 12 10 6"/>
+  
+</svg>
+ Previous</span>
+        <span class='screen-reader'>Previous post: </span>The Beginner&#39;s Guide to Edward</a>
+    </div><div class='next-entry'>
+      <a href='http://localhost:1313/blog/posts/so-let-it-be-with-caesar/'>
+        <span class='screen-reader'>Next post: </span>So let it be with Caesar<span aria-hidden='true'>Next <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="4" y1="12" x2="20" y2="12"/>
+  <polyline points="14 6 20 12 14 18"/>
+  
+</svg>
+</span>
+      </a>
+    </div></div>
+</nav>
+
+
+  
+
+  
+    <div class='comments-container'>
+  
+</div>
+
+  
+</main>
+
+    <footer id='footer' class='footer-container'>
+      <div class='footer'>
+        <div class='social'>
+  <nav aria-label='Social Menu'>
+    <ul class='social-menu'></ul>
+  </nav>
+</div>
+
+        <div class='copyright'>
+          <p>© 2017 by Isaac Lyman. Site powered by Hugo and GitHub Pages.</p>
+
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <script src='/blog/js/main.af838dd5.js'></script>
+  
+    <script src='/blog/js/custom.js'></script>
+  
+
+</body>
+
+</html>
+

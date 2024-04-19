@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head><script src="/blog/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=blog/livereload" data-no-instant defer></script>
+  <meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<meta name='description' content='Thoughts on a results-only environment'>
+
+<meta property='og:title' content='How to measure developer productivity • Minimum Viable Blog'>
+<meta property='og:description' content='Thoughts on a results-only environment'>
+<meta property='og:url' content='http://localhost:1313/blog/posts/how-to-measure-developer-productivity/'>
+<meta property='og:site_name' content='Minimum Viable Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts'><meta property='article:tag' content='productivity'><meta property='article:tag' content='agile'><meta property='article:published_time' content='2017-08-14T10:23:59-06:00'/><meta property='article:modified_time' content='2017-08-14T10:23:59-06:00'/>
+
+<meta name="generator" content="Hugo 0.124.1">
+
+  <title>How to measure developer productivity • Minimum Viable Blog</title>
+  <link rel='canonical' href='http://localhost:1313/blog/posts/how-to-measure-developer-productivity/'>
+  
+  <link rel='icon' href='/blog/favicon.png'>
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Ubuntu:400,400i,700&subset=latin'>
+<link rel='stylesheet' href='/blog/css/main.d02777fd.css'>
+
+  <link rel='stylesheet' href='/blog/css/custom.css'>
+
+  <link rel='stylesheet' href='/blog/css/print.css'>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QX2T3WXRC9"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-QX2T3WXRC9', { 'anonymize_ip': false });
+}
+</script>
+
+
+</head>
+
+
+<body class='page'>
+  <div class='site'>
+    <header id='header' class='header-container'>
+      <div class='site-header'>
+        <nav id='navmenu' aria-label='Main Menu'>
+  <ul class='main-menu'>
+    
+    <li>
+      <a href='/blog/posts/' 
+        
+      >{ Archive }</a>
+    </li>
+    
+    <li>
+      <a href='/blog/posts/introduction' 
+        
+      >{ Contact }</a>
+    </li>
+    
+    <li>
+      <a href='/blog/index.xml' 
+        
+      >{ RSS }</a>
+    </li>
+    
+  </ul>
+</nav>
+
+        <div class='site-info'>
+          
+          <p class='site-title title'>Minimum Viable Blog</p>
+          
+          <p class='site-description'>Software construction, opinion, and self</p>
+        </div>
+      </div>
+    </header>
+
+
+<main class='main'>
+  <article lang='en' class='entry'>
+    <header class='entry-header'>
+  <div class='entry-info'>
+    <p class="entry-genre">
+      Technology
+    </p>
+    <h1 class='entry-title title'>How to measure developer productivity</h1>
+    
+    <p class='entry-subtitle'>
+      Thoughts on a results-only environment
+    </p>
+    
+  </div>
+  
+<div class='meta'>
+  <span class='posted-on'>
+    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+  <line x1="16" y1="2" x2="16" y2="6"/>
+  <line x1="8" y1="2" x2="8" y2="6"/>
+  <line x1="3" y1="10" x2="21" y2="10"/>
+  
+</svg>
+
+    <span class='screen-reader'>Posted on </span>
+    <time class='date' datetime='2017-08-14T10:23:59-06:00'>Aug 14, 2017</time>
+  </span>
+  
+  
+  <span class='reading-time'>
+    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <circle cx="12" cy="12" r="10"/>
+  <polyline points="12 6 12 12 15 15"/> 
+  
+</svg>
+
+    7 mins read
+  </span>
+  
+</div>
+
+
+</header>
+
+    <div class='entry-content'>
+  <p>For this post, I anticipate a very skeptical audience&ndash;the common man&rsquo;s philosophy of management hasn&rsquo;t changed much since the Industrial Revolution, so what I&rsquo;m about to say will be very uncomfortable for some managers and executives. To ease the pain, I&rsquo;ll be block-quoting imaginary objections that a manager might have, like this:</p>
+<blockquote>
+<p>Hi! I&rsquo;m Marcos the middle manager, and I already don&rsquo;t like where this is going.</p>
+</blockquote>
+<p>Don&rsquo;t worry, Marcos. Believe it or not, I&rsquo;m on your side.</p>
+<p>Down to business.</p>
+<p>Everyone knows that it&rsquo;s dumb to judge a developer&rsquo;s productivity by the amount of code they write. That&rsquo;s like judging Congress by the number of bills they pass. It&rsquo;s just as bad to measure the number of commits a developer makes, the number of bugs they fix, or the number of features they write. Programming is a multidimensional activity, one with multiple inputs and outputs, and it resists this kind of simplification.</p>
+<p>One of the problems with these metrics is that a metric is a request, and when you work with developers, you usually get <em>exactly</em> what you ask for. If you ask for more lines of code, you will surely get them. And they will be the most awful lines of code you&rsquo;ve ever seen. If you ask for more commits, you will get hundreds of them&ndash;hundreds of tiny, useless commits. If you ask for more bug fixes, you will get a constant influx of horrifically buggy features, each followed by a miles-long train of fixes. So please, don&rsquo;t ask for those things.</p>
+<p>If you can believe it, there exists an even worse metric, and it&rsquo;s the one most companies use: the number of hours a developer spends in front of a computer screen. Unfortunately, there&rsquo;s no transitive property of development hours. One developer&rsquo;s 60 hour week may not be as productive as another developer&rsquo;s 20 hour week. In fact, a developer&rsquo;s 60 hour week may be less productive than <em>her own</em> 20 hour week. Productivity is a fickle quality, and not all work possesses it in equal (or even positive) quantities. The 40 hour standard may work well in cigarette factories, but it&rsquo;s little more than an illusion when it comes to complex work.</p>
+<blockquote>
+<p>Marcos here. I think I see where this is going. You want to work 20 hours a week and get paid like a full-time employee, huh? Don&rsquo;t we all.</p>
+</blockquote>
+<p>No, Marcos, not at all. I work hard. I usually do fine on a 40 hour week, assuming I get a few weeks of vacation each year. I&rsquo;m not asking to work less hours. What I&rsquo;m asking for is permission to be as productive as I can possibly be, whether that means working six hours or 60.</p>
+<p>Perhaps you&rsquo;ve heard the term <em>cargo cult</em>. It&rsquo;s a concept that extends the <a href="https://en.wikipedia.org/wiki/Post_hoc_ergo_propter_hoc">&ldquo;post hoc ergo propter hoc&rdquo;</a> logical fallacy. The idea is: if you replicate the circumstances and behaviors surrounding a particular example of success, then you will achieve the same success. This fallacy is particularly annoying in the many articles that detail the morning routine, wardrobe, or diet of various CEOs and millionaires, with the implication that if you arise, dress, and eat like them, one day you will <em>be</em> like them. This is patently false.</p>
+<p><sup>I think maybe everyone but me already knew what a cargo cult was. I first heard the phrase only a week or two ago, so I included a definition here.</sup></p>
+<p>The 40 hour work week is a cargo cult. In fact, <em>any</em> time requirement for developers would be a cargo cult, partially because it assumes that &ldquo;time in chair&rdquo; correlates to &ldquo;work produced,&rdquo; and partially because it doesn&rsquo;t actually measure the activities that are valuable to the company.</p>
+<p>One possible source of friction between managers and developers is this: developers are trained to build things and be productive, and managers are trained to measure, analyze and improve processes. Managers subsist on a high-data diet. If they can measure something, they usually will. If they can&rsquo;t measure something, they will correlate it with something they can. This is good business sense in many cases, but here it can be problematic.</p>
+<p>The trouble with the measure-and-improve approach is that managers risk choosing measurability over value, which makes the company poor and the developer unfulfilled.</p>
+<p>To be clear: you, as a manager, cannot measure a developer&rsquo;s productivity on an individual level. Productivity in software development consists of multiple variables:</p>
+<ul>
+<li>How many features are produced.</li>
+<li>How much value these features provide.</li>
+<li>The scope and complexity of these features.</li>
+<li>The quality and consistency of the code being written.</li>
+<li>The quality of the unit tests accompanying the code.</li>
+<li>How long the development team can sustain their current output (a roundabout way of saying &ldquo;team morale&rdquo;).</li>
+<li>How quickly the code is written (all other things being equal, faster is indeed better. Of course, the other things are almost never equal).</li>
+</ul>
+<p>You can easily measure the first one and the last one. You&rsquo;ll struggle to measure the others.</p>
+<blockquote>
+<p>Whoa there, I think I have a pretty good idea of how big or complex my product&rsquo;s features are.</p>
+</blockquote>
+<p>Unfortunately, perceived complexity isn&rsquo;t a useful measurement. It&rsquo;s <a href="https://xkcd.com/1425/">almost impossible</a> for a non-developer to understand the difference between what is &ldquo;hard to code&rdquo; and what is &ldquo;easy to code&rdquo;.</p>
+<blockquote>
+<p>Hmm. Okay, but at least I know if the code is good, right? By how fast and bug-free the feature is?</p>
+</blockquote>
+<p>No, not really. There&rsquo;s a correlation but it isn&rsquo;t particularly strong. The main metric of code quality is <a href="/blog/posts/steps-to-better-code">how easy it is to read</a>. Unless you can read code, you can&rsquo;t measure that.</p>
+<p>Hold that thought for a moment, and let&rsquo;s look at the worst case scenario. Suppose a developer is not only lazy, but maliciously so. He intentionally implements every feature in the fastest, messiest way he can, only making enough effort to ensure that the feature isn&rsquo;t noticeably buggy or slow. He doesn&rsquo;t write unit tests, he doesn&rsquo;t account for edge cases, and he manages to navigate office politics in such a way that all the deceptively simple feature work gets assigned to him. You, dear manager, can measure him any way you like and you won&rsquo;t know he&rsquo;s underperforming.</p>
+<p>But guess who will? His team.</p>
+<p>This is where actual management skills come into play. A good manager will speak with each member of the team on a regular basis and have enough trust and rapport with them that they will confide in him/her when they feel that a team member isn&rsquo;t pulling their weight. An effective manager will be able to detect when this information is accurate and when someone is just trying to undermine their teammate (hopefully this is rare). And an intuitive manager will be able to determine if the underperforming person is truly a poor fit for the company (and needs to be let go) or is just in a bad headspace (and needs a pep talk and a vacation).</p>
+<blockquote>
+<p>Wait, you&rsquo;re saying I should reward temporary underperformers by telling them to take a break? That&rsquo;s not how management works.</p>
+</blockquote>
+<p>It seems like a reversal of the <a href="https://en.wikipedia.org/wiki/Carrot_and_stick">carrot-and-stick methodology</a>, right? That&rsquo;s because developers aren&rsquo;t mules. Neither carrots nor sticks will motivate them. If you can imagine a mule that loves pulling carts, takes pride in his work, and is always trying to do a better job, that&rsquo;s a much better analogy. Development is immensely challenging and satisfying work, requiring the total devotion of one&rsquo;s brainpower, and any distraction&ndash;family problems, stress, boredom, depression&ndash;can significantly reduce one&rsquo;s capacity for it. Most developers are motivated to do their best work by the nature of the work itself. You don&rsquo;t need to push their buttons to get them to work hard. You may, however, need to make occasional allowances for them to get into a decent mental state.</p>
+
+</div>
+
+    
+<footer class='entry-footer'>
+  
+    
+      
+      
+
+<div class='categories'>
+  <span class='category-icon'>
+    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M22,19a2,2,0,0,1-2,2H4a2,2,0,0,1-2-2V5A2,2,0,0,1,4,3H9l2,3h9a2,2,0,0,1,2,2Z"/>
+  
+</svg>
+
+  </span>
+  <span class='screen-reader'>Categories: </span><a class='category' href='/blog/categories/management'>management</a></div>
+
+    
+  
+    
+      
+      
+
+<div class='tags'>
+  <span class='tag-icon'>
+    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M20.59,13.41l-7.17,7.17a2,2,0,0,1-2.83,0L2,12V2H12l8.59,8.59A2,2,0,0,1,20.59,13.41Z"/>
+  <line x1="7" y1="7" x2="7" y2="7"/>
+  
+</svg>
+
+  </span>
+  <span class='screen-reader'>Tags: </span><a class='tag' href='/blog/tags/productivity'>productivity</a>, <a class='tag' href='/blog/tags/agile'>agile</a></div>
+
+    
+  
+</footer>
+
+
+  </article>
+
+  
+    
+<nav class='entry-nav'>
+  <div class='entry-nav-links'><div class='prev-entry'>
+      <a href='http://localhost:1313/blog/posts/the-tech-company-scorecard/'>
+        <span aria-hidden='true'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="20" y1="12" x2="4" y2="12"/>
+  <polyline points="10 18 4 12 10 6"/>
+  
+</svg>
+ Previous</span>
+        <span class='screen-reader'>Previous post: </span>The tech company scorecard</a>
+    </div><div class='next-entry'>
+      <a href='http://localhost:1313/blog/posts/lymans-law/'>
+        <span class='screen-reader'>Next post: </span>Lyman&#39;s Law<span aria-hidden='true'>Next <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="4" y1="12" x2="20" y2="12"/>
+  <polyline points="14 6 20 12 14 18"/>
+  
+</svg>
+</span>
+      </a>
+    </div></div>
+</nav>
+
+
+  
+
+  
+    <div class='comments-container'>
+  
+</div>
+
+  
+</main>
+
+    <footer id='footer' class='footer-container'>
+      <div class='footer'>
+        <div class='social'>
+  <nav aria-label='Social Menu'>
+    <ul class='social-menu'></ul>
+  </nav>
+</div>
+
+        <div class='copyright'>
+          <p>© 2017 by Isaac Lyman. Site powered by Hugo and GitHub Pages.</p>
+
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <script src='/blog/js/main.af838dd5.js'></script>
+  
+    <script src='/blog/js/custom.js'></script>
+  
+
+</body>
+
+</html>
+

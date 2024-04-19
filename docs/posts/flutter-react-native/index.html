@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head><script src="/blog/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=blog/livereload" data-no-instant defer></script>
+  <meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<meta name='description' content='I recently worked on an app prototype with a friend in another industry. By day I&rsquo;m a full-stack developer targeting desktop and mobile web, but considering the use cases for this app we determined it needs to be fully functional offline. There are a couple of traditional ways for web developers to deliver offline experiences:
+Progressive Web Apps. With the addition of a manifest file and service worker, a responsive webapp can be quickly converted to something that will load without an internet connection.'>
+
+<meta property='og:title' content='Cross-platform apps: Flutter vs. React Native • Minimum Viable Blog'>
+<meta property='og:description' content='I recently worked on an app prototype with a friend in another industry. By day I&rsquo;m a full-stack developer targeting desktop and mobile web, but considering the use cases for this app we determined it needs to be fully functional offline. There are a couple of traditional ways for web developers to deliver offline experiences:
+Progressive Web Apps. With the addition of a manifest file and service worker, a responsive webapp can be quickly converted to something that will load without an internet connection.'>
+<meta property='og:url' content='http://localhost:1313/blog/posts/flutter-react-native/'>
+<meta property='og:site_name' content='Minimum Viable Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts'><meta property='article:published_time' content='2022-07-20T09:13:30-06:00'/><meta property='article:modified_time' content='2022-07-20T09:13:30-06:00'/>
+
+<meta name="generator" content="Hugo 0.124.1">
+
+  <title>Cross-platform apps: Flutter vs. React Native • Minimum Viable Blog</title>
+  <link rel='canonical' href='http://localhost:1313/blog/posts/flutter-react-native/'>
+  
+  <link rel='icon' href='/blog/favicon.png'>
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Ubuntu:400,400i,700&subset=latin'>
+<link rel='stylesheet' href='/blog/css/main.d02777fd.css'>
+
+  <link rel='stylesheet' href='/blog/css/custom.css'>
+
+  <link rel='stylesheet' href='/blog/css/print.css'>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QX2T3WXRC9"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-QX2T3WXRC9', { 'anonymize_ip': false });
+}
+</script>
+
+
+</head>
+
+
+<body class='page'>
+  <div class='site'>
+    <header id='header' class='header-container'>
+      <div class='site-header'>
+        <nav id='navmenu' aria-label='Main Menu'>
+  <ul class='main-menu'>
+    
+    <li>
+      <a href='/blog/posts/' 
+        
+      >{ Archive }</a>
+    </li>
+    
+    <li>
+      <a href='/blog/posts/introduction' 
+        
+      >{ Contact }</a>
+    </li>
+    
+    <li>
+      <a href='/blog/index.xml' 
+        
+      >{ RSS }</a>
+    </li>
+    
+  </ul>
+</nav>
+
+        <div class='site-info'>
+          
+          <p class='site-title title'>Minimum Viable Blog</p>
+          
+          <p class='site-description'>Software construction, opinion, and self</p>
+        </div>
+      </div>
+    </header>
+
+
+<main class='main'>
+  <article lang='en' class='entry'>
+    <header class='entry-header'>
+  <div class='entry-info'>
+    <p class="entry-genre">
+      Technology
+    </p>
+    <h1 class='entry-title title'>Cross-platform apps: Flutter vs. React Native</h1>
+    
+  </div>
+  
+<div class='meta'>
+  <span class='posted-on'>
+    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+  <line x1="16" y1="2" x2="16" y2="6"/>
+  <line x1="8" y1="2" x2="8" y2="6"/>
+  <line x1="3" y1="10" x2="21" y2="10"/>
+  
+</svg>
+
+    <span class='screen-reader'>Posted on </span>
+    <time class='date' datetime='2022-07-20T09:13:30-06:00'>Jul 20, 2022</time>
+  </span>
+  
+  
+  <span class='reading-time'>
+    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <circle cx="12" cy="12" r="10"/>
+  <polyline points="12 6 12 12 15 15"/> 
+  
+</svg>
+
+    14 mins read
+  </span>
+  
+</div>
+
+
+</header>
+
+    <div class='entry-content'>
+  <p>I recently worked on an app prototype with a friend in another industry. By day I&rsquo;m a full-stack developer targeting desktop and mobile web, but considering the use cases for this app we determined it needs to be fully functional offline. There are a couple of traditional ways for web developers to deliver offline experiences:</p>
+<ol>
+<li><strong>Progressive Web Apps.</strong> With the addition of a manifest file and service worker, a responsive webapp can be quickly converted to something that will load without an internet connection. Whether it will actually <em>work</em> is another story and really depends on how the webapp was built. Typically there&rsquo;s a lot more to be done surrounding data caching, syncing, conflict resolution, and offline request handling than there is in simply making your app a PWA, and at the end of the day you still don&rsquo;t have an app in either Apple or Google&rsquo;s app store. For it to show up on someone&rsquo;s home screen they&rsquo;ll have to visit the website and click the Install button at the bottom of the screen, which is an unfamiliar operation and goes against most users&rsquo; muscle memory of swiping away or clicking X on anything that covers site content. I have high hopes for the future of PWAs but right now I don&rsquo;t see them as an effective way of reaching users.</li>
+<li><strong>Cordova.</strong> <a href="https://cordova.apache.org/">Apache Cordova</a> turns websites into mobile apps by putting them in a WebView (basically an iframe for native apps) and packaging that WebView as an iOS or Android app. While this is by far the cheapest way to bring a website to both app stores, and in theory can accomplish nearly everything a native app can, in my experience this is anything but frictionless. Both the process and the end result are full of unpleasant surprises. Even a website that works perfectly in a mobile browser may need substantial work to look and feel right as a Cordova app. Additionally, the support for native smartphone APIs is patchy and sometimes unreliable; even simple things like media controls can be frustrating to implement. So although Cordova fills an important role as the most cost-efficient way to deliver a &ldquo;website in an app,&rdquo; I decided it wasn&rsquo;t a great choice for a new project. (I would be remiss here not to mention Ionic, which really helps achieve a native look and feel but typically requires a partial or full rewrite and still doesn&rsquo;t fix a lot of the problems I&rsquo;ve mentioned.)</li>
+</ol>
+<p>Having ruled out those options, the remaining ones I was aware of were:</p>
+<ul>
+<li>Traditional native apps</li>
+<li>Xamarin</li>
+<li>React Native</li>
+<li>Flutter</li>
+</ul>
+<p>Building traditional native apps would require me to maintain two or more codebases and I&rsquo;d be learning Swift from scratch, so that sounded like more trouble than I signed up for. Xamarin might have been a good choice since I use .NET at my day job, but my impression is that it doesn&rsquo;t have the robust community or market share that the others have. I also have some relevant experience to consider: I&rsquo;ve built a couple of side projects with React and have been working on a game in Flutter. In the end React Native and Flutter seemed like the best choices for my skillset.</p>
+<p>Over the course of a couple weekends I built two proof of concept apps, one each with the latest versions of React Native and Flutter. I didn&rsquo;t go into this planning to write about my experiences&ndash;I just wanted to prototype a simple app&ndash;but the comparison has turned out to be very interesting; these are two radically different frameworks, each frustrating and delightful in its own ways, and I think it&rsquo;s valuable to compare and contrast them from a web developer&rsquo;s perspective.</p>
+<p>I don&rsquo;t expect to come across totally unbiased. My experience with Flutter has been much better than with React Native. However, I&rsquo;ll try my best to treat them fairly and acknowlege the advantages and disadvantages of each.</p>
+<h2 id="how-they-work-components-and-rendering">How they work: Components and rendering</h2>
+<p>React Native (created by Meta/Facebook) provides a set of React components representing layout and UI abstractions such as a View (used for containing and arranging elements, like a div with <code>display: flex</code> on it) or a TextInput (like an HTML input or textarea). Then it uses a C++ engine, compiled separately for each platform, to translate those into native components for rendering on screen. Your code is run with a JavaScript engine (currently JavaScriptCore, the engine used by Safari, but a custom engine called Hermes is probably going to take over soon) and communicates with native code via serialized messages over a bridge.</p>
+<p>Flutter (created by Google) is a view framework, rendering engine, code execution engine, and component library all in one. It uses Dart, a high-level programming language created and maintained by Google, and is clearly inspired by React: each widget (component) has a build (render) method that typically returns a tree of one or more other widgets. Flutter does not render native components on the target device, instead opting to take over the entire screen and render its own UI (not unlike a video game). Your Dart code is compiled ahead of time for the various instruction sets used by desktop and mobile devices. On the web, it&rsquo;s transpiled to JavaScript.</p>
+<h2 id="the-learning-process-language-and-tools">The learning process: Language and tools</h2>
+<p>You might think the time needed to learn a new programming language for Flutter would be an order of magnitude greater than the time it takes to set up and learn the tools of React Native. However, I didn&rsquo;t find this to be true at all. Dart is a very simple and developer-friendly language with strong similarities to TypeScript, C#, and Kotlin. Its documentation is superb. What&rsquo;s more, I <em>enjoyed</em> learning it&ndash;it&rsquo;s extremely readable and has a lot of cool features like <a href="https://dart.dev/guides/language/language-tour#cascade-notation">cascade notation</a> and <a href="https://dart.dev/null-safety">null safety by default</a> and the compiler is good at telling you what&rsquo;s wrong. So yes, it&rsquo;ll take a day or so to learn the language, but if you already know a strongly-typed imperative programming language you&rsquo;ll have an easy time of it.</p>
+<p>With React Native, you won&rsquo;t spend any time learning a new programming language as long as you know JavaScript or TypeScript. You will, however, have to learn some standard tools and libraries to get up to speed&ndash;and it feels like the tooling and ecosystem for React Native are far more complex than for Flutter, with no real advantage in quality (more on this in the next section). For me the ramp-up time for both frameworks was about the same, comparing when I first learned Flutter (via Flame, a game development library) to when I learned React Native. I&rsquo;d estimate minimum time to productivity at ten to fifteen hours either way.</p>
+<p>I acknowledge that my case isn&rsquo;t necessarily typical. There are more developers on the market who are conversant in React than in any form of Dart, so there are a lot of business scenarios where React Native may make more sense. But for your own projects, don&rsquo;t let the Dart barrier hold you back.</p>
+<h2 id="features-there-aint-no-party-like-a-first-party">Features: There ain&rsquo;t no party like a first party</h2>
+<p>React Native follows the standard approach to web development characterized by your local node_modules folder. It includes the basic tools you need to have an app, but if you want a UI language (like Material Design or Cupertino), icons, state management, localization, HTTP requests, advanced developer tools, and so forth, you&rsquo;ll be relying on community-supported code or writing your own. This isn&rsquo;t necessarily a bad thing. The React Native community is large and very active. But it does mean that a typical React Native app is going to be a patchwork quilt of packages representing different design philosophies, non-standardized APIs, and hit-or-miss documentation.</p>
+<p>By comparison, Google has invested heavily in Flutter over the last several years and supports an impressive feature set out of the box: Material Design and Cupertino components, hundreds of icons, a basic state management setup, several runtime developer tools, and 25 core first-party packages including localization, HTTP requests, and more&ndash;all with tree-shaking so you don&rsquo;t bloat your app with anything you&rsquo;re not using. I haven&rsquo;t had reason to use all these features yet, but the ones I&rsquo;ve used all have a consistent design and fit the framework like a glove. You could ship a powerful and well-designed Flutter app without any third-party packages at all, which just isn&rsquo;t feasible with React Native. The difference in size between my package.json file in React Native and my pubspec.yaml file in Flutter is staggering. Flutter just does more.</p>
+<p>Or, I should say, it does more off the shelf. Dart&rsquo;s package repository, pub.dev, will probably never approach the size of NPM. It&rsquo;s hard to estimate how many NPM packages are compatible with React Native considering that it doesn&rsquo;t have access to browser or Node APIs, but I&rsquo;d guess there are still more than enough to win the quantity battle.</p>
+<p>If you&rsquo;re confident in your ability to write uncommon algorithms or visuals on your own, you&rsquo;ll probably be fine with either framework. Otherwise, you&rsquo;ll want to snoop around in each package repository before you start and see if they have what you need.</p>
+<h2 id="the-ui-platforms-consistency-and-customization">The UI: Platforms, consistency, and customization</h2>
+<p>I had some trouble getting my UI to look the same across platforms with both Flutter and React Native. Flutter ships with its own graphics engine, so you&rsquo;d think everything would be identical wherever you go. But I did notice a couple of differences in spacing and alignment between the web, MacOS and iOS outputs that I wasn&rsquo;t able to fix. Though they were very minor, single-pixel differences&ndash;I doubt an end user would even notice&ndash;they did make me twitch a little.</p>
+<p>Since React Native renders native components on each platform, there&rsquo;s almost no way for it to have <em>fewer</em> consistency issues than Flutter. And sure enough, I spent most of one Sunday cursing at my computer over an app bar that worked fine on web but disappeared and crashed the debugger on iOS, with no helpful error messages in sight. The problem ended up being an intersection of issues between my iPhone 12 simulator, a third-party design library I was using, and some custom styles. I have yet to encounter anything quite that elusive with Flutter.</p>
+<p>Speaking of styles, React Native uses CSS. It&rsquo;s slightly more complicated than that, but if you&rsquo;re comfortable with CSS (and, importantly, flexbox) you&rsquo;ll be right at home making things look however you want in React Native. Flutter&rsquo;s styling mechanism, though different, isn&rsquo;t entirely foreign&ndash;most CSS-like properties are represented by widget fields of the same name, and the <code>Column</code> and <code>Row</code> widgets are straightforward stand-ins for flex layouts. Still, you&rsquo;ll probably have to look up each thing you&rsquo;re trying to do or peek at widget code rather than plugging in some CSS properties and going on your merry way. The compositional paradigm of Flutter also takes some getting used to; a lot of the things you might usually apply with a CSS property have their own widget in Flutter.</p>
+<p>Both frameworks are very customizable. If you&rsquo;ve got pixel-perfect designs to work from, you&rsquo;ll quickly get into the groove of building components to match.</p>
+<h2 id="performance-responsive-ux-and-animations">Performance: Responsive UX and animations</h2>
+<p>Flutter&rsquo;s big selling point from the very beginning has been speed. The framework&rsquo;s marketing demos are full of sweeping full-screen animations that never miss a frame. And, from my experience building a simple game with it, I can vouch for its ability to handle whatever you throw at it. It&rsquo;s <em>smooth</em>. In fact, the reason I turned to Flutter in the first place was because I was tired of watching sprites glitch and stagger across the screen on an HTML5 canvas.</p>
+<p>That isn&rsquo;t to say Flutter will ever be faster than a native app. Even if the performance is visually similar to native, you&rsquo;ve still got a full non-native rendering engine running on top of the hardware. At the very least you&rsquo;re going to be using more memory.</p>
+<p>React Native doesn&rsquo;t put up much of a fight in the performance category. It&rsquo;s interpreting JavaScript in the background, then playing middleman between a JavaScript engine and native code. We already know JavaScript is relatively slow. This adds a whole new translation layer to it.</p>
+<p>That said, both are more than fast enough. I wouldn&rsquo;t recommend trying to build an immersive first-person shooter in either (although Flutter would doubtless manage it better) but that&rsquo;s not what you&rsquo;re here for, is it? When we&rsquo;re talking about text forms and business logic, there&rsquo;s no point quibbling over ten or twenty milliseconds of response time. The decisions you make as a programmer will make far more impact on the user experience than the framework running under the hood.</p>
+<p>The one caveat to this is animation. The Flutter team has worked hard to make their framework synonymous with beautiful, touch-responsive animations. If you want to build an app that surrounds the user with ripples and flourishes, Flutter is where it&rsquo;s at.</p>
+<h2 id="pipelines-building-and-releasing-your-app">Pipelines: Building and releasing your app</h2>
+<p>Perhaps the single biggest thing keeping React Native developers from jumping ship is <a href="https://expo.dev/">Expo</a>. Expo is a private company that provides developer tooling and services for React Native apps, including a managed cross-platform runtime, native API modules, and an automatic deployment tool for both app stores. Expo also provides an app called Expo Go that lets you test your apps on a smartphone without sideloading or even a wired connection; just point your camera at a generated QR code and you&rsquo;re all set. It&rsquo;s an impressive offering.</p>
+<p>Flutter doesn&rsquo;t have an equivalent service. There&rsquo;s <a href="https://fastlane.tools/">fastlane</a>, which fills some of the gaps in the release automation department, and of course Flutter has a cross-platform runtime built in. But if you want to test your Flutter apps on a physical smartphone you&rsquo;ll have to plug it into your laptop and move some .apk or .ipa files around (or have your IDE move them for you). Both Android and iPhone have good first-party simulators available, so you won&rsquo;t necessarily be doing this on a daily basis. But it is less convenient than using Expo Go.</p>
+<h2 id="developer-experience-being-in-the-trenches">Developer experience: Being in the trenches</h2>
+<p>This section will be more subjective than the others. I&rsquo;m sure a lot of developers love the React Native experience, and plenty have their frustrations with Flutter. But for me, Flutter was so much easier to use and work with than React Native it was ridiculous. There are a few objective points in Flutter&rsquo;s favor here&ndash;hot reloading, tighter VS Code integration, and more extensive built-in debugging tools&ndash;but I can&rsquo;t say any of those were a deciding factor.</p>
+<p>My proof-of-concept app consists of an app bar, a list of clickable tiles, a form with some numeric inputs, a few equations, and an output table. I had never built any of these things in either framework before.</p>
+<p>It took me twice as long to build in React Native as in Flutter.</p>
+<p>Most of that time is accounted for by head-scratching over basic things: project setup, icons, the disappearing app bar I mentioned earlier, cryptic CLI warnings, getting a controlled input to work. And since I built the React Native app first, there were a couple things I could copy and paste to save time on the Flutter app. But when I look back on the experience, the time difference isn&rsquo;t even what stands out. It&rsquo;s that I was almost constantly frustrated with React Native and almost constantly delighted with Flutter. Flutter always had what I needed and it worked perfectly. React Native pointed me to an NPM package and a Stack Overflow answer and said &ldquo;good luck.&rdquo;</p>
+<p>Again, this is my own experience. I&rsquo;m sure with time I&rsquo;d get used to the quirks of React Native and discover things I dislike about Flutter. But there&rsquo;s no question in my mind of what I want to use in the future: Flutter, every time.</p>
+<p>Your mileage will vary. For an alternate perspective, <a href="https://shift.infinite.red/flutter-is-better-than-react-native-fed10c92a768">Jamon Holmgren&rsquo;s article favoring React Native</a> is definitely worth a read. And <a href="https://www.youtube.com/watch?v=X8ipUgXH6jw">Fireship&rsquo;s comparison video</a> provides a balanced perspective covering many of the same points I&rsquo;ve talked about here.</p>
+<h2 id="summary-the-best-framework-is-the-one-you-use">Summary: The best framework is the one you use</h2>
+<p>If you&rsquo;re looking for a smooth and integrated developer experience, all business implications aside, I can&rsquo;t recommend Flutter highly enough. But there&rsquo;s a lot of exciting news in the React Native camp these days and it makes a strong case for itself in terms of easier hiring and massive open-source community support. There&rsquo;s more than enough buzz to go around; this year&rsquo;s Stack Overflow Developer Survey has Flutter and React Native <a href="https://survey.stackoverflow.co/2022/#most-popular-technologies-misc-tech">neck-and-neck</a>, with RN slightly ahead in the &ldquo;Professional Developers&rdquo; category and Flutter slightly ahead in the &ldquo;All Respondents&rdquo; category. (Both are pretty far ahead of Ionic, Cordova, and Xamarin.)</p>
+<p>Objectively speaking, there&rsquo;s no clear winner here. You&rsquo;ll pick a framework based on the needs and constraints of your app, just as you&rsquo;d do with any technological decision. React Native clearly isn&rsquo;t going anywhere, and a year from now the developer experience may be much improved thanks to the steady pace of community contributions. But for my money, Flutter is here to stay and will grow substantially in the short term as developers discover how powerful and easy to use it is.</p>
+
+</div>
+
+    
+<footer class='entry-footer'>
+  
+    
+  
+    
+  
+</footer>
+
+
+  </article>
+
+  
+    
+<nav class='entry-nav'>
+  <div class='entry-nav-links'><div class='prev-entry'>
+      <a href='http://localhost:1313/blog/posts/a-minus/'>
+        <span aria-hidden='true'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="20" y1="12" x2="4" y2="12"/>
+  <polyline points="10 18 4 12 10 6"/>
+  
+</svg>
+ Previous</span>
+        <span class='screen-reader'>Previous post: </span>I&#39;m not an &#34;A player&#34;</a>
+    </div><div class='next-entry'>
+      <a href='http://localhost:1313/blog/posts/csharp-dictionary-hashcode/'>
+        <span class='screen-reader'>Next post: </span>C#: Equality overrides, hash codes, and dictionaries<span aria-hidden='true'>Next <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="4" y1="12" x2="20" y2="12"/>
+  <polyline points="14 6 20 12 14 18"/>
+  
+</svg>
+</span>
+      </a>
+    </div></div>
+</nav>
+
+
+  
+
+  
+    <div class='comments-container'>
+  
+</div>
+
+  
+</main>
+
+    <footer id='footer' class='footer-container'>
+      <div class='footer'>
+        <div class='social'>
+  <nav aria-label='Social Menu'>
+    <ul class='social-menu'></ul>
+  </nav>
+</div>
+
+        <div class='copyright'>
+          <p>© 2017 by Isaac Lyman. Site powered by Hugo and GitHub Pages.</p>
+
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <script src='/blog/js/main.af838dd5.js'></script>
+  
+    <script src='/blog/js/custom.js'></script>
+  
+
+</body>
+
+</html>
+

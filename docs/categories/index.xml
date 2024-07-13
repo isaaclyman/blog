@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Minimum Viable Blog</title>
-    <link>http://localhost:1313/blog/categories/</link>
+    <link>http://isaaclyman.com/blog/categories/</link>
     <description>Recent content in Categories on Minimum Viable Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
@@ -10,103 +10,103 @@
     <webMaster>map[host:isaaclyman.com username:blog] (Isaac Lyman)</webMaster>
     <copyright>© 2017 by Isaac Lyman. Site powered by Hugo and GitHub Pages.</copyright>
     <lastBuildDate>Wed, 19 Jun 2024 19:43:33 -0600</lastBuildDate>
-    <atom:link href="http://localhost:1313/blog/categories/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://isaaclyman.com/blog/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Self</title>
-      <link>http://localhost:1313/blog/categories/self/</link>
+      <link>http://isaaclyman.com/blog/categories/self/</link>
       <pubDate>Wed, 19 Jun 2024 19:43:33 -0600</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://localhost:1313/blog/categories/self/</guid>
+      <guid>http://isaaclyman.com/blog/categories/self/</guid>
       <description></description>
     </item>
     <item>
       <title>Development</title>
-      <link>http://localhost:1313/blog/categories/development/</link>
+      <link>http://isaaclyman.com/blog/categories/development/</link>
       <pubDate>Fri, 26 Jan 2024 09:20:46 -0700</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://localhost:1313/blog/categories/development/</guid>
+      <guid>http://isaaclyman.com/blog/categories/development/</guid>
       <description></description>
     </item>
     <item>
       <title>Philosophy</title>
-      <link>http://localhost:1313/blog/categories/philosophy/</link>
+      <link>http://isaaclyman.com/blog/categories/philosophy/</link>
       <pubDate>Sat, 23 Dec 2023 09:15:43 -0700</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://localhost:1313/blog/categories/philosophy/</guid>
+      <guid>http://isaaclyman.com/blog/categories/philosophy/</guid>
       <description></description>
     </item>
     <item>
       <title>Business</title>
-      <link>http://localhost:1313/blog/categories/business/</link>
+      <link>http://isaaclyman.com/blog/categories/business/</link>
       <pubDate>Tue, 05 Dec 2023 11:22:31 -0700</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://localhost:1313/blog/categories/business/</guid>
+      <guid>http://isaaclyman.com/blog/categories/business/</guid>
       <description></description>
     </item>
     <item>
       <title>Career</title>
-      <link>http://localhost:1313/blog/categories/career/</link>
+      <link>http://isaaclyman.com/blog/categories/career/</link>
       <pubDate>Tue, 05 Dec 2023 11:22:31 -0700</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://localhost:1313/blog/categories/career/</guid>
+      <guid>http://isaaclyman.com/blog/categories/career/</guid>
       <description></description>
     </item>
     <item>
       <title>Product</title>
-      <link>http://localhost:1313/blog/categories/product/</link>
+      <link>http://isaaclyman.com/blog/categories/product/</link>
       <pubDate>Wed, 22 Nov 2023 18:19:25 -0700</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://localhost:1313/blog/categories/product/</guid>
+      <guid>http://isaaclyman.com/blog/categories/product/</guid>
       <description></description>
     </item>
     <item>
       <title>Science</title>
-      <link>http://localhost:1313/blog/categories/science/</link>
+      <link>http://isaaclyman.com/blog/categories/science/</link>
       <pubDate>Thu, 12 Oct 2023 18:34:59 -0600</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://localhost:1313/blog/categories/science/</guid>
+      <guid>http://isaaclyman.com/blog/categories/science/</guid>
       <description></description>
     </item>
     <item>
       <title>Management</title>
-      <link>http://localhost:1313/blog/categories/management/</link>
+      <link>http://isaaclyman.com/blog/categories/management/</link>
       <pubDate>Thu, 27 Jul 2023 09:51:52 -0600</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://localhost:1313/blog/categories/management/</guid>
+      <guid>http://isaaclyman.com/blog/categories/management/</guid>
       <description></description>
     </item>
     <item>
       <title>Literature</title>
-      <link>http://localhost:1313/blog/categories/literature/</link>
+      <link>http://isaaclyman.com/blog/categories/literature/</link>
       <pubDate>Tue, 12 Apr 2022 15:29:22 -0600</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://localhost:1313/blog/categories/literature/</guid>
+      <guid>http://isaaclyman.com/blog/categories/literature/</guid>
       <description></description>
     </item>
     <item>
       <title>Food</title>
-      <link>http://localhost:1313/blog/categories/food/</link>
+      <link>http://isaaclyman.com/blog/categories/food/</link>
       <pubDate>Sun, 10 Apr 2022 09:19:18 -0600</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://localhost:1313/blog/categories/food/</guid>
+      <guid>http://isaaclyman.com/blog/categories/food/</guid>
       <description></description>
     </item>
     <item>
       <title>Satire</title>
-      <link>http://localhost:1313/blog/categories/satire/</link>
+      <link>http://isaaclyman.com/blog/categories/satire/</link>
       <pubDate>Thu, 03 Mar 2022 10:06:11 -0700</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://localhost:1313/blog/categories/satire/</guid>
+      <guid>http://isaaclyman.com/blog/categories/satire/</guid>
       <description></description>
     </item>
     <item>
       <title>Language</title>
-      <link>http://localhost:1313/blog/categories/language/</link>
+      <link>http://isaaclyman.com/blog/categories/language/</link>
       <pubDate>Tue, 14 Apr 2020 15:26:41 -0600</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://localhost:1313/blog/categories/language/</guid>
+      <guid>http://isaaclyman.com/blog/categories/language/</guid>
       <description></description>
     </item>
     <item>
       <title>Politics</title>
-      <link>http://localhost:1313/blog/categories/politics/</link>
+      <link>http://isaaclyman.com/blog/categories/politics/</link>
       <pubDate>Thu, 23 Aug 2018 08:44:30 -0600</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://localhost:1313/blog/categories/politics/</guid>
+      <guid>http://isaaclyman.com/blog/categories/politics/</guid>
       <description></description>
     </item>
     <item>
       <title>Documentation</title>
-      <link>http://localhost:1313/blog/categories/documentation/</link>
+      <link>http://isaaclyman.com/blog/categories/documentation/</link>
       <pubDate>Fri, 03 Nov 2017 13:49:58 -0600</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://localhost:1313/blog/categories/documentation/</guid>
+      <guid>http://isaaclyman.com/blog/categories/documentation/</guid>
       <description></description>
     </item>
   </channel>

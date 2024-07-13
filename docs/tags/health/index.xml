@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Health on Minimum Viable Blog</title>
-    <link>http://localhost:1313/blog/tags/health/</link>
+    <link>http://isaaclyman.com/blog/tags/health/</link>
     <description>Recent content in Health on Minimum Viable Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
@@ -10,47 +10,47 @@
     <webMaster>map[host:isaaclyman.com username:blog] (Isaac Lyman)</webMaster>
     <copyright>© 2017 by Isaac Lyman. Site powered by Hugo and GitHub Pages.</copyright>
     <lastBuildDate>Wed, 19 Jun 2024 19:43:33 -0600</lastBuildDate>
-    <atom:link href="http://localhost:1313/blog/tags/health/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://isaaclyman.com/blog/tags/health/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Ebikes are better than cars, part 2</title>
-      <link>http://localhost:1313/blog/posts/ebikes-2/</link>
+      <link>http://isaaclyman.com/blog/posts/ebikes-2/</link>
       <pubDate>Wed, 19 Jun 2024 19:43:33 -0600</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://localhost:1313/blog/posts/ebikes-2/</guid>
+      <guid>http://isaaclyman.com/blog/posts/ebikes-2/</guid>
       <description>Quick poll. How many devices do you own that:&#xA;Force you to sit down and hold still in order to use them? Regularly trap you in random locations for half an hour or more? Cost you several dollars an hour, every hour they&amp;rsquo;re turned on? Take up 100 square feet, whether you&amp;rsquo;re using them or not? Sit unused most of the day while claiming 16% of your household income? Just your car?</description>
     </item>
     <item>
       <title>Ebikes are better than cars</title>
-      <link>http://localhost:1313/blog/posts/ebikes/</link>
+      <link>http://isaaclyman.com/blog/posts/ebikes/</link>
       <pubDate>Thu, 18 Apr 2024 09:10:21 -0600</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://localhost:1313/blog/posts/ebikes/</guid>
+      <guid>http://isaaclyman.com/blog/posts/ebikes/</guid>
       <description>I haven&amp;rsquo;t received any money or free products for my opinions nor do I have any affiliate links on my blog. I&amp;rsquo;m doing this for free because I don&amp;rsquo;t have the good sense to stop.&#xA;Forget about saving the Earth for a moment. Forget about reducing smog, exercising, or keeping up with the latest trends. Forget about traffic, even.&#xA;It&amp;rsquo;s still worth considering an ebike as your next vehicle. It doesn&amp;rsquo;t matter if you&amp;rsquo;re a fitness-obsessed environmentalist or not; the bottom line is these things are fun and can save you a lot of money.</description>
     </item>
     <item>
       <title>ADHD: Frequently Asked Questions</title>
-      <link>http://localhost:1313/blog/posts/adhd-faq/</link>
+      <link>http://isaaclyman.com/blog/posts/adhd-faq/</link>
       <pubDate>Thu, 07 Apr 2022 12:00:00 -0600</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://localhost:1313/blog/posts/adhd-faq/</guid>
+      <guid>http://isaaclyman.com/blog/posts/adhd-faq/</guid>
       <description>Following are the questions I see most frequently on r/adhd and several ADHD-focused Facebook groups I&amp;rsquo;m part of. For each, I&amp;rsquo;ve provided an answer that aligns with the community consensus or the latest scientific research.&#xA;I am not a doctor and this is not medical advice. Consult a doctor before beginning any new treatment.&#xA;Do I really have ADHD or am I just lazy? My parent/sibling/professor/doctor says ADHD isn&amp;rsquo;t real. Are they right?</description>
     </item>
     <item>
       <title>Stimulant medication and heart health</title>
-      <link>http://localhost:1313/blog/posts/stimulants-heart/</link>
+      <link>http://isaaclyman.com/blog/posts/stimulants-heart/</link>
       <pubDate>Sun, 20 Mar 2022 09:52:54 -0600</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://localhost:1313/blog/posts/stimulants-heart/</guid>
+      <guid>http://isaaclyman.com/blog/posts/stimulants-heart/</guid>
       <description>Central nervous system stimulants such as Adderall, Ritalin, and Vyvanse are commonly used to treat ADHD and narcolepsy in children and adults. Common side effects of these drugs are increased blood pressure and heart rate. Anecdotally, many patients and doctors assume that there are negative long-term heart consequences for stimulant use, even when taken as prescribed and in approved doses. The purpose of this article is to review the available research and determine if this concern is supported by the evidence.</description>
     </item>
     <item>
       <title>4 things everyone should know about ADHD</title>
-      <link>http://localhost:1313/blog/posts/adhd/</link>
+      <link>http://isaaclyman.com/blog/posts/adhd/</link>
       <pubDate>Sun, 04 Jul 2021 08:42:04 -0600</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://localhost:1313/blog/posts/adhd/</guid>
+      <guid>http://isaaclyman.com/blog/posts/adhd/</guid>
       <description>I am not a doctor and this does not constitute medical advice. Consult your physician before making any decision that could affect your health.&#xA;I was diagnosed with ADHD this year. Frankly, the diagnosis blindsided me. On the advice of my therapist I had gone in to get tested for Autism Spectrum Disorder. We thought it might explain some of my difficulties in daily life and social interactions, and knowing about it would help me self-educate and thereby address it more effectively.</description>
     </item>
     <item>
       <title>Hiring in tech? Don&#39;t compete on price</title>
-      <link>http://localhost:1313/blog/posts/dont-compete-on-price/</link>
+      <link>http://isaaclyman.com/blog/posts/dont-compete-on-price/</link>
       <pubDate>Fri, 29 Jun 2018 09:11:11 -0600</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://localhost:1313/blog/posts/dont-compete-on-price/</guid>
+      <guid>http://isaaclyman.com/blog/posts/dont-compete-on-price/</guid>
       <description>There&amp;rsquo;s a strong business case&amp;mdash;a financially sound, common-sense case&amp;mdash;for acquiring tech talent such as developers, designers, product managers, and QA engineers using quality-of-life values instead of competing on compensation. Conversations about this topic have been taking place in online developer communities for years, but it seems these ideas haven&amp;rsquo;t penetrated the larger tech and business world. If you read on, you&amp;rsquo;ll find there&amp;rsquo;s a wealth of compelling evidence in favor of offering shorter workdays and remote options to your employees as a hiring and loyalty incentive, rather than trying to out-pay the market.</description>
     </item>
   </channel>

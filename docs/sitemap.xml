@@ -2,343 +2,343 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://isaaclyman.com/blog/posts/</loc>
+    <loc>http://localhost:1313/blog/posts/</loc>
+    <lastmod>2024-07-12T14:50:08-07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/blog/</loc>
+    <lastmod>2024-07-12T14:50:08-07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/blog/categories/</loc>
     <lastmod>2024-06-19T19:43:33-06:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/categories/</loc>
+    <loc>http://localhost:1313/blog/posts/ebikes-2/</loc>
     <lastmod>2024-06-19T19:43:33-06:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/posts/ebikes-2/</loc>
+    <loc>http://localhost:1313/blog/tags/health/</loc>
     <lastmod>2024-06-19T19:43:33-06:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/tags/health/</loc>
+    <loc>http://localhost:1313/blog/categories/self/</loc>
     <lastmod>2024-06-19T19:43:33-06:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/</loc>
+    <loc>http://localhost:1313/blog/tags/</loc>
     <lastmod>2024-06-19T19:43:33-06:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/categories/self/</loc>
-    <lastmod>2024-06-19T19:43:33-06:00</lastmod>
-  </url><url>
-    <loc>http://isaaclyman.com/blog/tags/</loc>
-    <lastmod>2024-06-19T19:43:33-06:00</lastmod>
-  </url><url>
-    <loc>http://isaaclyman.com/blog/posts/ebikes/</loc>
+    <loc>http://localhost:1313/blog/posts/ebikes/</loc>
     <lastmod>2024-04-18T09:10:21-06:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/categories/development/</loc>
+    <loc>http://localhost:1313/blog/categories/development/</loc>
     <lastmod>2024-01-26T09:20:46-07:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/tags/kryptos/</loc>
+    <loc>http://localhost:1313/blog/tags/kryptos/</loc>
     <lastmod>2024-01-26T09:20:46-07:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/posts/kryptos-4/</loc>
+    <loc>http://localhost:1313/blog/posts/kryptos-4/</loc>
     <lastmod>2024-01-26T09:20:46-07:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/posts/kryptos-3/</loc>
+    <loc>http://localhost:1313/blog/posts/kryptos-3/</loc>
     <lastmod>2024-01-26T09:15:46-07:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/posts/kryptos-2/</loc>
+    <loc>http://localhost:1313/blog/posts/kryptos-2/</loc>
     <lastmod>2024-01-26T09:11:46-07:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/posts/kryptos-1/</loc>
+    <loc>http://localhost:1313/blog/posts/kryptos-1/</loc>
     <lastmod>2024-01-26T09:05:46-07:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/posts/misunderstanding-yoda/</loc>
+    <loc>http://localhost:1313/blog/posts/misunderstanding-yoda/</loc>
     <lastmod>2023-12-23T09:15:43-07:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/categories/philosophy/</loc>
+    <loc>http://localhost:1313/blog/categories/philosophy/</loc>
     <lastmod>2023-12-23T09:15:43-07:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/categories/business/</loc>
+    <loc>http://localhost:1313/blog/categories/business/</loc>
     <lastmod>2023-12-05T11:22:31-07:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/categories/career/</loc>
+    <loc>http://localhost:1313/blog/categories/career/</loc>
     <lastmod>2023-12-05T11:22:31-07:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/posts/dev-companies/</loc>
+    <loc>http://localhost:1313/blog/posts/dev-companies/</loc>
     <lastmod>2023-12-05T11:22:31-07:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/posts/tenets-of-media-consumption/</loc>
+    <loc>http://localhost:1313/blog/posts/tenets-of-media-consumption/</loc>
     <lastmod>2023-11-25T08:54:28-07:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/posts/software-upgrades-2023/</loc>
+    <loc>http://localhost:1313/blog/posts/software-upgrades-2023/</loc>
     <lastmod>2023-11-22T18:19:25-07:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/categories/product/</loc>
+    <loc>http://localhost:1313/blog/categories/product/</loc>
     <lastmod>2023-11-22T18:19:25-07:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/tags/productivity/</loc>
+    <loc>http://localhost:1313/blog/tags/productivity/</loc>
     <lastmod>2023-11-22T18:19:25-07:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/posts/3d-object-model-of-software/</loc>
+    <loc>http://localhost:1313/blog/posts/3d-object-model-of-software/</loc>
     <lastmod>2023-11-20T11:00:28-07:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/tags/beginners/</loc>
+    <loc>http://localhost:1313/blog/tags/beginners/</loc>
     <lastmod>2023-11-09T11:42:33-07:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/posts/engineering-didnt-work-out/</loc>
+    <loc>http://localhost:1313/blog/posts/engineering-didnt-work-out/</loc>
     <lastmod>2023-11-09T11:42:33-07:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/posts/netflix-with-ads/</loc>
+    <loc>http://localhost:1313/blog/posts/netflix-with-ads/</loc>
     <lastmod>2023-11-06T08:01:28-07:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/posts/on-counterfactual-messaging/</loc>
+    <loc>http://localhost:1313/blog/posts/on-counterfactual-messaging/</loc>
     <lastmod>2023-10-29T09:43:48-06:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/categories/science/</loc>
+    <loc>http://localhost:1313/blog/categories/science/</loc>
     <lastmod>2023-10-12T18:34:59-06:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/posts/about-drugs/</loc>
+    <loc>http://localhost:1313/blog/posts/about-drugs/</loc>
     <lastmod>2023-10-12T18:34:59-06:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/posts/on-art/</loc>
+    <loc>http://localhost:1313/blog/posts/on-art/</loc>
     <lastmod>2023-10-07T08:50:20-06:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/tags/business/</loc>
+    <loc>http://localhost:1313/blog/tags/business/</loc>
     <lastmod>2023-07-27T09:51:52-06:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/posts/junior-developers/</loc>
+    <loc>http://localhost:1313/blog/posts/junior-developers/</loc>
     <lastmod>2023-07-27T09:51:52-06:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/categories/management/</loc>
+    <loc>http://localhost:1313/blog/categories/management/</loc>
     <lastmod>2023-07-27T09:51:52-06:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/posts/horoscopic-projection/</loc>
+    <loc>http://localhost:1313/blog/posts/horoscopic-projection/</loc>
     <lastmod>2023-07-19T09:31:00-06:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/posts/everyone-understands-mastodon/</loc>
+    <loc>http://localhost:1313/blog/posts/everyone-understands-mastodon/</loc>
     <lastmod>2023-07-12T09:58:47-06:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/posts/tools-of-unusual-advantage/</loc>
+    <loc>http://localhost:1313/blog/posts/tools-of-unusual-advantage/</loc>
     <lastmod>2023-06-04T10:41:39-06:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/posts/beard-products/</loc>
+    <loc>http://localhost:1313/blog/posts/beard-products/</loc>
     <lastmod>2023-05-26T16:26:54-06:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/posts/peak-programming-languages/</loc>
+    <loc>http://localhost:1313/blog/posts/peak-programming-languages/</loc>
     <lastmod>2023-04-19T11:04:02-06:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/posts/wordle-competitors/</loc>
+    <loc>http://localhost:1313/blog/posts/wordle-competitors/</loc>
     <lastmod>2022-11-17T13:18:29-07:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/posts/keyboard-buttons/</loc>
+    <loc>http://localhost:1313/blog/posts/keyboard-buttons/</loc>
     <lastmod>2022-11-15T11:51:53-07:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/posts/credit-card-microchip/</loc>
+    <loc>http://localhost:1313/blog/posts/credit-card-microchip/</loc>
     <lastmod>2022-10-25T12:23:02-06:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/posts/logging-in/</loc>
+    <loc>http://localhost:1313/blog/posts/logging-in/</loc>
     <lastmod>2022-10-07T12:33:40-06:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/posts/code-performative-speech/</loc>
+    <loc>http://localhost:1313/blog/posts/code-performative-speech/</loc>
     <lastmod>2022-09-23T08:50:34-06:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/posts/30-years/</loc>
+    <loc>http://localhost:1313/blog/posts/30-years/</loc>
     <lastmod>2022-09-12T13:47:11-07:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/posts/csharp-dictionary-hashcode/</loc>
+    <loc>http://localhost:1313/blog/posts/csharp-dictionary-hashcode/</loc>
     <lastmod>2022-08-15T14:22:14-06:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/tags/csharp/</loc>
+    <loc>http://localhost:1313/blog/tags/csharp/</loc>
     <lastmod>2022-08-15T14:22:14-06:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/posts/unthink/</loc>
+    <loc>http://localhost:1313/blog/posts/unthink/</loc>
     <lastmod>2022-05-28T09:29:35-06:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/posts/ado-yaml-pipelines/</loc>
+    <loc>http://localhost:1313/blog/posts/ado-yaml-pipelines/</loc>
     <lastmod>2022-05-09T20:02:10-06:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/posts/what-people-hear/</loc>
+    <loc>http://localhost:1313/blog/posts/what-people-hear/</loc>
     <lastmod>2022-04-29T09:06:51-06:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/posts/cloud-workstations/</loc>
+    <loc>http://localhost:1313/blog/posts/cloud-workstations/</loc>
     <lastmod>2022-04-16T10:14:15-06:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/categories/literature/</loc>
+    <loc>http://localhost:1313/blog/categories/literature/</loc>
     <lastmod>2022-04-12T15:29:22-06:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/posts/bad-poetry/</loc>
+    <loc>http://localhost:1313/blog/posts/bad-poetry/</loc>
     <lastmod>2022-04-12T15:29:22-06:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/categories/food/</loc>
+    <loc>http://localhost:1313/blog/categories/food/</loc>
     <lastmod>2022-04-10T09:19:18-06:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/posts/caprese-pasta-salad/</loc>
+    <loc>http://localhost:1313/blog/posts/caprese-pasta-salad/</loc>
     <lastmod>2022-04-10T09:19:18-06:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/tags/adhd/</loc>
+    <loc>http://localhost:1313/blog/tags/adhd/</loc>
     <lastmod>2022-04-07T12:00:00-06:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/posts/adhd-faq/</loc>
+    <loc>http://localhost:1313/blog/posts/adhd-faq/</loc>
     <lastmod>2022-04-07T12:00:00-06:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/posts/tidal-vs-spotify/</loc>
+    <loc>http://localhost:1313/blog/posts/tidal-vs-spotify/</loc>
     <lastmod>2022-03-30T11:25:43-06:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/posts/stimulants-heart/</loc>
+    <loc>http://localhost:1313/blog/posts/stimulants-heart/</loc>
     <lastmod>2022-03-20T09:52:54-06:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/posts/puzzle-games/</loc>
+    <loc>http://localhost:1313/blog/posts/puzzle-games/</loc>
     <lastmod>2022-03-16T11:42:11-06:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/posts/sorting-algorithms/</loc>
+    <loc>http://localhost:1313/blog/posts/sorting-algorithms/</loc>
     <lastmod>2022-03-05T20:09:03-07:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/posts/tech-terms-2022/</loc>
+    <loc>http://localhost:1313/blog/posts/tech-terms-2022/</loc>
     <lastmod>2022-03-03T10:06:11-07:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/categories/satire/</loc>
+    <loc>http://localhost:1313/blog/categories/satire/</loc>
     <lastmod>2022-03-03T10:06:11-07:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/posts/absurdism-belief-and-meaning/</loc>
+    <loc>http://localhost:1313/blog/posts/absurdism-belief-and-meaning/</loc>
     <lastmod>2022-02-13T12:07:35-07:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/posts/archimedes-experiment/</loc>
+    <loc>http://localhost:1313/blog/posts/archimedes-experiment/</loc>
     <lastmod>2022-01-29T10:18:36-07:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/posts/five-stories-apology/</loc>
+    <loc>http://localhost:1313/blog/posts/five-stories-apology/</loc>
     <lastmod>2022-01-06T01:28:30-07:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/posts/csharp-ienumerable/</loc>
+    <loc>http://localhost:1313/blog/posts/csharp-ienumerable/</loc>
     <lastmod>2021-11-22T10:13:03-07:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/posts/five-recruiters/</loc>
+    <loc>http://localhost:1313/blog/posts/five-recruiters/</loc>
     <lastmod>2021-10-22T15:10:08-06:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/posts/conversation-classes/</loc>
+    <loc>http://localhost:1313/blog/posts/conversation-classes/</loc>
     <lastmod>2021-10-07T18:06:30-06:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/posts/on-church/</loc>
+    <loc>http://localhost:1313/blog/posts/on-church/</loc>
     <lastmod>2021-08-25T15:12:29-06:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/posts/adhd/</loc>
+    <loc>http://localhost:1313/blog/posts/adhd/</loc>
     <lastmod>2021-07-04T08:42:04-06:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/posts/mind-blowing-food/</loc>
+    <loc>http://localhost:1313/blog/posts/mind-blowing-food/</loc>
     <lastmod>2021-03-20T12:43:55-06:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/categories/language/</loc>
+    <loc>http://localhost:1313/blog/categories/language/</loc>
     <lastmod>2020-04-14T15:26:41-06:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/posts/things-to-know-chinese/</loc>
+    <loc>http://localhost:1313/blog/posts/things-to-know-chinese/</loc>
     <lastmod>2020-04-14T15:26:41-06:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/posts/load-testing-jmeter/</loc>
+    <loc>http://localhost:1313/blog/posts/load-testing-jmeter/</loc>
     <lastmod>2020-02-11T08:22:35-07:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/tags/software-construction/</loc>
+    <loc>http://localhost:1313/blog/tags/software-construction/</loc>
     <lastmod>2020-02-11T08:22:35-07:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/tags/food/</loc>
+    <loc>http://localhost:1313/blog/tags/food/</loc>
     <lastmod>2019-11-29T10:13:55-07:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/posts/10-burger-commandments/</loc>
+    <loc>http://localhost:1313/blog/posts/10-burger-commandments/</loc>
     <lastmod>2019-11-29T10:13:55-07:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/posts/im-writing-a-book/</loc>
+    <loc>http://localhost:1313/blog/posts/im-writing-a-book/</loc>
     <lastmod>2019-03-09T08:02:55-07:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/tags/projects/</loc>
+    <loc>http://localhost:1313/blog/tags/projects/</loc>
     <lastmod>2019-03-09T08:02:55-07:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/tags/resume/</loc>
+    <loc>http://localhost:1313/blog/tags/resume/</loc>
     <lastmod>2019-03-09T08:02:55-07:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/posts/what-to-learn-first/</loc>
+    <loc>http://localhost:1313/blog/posts/what-to-learn-first/</loc>
     <lastmod>2019-02-13T09:01:52-07:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/posts/https/</loc>
+    <loc>http://localhost:1313/blog/posts/https/</loc>
     <lastmod>2018-08-29T07:00:45-06:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/posts/time-zones/</loc>
+    <loc>http://localhost:1313/blog/posts/time-zones/</loc>
     <lastmod>2018-08-23T08:44:30-06:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/categories/politics/</loc>
+    <loc>http://localhost:1313/blog/categories/politics/</loc>
     <lastmod>2018-08-23T08:44:30-06:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/posts/dont-compete-on-price/</loc>
+    <loc>http://localhost:1313/blog/posts/dont-compete-on-price/</loc>
     <lastmod>2018-06-29T09:11:11-06:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/posts/starting-a-business/</loc>
+    <loc>http://localhost:1313/blog/posts/starting-a-business/</loc>
     <lastmod>2018-05-21T11:11:40-07:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/posts/good-parents/</loc>
+    <loc>http://localhost:1313/blog/posts/good-parents/</loc>
     <lastmod>2018-04-03T16:47:13-06:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/posts/on-opportunity-and-outcomes/</loc>
+    <loc>http://localhost:1313/blog/posts/on-opportunity-and-outcomes/</loc>
     <lastmod>2018-04-03T09:14:23-06:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/posts/stuck/</loc>
+    <loc>http://localhost:1313/blog/posts/stuck/</loc>
     <lastmod>2018-03-20T08:28:52-06:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/posts/application-environments/</loc>
+    <loc>http://localhost:1313/blog/posts/application-environments/</loc>
     <lastmod>2018-03-13T16:17:12-06:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/posts/autosaving-with-vuex/</loc>
+    <loc>http://localhost:1313/blog/posts/autosaving-with-vuex/</loc>
     <lastmod>2018-02-26T16:57:30-07:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/tags/front-end/</loc>
+    <loc>http://localhost:1313/blog/tags/front-end/</loc>
     <lastmod>2018-02-26T16:57:30-07:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/posts/about-guns/</loc>
+    <loc>http://localhost:1313/blog/posts/about-guns/</loc>
     <lastmod>2018-02-17T16:32:58-07:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/tags/espa%C3%B1ol/</loc>
+    <loc>http://localhost:1313/blog/tags/espa%C3%B1ol/</loc>
     <lastmod>2017-12-18T09:56:50-07:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/tags/principiantes/</loc>
+    <loc>http://localhost:1313/blog/tags/principiantes/</loc>
     <lastmod>2017-12-18T09:56:50-07:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/posts/privilege-by-mail/</loc>
+    <loc>http://localhost:1313/blog/posts/privilege-by-mail/</loc>
     <lastmod>2017-12-18T09:56:50-07:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/posts/privilegio-por-correo/</loc>
+    <loc>http://localhost:1313/blog/posts/privilegio-por-correo/</loc>
     <lastmod>2017-12-18T09:56:50-07:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/categories/documentation/</loc>
+    <loc>http://localhost:1313/blog/categories/documentation/</loc>
     <lastmod>2017-11-03T13:49:58-06:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/tags/edward/</loc>
+    <loc>http://localhost:1313/blog/tags/edward/</loc>
     <lastmod>2017-11-03T13:49:58-06:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/posts/edward-beginners-guide/</loc>
+    <loc>http://localhost:1313/blog/posts/edward-beginners-guide/</loc>
     <lastmod>2017-11-03T13:49:58-06:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/posts/introducing-edward-write-better/</loc>
+    <loc>http://localhost:1313/blog/posts/introducing-edward-write-better/</loc>
     <lastmod>2017-10-26T13:08:38-06:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/tags/agile/</loc>
+    <loc>http://localhost:1313/blog/tags/agile/</loc>
     <lastmod>2017-09-26T09:26:15-06:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/posts/agile-in-real-life/</loc>
+    <loc>http://localhost:1313/blog/posts/agile-in-real-life/</loc>
     <lastmod>2017-09-26T09:26:15-06:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/tags/code-quality/</loc>
+    <loc>http://localhost:1313/blog/tags/code-quality/</loc>
     <lastmod>2017-08-19T06:54:57-06:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/posts/lymans-law/</loc>
+    <loc>http://localhost:1313/blog/posts/lymans-law/</loc>
     <lastmod>2017-08-19T06:54:57-06:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/posts/the-tech-company-scorecard/</loc>
+    <loc>http://localhost:1313/blog/posts/the-tech-company-scorecard/</loc>
     <lastmod>2017-08-14T08:15:57-06:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/posts/introduction/</loc>
+    <loc>http://localhost:1313/blog/posts/introduction/</loc>
     <lastmod>2017-08-12T11:16:33-06:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/posts/steps-to-better-code/</loc>
+    <loc>http://localhost:1313/blog/posts/steps-to-better-code/</loc>
     <lastmod>2017-07-28T14:01:53-06:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/posts/choosing-a-job-title/</loc>
+    <loc>http://localhost:1313/blog/posts/choosing-a-job-title/</loc>
     <lastmod>2017-04-19T13:40:43+00:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/posts/8-css-gotchas/</loc>
+    <loc>http://localhost:1313/blog/posts/8-css-gotchas/</loc>
     <lastmod>2017-02-05T18:04:19+00:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/tags/css/</loc>
+    <loc>http://localhost:1313/blog/tags/css/</loc>
     <lastmod>2017-02-05T18:04:19+00:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/posts/if-doctors-were-like-coders/</loc>
+    <loc>http://localhost:1313/blog/posts/if-doctors-were-like-coders/</loc>
     <lastmod>2016-10-12T23:38:27+00:00</lastmod>
   </url>
 </urlset>

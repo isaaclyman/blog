@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Self on Minimum Viable Blog</title>
-    <link>http://isaaclyman.com/blog/categories/self/</link>
+    <link>http://localhost:1313/blog/categories/self/</link>
     <description>Recent content in Self on Minimum Viable Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
@@ -10,96 +10,96 @@
     <webMaster>map[host:isaaclyman.com username:blog] (Isaac Lyman)</webMaster>
     <copyright>© 2017 by Isaac Lyman. Site powered by Hugo and GitHub Pages.</copyright>
     <lastBuildDate>Wed, 19 Jun 2024 19:43:33 -0600</lastBuildDate>
-    <atom:link href="http://isaaclyman.com/blog/categories/self/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/blog/categories/self/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Ebikes are better than cars, part 2</title>
-      <link>http://isaaclyman.com/blog/posts/ebikes-2/</link>
+      <link>http://localhost:1313/blog/posts/ebikes-2/</link>
       <pubDate>Wed, 19 Jun 2024 19:43:33 -0600</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/posts/ebikes-2/</guid>
+      <guid>http://localhost:1313/blog/posts/ebikes-2/</guid>
       <description>Quick poll. How many devices do you own that:&#xA;Force you to sit down and hold still in order to use them? Regularly trap you in random locations for half an hour or more? Cost you several dollars an hour, every hour they&amp;rsquo;re turned on? Take up 100 square feet, whether you&amp;rsquo;re using them or not? Sit unused most of the day while claiming 16% of your household income? Just your car?</description>
     </item>
     <item>
       <title>Ebikes are better than cars</title>
-      <link>http://isaaclyman.com/blog/posts/ebikes/</link>
+      <link>http://localhost:1313/blog/posts/ebikes/</link>
       <pubDate>Thu, 18 Apr 2024 09:10:21 -0600</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/posts/ebikes/</guid>
+      <guid>http://localhost:1313/blog/posts/ebikes/</guid>
       <description>I haven&amp;rsquo;t received any money or free products for my opinions nor do I have any affiliate links on my blog. I&amp;rsquo;m doing this for free because I don&amp;rsquo;t have the good sense to stop.&#xA;Forget about saving the Earth for a moment. Forget about reducing smog, exercising, or keeping up with the latest trends. Forget about traffic, even.&#xA;It&amp;rsquo;s still worth considering an ebike as your next vehicle. It doesn&amp;rsquo;t matter if you&amp;rsquo;re a fitness-obsessed environmentalist or not; the bottom line is these things are fun and can save you a lot of money.</description>
     </item>
     <item>
       <title>My favorite beard products</title>
-      <link>http://isaaclyman.com/blog/posts/beard-products/</link>
+      <link>http://localhost:1313/blog/posts/beard-products/</link>
       <pubDate>Fri, 26 May 2023 16:26:54 -0600</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/posts/beard-products/</guid>
+      <guid>http://localhost:1313/blog/posts/beard-products/</guid>
       <description>I have a beard now. And&amp;hellip;that&amp;rsquo;s everything that&amp;rsquo;s new with me. What&amp;rsquo;s new with you?&#xA;The following is a list of my favorite beard products, after a year of trying a whole lot of different ones. I&amp;rsquo;m not being paid to write this, nor can I be bothered to sign up for some affiliate links, so enjoy—no strings attached.&#xA;For reference, my beard is coarse, dry, and very frizzy.&#xA;Beard comb Beard brushes are good for short beards and the occasional bit of sculpting.</description>
     </item>
     <item>
       <title>I&#39;m 30.</title>
-      <link>http://isaaclyman.com/blog/posts/30-years/</link>
+      <link>http://localhost:1313/blog/posts/30-years/</link>
       <pubDate>Mon, 12 Sep 2022 13:47:11 -0700</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/posts/30-years/</guid>
+      <guid>http://localhost:1313/blog/posts/30-years/</guid>
       <description>I turned 30 this year. Here are 15 things I&amp;rsquo;d tell my 15-year-old self if I could.&#xA;Don&amp;rsquo;t take advice from someone you&amp;rsquo;d hate to be like. Someone who gives you advice, even cautionary advice, is recruiting you to be a little more like them. If you don&amp;rsquo;t want that, it&amp;rsquo;s okay to ignore them. Awful people are their own reward. It&amp;rsquo;s okay to stand up for yourself but it&amp;rsquo;s also okay to move on and leave jerks to their misery.</description>
     </item>
     <item>
       <title>On forbidden knowledge and transformative thought</title>
-      <link>http://isaaclyman.com/blog/posts/unthink/</link>
+      <link>http://localhost:1313/blog/posts/unthink/</link>
       <pubDate>Sat, 28 May 2022 09:29:35 -0600</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/posts/unthink/</guid>
+      <guid>http://localhost:1313/blog/posts/unthink/</guid>
       <description>Depth and problematization You can&amp;rsquo;t unthink a thought. I&amp;rsquo;m speaking of thoughts outside the borders of what we have previously thought about. These thoughts are apt to unsettle us, even consume us for a period of time. Ultimately we will incorporate them into our normal thought patterns and move on, but we will be fundamentally different selves from that point on.&#xA;These thoughts often can&amp;rsquo;t be communicated in the same words they were formed with.</description>
     </item>
     <item>
       <title>ADHD: Frequently Asked Questions</title>
-      <link>http://isaaclyman.com/blog/posts/adhd-faq/</link>
+      <link>http://localhost:1313/blog/posts/adhd-faq/</link>
       <pubDate>Thu, 07 Apr 2022 12:00:00 -0600</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/posts/adhd-faq/</guid>
+      <guid>http://localhost:1313/blog/posts/adhd-faq/</guid>
       <description>Following are the questions I see most frequently on r/adhd and several ADHD-focused Facebook groups I&amp;rsquo;m part of. For each, I&amp;rsquo;ve provided an answer that aligns with the community consensus or the latest scientific research.&#xA;I am not a doctor and this is not medical advice. Consult a doctor before beginning any new treatment.&#xA;Do I really have ADHD or am I just lazy? My parent/sibling/professor/doctor says ADHD isn&amp;rsquo;t real. Are they right?</description>
     </item>
     <item>
       <title>2005 - 2010: Five stories and an apology</title>
-      <link>http://isaaclyman.com/blog/posts/five-stories-apology/</link>
+      <link>http://localhost:1313/blog/posts/five-stories-apology/</link>
       <pubDate>Thu, 06 Jan 2022 01:28:30 -0700</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/posts/five-stories-apology/</guid>
+      <guid>http://localhost:1313/blog/posts/five-stories-apology/</guid>
       <description>2005 - 2006 One time in the &amp;rsquo;80s a first grade teacher was mean to my oldest sister. As a result all of us kids were homeschooled until we got old enough to beg our way out.&#xA;I understand that homeschooling is an essential option for some children. I don&amp;rsquo;t recommend it for anyone else.&#xA;Some parents do &amp;ldquo;homeschool groups&amp;rdquo; where their kid spends a lot of time around other kids and does field trips.</description>
     </item>
     <item>
       <title>Conversation classes: fighter, bard, tank, healer</title>
-      <link>http://isaaclyman.com/blog/posts/conversation-classes/</link>
+      <link>http://localhost:1313/blog/posts/conversation-classes/</link>
       <pubDate>Thu, 07 Oct 2021 18:06:30 -0600</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/posts/conversation-classes/</guid>
+      <guid>http://localhost:1313/blog/posts/conversation-classes/</guid>
       <description>What kind of conversationalist are you? Do you often start the conversation in a group setting? Are you a chatterbox who can talk endlessly about anything at all? Do you wait on the sidelines, occasionally cracking a joke or adding an interesting detail? The answer may be &amp;ldquo;it depends.&amp;rdquo; A lot of us have gotten to where we are by knowing when to listen and when to talk&amp;mdash;and getting fairly good at both.</description>
     </item>
     <item>
       <title>On Church</title>
-      <link>http://isaaclyman.com/blog/posts/on-church/</link>
+      <link>http://localhost:1313/blog/posts/on-church/</link>
       <pubDate>Wed, 25 Aug 2021 15:12:29 -0600</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/posts/on-church/</guid>
+      <guid>http://localhost:1313/blog/posts/on-church/</guid>
       <description>This is a struggle to write and will be a struggle to publish. It&amp;rsquo;s been sitting in my drafts for over a year now. I have gone back and forth on whether to publish it at all.&#xA;The first reason is that among members of the Church of Jesus Christ of Latter-Day Saints (colloquially, &amp;ldquo;Mormons&amp;rdquo;), there is a sizable faction that would label this &amp;ldquo;anti-Mormon literature.&amp;rdquo; Church members consider anti-Mormon literature a dangerous and insidious poison, such that by simply reading enough of it one&amp;rsquo;s faith can be dissolved and one&amp;rsquo;s eternal prospects can be dashed.</description>
     </item>
     <item>
       <title>4 things everyone should know about ADHD</title>
-      <link>http://isaaclyman.com/blog/posts/adhd/</link>
+      <link>http://localhost:1313/blog/posts/adhd/</link>
       <pubDate>Sun, 04 Jul 2021 08:42:04 -0600</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/posts/adhd/</guid>
+      <guid>http://localhost:1313/blog/posts/adhd/</guid>
       <description>I am not a doctor and this does not constitute medical advice. Consult your physician before making any decision that could affect your health.&#xA;I was diagnosed with ADHD this year. Frankly, the diagnosis blindsided me. On the advice of my therapist I had gone in to get tested for Autism Spectrum Disorder. We thought it might explain some of my difficulties in daily life and social interactions, and knowing about it would help me self-educate and thereby address it more effectively.</description>
     </item>
     <item>
       <title>The 10 burger commandments</title>
-      <link>http://isaaclyman.com/blog/posts/10-burger-commandments/</link>
+      <link>http://localhost:1313/blog/posts/10-burger-commandments/</link>
       <pubDate>Fri, 29 Nov 2019 10:13:55 -0700</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/posts/10-burger-commandments/</guid>
+      <guid>http://localhost:1313/blog/posts/10-burger-commandments/</guid>
       <description>I&amp;rsquo;ve eaten a lot of bottom-tier burgers in my life and I&amp;rsquo;ve heartily enjoyed most of them. Neighborhood cookouts, college parties, church functions, fast food joints: throughout my life, bad burgers have been a mainstay of the public spaces I frequent. And if the suburban United States is home to you, you know exactly what I&amp;rsquo;m talking about. A soft grocery-store bun; an iPhone-thin patty of bland, meat-like grind, cooked well-done on a gas grill; a pasty, out-of-season tomato slice; a rag of wilted lettuce; a few strings of raw onion; and a splotch of lukewarm ketchup and mustard.</description>
     </item>
     <item>
       <title>Good Parents</title>
-      <link>http://isaaclyman.com/blog/posts/good-parents/</link>
+      <link>http://localhost:1313/blog/posts/good-parents/</link>
       <pubDate>Tue, 03 Apr 2018 16:47:13 -0600</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/posts/good-parents/</guid>
+      <guid>http://localhost:1313/blog/posts/good-parents/</guid>
       <description>Sometimes when people think I&amp;rsquo;ve done a good thing, they&amp;rsquo;ll say something like &amp;ldquo;you must have wonderful parents,&amp;rdquo; or &amp;ldquo;you&amp;rsquo;ve been raised well.&amp;rdquo; I&amp;rsquo;m against this kind of statement for two reasons.&#xA;1 It submits that the worth of my parents&amp;rsquo; sacrifices can be measured by the way I turned out. This is unfair to them. If I had turned out to be a bad person, it wouldn&amp;rsquo;t change the value of what they did; obviously I can&amp;rsquo;t invalidate their efforts by intentionally becoming a failure.</description>
     </item>
     <item>
       <title>Agile in real life</title>
-      <link>http://isaaclyman.com/blog/posts/agile-in-real-life/</link>
+      <link>http://localhost:1313/blog/posts/agile-in-real-life/</link>
       <pubDate>Tue, 26 Sep 2017 09:26:15 -0600</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/posts/agile-in-real-life/</guid>
+      <guid>http://localhost:1313/blog/posts/agile-in-real-life/</guid>
       <description>Most people follow the Waterfall development methodology when building a new habit:&#xA;Determine the end goal and deadline (e.g. I will lose 40 pounds by 2019). Write the goal down. Design the habits that will lead up to that goal (e.g. I will stop eating anything that tastes good, and I will exercise five times a week). Assemble the necessary motivations (e.g. accountability buddy, FitBit, bathroom scale, gym membership, workout routine, diet plan).</description>
     </item>
   </channel>

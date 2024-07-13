@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Politics on Minimum Viable Blog</title>
-    <link>http://isaaclyman.com/blog/categories/politics/</link>
+    <link>http://localhost:1313/blog/categories/politics/</link>
     <description>Recent content in Politics on Minimum Viable Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
@@ -10,26 +10,26 @@
     <webMaster>map[host:isaaclyman.com username:blog] (Isaac Lyman)</webMaster>
     <copyright>© 2017 by Isaac Lyman. Site powered by Hugo and GitHub Pages.</copyright>
     <lastBuildDate>Thu, 23 Aug 2018 08:44:30 -0600</lastBuildDate>
-    <atom:link href="http://isaaclyman.com/blog/categories/politics/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/blog/categories/politics/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>A future without time zones</title>
-      <link>http://isaaclyman.com/blog/posts/time-zones/</link>
+      <link>http://localhost:1313/blog/posts/time-zones/</link>
       <pubDate>Thu, 23 Aug 2018 08:44:30 -0600</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/posts/time-zones/</guid>
+      <guid>http://localhost:1313/blog/posts/time-zones/</guid>
       <description>You&amp;rsquo;re a software engineer living in Idaho. You wake up with the sun at 2PM, Greenwich Mean Time, which everyone just calls &amp;ldquo;UN Time&amp;rdquo; since the United Nations adopted it as the universal time standard a few years ago. Soon nobody will call it anything. That&amp;rsquo;ll just be what time it is. Regardless of whether you&amp;rsquo;re in Idaho, DC, Ireland, Nepal or New Zealand, all the clocks will say 2:00 PM at the same time.</description>
     </item>
     <item>
       <title>On opportunity and outcomes</title>
-      <link>http://isaaclyman.com/blog/posts/on-opportunity-and-outcomes/</link>
+      <link>http://localhost:1313/blog/posts/on-opportunity-and-outcomes/</link>
       <pubDate>Tue, 03 Apr 2018 09:14:23 -0600</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/posts/on-opportunity-and-outcomes/</guid>
+      <guid>http://localhost:1313/blog/posts/on-opportunity-and-outcomes/</guid>
       <description>A slogan I hear often in Utah is&#xA;Equal opportunity, not equal outcomes.&#xA;The Beehive State sees itself as a paradise of the American dream. There&amp;rsquo;s very little regulation, a strong preference for businesses over people, and a limited interest in welfare programs outside of Salt Lake City. When people parrot this slogan, they think they&amp;rsquo;re saying &amp;ldquo;if you work hard, you can succeed; if you&amp;rsquo;re lazy, no one&amp;rsquo;s going to give you a free ride.</description>
     </item>
     <item>
       <title>About guns</title>
-      <link>http://isaaclyman.com/blog/posts/about-guns/</link>
+      <link>http://localhost:1313/blog/posts/about-guns/</link>
       <pubDate>Sat, 17 Feb 2018 16:32:58 -0700</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/posts/about-guns/</guid>
+      <guid>http://localhost:1313/blog/posts/about-guns/</guid>
       <description>I&amp;rsquo;m not a gun violence expert. Still, I care about guns for the same reason everyone does: people with guns are an imminent threat to the lives of people I care about. I didn&amp;rsquo;t know it at the time, but there&amp;rsquo;s only one reason I never got shot by a stranger in high school: luck. And I hope that everyone I know has the same luck. But if there&amp;rsquo;s anything the last decade in the U.</description>
     </item>
   </channel>

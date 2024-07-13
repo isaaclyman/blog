@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Minimum Viable Blog</title>
-    <link>http://isaaclyman.com/blog/</link>
+    <link>http://localhost:1313/blog/</link>
     <description>Recent content on Minimum Viable Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
@@ -10,544 +10,544 @@
     <webMaster>map[host:isaaclyman.com username:blog] (Isaac Lyman)</webMaster>
     <copyright>© 2017 by Isaac Lyman. Site powered by Hugo and GitHub Pages.</copyright>
     <lastBuildDate>Wed, 19 Jun 2024 19:43:33 -0600</lastBuildDate>
-    <atom:link href="http://isaaclyman.com/blog/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Ebikes are better than cars, part 2</title>
-      <link>http://isaaclyman.com/blog/posts/ebikes-2/</link>
+      <link>http://localhost:1313/blog/posts/ebikes-2/</link>
       <pubDate>Wed, 19 Jun 2024 19:43:33 -0600</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/posts/ebikes-2/</guid>
+      <guid>http://localhost:1313/blog/posts/ebikes-2/</guid>
       <description>Quick poll. How many devices do you own that:&#xA;Force you to sit down and hold still in order to use them? Regularly trap you in random locations for half an hour or more? Cost you several dollars an hour, every hour they&amp;rsquo;re turned on? Take up 100 square feet, whether you&amp;rsquo;re using them or not? Sit unused most of the day while claiming 16% of your household income? Just your car?</description>
     </item>
     <item>
       <title>Ebikes are better than cars</title>
-      <link>http://isaaclyman.com/blog/posts/ebikes/</link>
+      <link>http://localhost:1313/blog/posts/ebikes/</link>
       <pubDate>Thu, 18 Apr 2024 09:10:21 -0600</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/posts/ebikes/</guid>
+      <guid>http://localhost:1313/blog/posts/ebikes/</guid>
       <description>I haven&amp;rsquo;t received any money or free products for my opinions nor do I have any affiliate links on my blog. I&amp;rsquo;m doing this for free because I don&amp;rsquo;t have the good sense to stop.&#xA;Forget about saving the Earth for a moment. Forget about reducing smog, exercising, or keeping up with the latest trends. Forget about traffic, even.&#xA;It&amp;rsquo;s still worth considering an ebike as your next vehicle. It doesn&amp;rsquo;t matter if you&amp;rsquo;re a fitness-obsessed environmentalist or not; the bottom line is these things are fun and can save you a lot of money.</description>
     </item>
     <item>
       <title>Solving the CIA Kryptos code in TypeScript (Part 4)</title>
-      <link>http://isaaclyman.com/blog/posts/kryptos-4/</link>
+      <link>http://localhost:1313/blog/posts/kryptos-4/</link>
       <pubDate>Fri, 26 Jan 2024 09:20:46 -0700</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/posts/kryptos-4/</guid>
+      <guid>http://localhost:1313/blog/posts/kryptos-4/</guid>
       <description>You can find all the code for this series on GitHub.&#xA;Kryptos 4 is, I repeat, unsolved. We&amp;rsquo;re very unlikely to solve it today. Enthusiastic codebreakers have been putting together clues and proposing theories for decades. At least half of them are like this:&#xA;But hey, since we&amp;rsquo;ve got some code ready to go, we might as well try.&#xA;Setup All the code we&amp;rsquo;ve written so far is available on GitHub.</description>
     </item>
     <item>
       <title>Solving the CIA Kryptos code in TypeScript (Part 3)</title>
-      <link>http://isaaclyman.com/blog/posts/kryptos-3/</link>
+      <link>http://localhost:1313/blog/posts/kryptos-3/</link>
       <pubDate>Fri, 26 Jan 2024 09:15:46 -0700</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/posts/kryptos-3/</guid>
+      <guid>http://localhost:1313/blog/posts/kryptos-3/</guid>
       <description>You can find all the code for this series on GitHub.&#xA;Kryptos 3 is going to require more code than anything else so far. It&amp;rsquo;s encoded using both the types of transposition we covered in Part 2, plus a twist.&#xA;It&amp;rsquo;s written out with a rectangle size of 86 and a block size of 7. The columns are stacked. A keyed columnar cipher is applied with the key &amp;lsquo;KRYPTOS&amp;rsquo;. (KRYPTOS is seven characters long, which is why our block size is 7.</description>
     </item>
     <item>
       <title>Solving the CIA Kryptos code in TypeScript (Part 2)</title>
-      <link>http://isaaclyman.com/blog/posts/kryptos-2/</link>
+      <link>http://localhost:1313/blog/posts/kryptos-2/</link>
       <pubDate>Fri, 26 Jan 2024 09:11:46 -0700</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/posts/kryptos-2/</guid>
+      <guid>http://localhost:1313/blog/posts/kryptos-2/</guid>
       <description>You can find all the code for this series on GitHub.&#xA;In the previous post we solved Kryptos 1 and 2. Kryptos 3 is going to be a bit tougher. It doesn&amp;rsquo;t use our trusty Vigenere cipher. And it doesn&amp;rsquo;t use just one cipher, either; it uses two. We&amp;rsquo;ll learn them separately in this post, then use them together in the next one.&#xA;Keyed columnar transposition We need to learn a transposition cipher, which is where the letters in a message are rearranged but not changed.</description>
     </item>
     <item>
       <title>Solving the CIA Kryptos code in TypeScript (Part 1)</title>
-      <link>http://isaaclyman.com/blog/posts/kryptos-1/</link>
+      <link>http://localhost:1313/blog/posts/kryptos-1/</link>
       <pubDate>Fri, 26 Jan 2024 09:05:46 -0700</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/posts/kryptos-1/</guid>
+      <guid>http://localhost:1313/blog/posts/kryptos-1/</guid>
       <description>You can find all the code for this series on GitHub.&#xA;On the campus of CIA headquarters in Virginia, United States, there&amp;rsquo;s a 34-year-old sculpture called Kryptos. It somewhat resembles a heavy copper flag waving in the wind. Cut out of its surface are 1,736 uppercase ASCII characters split into four encrypted messages and a Vigenere cipher table.&#xA;The first three messages were decrypted in the 1990s, first by the NSA and CIA, who didn&amp;rsquo;t publicize their success, and then by a private-sector computer scientist, who did.</description>
     </item>
     <item>
       <title>Misunderstanding Yoda</title>
-      <link>http://isaaclyman.com/blog/posts/misunderstanding-yoda/</link>
+      <link>http://localhost:1313/blog/posts/misunderstanding-yoda/</link>
       <pubDate>Sat, 23 Dec 2023 09:15:43 -0700</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/posts/misunderstanding-yoda/</guid>
+      <guid>http://localhost:1313/blog/posts/misunderstanding-yoda/</guid>
       <description>In The Empire Strikes Back (1980), we see a famous exchange between Yoda (an archetypical &amp;ldquo;wise elder&amp;rdquo; figure) and Luke Skywalker, his young apprentice. They stand in a swamp where Luke&amp;rsquo;s spaceship lies submerged after a crash landing.&#xA;LUKE: We&amp;rsquo;ll never get it out now.&#xA;YODA: So certain are you. (Sighs.) Always with you what cannot be done. Hear you nothing that I say?&#xA;LUKE: Master, moving stones around is one thing.</description>
     </item>
     <item>
       <title>Should more developers be starting software companies?</title>
-      <link>http://isaaclyman.com/blog/posts/dev-companies/</link>
+      <link>http://localhost:1313/blog/posts/dev-companies/</link>
       <pubDate>Tue, 05 Dec 2023 11:22:31 -0700</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/posts/dev-companies/</guid>
+      <guid>http://localhost:1313/blog/posts/dev-companies/</guid>
       <description>A software developer has, in theory, the ability to walk into an outhouse with an old laptop and emerge a few days later with something worth millions of dollars. If you can build software, you can create value out of thin air. Software has no material components.&#xA;It&amp;rsquo;s been rightly pointed out that software does have material components, namely a working computer, which over half the world doesn&amp;rsquo;t have at home.</description>
     </item>
     <item>
       <title>Seven tenets of media consumption</title>
-      <link>http://isaaclyman.com/blog/posts/tenets-of-media-consumption/</link>
+      <link>http://localhost:1313/blog/posts/tenets-of-media-consumption/</link>
       <pubDate>Sat, 25 Nov 2023 08:54:28 -0700</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/posts/tenets-of-media-consumption/</guid>
+      <guid>http://localhost:1313/blog/posts/tenets-of-media-consumption/</guid>
       <description>Media here refers to books, movies, journalism, music, video games, and other published content of any genre.&#xA;Works that present abject real-world violence for the purpose of entertainment or gratification are specifically excluded from this discussion and should not be misclassified as &amp;ldquo;media.&amp;rdquo;&#xA;Consumption is value-neutral. No one is evil for consuming a particular piece of media, nor is it possible to consume your way to virtue. Even so, some media causes harm.</description>
     </item>
     <item>
       <title>My top home software upgrades</title>
-      <link>http://isaaclyman.com/blog/posts/software-upgrades-2023/</link>
+      <link>http://localhost:1313/blog/posts/software-upgrades-2023/</link>
       <pubDate>Wed, 22 Nov 2023 18:19:25 -0700</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/posts/software-upgrades-2023/</guid>
+      <guid>http://localhost:1313/blog/posts/software-upgrades-2023/</guid>
       <description>I&amp;rsquo;ve made some big changes to my personal tech ecosystem over the last few years and discovered some great applications along the way. Here are a few standouts.&#xA;Kagi Paid for by the user&#xA;Replacement for: Google search, which I&amp;rsquo;ve used since at least 2004.&#xA;If you&amp;rsquo;ve noticed your Google results have been getting steadily worse—or if you&amp;rsquo;re getting sick of having to scroll down below the fold to even see your results—you should sign up for a free trial of Kagi (rhymes with &amp;ldquo;doggy&amp;rdquo;), a search engine whose biggest con is also its biggest pro: you have to pay for it.</description>
     </item>
     <item>
       <title>The 3D object model of software construction</title>
-      <link>http://isaaclyman.com/blog/posts/3d-object-model-of-software/</link>
+      <link>http://localhost:1313/blog/posts/3d-object-model-of-software/</link>
       <pubDate>Mon, 20 Nov 2023 11:00:28 -0700</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/posts/3d-object-model-of-software/</guid>
+      <guid>http://localhost:1313/blog/posts/3d-object-model-of-software/</guid>
       <description>Software projects are most efficient when, at any given time, each contributor is focused on a different concern. Like objects in 3D space, projects can be said to have surface area and volume:&#xA;Surface area represents the number of opportunities to contribute—that is, how many people could efficiently work on the project at the same time. Volume represents the knowledge space of the project (measured, perhaps, in the total number of productive person-hours spent on it).</description>
     </item>
     <item>
       <title>So software engineering isn&#39;t working out for you</title>
-      <link>http://isaaclyman.com/blog/posts/engineering-didnt-work-out/</link>
+      <link>http://localhost:1313/blog/posts/engineering-didnt-work-out/</link>
       <pubDate>Thu, 09 Nov 2023 11:42:33 -0700</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/posts/engineering-didnt-work-out/</guid>
+      <guid>http://localhost:1313/blog/posts/engineering-didnt-work-out/</guid>
       <description>I used to be solidly on team &amp;ldquo;anyone can code.&amp;rdquo; That changed when I talked to my therapist about it.&#xA;ME: I&amp;rsquo;m a big believer in neuroplasticity. I think anyone can learn to do anything, it&amp;rsquo;s just a matter of how long it takes.&#xA;THERAPIST (visibly uncomfortable): I don&amp;rsquo;t think that&amp;rsquo;s fair.&#xA;ME: Why not?&#xA;THERAPIST: Well, for example, my partner and I have very different skills. I&amp;rsquo;m no good at some things she&amp;rsquo;s really good at, like math, and it wouldn&amp;rsquo;t matter how long I try to be good at them, I&amp;rsquo;d be wasting my time.</description>
     </item>
     <item>
       <title>Why &#39;Netflix with ads&#39; makes no sense</title>
-      <link>http://isaaclyman.com/blog/posts/netflix-with-ads/</link>
+      <link>http://localhost:1313/blog/posts/netflix-with-ads/</link>
       <pubDate>Mon, 06 Nov 2023 08:01:28 -0700</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/posts/netflix-with-ads/</guid>
+      <guid>http://localhost:1313/blog/posts/netflix-with-ads/</guid>
       <description>At time of writing, Netflix&amp;rsquo;s Standard plan costs 15.49 USD, while its Standard with ads plan costs 6.99 USD. The difference between those prices is 8.50 USD; it costs more than twice as much to watch without ads.&#xA;What&amp;rsquo;s the math on that one? Advertisers are estimated to pay up to 50 USD per thousand ad views. That&amp;rsquo;s five cents per view. In 2019, the average Netflix viewer watched about 2 hours per day—this number went up in 2020 during quarantine, but has likely come back down since.</description>
     </item>
     <item>
       <title>On the ethics of counterfactual messaging</title>
-      <link>http://isaaclyman.com/blog/posts/on-counterfactual-messaging/</link>
+      <link>http://localhost:1313/blog/posts/on-counterfactual-messaging/</link>
       <pubDate>Sun, 29 Oct 2023 09:43:48 -0600</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/posts/on-counterfactual-messaging/</guid>
+      <guid>http://localhost:1313/blog/posts/on-counterfactual-messaging/</guid>
       <description>Suppose a given audience can, in a majority of some kind, be expected to misinterpret a piece of information when presented factually. Is it then justified to present counterfactual information calibrated to be misinterpreted so that a correct meaning will be received?&#xA;&amp;ldquo;Misinterpretation&amp;rdquo; here includes not only a failure to understand the information as intended, but a failure to enact (or perform) it. The outcome is the same.&#xA;Take, for example, speed limits on public roads.</description>
     </item>
     <item>
       <title>What I want my friends to know about drugs</title>
-      <link>http://isaaclyman.com/blog/posts/about-drugs/</link>
+      <link>http://localhost:1313/blog/posts/about-drugs/</link>
       <pubDate>Thu, 12 Oct 2023 18:34:59 -0600</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/posts/about-drugs/</guid>
+      <guid>http://localhost:1313/blog/posts/about-drugs/</guid>
       <description>I am not a doctor and this is not medical advice. Consult your doctor before using any drug.&#xA;In the United States, LSD and heroin are in the same controlled substance category (the most restrictive one, Schedule I), placing them a category above amphetamines and fentanyl, two categories above ketamine, and three full categories above alprazolam (Xanax). Tobacco is not a controlled substance at all. I hope to convince you that this is ridiculous—not merely an outdated or insufficiently-nuanced classification system, but one so wrong it can only have been created by rolling dice or throwing darts.</description>
     </item>
     <item>
       <title>On art</title>
-      <link>http://isaaclyman.com/blog/posts/on-art/</link>
+      <link>http://localhost:1313/blog/posts/on-art/</link>
       <pubDate>Sat, 07 Oct 2023 08:50:20 -0600</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/posts/on-art/</guid>
+      <guid>http://localhost:1313/blog/posts/on-art/</guid>
       <description>Any 21st-century definition of art has to pass a few tests.&#xA;It must include all commonly-understood examples of art such as paintings, novels, plays, movies, music, video games, sculptures, photographs, and poems. It must not therefore smell like an attempt to launder one&amp;rsquo;s personal likes and dislikes as though they were objective or authoritative, which unfortunately rules out many definitions given by philosophers whose names you would recognize. It must include Marcel Duchamp&amp;rsquo;s readymades.</description>
     </item>
     <item>
       <title>If you don&#39;t hire juniors, you don&#39;t deserve seniors (2023)</title>
-      <link>http://isaaclyman.com/blog/posts/junior-developers/</link>
+      <link>http://localhost:1313/blog/posts/junior-developers/</link>
       <pubDate>Thu, 27 Jul 2023 09:51:52 -0600</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/posts/junior-developers/</guid>
+      <guid>http://localhost:1313/blog/posts/junior-developers/</guid>
       <description>This was originally written in 2018. It remains one of my more popular blog posts, so I&amp;rsquo;ve taken some time to revise it to match the current market environment and my evolving opinions on the topic.&#xA;Let me tell you the story of a very successful company that made a very big, dumb decision.&#xA;We don&amp;rsquo;t hire junior developers or interns&amp;hellip;if you don&amp;rsquo;t get a puppy, you don&amp;rsquo;t have to clean up its messes.</description>
     </item>
     <item>
       <title>On horoscopic projection</title>
-      <link>http://isaaclyman.com/blog/posts/horoscopic-projection/</link>
+      <link>http://localhost:1313/blog/posts/horoscopic-projection/</link>
       <pubDate>Wed, 19 Jul 2023 09:31:00 -0600</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/posts/horoscopic-projection/</guid>
+      <guid>http://localhost:1313/blog/posts/horoscopic-projection/</guid>
       <description>Imagine you&amp;rsquo;ve misheard the lyrics to a song. You&amp;rsquo;ve interpreted it to be saying something the musician could not possibly have intended. This is a common experience: music adds sensory noise to speech, making it more difficult to decipher what&amp;rsquo;s being said. And people frequently mishear each other anyway, even when speaking clearly in a quiet place.&#xA;Music also adds an emotional dimension to speech. Some people (myself included) have misheard the lyrics to a song and then formed an emotional attachment to them, resulting in disappointment when the true lyrics are known.</description>
     </item>
     <item>
       <title>Mastodon is so simple, literally everyone already understands it</title>
-      <link>http://isaaclyman.com/blog/posts/everyone-understands-mastodon/</link>
+      <link>http://localhost:1313/blog/posts/everyone-understands-mastodon/</link>
       <pubDate>Wed, 12 Jul 2023 09:58:47 -0600</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/posts/everyone-understands-mastodon/</guid>
+      <guid>http://localhost:1313/blog/posts/everyone-understands-mastodon/</guid>
       <description>One hundred percent of people&amp;rsquo;s confusion about Mastodon comes from journalists doing a bad job explaining it. It&amp;rsquo;s not complicated. In fact, it&amp;rsquo;s so simple that you already understand it, and you use something exactly like it every single day.&#xA;I&amp;rsquo;m talking about email.&#xA;If you understand one basic thing about email, you already know everything you need to know about Mastodon.&#xA;It doesn&amp;rsquo;t matter what email website you use. It doesn&amp;rsquo;t matter what email websites your friends use.</description>
     </item>
     <item>
       <title>On tools of unusual advantage</title>
-      <link>http://isaaclyman.com/blog/posts/tools-of-unusual-advantage/</link>
+      <link>http://localhost:1313/blog/posts/tools-of-unusual-advantage/</link>
       <pubDate>Sun, 04 Jun 2023 10:41:39 -0600</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/posts/tools-of-unusual-advantage/</guid>
+      <guid>http://localhost:1313/blog/posts/tools-of-unusual-advantage/</guid>
       <description>People have an excessive tendency to reason by definition. We want to understand events in terms of principles; we prefer stories to systems; we like brevity more than nuance. When something doesn&amp;rsquo;t fit our framing, most of us close our eyes and fool ourselves that it does.&#xA;This underpins the perennial debate of &amp;ldquo;X is good, X is evil.&amp;rdquo; Occasionally the topic, X, is a person, in which case the question is more or less answerable.</description>
     </item>
     <item>
       <title>My favorite beard products</title>
-      <link>http://isaaclyman.com/blog/posts/beard-products/</link>
+      <link>http://localhost:1313/blog/posts/beard-products/</link>
       <pubDate>Fri, 26 May 2023 16:26:54 -0600</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/posts/beard-products/</guid>
+      <guid>http://localhost:1313/blog/posts/beard-products/</guid>
       <description>I have a beard now. And&amp;hellip;that&amp;rsquo;s everything that&amp;rsquo;s new with me. What&amp;rsquo;s new with you?&#xA;The following is a list of my favorite beard products, after a year of trying a whole lot of different ones. I&amp;rsquo;m not being paid to write this, nor can I be bothered to sign up for some affiliate links, so enjoy—no strings attached.&#xA;For reference, my beard is coarse, dry, and very frizzy.&#xA;Beard comb Beard brushes are good for short beards and the occasional bit of sculpting.</description>
     </item>
     <item>
       <title>Have we reached Peak Programming Languages?</title>
-      <link>http://isaaclyman.com/blog/posts/peak-programming-languages/</link>
+      <link>http://localhost:1313/blog/posts/peak-programming-languages/</link>
       <pubDate>Wed, 19 Apr 2023 11:04:02 -0600</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/posts/peak-programming-languages/</guid>
+      <guid>http://localhost:1313/blog/posts/peak-programming-languages/</guid>
       <description>I’m relatively young on the programming scene (I wasn&amp;rsquo;t around when FORTRAN came out or anything) so this is a hubristic thing to say, but it feels like we’ve reached Peak Programming Languages. For anything you want to build and any way you want to build it, there&amp;rsquo;s a mature and popular language already available. Typically the community around it is robust and the syntax is delightful. I mean, just try writing a few lines of C# or Dart and tell me it doesn&amp;rsquo;t feel nice.</description>
     </item>
     <item>
       <title>Wordle spinoffs and competitors, ranked</title>
-      <link>http://isaaclyman.com/blog/posts/wordle-competitors/</link>
+      <link>http://localhost:1313/blog/posts/wordle-competitors/</link>
       <pubDate>Thu, 17 Nov 2022 13:18:29 -0700</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/posts/wordle-competitors/</guid>
+      <guid>http://localhost:1313/blog/posts/wordle-competitors/</guid>
       <description>Wordle took social media by storm in December 2021. The online word game, a spinoff of 1955&amp;rsquo;s Jotto, was addictive, social, and easy to play—perfectly positioned to become an object of mass obsession. By now it&amp;rsquo;s cemented itself as an all-star in a tradition of word games that have been popular across the world for centuries.&#xA;In the the year since Wordle&amp;rsquo;s rise to popularity, the simplicity of the game has inspired hundreds of copycats, lookalikes, and twists on the formula, which have blossomed into a new casual gaming culture based on short, daily games and friendly competition on iMessage groups.</description>
     </item>
     <item>
       <title>A keyboard is not a list of buttons</title>
-      <link>http://isaaclyman.com/blog/posts/keyboard-buttons/</link>
+      <link>http://localhost:1313/blog/posts/keyboard-buttons/</link>
       <pubDate>Tue, 15 Nov 2022 11:51:53 -0700</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/posts/keyboard-buttons/</guid>
+      <guid>http://localhost:1313/blog/posts/keyboard-buttons/</guid>
       <description>Building a software keyboard is almost always a Bad Idea. The keyboards that come installed with our phones and tablets represent years of institutional knowledge and are fine-tuned for user experience and accessibility. A good keyboard is something you never have to think about, and it takes a significant investment to get there.&#xA;However, there are cases where you have no choice but to render your own. For example, in my mobile word game Sootly, each key on the keyboard has an animated, multi-color background representing clues for the puzzle you&amp;rsquo;re solving.</description>
     </item>
     <item>
       <title>Credit card chips and encryption in plain JavaScript</title>
-      <link>http://isaaclyman.com/blog/posts/credit-card-microchip/</link>
+      <link>http://localhost:1313/blog/posts/credit-card-microchip/</link>
       <pubDate>Tue, 25 Oct 2022 12:23:02 -0600</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/posts/credit-card-microchip/</guid>
+      <guid>http://localhost:1313/blog/posts/credit-card-microchip/</guid>
       <description>Your current credit card can be used in four different ways:&#xA;Typing in the card number. We&amp;rsquo;ve been using credit cards this way since 1950. Sliding the card&amp;rsquo;s magnetic strip (the black stripe) through a card reader. This method was invented by IBM in the 1960s and has been in use ever since, but it&amp;rsquo;s on its way out. In a few short years many credit cards will no longer have a magnetic strip.</description>
     </item>
     <item>
       <title>Logging in, a thing we all hate</title>
-      <link>http://isaaclyman.com/blog/posts/logging-in/</link>
+      <link>http://localhost:1313/blog/posts/logging-in/</link>
       <pubDate>Fri, 07 Oct 2022 12:33:40 -0600</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/posts/logging-in/</guid>
+      <guid>http://localhost:1313/blog/posts/logging-in/</guid>
       <description>We&amp;rsquo;ve all seen this one, right?&#xA;&amp;ldquo;As a user, I want to log in to the app.&amp;rdquo;&#xA;That&amp;rsquo;s a lie. And not just a little one—a whopper. Logging in isn&amp;rsquo;t on anyone&amp;rsquo;s to-do list. It doesn&amp;rsquo;t put anyone closer to their goals. It doesn&amp;rsquo;t create value and it doesn&amp;rsquo;t provide a service. Logging in, like locking your front door, isn&amp;rsquo;t something you want to do. It&amp;rsquo;s something you&amp;rsquo;re haplessly forced to do because there&amp;rsquo;s no safe alternative.</description>
     </item>
     <item>
       <title>Is code a performative speech act?</title>
-      <link>http://isaaclyman.com/blog/posts/code-performative-speech/</link>
+      <link>http://localhost:1313/blog/posts/code-performative-speech/</link>
       <pubDate>Fri, 23 Sep 2022 08:50:34 -0600</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/posts/code-performative-speech/</guid>
+      <guid>http://localhost:1313/blog/posts/code-performative-speech/</guid>
       <description>Computer processing is the act by which the world of the computer is constructed. We can call it a world because it appears to exist unto itself, persisting its environment and taking scripted actions well outside of our awareness. Modern computers rarely shut off completely, so the illusion of persistence (&amp;ldquo;my user desktop is still there even when my computer is asleep; I just drop in on it now and then&amp;rdquo;) is not entirely an illusion.</description>
     </item>
     <item>
       <title>I&#39;m 30.</title>
-      <link>http://isaaclyman.com/blog/posts/30-years/</link>
+      <link>http://localhost:1313/blog/posts/30-years/</link>
       <pubDate>Mon, 12 Sep 2022 13:47:11 -0700</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/posts/30-years/</guid>
+      <guid>http://localhost:1313/blog/posts/30-years/</guid>
       <description>I turned 30 this year. Here are 15 things I&amp;rsquo;d tell my 15-year-old self if I could.&#xA;Don&amp;rsquo;t take advice from someone you&amp;rsquo;d hate to be like. Someone who gives you advice, even cautionary advice, is recruiting you to be a little more like them. If you don&amp;rsquo;t want that, it&amp;rsquo;s okay to ignore them. Awful people are their own reward. It&amp;rsquo;s okay to stand up for yourself but it&amp;rsquo;s also okay to move on and leave jerks to their misery.</description>
     </item>
     <item>
       <title>C#: Equality overrides, hash codes, and dictionaries</title>
-      <link>http://isaaclyman.com/blog/posts/csharp-dictionary-hashcode/</link>
+      <link>http://localhost:1313/blog/posts/csharp-dictionary-hashcode/</link>
       <pubDate>Mon, 15 Aug 2022 14:22:14 -0600</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/posts/csharp-dictionary-hashcode/</guid>
+      <guid>http://localhost:1313/blog/posts/csharp-dictionary-hashcode/</guid>
       <description>Consider the following C# class:&#xA;class StringEquivalent { private string Value { get; } public StringEquivalent(string value) { Value = value; } public override string ToString() { return Value; } public override bool Equals(object obj) { if (obj == null) { return false; } return obj.ToString() == Value; } public override int GetHashCode() { return Value.GetHashCode(); } } You provide a string when you instantiate it and you can compare it with another instance or a string using the Equals override (I&amp;rsquo;m using LINQPad&amp;rsquo;s Dump() method to test it):</description>
     </item>
     <item>
       <title>On forbidden knowledge and transformative thought</title>
-      <link>http://isaaclyman.com/blog/posts/unthink/</link>
+      <link>http://localhost:1313/blog/posts/unthink/</link>
       <pubDate>Sat, 28 May 2022 09:29:35 -0600</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/posts/unthink/</guid>
+      <guid>http://localhost:1313/blog/posts/unthink/</guid>
       <description>Depth and problematization You can&amp;rsquo;t unthink a thought. I&amp;rsquo;m speaking of thoughts outside the borders of what we have previously thought about. These thoughts are apt to unsettle us, even consume us for a period of time. Ultimately we will incorporate them into our normal thought patterns and move on, but we will be fundamentally different selves from that point on.&#xA;These thoughts often can&amp;rsquo;t be communicated in the same words they were formed with.</description>
     </item>
     <item>
       <title>YAML Pipelines in Azure DevOps: tips and advice</title>
-      <link>http://isaaclyman.com/blog/posts/ado-yaml-pipelines/</link>
+      <link>http://localhost:1313/blog/posts/ado-yaml-pipelines/</link>
       <pubDate>Mon, 09 May 2022 20:02:10 -0600</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/posts/ado-yaml-pipelines/</guid>
+      <guid>http://localhost:1313/blog/posts/ado-yaml-pipelines/</guid>
       <description>Classic pipelines are out, YAML pipelines are in. Azure DevOps (ADO) has adopted a pipelines-as-code philosophy that will be their build and release strategy for the foreseeable future. There&amp;rsquo;s a lot to appreciate about the new pipelines, though they are a bit of a mental adjustment and the transition is anything but automatic&amp;mdash;I took a few weeks converting all of ours, though there were some special obstacles in our case that hopefully you won&amp;rsquo;t have to deal with.</description>
     </item>
     <item>
       <title>Leadership and motivation</title>
-      <link>http://isaaclyman.com/blog/posts/what-people-hear/</link>
+      <link>http://localhost:1313/blog/posts/what-people-hear/</link>
       <pubDate>Fri, 29 Apr 2022 09:06:51 -0600</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/posts/what-people-hear/</guid>
+      <guid>http://localhost:1313/blog/posts/what-people-hear/</guid>
       <description>One of the core hard things about leadership is that people hear what they are, not what you say.&#xA;When you say “let’s work hard and get this done,” you’re probably hoping to light a fire under the easygoing or underachieving members of the team, but only the anxious, hardworking folks who are already at risk for burnout will hear you. And when you say “but pace yourself and take breaks” you’re hoping to bring the overachievers down a notch but that won&amp;rsquo;t work; laid-back people will take this as a cue to lay back even more and their anxious teammates will try to pick up the slack.</description>
     </item>
     <item>
       <title>Cloud workstations: the future of remote work</title>
-      <link>http://isaaclyman.com/blog/posts/cloud-workstations/</link>
+      <link>http://localhost:1313/blog/posts/cloud-workstations/</link>
       <pubDate>Sat, 16 Apr 2022 10:14:15 -0600</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/posts/cloud-workstations/</guid>
+      <guid>http://localhost:1313/blog/posts/cloud-workstations/</guid>
       <description>Application streaming is one of the emerging technologies I&amp;rsquo;m most bullish on. So far its full potential has flown under the radar, but there are companies doing impressive things with it:&#xA;Xbox Cloud Gaming, currently in beta, streams Xbox games from cloud servers with low latency even on an LTE connection. It&amp;rsquo;s powered by Rainway, whose streaming offering has pivoted from video games to fully-interactive streamed apps of every kind. Google Stadia is a similar service with a library of games you can buy and then play exclusively through the cloud.</description>
     </item>
     <item>
       <title>The hallmarks of bad poetry</title>
-      <link>http://isaaclyman.com/blog/posts/bad-poetry/</link>
+      <link>http://localhost:1313/blog/posts/bad-poetry/</link>
       <pubDate>Tue, 12 Apr 2022 15:29:22 -0600</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/posts/bad-poetry/</guid>
+      <guid>http://localhost:1313/blog/posts/bad-poetry/</guid>
       <description>Most people misunderstand what poetry is for. If someone you know from church or work shares a poem they wrote, you almost have to start cringing before you read it lest you be overwhelmed by the artlessness of the first stanza and die suddenly. You already know the poetic form is going to be an excuse for them to overshare, get weepy, commit crimes against the English language, or string together clichés as if they were profound.</description>
     </item>
     <item>
       <title>On the caprese pasta salad and its haters</title>
-      <link>http://isaaclyman.com/blog/posts/caprese-pasta-salad/</link>
+      <link>http://localhost:1313/blog/posts/caprese-pasta-salad/</link>
       <pubDate>Sun, 10 Apr 2022 09:19:18 -0600</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/posts/caprese-pasta-salad/</guid>
+      <guid>http://localhost:1313/blog/posts/caprese-pasta-salad/</guid>
       <description>Sometime in 2018 (or possibly earlier; the site only lists the date of the last update, not the date of the original post) Daniel Gritzer of Serious Eats posted a recipe for Blistered-Tomato Pasta Salad With Basil. It&amp;rsquo;s very simple: eight ingredients if you count both salt and pepper, just under an hour from start to finish (I know the recipe says 25 minutes, but if you&amp;rsquo;re a normal home cook and not an award-winning chef with a TV show, you&amp;rsquo;ll need to double or triple the estimates given by sites like this).</description>
     </item>
     <item>
       <title>ADHD: Frequently Asked Questions</title>
-      <link>http://isaaclyman.com/blog/posts/adhd-faq/</link>
+      <link>http://localhost:1313/blog/posts/adhd-faq/</link>
       <pubDate>Thu, 07 Apr 2022 12:00:00 -0600</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/posts/adhd-faq/</guid>
+      <guid>http://localhost:1313/blog/posts/adhd-faq/</guid>
       <description>Following are the questions I see most frequently on r/adhd and several ADHD-focused Facebook groups I&amp;rsquo;m part of. For each, I&amp;rsquo;ve provided an answer that aligns with the community consensus or the latest scientific research.&#xA;I am not a doctor and this is not medical advice. Consult a doctor before beginning any new treatment.&#xA;Do I really have ADHD or am I just lazy? My parent/sibling/professor/doctor says ADHD isn&amp;rsquo;t real. Are they right?</description>
     </item>
     <item>
       <title>Tidal vs Spotify: a music-lover&#39;s comparison</title>
-      <link>http://isaaclyman.com/blog/posts/tidal-vs-spotify/</link>
+      <link>http://localhost:1313/blog/posts/tidal-vs-spotify/</link>
       <pubDate>Wed, 30 Mar 2022 11:25:43 -0600</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/posts/tidal-vs-spotify/</guid>
+      <guid>http://localhost:1313/blog/posts/tidal-vs-spotify/</guid>
       <description>During the recent Joe Rogan backlash I decided to cast a vote with my wallet and end my Spotify subscription. This concluded a nearly decade-long relationship between Spotify and me; I was one of their first North American users. I vividly remember having to snipe an invite code from page 7 of a forum thread back in 2011 so I could join the U.S. beta.&#xA;2011-era Spotify was pretty fantastic. The UX was really smooth.</description>
     </item>
     <item>
       <title>Stimulant medication and heart health</title>
-      <link>http://isaaclyman.com/blog/posts/stimulants-heart/</link>
+      <link>http://localhost:1313/blog/posts/stimulants-heart/</link>
       <pubDate>Sun, 20 Mar 2022 09:52:54 -0600</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/posts/stimulants-heart/</guid>
+      <guid>http://localhost:1313/blog/posts/stimulants-heart/</guid>
       <description>Central nervous system stimulants such as Adderall, Ritalin, and Vyvanse are commonly used to treat ADHD and narcolepsy in children and adults. Common side effects of these drugs are increased blood pressure and heart rate. Anecdotally, many patients and doctors assume that there are negative long-term heart consequences for stimulant use, even when taken as prescribed and in approved doses. The purpose of this article is to review the available research and determine if this concern is supported by the evidence.</description>
     </item>
     <item>
       <title>What is a puzzle game?</title>
-      <link>http://isaaclyman.com/blog/posts/puzzle-games/</link>
+      <link>http://localhost:1313/blog/posts/puzzle-games/</link>
       <pubDate>Wed, 16 Mar 2022 11:42:11 -0600</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/posts/puzzle-games/</guid>
+      <guid>http://localhost:1313/blog/posts/puzzle-games/</guid>
       <description>I love puzzle games. I&amp;rsquo;m not always good at them, but I love them.&#xA;I have yet to see the rules or expectations of puzzle games enumerated as such, so here are what I believe to be the basics.&#xA;Each puzzle must have a single unique solution. The correct solution must be discoverable by pure logic and elimination. The solve must include multiple interrelated pieces or steps. Multiple non-computerized strategies must be available to the player, though they need not be disclosed by the puzzle&amp;rsquo;s creator.</description>
     </item>
     <item>
       <title>Lost AirPods, arrays, and sorting algorithms</title>
-      <link>http://isaaclyman.com/blog/posts/sorting-algorithms/</link>
+      <link>http://localhost:1313/blog/posts/sorting-algorithms/</link>
       <pubDate>Sat, 05 Mar 2022 20:09:03 -0700</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/posts/sorting-algorithms/</guid>
+      <guid>http://localhost:1313/blog/posts/sorting-algorithms/</guid>
       <description>The search for the lost AirPod My wife Dylan is a math and physics teacher. Yesterday while she was on a Zoom call with a student I got a text message from her: &amp;ldquo;the kids have my AirPods.&amp;rdquo; She knew because her student was cracking up laughing at the babblings of our toddlers, captured by the built-in microphone on the AirPods.&#xA;I tracked down the kids. They were carrying around an AirPod case with one AirPod in it.</description>
     </item>
     <item>
       <title>New tech terms to learn in 2022</title>
-      <link>http://isaaclyman.com/blog/posts/tech-terms-2022/</link>
+      <link>http://localhost:1313/blog/posts/tech-terms-2022/</link>
       <pubDate>Thu, 03 Mar 2022 10:06:11 -0700</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/posts/tech-terms-2022/</guid>
+      <guid>http://localhost:1313/blog/posts/tech-terms-2022/</guid>
       <description>Ad-hocumentation Good documentation is a developer&amp;rsquo;s best friend, and some products and tools have truly excellent docs because they pay people to maintain them. When you Google a library method and the first result is an official, up-to-date web page with a description, code sample, use cases, limitations, and type information&amp;mdash;all written and maintained by an actual human being? That&amp;rsquo;s paradise, my friend. Much of the time we&amp;rsquo;re not so lucky.</description>
     </item>
     <item>
       <title>On absurdism, belief, and meaning</title>
-      <link>http://isaaclyman.com/blog/posts/absurdism-belief-and-meaning/</link>
+      <link>http://localhost:1313/blog/posts/absurdism-belief-and-meaning/</link>
       <pubDate>Sun, 13 Feb 2022 12:07:35 -0700</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/posts/absurdism-belief-and-meaning/</guid>
+      <guid>http://localhost:1313/blog/posts/absurdism-belief-and-meaning/</guid>
       <description>[&amp;hellip;] a man is always prey to his truths. Once he has admitted them, he cannot free himself from them. One has to pay something.&#xA;Albert Camus, The Myth of Sisyphus&#xA;[&amp;hellip;] success, like happiness, cannot be pursued; it must ensue, and it only does so as the unintended side-effect of one&amp;rsquo;s personal dedication to a cause greater than oneself or as the by-product of one&amp;rsquo;s surrender to a person other than oneself.</description>
     </item>
     <item>
       <title>Experiments with water, a scale, and a rubber duck</title>
-      <link>http://isaaclyman.com/blog/posts/archimedes-experiment/</link>
+      <link>http://localhost:1313/blog/posts/archimedes-experiment/</link>
       <pubDate>Sat, 29 Jan 2022 10:18:36 -0700</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/posts/archimedes-experiment/</guid>
+      <guid>http://localhost:1313/blog/posts/archimedes-experiment/</guid>
       <description>I did some science experiments this morning, and I&amp;rsquo;m here to share my results. The experiments ultimately failed to produce any good data, but I think the process was interesting anyway.&#xA;Background I was making pizza dough this week, which for me is a process involving a kitchen scale, a thermometer, and a three-day cold ferment. I always start with a bowl on a scale and add water, kosher salt, sugar, and yeast.</description>
     </item>
     <item>
       <title>2005 - 2010: Five stories and an apology</title>
-      <link>http://isaaclyman.com/blog/posts/five-stories-apology/</link>
+      <link>http://localhost:1313/blog/posts/five-stories-apology/</link>
       <pubDate>Thu, 06 Jan 2022 01:28:30 -0700</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/posts/five-stories-apology/</guid>
+      <guid>http://localhost:1313/blog/posts/five-stories-apology/</guid>
       <description>2005 - 2006 One time in the &amp;rsquo;80s a first grade teacher was mean to my oldest sister. As a result all of us kids were homeschooled until we got old enough to beg our way out.&#xA;I understand that homeschooling is an essential option for some children. I don&amp;rsquo;t recommend it for anyone else.&#xA;Some parents do &amp;ldquo;homeschool groups&amp;rdquo; where their kid spends a lot of time around other kids and does field trips.</description>
     </item>
     <item>
       <title>C#: IEnumerable, yield return, and lazy evaluation</title>
-      <link>http://isaaclyman.com/blog/posts/csharp-ienumerable/</link>
+      <link>http://localhost:1313/blog/posts/csharp-ienumerable/</link>
       <pubDate>Mon, 22 Nov 2021 10:13:03 -0700</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/posts/csharp-ienumerable/</guid>
+      <guid>http://localhost:1313/blog/posts/csharp-ienumerable/</guid>
       <description>Let&amp;rsquo;s talk about one of my favorite .NET features.&#xA;IEnumerable is an interface for iterating over a collection. In other words, if something is an IEnumerable, you can mostly think of it like an Array or a List. You can use a foreach statement to loop through it, you can use LINQ to map or reduce it in a hundred different ways, or you can explicitly cast it to an array with .</description>
     </item>
     <item>
       <title>What five tech recruiters get wrong (and right) about cold email</title>
-      <link>http://isaaclyman.com/blog/posts/five-recruiters/</link>
+      <link>http://localhost:1313/blog/posts/five-recruiters/</link>
       <pubDate>Fri, 22 Oct 2021 15:10:08 -0600</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/posts/five-recruiters/</guid>
+      <guid>http://localhost:1313/blog/posts/five-recruiters/</guid>
       <description>Technical recruiters have an extraordinarily difficult job. The U.S. Bureau of Labor Statistics reports that in 2020 there were about two million people working in programming jobs across a few different categories. They also project that software developer employment will grow 22% by 2030, nearly three times the average rate for all occupations. And in 2019, IT trade group CompTIA reported a staggering 918,000 unfilled IT jobs over a period of three months.</description>
     </item>
     <item>
       <title>Conversation classes: fighter, bard, tank, healer</title>
-      <link>http://isaaclyman.com/blog/posts/conversation-classes/</link>
+      <link>http://localhost:1313/blog/posts/conversation-classes/</link>
       <pubDate>Thu, 07 Oct 2021 18:06:30 -0600</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/posts/conversation-classes/</guid>
+      <guid>http://localhost:1313/blog/posts/conversation-classes/</guid>
       <description>What kind of conversationalist are you? Do you often start the conversation in a group setting? Are you a chatterbox who can talk endlessly about anything at all? Do you wait on the sidelines, occasionally cracking a joke or adding an interesting detail? The answer may be &amp;ldquo;it depends.&amp;rdquo; A lot of us have gotten to where we are by knowing when to listen and when to talk&amp;mdash;and getting fairly good at both.</description>
     </item>
     <item>
       <title>On Church</title>
-      <link>http://isaaclyman.com/blog/posts/on-church/</link>
+      <link>http://localhost:1313/blog/posts/on-church/</link>
       <pubDate>Wed, 25 Aug 2021 15:12:29 -0600</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/posts/on-church/</guid>
+      <guid>http://localhost:1313/blog/posts/on-church/</guid>
       <description>This is a struggle to write and will be a struggle to publish. It&amp;rsquo;s been sitting in my drafts for over a year now. I have gone back and forth on whether to publish it at all.&#xA;The first reason is that among members of the Church of Jesus Christ of Latter-Day Saints (colloquially, &amp;ldquo;Mormons&amp;rdquo;), there is a sizable faction that would label this &amp;ldquo;anti-Mormon literature.&amp;rdquo; Church members consider anti-Mormon literature a dangerous and insidious poison, such that by simply reading enough of it one&amp;rsquo;s faith can be dissolved and one&amp;rsquo;s eternal prospects can be dashed.</description>
     </item>
     <item>
       <title>4 things everyone should know about ADHD</title>
-      <link>http://isaaclyman.com/blog/posts/adhd/</link>
+      <link>http://localhost:1313/blog/posts/adhd/</link>
       <pubDate>Sun, 04 Jul 2021 08:42:04 -0600</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/posts/adhd/</guid>
+      <guid>http://localhost:1313/blog/posts/adhd/</guid>
       <description>I am not a doctor and this does not constitute medical advice. Consult your physician before making any decision that could affect your health.&#xA;I was diagnosed with ADHD this year. Frankly, the diagnosis blindsided me. On the advice of my therapist I had gone in to get tested for Autism Spectrum Disorder. We thought it might explain some of my difficulties in daily life and social interactions, and knowing about it would help me self-educate and thereby address it more effectively.</description>
     </item>
     <item>
       <title>The most incredible things I&#39;ve ever eaten</title>
-      <link>http://isaaclyman.com/blog/posts/mind-blowing-food/</link>
+      <link>http://localhost:1313/blog/posts/mind-blowing-food/</link>
       <pubDate>Sat, 20 Mar 2021 12:43:55 -0600</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/posts/mind-blowing-food/</guid>
+      <guid>http://localhost:1313/blog/posts/mind-blowing-food/</guid>
       <description>I would call this &amp;ldquo;incredible foods you need to eat before you die&amp;rdquo; but that template is overplayed and unnecessarily depressing, in my opinion. Yes, you should eat all of these if you have the chance. No, your life isn&amp;rsquo;t less-than if you don&amp;rsquo;t.&#xA;Feel free to drop me an email if I missed one of your favorites.&#xA;1 . Torta de chorizo con huevos Starting things off is a very simple Mexican sandwich made with paprika-flavored ground sausage, scrambled eggs, mayonnaise, and a football-shaped bread roll.</description>
     </item>
     <item>
       <title>Some things to know before you learn Mandarin Chinese</title>
-      <link>http://isaaclyman.com/blog/posts/things-to-know-chinese/</link>
+      <link>http://localhost:1313/blog/posts/things-to-know-chinese/</link>
       <pubDate>Tue, 14 Apr 2020 15:26:41 -0600</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/posts/things-to-know-chinese/</guid>
+      <guid>http://localhost:1313/blog/posts/things-to-know-chinese/</guid>
       <description>I&amp;rsquo;ve been learning Mandarin over the past two months and it&amp;rsquo;s been one surprise after another. I already speak English and Spanish, two languages that in retrospect are practically twins. Mandarin, on the other hand, comes not just from the opposite side of the globe but from the opposite side of the linguistic universe. As such, it&amp;rsquo;s a special sort of challenge for someone who speaks a Western language.&#xA;Partially to set you up for success in learning Mandarin, and partially to stoke your interest, I want to share some of the things I&amp;rsquo;ve learned about the language.</description>
     </item>
     <item>
       <title>Load testing with Jmeter: an introduction</title>
-      <link>http://isaaclyman.com/blog/posts/load-testing-jmeter/</link>
+      <link>http://localhost:1313/blog/posts/load-testing-jmeter/</link>
       <pubDate>Tue, 11 Feb 2020 08:22:35 -0700</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/posts/load-testing-jmeter/</guid>
+      <guid>http://localhost:1313/blog/posts/load-testing-jmeter/</guid>
       <description>Today we&amp;rsquo;re going to go from 0 to a configurable load testing script using JMeter, a free and popular load testing tool. We&amp;rsquo;ll be moving quickly, so hold on tight.&#xA;What is load testing? If your app or service is very successful, hundreds of people might be using it at once. Lots of things can go wrong when a server is under heavy usage like that. It&amp;rsquo;s not economical to recruit hundreds of actual people to test your app manually, so your best choice is to use software to simulate it.</description>
     </item>
     <item>
       <title>The 10 burger commandments</title>
-      <link>http://isaaclyman.com/blog/posts/10-burger-commandments/</link>
+      <link>http://localhost:1313/blog/posts/10-burger-commandments/</link>
       <pubDate>Fri, 29 Nov 2019 10:13:55 -0700</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/posts/10-burger-commandments/</guid>
+      <guid>http://localhost:1313/blog/posts/10-burger-commandments/</guid>
       <description>I&amp;rsquo;ve eaten a lot of bottom-tier burgers in my life and I&amp;rsquo;ve heartily enjoyed most of them. Neighborhood cookouts, college parties, church functions, fast food joints: throughout my life, bad burgers have been a mainstay of the public spaces I frequent. And if the suburban United States is home to you, you know exactly what I&amp;rsquo;m talking about. A soft grocery-store bun; an iPhone-thin patty of bland, meat-like grind, cooked well-done on a gas grill; a pasty, out-of-season tomato slice; a rag of wilted lettuce; a few strings of raw onion; and a splotch of lukewarm ketchup and mustard.</description>
     </item>
     <item>
       <title>I&#39;m writing a book for junior developers!</title>
-      <link>http://isaaclyman.com/blog/posts/im-writing-a-book/</link>
+      <link>http://localhost:1313/blog/posts/im-writing-a-book/</link>
       <pubDate>Sat, 09 Mar 2019 08:02:55 -0700</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/posts/im-writing-a-book/</guid>
+      <guid>http://localhost:1313/blog/posts/im-writing-a-book/</guid>
       <description>I&amp;rsquo;m writing a book: a complete guide to your first year as a developer. And I&amp;rsquo;m looking for co-authors.&#xA;It&amp;rsquo;s not a technical manual about Python or Kubernetes or Angular. And it&amp;rsquo;s not a deep-dive about refactoring or craftsmanship. It&amp;rsquo;s a guide to the other stuff: resume writing, getting that first job, ethics, career progression, what to do when you&amp;rsquo;re stuck.&#xA;The book will be pay-what-you-want (minimum price of free).</description>
     </item>
     <item>
       <title>What to learn first</title>
-      <link>http://isaaclyman.com/blog/posts/what-to-learn-first/</link>
+      <link>http://localhost:1313/blog/posts/what-to-learn-first/</link>
       <pubDate>Wed, 13 Feb 2019 09:01:52 -0700</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/posts/what-to-learn-first/</guid>
+      <guid>http://localhost:1313/blog/posts/what-to-learn-first/</guid>
       <description>This is a chapter from Your First Year in Code, a book of practical how-to and advice for new developers. If you&amp;rsquo;re considering a career in software, check it out. It&amp;rsquo;s a free download at https://leanpub.com/firstyearincode.&#xA;I occasionally get a message from a brand-new developer who&amp;rsquo;s overwhelmed by all the technologies and choices that exist in the world of software development. Where do you even start? Some of these devs have seen job advertisements like the following:</description>
     </item>
     <item>
       <title>This is how HTTPS works</title>
-      <link>http://isaaclyman.com/blog/posts/https/</link>
+      <link>http://localhost:1313/blog/posts/https/</link>
       <pubDate>Wed, 29 Aug 2018 07:00:45 -0600</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/posts/https/</guid>
+      <guid>http://localhost:1313/blog/posts/https/</guid>
       <description>Most people are familiar with the http:// that begins web site URLs. And some may have noticed that any website with a login form or sensitive information starts with https:// instead. The &amp;ldquo;S&amp;rdquo; stands for &amp;ldquo;Secure,&amp;rdquo; and the algorithms that make it work are crazy and wonderful. To understand why HTTPS is so magical, let&amp;rsquo;s use an analogy.&#xA;Suppose you gather three accomplished programmers: Janice, Natalia, and Mario. These three have never met or communicated in any way.</description>
     </item>
     <item>
       <title>A future without time zones</title>
-      <link>http://isaaclyman.com/blog/posts/time-zones/</link>
+      <link>http://localhost:1313/blog/posts/time-zones/</link>
       <pubDate>Thu, 23 Aug 2018 08:44:30 -0600</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/posts/time-zones/</guid>
+      <guid>http://localhost:1313/blog/posts/time-zones/</guid>
       <description>You&amp;rsquo;re a software engineer living in Idaho. You wake up with the sun at 2PM, Greenwich Mean Time, which everyone just calls &amp;ldquo;UN Time&amp;rdquo; since the United Nations adopted it as the universal time standard a few years ago. Soon nobody will call it anything. That&amp;rsquo;ll just be what time it is. Regardless of whether you&amp;rsquo;re in Idaho, DC, Ireland, Nepal or New Zealand, all the clocks will say 2:00 PM at the same time.</description>
     </item>
     <item>
       <title>Hiring in tech? Don&#39;t compete on price</title>
-      <link>http://isaaclyman.com/blog/posts/dont-compete-on-price/</link>
+      <link>http://localhost:1313/blog/posts/dont-compete-on-price/</link>
       <pubDate>Fri, 29 Jun 2018 09:11:11 -0600</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/posts/dont-compete-on-price/</guid>
+      <guid>http://localhost:1313/blog/posts/dont-compete-on-price/</guid>
       <description>There&amp;rsquo;s a strong business case&amp;mdash;a financially sound, common-sense case&amp;mdash;for acquiring tech talent such as developers, designers, product managers, and QA engineers using quality-of-life values instead of competing on compensation. Conversations about this topic have been taking place in online developer communities for years, but it seems these ideas haven&amp;rsquo;t penetrated the larger tech and business world. If you read on, you&amp;rsquo;ll find there&amp;rsquo;s a wealth of compelling evidence in favor of offering shorter workdays and remote options to your employees as a hiring and loyalty incentive, rather than trying to out-pay the market.</description>
     </item>
     <item>
       <title>Starting a business for your app</title>
-      <link>http://isaaclyman.com/blog/posts/starting-a-business/</link>
+      <link>http://localhost:1313/blog/posts/starting-a-business/</link>
       <pubDate>Mon, 21 May 2018 11:11:40 -0700</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/posts/starting-a-business/</guid>
+      <guid>http://localhost:1313/blog/posts/starting-a-business/</guid>
       <description>Disclaimer: I am not a lawyer and this is not legal advice. Before starting a business, you should consult your own lawyer.&#xA;We developers are uniquely positioned to start our own companies. I don&amp;rsquo;t mean to downplay the importance of managers, accountants, salespeople, and everyone else who makes a business come together, but devs bring something very rare to the table: the ability to call forth an entire high-value product from the abyss, using no raw materials whatsoever.</description>
     </item>
     <item>
       <title>Good Parents</title>
-      <link>http://isaaclyman.com/blog/posts/good-parents/</link>
+      <link>http://localhost:1313/blog/posts/good-parents/</link>
       <pubDate>Tue, 03 Apr 2018 16:47:13 -0600</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/posts/good-parents/</guid>
+      <guid>http://localhost:1313/blog/posts/good-parents/</guid>
       <description>Sometimes when people think I&amp;rsquo;ve done a good thing, they&amp;rsquo;ll say something like &amp;ldquo;you must have wonderful parents,&amp;rdquo; or &amp;ldquo;you&amp;rsquo;ve been raised well.&amp;rdquo; I&amp;rsquo;m against this kind of statement for two reasons.&#xA;1 It submits that the worth of my parents&amp;rsquo; sacrifices can be measured by the way I turned out. This is unfair to them. If I had turned out to be a bad person, it wouldn&amp;rsquo;t change the value of what they did; obviously I can&amp;rsquo;t invalidate their efforts by intentionally becoming a failure.</description>
     </item>
     <item>
       <title>On opportunity and outcomes</title>
-      <link>http://isaaclyman.com/blog/posts/on-opportunity-and-outcomes/</link>
+      <link>http://localhost:1313/blog/posts/on-opportunity-and-outcomes/</link>
       <pubDate>Tue, 03 Apr 2018 09:14:23 -0600</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/posts/on-opportunity-and-outcomes/</guid>
+      <guid>http://localhost:1313/blog/posts/on-opportunity-and-outcomes/</guid>
       <description>A slogan I hear often in Utah is&#xA;Equal opportunity, not equal outcomes.&#xA;The Beehive State sees itself as a paradise of the American dream. There&amp;rsquo;s very little regulation, a strong preference for businesses over people, and a limited interest in welfare programs outside of Salt Lake City. When people parrot this slogan, they think they&amp;rsquo;re saying &amp;ldquo;if you work hard, you can succeed; if you&amp;rsquo;re lazy, no one&amp;rsquo;s going to give you a free ride.</description>
     </item>
     <item>
       <title>So you&#39;re stuck</title>
-      <link>http://isaaclyman.com/blog/posts/stuck/</link>
+      <link>http://localhost:1313/blog/posts/stuck/</link>
       <pubDate>Tue, 20 Mar 2018 08:28:52 -0600</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/posts/stuck/</guid>
+      <guid>http://localhost:1313/blog/posts/stuck/</guid>
       <description>This is a chapter from Your First Year in Code, a book of practical how-to and advice for new developers. If you&amp;rsquo;re considering a career in software, check it out. It&amp;rsquo;s a free download at https://leanpub.com/firstyearincode.&#xA;Part of a programmer&amp;rsquo;s job is chasing down missing semicolons and complex caching issues, scrutinizing and head-scratching over every line of code in an application. This is one of the most frustrating things about code: we use it to offload complexity from our brains, but the inverse of this benefit is that any useful program will be too complex for us to wrap our minds around completely.</description>
     </item>
     <item>
       <title>Application environments</title>
-      <link>http://isaaclyman.com/blog/posts/application-environments/</link>
+      <link>http://localhost:1313/blog/posts/application-environments/</link>
       <pubDate>Tue, 13 Mar 2018 16:17:12 -0600</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/posts/application-environments/</guid>
+      <guid>http://localhost:1313/blog/posts/application-environments/</guid>
       <description>What are environments, anyway? Most software companies have their product deployed to a few different environments, which have names like local, dev, test, stage, and production. On my first day as a developer I was confused about why there were so many steps between a developer&amp;rsquo;s computer and the app that customers used. It seemed inefficient and bureaucratic. I&amp;rsquo;ve come to appreciate those environments, though, and these days I break out in an ice-cold sweat if someone talks about deploying straight to production.</description>
     </item>
     <item>
       <title>Autosaving with Vuex</title>
-      <link>http://isaaclyman.com/blog/posts/autosaving-with-vuex/</link>
+      <link>http://localhost:1313/blog/posts/autosaving-with-vuex/</link>
       <pubDate>Mon, 26 Feb 2018 16:57:30 -0700</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/posts/autosaving-with-vuex/</guid>
+      <guid>http://localhost:1313/blog/posts/autosaving-with-vuex/</guid>
       <description>Some background Back in the early 2000s, if you&amp;rsquo;d been working on a Microsoft Word document and shut down your computer without hitting Ctrl+S, you were in a bad spot. All your work was gone and there was no way to get it back. In future versions of Word they introduced an autorecovery tool, which if you were lucky would offer to get most of it back for you. That was nice, but the real game changer was Google Docs, with its always-vigilant Saved indicator, noticing whenever you changed the document and saving it to the cloud automatically every couple of seconds.</description>
     </item>
     <item>
       <title>About guns</title>
-      <link>http://isaaclyman.com/blog/posts/about-guns/</link>
+      <link>http://localhost:1313/blog/posts/about-guns/</link>
       <pubDate>Sat, 17 Feb 2018 16:32:58 -0700</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/posts/about-guns/</guid>
+      <guid>http://localhost:1313/blog/posts/about-guns/</guid>
       <description>I&amp;rsquo;m not a gun violence expert. Still, I care about guns for the same reason everyone does: people with guns are an imminent threat to the lives of people I care about. I didn&amp;rsquo;t know it at the time, but there&amp;rsquo;s only one reason I never got shot by a stranger in high school: luck. And I hope that everyone I know has the same luck. But if there&amp;rsquo;s anything the last decade in the U.</description>
     </item>
     <item>
       <title>Privilege by mail</title>
-      <link>http://isaaclyman.com/blog/posts/privilege-by-mail/</link>
+      <link>http://localhost:1313/blog/posts/privilege-by-mail/</link>
       <pubDate>Mon, 18 Dec 2017 09:56:50 -0700</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/posts/privilege-by-mail/</guid>
+      <guid>http://localhost:1313/blog/posts/privilege-by-mail/</guid>
       <description>Leer en español&#xA;I feel very privileged to lead the life I lead. I live in a good neighborhood. I can change jobs if I don&amp;rsquo;t like the one I have. I haven&amp;rsquo;t worried about how to pay for groceries since 2013. If I were to list all my blessings, I could go on forever&amp;mdash;but in short, I lead a far better life than I deserve and I&amp;rsquo;m anything but self-made.</description>
     </item>
     <item>
       <title>Privilegio por correo</title>
-      <link>http://isaaclyman.com/blog/posts/privilegio-por-correo/</link>
+      <link>http://localhost:1313/blog/posts/privilegio-por-correo/</link>
       <pubDate>Mon, 18 Dec 2017 09:56:50 -0700</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/posts/privilegio-por-correo/</guid>
+      <guid>http://localhost:1313/blog/posts/privilegio-por-correo/</guid>
       <description>Read in English&#xA;Me siento bien privilegiado por llevar la vida que llevo. Vivo en un vecindario bueno. Si no me gusta un trabajo, me lo puedo cambiar. No me he preocupado por poder comprar comida desde 2013. Si yo hiciera una lista de mis bendiciones, pudiera seguir para siempre. Pero, en resumen, llevo una vida mucho mejor de lo que merezco, y no lo logré solo. Me abruma mirar hacia atrás y darme cuenta de las oportunidades que tenía por razón del lugar donde nací y quienes son mis padres.</description>
     </item>
     <item>
       <title>The Beginner&#39;s Guide to Edward</title>
-      <link>http://isaaclyman.com/blog/posts/edward-beginners-guide/</link>
+      <link>http://localhost:1313/blog/posts/edward-beginners-guide/</link>
       <pubDate>Fri, 03 Nov 2017 13:49:58 -0600</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/posts/edward-beginners-guide/</guid>
+      <guid>http://localhost:1313/blog/posts/edward-beginners-guide/</guid>
       <description>If this is your first day with Edward, welcome! Edward is eager to help you write your first book. He specializes in novels, but is also a good choice for non-fiction, essays, poems and articles &amp;ndash; just keep in mind that some tools may not be as helpful.&#xA;This post will introduce you to Edward&amp;rsquo;s major features.&#xA;Edward has these main pages:&#xA;Plan A plan is a set of general notes that you&amp;rsquo;ll want to refer back to as you write your book, no matter which chapter you&amp;rsquo;re working on.</description>
     </item>
     <item>
       <title>Introducing Edward the App</title>
-      <link>http://isaaclyman.com/blog/posts/introducing-edward-write-better/</link>
+      <link>http://localhost:1313/blog/posts/introducing-edward-write-better/</link>
       <pubDate>Thu, 26 Oct 2017 13:08:38 -0600</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/posts/introducing-edward-write-better/</guid>
+      <guid>http://localhost:1313/blog/posts/introducing-edward-write-better/</guid>
       <description>Introduction Edward is a web app designed to help aspiring authors write their first novel.&#xA;It all started with a simple question: what if word processors are the worst possible apps for writing novels?&#xA;Take Microsoft Word, for example. It has a lot of formatting and layout tools. Bold, italic, multiple columns, 3D leopard-print text, it&amp;rsquo;s all included.&#xA;But you have to know what you want to write with those 3D words, and that&amp;rsquo;s your real problem anyway.</description>
     </item>
     <item>
       <title>Agile in real life</title>
-      <link>http://isaaclyman.com/blog/posts/agile-in-real-life/</link>
+      <link>http://localhost:1313/blog/posts/agile-in-real-life/</link>
       <pubDate>Tue, 26 Sep 2017 09:26:15 -0600</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/posts/agile-in-real-life/</guid>
+      <guid>http://localhost:1313/blog/posts/agile-in-real-life/</guid>
       <description>Most people follow the Waterfall development methodology when building a new habit:&#xA;Determine the end goal and deadline (e.g. I will lose 40 pounds by 2019). Write the goal down. Design the habits that will lead up to that goal (e.g. I will stop eating anything that tastes good, and I will exercise five times a week). Assemble the necessary motivations (e.g. accountability buddy, FitBit, bathroom scale, gym membership, workout routine, diet plan).</description>
     </item>
     <item>
       <title>Lyman&#39;s Law</title>
-      <link>http://isaaclyman.com/blog/posts/lymans-law/</link>
+      <link>http://localhost:1313/blog/posts/lymans-law/</link>
       <pubDate>Sat, 19 Aug 2017 06:54:57 -0600</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/posts/lymans-law/</guid>
+      <guid>http://localhost:1313/blog/posts/lymans-law/</guid>
       <description>A pretty-darned-optional part of being a software developer is getting a generally-applicable principle (a &amp;ldquo;law&amp;rdquo;) named after yourself. Most of the time, it seems, this happens unintentionally&amp;ndash;the law&amp;rsquo;s originator doesn&amp;rsquo;t necessarily foresee it becoming a pithy and oft-repeated internet adage. But if I could choose a principle to call &amp;ldquo;Lyman&amp;rsquo;s Law,&amp;rdquo; I think it might be this one:&#xA;Code accompanied by unit tests will have a higher standard of code quality than code written without unit tests, even if the unit tests themselves are not taken into account.</description>
     </item>
     <item>
       <title>The tech company scorecard</title>
-      <link>http://isaaclyman.com/blog/posts/the-tech-company-scorecard/</link>
+      <link>http://localhost:1313/blog/posts/the-tech-company-scorecard/</link>
       <pubDate>Mon, 14 Aug 2017 08:15:57 -0600</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/posts/the-tech-company-scorecard/</guid>
+      <guid>http://localhost:1313/blog/posts/the-tech-company-scorecard/</guid>
       <description>I’ve created this system for rating technology companies based on the way they conduct business, their place in the community and how they treat their developers. It’s a work in progress and I welcome your commentary.&#xA;There are 24 criteria under six categories. I would consider any company that scores positively on 12 or more of these criteria to be “a good place to work.” I have my doubts about whether any existing company could achieve a perfect score, so please don’t take it personally if your company comes up short in multiple areas.</description>
     </item>
     <item>
       <title>About/Contact</title>
-      <link>http://isaaclyman.com/blog/posts/introduction/</link>
+      <link>http://localhost:1313/blog/posts/introduction/</link>
       <pubDate>Sat, 12 Aug 2017 11:16:33 -0600</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/posts/introduction/</guid>
+      <guid>http://localhost:1313/blog/posts/introduction/</guid>
       <description>Hi. I write about software engineering, amateur philosophy, literature, and more.&#xA;Where&amp;rsquo;d the comments go? I rarely get comments here, so I&amp;rsquo;ve saved you a tracking pixel by removing them.&#xA;Contact info Drop me a line on Mastodon (@isaaclyman@toot.cafe) or LinkedIn (@isaaclymandotcom). You can also reach me by email: blog (at) isaaclyman (dot) com.</description>
     </item>
     <item>
       <title>Steps to better code</title>
-      <link>http://isaaclyman.com/blog/posts/steps-to-better-code/</link>
+      <link>http://localhost:1313/blog/posts/steps-to-better-code/</link>
       <pubDate>Fri, 28 Jul 2017 14:01:53 -0600</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/posts/steps-to-better-code/</guid>
+      <guid>http://localhost:1313/blog/posts/steps-to-better-code/</guid>
       <description>This is a chapter from Your First Year in Code, a book of practical how-to and advice for new developers. If you&amp;rsquo;re considering a career in software, check it out. It&amp;rsquo;s a free download at https://leanpub.com/firstyearincode.&#xA;When you start out coding, you usually spend a year or two completely oblivious to the rules of “good code.” You may hear words like “elegant” or “clean” tossed around, but you can’t define them.</description>
     </item>
     <item>
       <title>Choosing a job title</title>
-      <link>http://isaaclyman.com/blog/posts/choosing-a-job-title/</link>
+      <link>http://localhost:1313/blog/posts/choosing-a-job-title/</link>
       <pubDate>Wed, 19 Apr 2017 13:40:43 +0000</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/posts/choosing-a-job-title/</guid>
+      <guid>http://localhost:1313/blog/posts/choosing-a-job-title/</guid>
       <description>This is a chapter from Your First Year in Code, a book of practical how-to and advice for new developers. If you&amp;rsquo;re considering a career in software, check it out. It&amp;rsquo;s a free download at https://leanpub.com/firstyearincode.&#xA;Are you a coder, programmer, developer, engineer, architect or something else? My first job was an underage, under-the-table weekend gig at a pizza parlor. I’d show up at the local strip mall early Saturday morning, stash my bike, and clock in.</description>
     </item>
     <item>
       <title>8 CSS gotchas to start your morning off right</title>
-      <link>http://isaaclyman.com/blog/posts/8-css-gotchas/</link>
+      <link>http://localhost:1313/blog/posts/8-css-gotchas/</link>
       <pubDate>Sun, 05 Feb 2017 18:04:19 +0000</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/posts/8-css-gotchas/</guid>
+      <guid>http://localhost:1313/blog/posts/8-css-gotchas/</guid>
       <description>In every community there’s a coming-of-age process, a rite of passage that every newcomer must experience before he or she can really be considered an insider. For the CSS community, it goes something like this:&#xA;Hey, this page is almost perfect. Can you just center that icon vertically? I told the boss we can roll it live in five minutes.&#xA;For CSS junkies like me, lines like this provoke an involuntary nervous giggle, the kind of giggle you’ll hear if I tell you about the first time I got dumped or crashed my car.</description>
     </item>
     <item>
       <title>If doctors were like coders</title>
-      <link>http://isaaclyman.com/blog/posts/if-doctors-were-like-coders/</link>
+      <link>http://localhost:1313/blog/posts/if-doctors-were-like-coders/</link>
       <pubDate>Wed, 12 Oct 2016 23:38:27 +0000</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/posts/if-doctors-were-like-coders/</guid>
+      <guid>http://localhost:1313/blog/posts/if-doctors-were-like-coders/</guid>
       <description>Problem The patient has a broken leg.&#xA;Solution Ask the patient to reproduce the exact scenario that resulted in the broken leg. Watch closely to see if the leg breaks again. Check for consistency by repeating the scenario a few more times. Explain that this isn’t an intended use case for the leg, and besides, it only affects one person. Ask the patient if, all things considered, he really wants to prioritize his broken leg over your other work.</description>
     </item>
   </channel>

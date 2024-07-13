@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Edward on Minimum Viable Blog</title>
-    <link>http://isaaclyman.com/blog/tags/edward/</link>
+    <link>http://localhost:1313/blog/tags/edward/</link>
     <description>Recent content in Edward on Minimum Viable Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
@@ -10,19 +10,19 @@
     <webMaster>map[host:isaaclyman.com username:blog] (Isaac Lyman)</webMaster>
     <copyright>© 2017 by Isaac Lyman. Site powered by Hugo and GitHub Pages.</copyright>
     <lastBuildDate>Fri, 03 Nov 2017 13:49:58 -0600</lastBuildDate>
-    <atom:link href="http://isaaclyman.com/blog/tags/edward/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/blog/tags/edward/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>The Beginner&#39;s Guide to Edward</title>
-      <link>http://isaaclyman.com/blog/posts/edward-beginners-guide/</link>
+      <link>http://localhost:1313/blog/posts/edward-beginners-guide/</link>
       <pubDate>Fri, 03 Nov 2017 13:49:58 -0600</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/posts/edward-beginners-guide/</guid>
+      <guid>http://localhost:1313/blog/posts/edward-beginners-guide/</guid>
       <description>If this is your first day with Edward, welcome! Edward is eager to help you write your first book. He specializes in novels, but is also a good choice for non-fiction, essays, poems and articles &amp;ndash; just keep in mind that some tools may not be as helpful.&#xA;This post will introduce you to Edward&amp;rsquo;s major features.&#xA;Edward has these main pages:&#xA;Plan A plan is a set of general notes that you&amp;rsquo;ll want to refer back to as you write your book, no matter which chapter you&amp;rsquo;re working on.</description>
     </item>
     <item>
       <title>Introducing Edward the App</title>
-      <link>http://isaaclyman.com/blog/posts/introducing-edward-write-better/</link>
+      <link>http://localhost:1313/blog/posts/introducing-edward-write-better/</link>
       <pubDate>Thu, 26 Oct 2017 13:08:38 -0600</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/posts/introducing-edward-write-better/</guid>
+      <guid>http://localhost:1313/blog/posts/introducing-edward-write-better/</guid>
       <description>Introduction Edward is a web app designed to help aspiring authors write their first novel.&#xA;It all started with a simple question: what if word processors are the worst possible apps for writing novels?&#xA;Take Microsoft Word, for example. It has a lot of formatting and layout tools. Bold, italic, multiple columns, 3D leopard-print text, it&amp;rsquo;s all included.&#xA;But you have to know what you want to write with those 3D words, and that&amp;rsquo;s your real problem anyway.</description>
     </item>
   </channel>

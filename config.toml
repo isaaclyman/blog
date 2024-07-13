@@ -15,6 +15,7 @@ pygmentsStyle = "colorful"
 pygmentsCodeFences = "true"
 
 ignoreErrors = ["error-remote-getjson"]
+cleanDestinationDir = true
 
 [params]
   description = "Software construction, opinion, and self"

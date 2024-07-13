@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<meta name='description' content='From handshake to hash'>
+
+<meta property='og:title' content='This is how HTTPS works • Minimum Viable Blog'>
+<meta property='og:description' content='From handshake to hash'>
+<meta property='og:url' content='http://isaaclyman.com/blog/posts/https/'>
+<meta property='og:site_name' content='Minimum Viable Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts'><meta property='article:tag' content='beginners'><meta property='article:published_time' content='2018-08-29T07:00:45-06:00'/><meta property='article:modified_time' content='2018-08-29T07:00:45-06:00'/>
+
+<meta name="generator" content="Hugo 0.124.1">
+
+  <title>This is how HTTPS works • Minimum Viable Blog</title>
+  <link rel='canonical' href='http://isaaclyman.com/blog/posts/https/'>
+  
+  <link rel='icon' href='/blog/favicon.png'>
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Ubuntu:400,400i,700&subset=latin'>
+<link rel='stylesheet' href='/blog/css/main.d02777fd.css'>
+
+  <link rel='stylesheet' href='/blog/css/custom.css'>
+
+  <link rel='stylesheet' href='/blog/css/print.css'>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QX2T3WXRC9"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-QX2T3WXRC9', { 'anonymize_ip': false });
+}
+</script>
+
+
+</head>
+
+
+<body class='page'>
+  <div class='site'>
+    <header id='header' class='header-container'>
+      <div class='site-header'>
+        <nav id='navmenu' aria-label='Main Menu'>
+  <ul class='main-menu'>
+    
+    <li>
+      <a href='/blog/posts/' 
+        
+      >{ Archive }</a>
+    </li>
+    
+    <li>
+      <a href='/blog/posts/introduction' 
+        
+      >{ Contact }</a>
+    </li>
+    
+    <li>
+      <a href='/blog/index.xml' 
+        
+      >{ RSS }</a>
+    </li>
+    
+  </ul>
+</nav>
+
+        <div class='site-info'>
+          
+          <p class='site-title title'>Minimum Viable Blog</p>
+          
+          <p class='site-description'>Software construction, opinion, and self</p>
+        </div>
+      </div>
+    </header>
+
+
+<main class='main'>
+  <article lang='en' class='entry'>
+    <header class='entry-header'>
+  <div class='entry-info'>
+    <p class="entry-genre">
+      Technology
+    </p>
+    <h1 class='entry-title title'>This is how HTTPS works</h1>
+    
+    <p class='entry-subtitle'>
+      From handshake to hash
+    </p>
+    
+  </div>
+  
+<div class='meta'>
+  <span class='posted-on'>
+    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+  <line x1="16" y1="2" x2="16" y2="6"/>
+  <line x1="8" y1="2" x2="8" y2="6"/>
+  <line x1="3" y1="10" x2="21" y2="10"/>
+  
+</svg>
+
+    <span class='screen-reader'>Posted on </span>
+    <time class='date' datetime='2018-08-29T07:00:45-06:00'>Aug 29, 2018</time>
+  </span>
+  
+  
+  <span class='reading-time'>
+    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <circle cx="12" cy="12" r="10"/>
+  <polyline points="12 6 12 12 15 15"/> 
+  
+</svg>
+
+    7 mins read
+  </span>
+  
+</div>
+
+
+</header>
+
+    <div class='entry-content'>
+  <p>Most people are familiar with the <code>http://</code> that begins web site URLs. And some may have noticed that any website with a login form or sensitive information starts with <code>https://</code> instead. The &ldquo;S&rdquo; stands for &ldquo;Secure,&rdquo; and the algorithms that make it work are crazy and wonderful. To understand why HTTPS is so magical, let&rsquo;s use an analogy.</p>
+<p>Suppose you gather three accomplished programmers: Janice, Natalia, and Mario. These three have never met or communicated in any way. You place them in a room, seated in a row with Natalia in the middle.</p>
+<pre tabindex="0"><code>[ Janice | Natalia | Mario ]
+</code></pre><p>Then you give them a challenge. It goes like this:</p>
+<ol>
+<li>You&rsquo;ll give Janice a secret message she needs to send to Mario.</li>
+<li>If Natalia discovers the secret message, she&rsquo;ll get a prize, but Janice and Mario will get nothing.</li>
+<li>If Mario receives the secret message without Natalia finding out what it is, Mario and Janice will both get a prize, and Natalia will get nothing.</li>
+<li>They can only communicate by passing notes back and forth. Natalia can read any note she wants.</li>
+</ol>
+<p>It seems like an impossible puzzle. If Natalia is reading all the notes they pass back and forth, how can Janice and Mario communicate in secret? This is the same problem we face on the web. Your web browser is always communicating with remote servers, and they may have never communicated before. Any message sent over the Internet could potentially be intercepted and read by a third party, so how do we keep these messages secret, to avoid your passwords and bank account numbers being stolen? The answer is HTTPS.</p>
+<p>Take a minute to think about this puzzle. One idea you might have is that if Janice and Mario could exchange just a little bit of information (a number) in secret, they could use that to encode the rest of their messages. They could use a number-substition cipher (A = 1, B = 2, C = 3, and so on), then plug each number into an equation along with the secret number in order to make it harder to guess which numbers equal which letters. Natalia could know about the equation, but if she didn&rsquo;t know the secret number she wouldn&rsquo;t be able to reverse the equation and decode the message.</p>
+<p>This idea is called a <a href="https://en.wikipedia.org/wiki/Symmetric-key_algorithm">symmetric-key algorithm</a> and we use it all the time! It&rsquo;s a great way to encode and decode secret messages.</p>
+<p>All that&rsquo;s left is to figure out how to exchange the secret number. Janice knows some cool things about <a href="https://en.wikipedia.org/wiki/Prime_number">prime numbers</a> and has an idea of how to do this.</p>
+<p>First, Janice picks two prime numbers, called <em>p</em> and <em>g</em>. She sends them to Mario; it&rsquo;s okay if Natalia sees them.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">var</span> p <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">23</span>;
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">var</span> g <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">5</span>;
+</span></span></code></pre></div><p>Then Janice picks a secret number, any number she wants. Let&rsquo;s say that number is 3.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">var</span> janiceSecret <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">3</span>;
+</span></span></code></pre></div><p>She creates the following function:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">function</span> computeExchange(g, secret, p) {
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">var</span> exchange <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">Math</span>.pow(g, secret) <span style="color:#ff79c6">%</span> p;
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">return</span> exchange;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>So she&rsquo;ll raise <code>g</code> to the power of <code>secret</code>, divide by <code>p</code>, and return the remainder of that division.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>computeExchange(g, janiceSecret, p);
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">&gt;</span> <span style="color:#bd93f9">10</span>
+</span></span></code></pre></div><p>The answer is 10. Janice sends that number to Mario.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">var</span> numberFromJanice <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">10</span>;
+</span></span></code></pre></div><p>Then Mario chooses a secret number, say 8, and runs the same function.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">var</span> marioSecret <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">8</span>;
+</span></span><span style="display:flex;"><span>computeExchange(g, marioSecret, p);
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">&gt;</span> <span style="color:#bd93f9">16</span>
+</span></span></code></pre></div><p>Mario gets 16 and sends that number to Janice.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">var</span> numberFromMario <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">16</span>;
+</span></span></code></pre></div><p>There&rsquo;s just one more step. Janice runs the function again, but instead of using <code>g</code>, she uses the number Mario just sent her.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>computeExchange(numberFromMario, janiceSecret, p);
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">&gt;</span> <span style="color:#bd93f9">2</span>
+</span></span></code></pre></div><p>And Mario does the same: he runs the function again, but replaces <code>g</code> with the number Janice sent him.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>computeExchange(numberFromJanice, marioSecret, p);
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">&gt;</span> <span style="color:#bd93f9">2</span>
+</span></span></code></pre></div><p>Both of them got the number 2! Is this a coincidence? No, it&rsquo;s not. In fact, it&rsquo;s a mathematical certainty. Regardless of the prime numbers they choose as <code>p</code> and <code>g</code>, and no matter what they choose as their secret numbers, they&rsquo;ll end up with the same number&ndash;not necessarily 2. In this case, they&rsquo;ll use 2 as the secret number to encode and decode their message. This is called a <a href="https://en.wikipedia.org/wiki/Diffie%E2%80%93Hellman_key_exchange">Diffie-Hellman key exchange</a>. Let&rsquo;s pick some different numbers and do it again:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">function</span> computeExchange(g, secret, p) {
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">var</span> exchange <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">Math</span>.pow(g, secret) <span style="color:#ff79c6">%</span> p;
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">return</span> exchange;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">var</span> p <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">29</span>;
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">var</span> g <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">7</span>;
+</span></span><span style="display:flex;"><span>console.log(<span style="color:#f1fa8c">&#39;p and g are:&#39;</span>, p, g)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">var</span> janiceSecret <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">8</span>;
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">var</span> marioSecret <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">5</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">var</span> numberFromJanice <span style="color:#ff79c6">=</span> computeExchange(g, janiceSecret, p);
+</span></span><span style="display:flex;"><span>console.log(<span style="color:#f1fa8c">&#39;Janice sends Mario&#39;</span>, numberFromJanice);
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">var</span> numberFromMario <span style="color:#ff79c6">=</span> computeExchange(g, marioSecret, p);
+</span></span><span style="display:flex;"><span>console.log(<span style="color:#f1fa8c">&#39;Mario sends Janice&#39;</span>, numberFromMario);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">var</span> janiceKey <span style="color:#ff79c6">=</span> computeExchange(numberFromMario, janiceSecret, p);
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">var</span> marioKey <span style="color:#ff79c6">=</span> computeExchange(numberFromJanice, marioSecret, p);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>console.log(<span style="color:#f1fa8c">&#39;Their shared key should match:&#39;</span>, janiceKey, marioKey);
+</span></span></code></pre></div><p>(Note that this won&rsquo;t work for slightly larger values of <code>p</code>, <code>g</code>, <code>janiceSecret</code>, and <code>marioSecret</code>, because JavaScript doesn&rsquo;t handle big numbers very well. It&rsquo;ll work just fine in Python.)</p>
+<p>Both <code>janiceKey</code> and <code>marioKey</code> evaluate to 16. That number is very special. It was never exchanged in a note. Natalia has never seen it. Natalia can&rsquo;t reverse the equation because she doesn&rsquo;t know Janice or Mario&rsquo;s secret number. The best she can do is guess what their secret number might have been and try to figure out the encoding/decoding key based on that. For small numbers like the ones we used, she can probably do that. But if Janice&rsquo;s and Mario&rsquo;s secret keys are very large numbers, like 115 792 089 237 316 195 423 570 985 008 687 907 853 269 984 665 640 564 039 457 584 007 913 129 639 935 (a 256-bit number), then it becomes prohibitively difficult. And there&rsquo;s definitely no way Natalia will figure out their shared key and decode the message before the challenge ends, you run out of patience, or someone dies of old age.</p>
+<p>That&rsquo;s pretty much what your browser does every time you connect to a server that uses HTTPS. It&rsquo;s called a &ldquo;TLS handshake.&rdquo; Someone could be sniffing the Internet connection, reading every message your browser sends and receives from the very first moment, and still be unable to decode your messages once the shared key is determined. Pretty crazy, huh?</p>
+<p>There&rsquo;s one piece missing. Suppose Natalia is especially devious and comes up with a plan to cheat the challenge: as each message comes by, she&rsquo;ll replace it with a different message she&rsquo;s created in secret. This way, she can do separate TLS handshakes with Janice and Mario and neither of them will know. When a message comes from Mario, she&rsquo;ll decode it using the shared key she created with him (but which he <em>thinks</em> he created with Janice), then encode it using the shared key she created with Janice (who <em>thinks</em> she created it with Mario). This a type of <a href="https://en.wikipedia.org/wiki/Man-in-the-middle_attack">man-in-the-middle attack</a>.</p>
+<p>Luckily, there is a solution to this problem. Imagine that Janice and Mario are especially insightful and they predict that this might happen. They approach you before you start the challenge and point out that it could be cheated. To prevent that, they each sign their name on a note and ask you to post it where everyone can see. That way, they can sign the messages they send, and unless Natalia knows how to forge signatures very quickly, they&rsquo;ll know that the messages are authentic by comparing the signature on each note to the publicly visible one.</p>
+<p>Computers sign messages using <a href="https://en.wikipedia.org/wiki/Digital_signature">digital signatures</a>, which is more math magic I won&rsquo;t get into here. But in short, one party provides a public key, a message, and a signature, and another party uses math to prove that the message matches the public key. On the web, this public key is usually provided by a trusted source, known as a <a href="https://en.wikipedia.org/wiki/Certificate_authority">Certificate Authority</a>, and pre-installed on your operating system or web browser. That way, your computer can use information it already possesses to verify the authenticity of messages from uncertain sources and make sure it&rsquo;s setting up secure communication with the intended server.</p>
+<p>All of this to stop people from knowing which cat videos you&rsquo;re watching. And your credit card number, I guess.</p>
+
+</div>
+
+    
+<footer class='entry-footer'>
+  
+    
+      
+      
+
+<div class='categories'>
+  <span class='category-icon'>
+    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M22,19a2,2,0,0,1-2,2H4a2,2,0,0,1-2-2V5A2,2,0,0,1,4,3H9l2,3h9a2,2,0,0,1,2,2Z"/>
+  
+</svg>
+
+  </span>
+  <span class='screen-reader'>Categories: </span><a class='category' href='/blog/categories/development'>development</a></div>
+
+    
+  
+    
+      
+      
+
+<div class='tags'>
+  <span class='tag-icon'>
+    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M20.59,13.41l-7.17,7.17a2,2,0,0,1-2.83,0L2,12V2H12l8.59,8.59A2,2,0,0,1,20.59,13.41Z"/>
+  <line x1="7" y1="7" x2="7" y2="7"/>
+  
+</svg>
+
+  </span>
+  <span class='screen-reader'>Tags: </span><a class='tag' href='/blog/tags/beginners'>beginners</a></div>
+
+    
+  
+</footer>
+
+
+  </article>
+
+  
+    
+<nav class='entry-nav'>
+  <div class='entry-nav-links'><div class='prev-entry'>
+      <a href='http://isaaclyman.com/blog/posts/time-zones/'>
+        <span aria-hidden='true'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="20" y1="12" x2="4" y2="12"/>
+  <polyline points="10 18 4 12 10 6"/>
+  
+</svg>
+ Previous</span>
+        <span class='screen-reader'>Previous post: </span>A future without time zones</a>
+    </div><div class='next-entry'>
+      <a href='http://isaaclyman.com/blog/posts/what-to-learn-first/'>
+        <span class='screen-reader'>Next post: </span>What to learn first<span aria-hidden='true'>Next <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="4" y1="12" x2="20" y2="12"/>
+  <polyline points="14 6 20 12 14 18"/>
+  
+</svg>
+</span>
+      </a>
+    </div></div>
+</nav>
+
+
+  
+
+  
+    <div class='comments-container'>
+  
+</div>
+
+  
+</main>
+
+    <footer id='footer' class='footer-container'>
+      <div class='footer'>
+        <div class='social'>
+  <nav aria-label='Social Menu'>
+    <ul class='social-menu'></ul>
+  </nav>
+</div>
+
+        <div class='copyright'>
+          <p>© 2017 by Isaac Lyman. Site powered by Hugo and GitHub Pages.</p>
+
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <script src='/blog/js/main.af838dd5.js'></script>
+  
+    <script src='/blog/js/custom.js'></script>
+  
+
+</body>
+
+</html>
+

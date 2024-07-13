@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<meta name='description' content='A beginner&#39;s guide'>
+
+<meta property='og:title' content='Application environments • Minimum Viable Blog'>
+<meta property='og:description' content='A beginner&#39;s guide'>
+<meta property='og:url' content='http://isaaclyman.com/blog/posts/application-environments/'>
+<meta property='og:site_name' content='Minimum Viable Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts'><meta property='article:tag' content='software construction'><meta property='article:published_time' content='2018-03-13T16:17:12-06:00'/><meta property='article:modified_time' content='2018-03-13T16:17:12-06:00'/>
+
+<meta name="generator" content="Hugo 0.124.1">
+
+  <title>Application environments • Minimum Viable Blog</title>
+  <link rel='canonical' href='http://isaaclyman.com/blog/posts/application-environments/'>
+  
+  <link rel='icon' href='/blog/favicon.png'>
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Ubuntu:400,400i,700&subset=latin'>
+<link rel='stylesheet' href='/blog/css/main.d02777fd.css'>
+
+  <link rel='stylesheet' href='/blog/css/custom.css'>
+
+  <link rel='stylesheet' href='/blog/css/print.css'>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QX2T3WXRC9"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-QX2T3WXRC9', { 'anonymize_ip': false });
+}
+</script>
+
+
+</head>
+
+
+<body class='page'>
+  <div class='site'>
+    <header id='header' class='header-container'>
+      <div class='site-header'>
+        <nav id='navmenu' aria-label='Main Menu'>
+  <ul class='main-menu'>
+    
+    <li>
+      <a href='/blog/posts/' 
+        
+      >{ Archive }</a>
+    </li>
+    
+    <li>
+      <a href='/blog/posts/introduction' 
+        
+      >{ Contact }</a>
+    </li>
+    
+    <li>
+      <a href='/blog/index.xml' 
+        
+      >{ RSS }</a>
+    </li>
+    
+  </ul>
+</nav>
+
+        <div class='site-info'>
+          
+          <p class='site-title title'>Minimum Viable Blog</p>
+          
+          <p class='site-description'>Software construction, opinion, and self</p>
+        </div>
+      </div>
+    </header>
+
+
+<main class='main'>
+  <article lang='en' class='entry'>
+    <header class='entry-header'>
+  <div class='entry-info'>
+    <p class="entry-genre">
+      Technology
+    </p>
+    <h1 class='entry-title title'>Application environments</h1>
+    
+    <p class='entry-subtitle'>
+      A beginner&#39;s guide
+    </p>
+    
+  </div>
+  
+<div class='meta'>
+  <span class='posted-on'>
+    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+  <line x1="16" y1="2" x2="16" y2="6"/>
+  <line x1="8" y1="2" x2="8" y2="6"/>
+  <line x1="3" y1="10" x2="21" y2="10"/>
+  
+</svg>
+
+    <span class='screen-reader'>Posted on </span>
+    <time class='date' datetime='2018-03-13T16:17:12-06:00'>Mar 13, 2018</time>
+  </span>
+  
+  
+  <span class='reading-time'>
+    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <circle cx="12" cy="12" r="10"/>
+  <polyline points="12 6 12 12 15 15"/> 
+  
+</svg>
+
+    5 mins read
+  </span>
+  
+</div>
+
+
+</header>
+
+    <div class='entry-content'>
+  <h1 id="what-are-environments-anyway">What are environments, anyway?</h1>
+<p>Most software companies have their product deployed to a few different environments, which have names like <em>local</em>, <em>dev</em>, <em>test</em>, <em>stage</em>, and <em>production</em>. On my first day as a developer I was confused about why there were so many steps between a developer&rsquo;s computer and the app that customers used. It seemed inefficient and bureaucratic. I&rsquo;ve come to appreciate those environments, though, and these days I break out in an ice-cold sweat if someone talks about deploying straight to production. If these terms are unfamiliar to you, or if you also wonder why applications need so many environments, stick around: I&rsquo;ll be giving you the low-down on each of them.</p>
+<p>But first of all, what is an environment? It&rsquo;s a computer (real or virtual) which runs your software and which you control. If you use a Continous Integration tool (like VSTS, Travis, GitLab, or my personal favorite, TeamCity), you probably have access to a tidy list of environments alongside buttons that build the latest version of the project and deploy it to them. You may also have tasks you can run on each environment, like unit or end-to-end tests. Your own computer is an environment, referred to as <em>local</em>, and the server that provides customer access to your product is the <em>production</em> environment.</p>
+<p>Let&rsquo;s talk about the purpose of these environments and best practices for each. My assumptions are that you&rsquo;re using Git and developing an app that runs on the web, but the same principles apply to other version control systems and platforms as well.</p>
+<h1 id="a-tour-of-standard-environments">A tour of standard environments</h1>
+<h3 id="local">Local</h3>
+<p>This is where all development work happens. Nobody but you has access to this environment, and thank goodness, because if you&rsquo;re anything like me it&rsquo;s usually broken. You use the Local environment to iterate on your own tasks and see the results of your code changes.</p>
+<p>Best practices:</p>
+<ul>
+<li>Commit frequently.</li>
+<li>Merge from your team&rsquo;s master branch regularly.</li>
+<li>Run all of the project&rsquo;s automated tests before opening a pull request. You have tests, right?</li>
+<li>Avoid merging something back to master if you know it&rsquo;s broken. Sometimes it might make sense to do so, but be sure to notify your team ahead of time.</li>
+</ul>
+<h3 id="dev">Dev</h3>
+<p>This is the cutting edge of development work. All the latest code lives here. It&rsquo;s a good place for developers to test new features against mocked data and verify that their code works well with everyone else&rsquo;s.</p>
+<p>Best practices:</p>
+<ul>
+<li>Nobody outside of the product development and engineering department should have access to Dev. Not even QA.</li>
+<li>Dev should <em>never</em> be used for demoing the product. It&rsquo;s half-baked. It&rsquo;s totally acceptable for it to be broken at any moment; developers try not to break it, but that&rsquo;s only for the sake of their own productivity.</li>
+<li>Anyone who complains about Dev being broken should expect to be pelted with celery sticks and Cheez-Its.</li>
+<li>Dev should auto-deploy from the master branch every time there are new commits.</li>
+</ul>
+<h3 id="test">Test</h3>
+<p>This is the company&rsquo;s first chance to check for any problems that their developers and automated tests didn&rsquo;t catch.</p>
+<p>Best practices:</p>
+<ul>
+<li>Nothing should be deployed to Test unless it has passed all of the project&rsquo;s automated tests and a manual sanity check.</li>
+<li>The company should focus its QA resources on the Test environment. A few days before every planned release, people who are intimately familiar with the product should begin regression testing there. From the moment testing begins until the code goes to Stage, the only new code deployed to Test should be bugfixes.</li>
+<li>When bugs are found on Test, they should be promptly reported to a project manager. Anyone and everyone can complain when Test is broken, but Test should not be used for demoing the product.</li>
+</ul>
+<h3 id="stage">Stage</h3>
+<p>Stage is meant to simulate Production in as many ways as possible. It&rsquo;s one last line of defense against releasing bugs. Stage can also be used to demo new features and to train high-touch clients on upcoming changes to the application.</p>
+<p>Best practices:</p>
+<ul>
+<li>Deploying an app to Stage should indicate that it has been approved by the company&rsquo;s QA team and it is believed to be bug-free.</li>
+<li>If your app works a certain way on Stage, you should be 99.9% certain it will work the same way on Production. One possible way to enforce this is to run Stage and Production side-by-side on the same infrastructure and switch from one to the other when it&rsquo;s time to release. For example, Microsoft Azure lets you deploy apps to &ldquo;app slots&rdquo; and swap any two slots via the command line. Similarly, Heroku lets you move apps from one environment to another using the pipeline interface.</li>
+<li>If possible, the Stage database should be overwritten with data from Production on a regular basis.</li>
+<li>Bugs on Stage should be prioritized similarly to Production bugs.</li>
+<li>Most of the time, Stage and Production should have exactly the same code. If a release is scheduled for the next few days, Stage may be ahead of Production.</li>
+</ul>
+<h3 id="production-live">Production (live)</h3>
+<p>Production is the only customer-facing environment. It&rsquo;s the reason why every other environment exists. As a company grows, Production tends to become more and more sacred. If Production is broken, customers will leave and the company&rsquo;s reputation for reliability will suffer. Anything that happens in Production is liable to end up in the news, for better or for worse.</p>
+<p>Best practices:</p>
+<ul>
+<li>Don&rsquo;t break Production.</li>
+<li>You&rsquo;re gonna break Production. When you do, proactively notify your customers, be honest about the situation, fix it as soon as you can, and be prepared to make restitution to anyone who was affected.</li>
+<li>Don&rsquo;t skip QA on Production bugfixes. Sure, if the situation demands it, you can expedite or trim down your QA process. But do your best to make sure the fix doesn&rsquo;t break something elsewhere.</li>
+</ul>
+<h1 id="final-thoughts">Final thoughts</h1>
+<p>These are standard environments for a large company. If your product hasn&rsquo;t gone public yet and development speed is more urgent than application stability, you probably only need a couple of these. As your user base grows and becomes less fault-tolerant, you can add environments to match the structure of your organization and the resources at your disposal. Each environment is another place where the right pair of eyes could prevent a bug from reaching Production and affecting users.</p>
+
+</div>
+
+    
+<footer class='entry-footer'>
+  
+    
+      
+      
+
+<div class='categories'>
+  <span class='category-icon'>
+    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M22,19a2,2,0,0,1-2,2H4a2,2,0,0,1-2-2V5A2,2,0,0,1,4,3H9l2,3h9a2,2,0,0,1,2,2Z"/>
+  
+</svg>
+
+  </span>
+  <span class='screen-reader'>Categories: </span><a class='category' href='/blog/categories/development'>development</a>, <a class='category' href='/blog/categories/development'>development</a></div>
+
+    
+  
+    
+      
+      
+
+<div class='tags'>
+  <span class='tag-icon'>
+    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M20.59,13.41l-7.17,7.17a2,2,0,0,1-2.83,0L2,12V2H12l8.59,8.59A2,2,0,0,1,20.59,13.41Z"/>
+  <line x1="7" y1="7" x2="7" y2="7"/>
+  
+</svg>
+
+  </span>
+  <span class='screen-reader'>Tags: </span><a class='tag' href='/blog/tags/software-construction'>software construction</a></div>
+
+    
+  
+</footer>
+
+
+  </article>
+
+  
+    
+<nav class='entry-nav'>
+  <div class='entry-nav-links'><div class='prev-entry'>
+      <a href='http://isaaclyman.com/blog/posts/autosaving-with-vuex/'>
+        <span aria-hidden='true'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="20" y1="12" x2="4" y2="12"/>
+  <polyline points="10 18 4 12 10 6"/>
+  
+</svg>
+ Previous</span>
+        <span class='screen-reader'>Previous post: </span>Autosaving with Vuex</a>
+    </div><div class='next-entry'>
+      <a href='http://isaaclyman.com/blog/posts/stuck/'>
+        <span class='screen-reader'>Next post: </span>So you&#39;re stuck<span aria-hidden='true'>Next <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="4" y1="12" x2="20" y2="12"/>
+  <polyline points="14 6 20 12 14 18"/>
+  
+</svg>
+</span>
+      </a>
+    </div></div>
+</nav>
+
+
+  
+
+  
+    <div class='comments-container'>
+  
+</div>
+
+  
+</main>
+
+    <footer id='footer' class='footer-container'>
+      <div class='footer'>
+        <div class='social'>
+  <nav aria-label='Social Menu'>
+    <ul class='social-menu'></ul>
+  </nav>
+</div>
+
+        <div class='copyright'>
+          <p>© 2017 by Isaac Lyman. Site powered by Hugo and GitHub Pages.</p>
+
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <script src='/blog/js/main.af838dd5.js'></script>
+  
+    <script src='/blog/js/custom.js'></script>
+  
+
+</body>
+
+</html>
+

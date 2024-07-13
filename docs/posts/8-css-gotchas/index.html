@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<meta name='description' content='In every community there’s a coming-of-age process, a rite of passage that every newcomer must experience before he or she can really be considered an insider. For the CSS community, it goes something like this:
+Hey, this page is almost perfect. Can you just center that icon vertically? I told the boss we can roll it live in five minutes.
+For CSS junkies like me, lines like this provoke an involuntary nervous giggle, the kind of giggle you’ll hear if I tell you about the first time I got dumped or crashed my car.'>
+
+<meta property='og:title' content='8 CSS gotchas to start your morning off right • Minimum Viable Blog'>
+<meta property='og:description' content='In every community there’s a coming-of-age process, a rite of passage that every newcomer must experience before he or she can really be considered an insider. For the CSS community, it goes something like this:
+Hey, this page is almost perfect. Can you just center that icon vertically? I told the boss we can roll it live in five minutes.
+For CSS junkies like me, lines like this provoke an involuntary nervous giggle, the kind of giggle you’ll hear if I tell you about the first time I got dumped or crashed my car.'>
+<meta property='og:url' content='http://isaaclyman.com/blog/posts/8-css-gotchas/'>
+<meta property='og:site_name' content='Minimum Viable Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts'><meta property='article:tag' content='css'><meta property='article:tag' content='front end'><meta property='article:published_time' content='2017-02-05T18:04:19Z'/><meta property='article:modified_time' content='2017-02-05T18:04:19Z'/>
+
+<meta name="generator" content="Hugo 0.124.1">
+
+  <title>8 CSS gotchas to start your morning off right • Minimum Viable Blog</title>
+  <link rel='canonical' href='http://isaaclyman.com/blog/posts/8-css-gotchas/'>
+  
+  <link rel='icon' href='/blog/favicon.png'>
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Ubuntu:400,400i,700&subset=latin'>
+<link rel='stylesheet' href='/blog/css/main.d02777fd.css'>
+
+  <link rel='stylesheet' href='/blog/css/custom.css'>
+
+  <link rel='stylesheet' href='/blog/css/print.css'>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QX2T3WXRC9"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-QX2T3WXRC9', { 'anonymize_ip': false });
+}
+</script>
+
+
+</head>
+
+
+<body class='page'>
+  <div class='site'>
+    <header id='header' class='header-container'>
+      <div class='site-header'>
+        <nav id='navmenu' aria-label='Main Menu'>
+  <ul class='main-menu'>
+    
+    <li>
+      <a href='/blog/posts/' 
+        
+      >{ Archive }</a>
+    </li>
+    
+    <li>
+      <a href='/blog/posts/introduction' 
+        
+      >{ Contact }</a>
+    </li>
+    
+    <li>
+      <a href='/blog/index.xml' 
+        
+      >{ RSS }</a>
+    </li>
+    
+  </ul>
+</nav>
+
+        <div class='site-info'>
+          
+          <p class='site-title title'>Minimum Viable Blog</p>
+          
+          <p class='site-description'>Software construction, opinion, and self</p>
+        </div>
+      </div>
+    </header>
+
+
+<main class='main'>
+  <article lang='en' class='entry'>
+    <header class='entry-header'>
+  <div class='entry-info'>
+    <p class="entry-genre">
+      Satire
+    </p>
+    <h1 class='entry-title title'>8 CSS gotchas to start your morning off right</h1>
+    
+  </div>
+  
+<div class='meta'>
+  <span class='posted-on'>
+    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+  <line x1="16" y1="2" x2="16" y2="6"/>
+  <line x1="8" y1="2" x2="8" y2="6"/>
+  <line x1="3" y1="10" x2="21" y2="10"/>
+  
+</svg>
+
+    <span class='screen-reader'>Posted on </span>
+    <time class='date' datetime='2017-02-05T18:04:19Z'>Feb 5, 2017</time>
+  </span>
+  
+  
+  <span class='reading-time'>
+    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <circle cx="12" cy="12" r="10"/>
+  <polyline points="12 6 12 12 15 15"/> 
+  
+</svg>
+
+    11 mins read
+  </span>
+  
+</div>
+
+
+</header>
+
+    <div class='entry-content'>
+  <p>In every community there’s a coming-of-age process, a rite of passage that every newcomer must experience before he or she can really be considered an insider. For the CSS community, it goes something like this:</p>
+<blockquote>
+<p>Hey, this page is almost perfect. Can you just center that icon vertically? I told the boss we can roll it live in five minutes.</p>
+</blockquote>
+<p>For CSS junkies like me, lines like this provoke an involuntary nervous giggle, the kind of giggle you’ll hear if I tell you about the first time I got dumped or crashed my car. In the old days, before CSS Grid, before Flexbox, before “Computer Science” <a href="http://www.theallium.com/engineering/computer-programming-to-be-officially-renamed-googling-stackoverflow/">got renamed to “Googling Stack Overflow,</a>” vertical centering was just something that CSS didn’t really do. It was like asking for a root beer float at McDonald’s. If you were persistent enough, eventually you’d get something that looked like what you wanted — but it would just be a polite facade, the veneer over a barely-contained puddle of disappointment.</p>
+<figure><img src="/blog/img/broken-facade.jpeg"
+    alt="Broken-down house">
+</figure>
+
+<p>There were a few people who knew, offhand, five or six lines of clunky CSS that would do the trick. They were <em>janky</em> lines, too. It was commonly known that if you recited them backwards, they would summon the fiery apparition of Herbie the Love Bug. The people who had them memorized were totally obsessed; they were the Web 1.0 version of crossfitters and vegans. They weren’t much good for web development in general, but boy, did they ever know how to put something exactly between the top and bottom of a <code>&lt;div&gt;</code>. By the time their Stack Overflow answers on the subject became obsolete, they were able to cash out their reputation points and retire early. It was a charmed life. Their homes in Seattle (the primordial soup that Silicon Valley evolved from) have been preserved for posterity. You can go by any time and see how they lived. All their countertops are exactly waist-height. Their paintings hang with a margin of exactly 3.5 feet above and below. Their shower-heads are in the middle of the wall and spray upward and downward with equal pressure.</p>
+<p>Anyway, CSS has a long history of providing frustrating and nonsensical solutions to the simplest problems of front-end design, while thoughtfully implementing one-line features to solve problems nobody cares about (ever heard of <code>mix-blend-mode</code>? Didn’t think so.) After a few years in the trenches, I’ve met my fair share of both. Following is a list of some of the biggest surprises you’re liable to face as a CSS newbie, and some advice for navigating them.</p>
+<h3 id="1vertical-centering-is-hard">1 — Vertical centering is hard</h3>
+<p>Like I said, vertical centering used to be a messed-up gig. You had to relatively position something at 50% the height of its parent element, then give it a top margin of -50% of itself, and there was a special tax form you had to fill out, and sometimes the effect was only temporary and you had to cast it again a few days later.</p>
+<p>These days, things are much better. If you use flexbox, you can set <code>align-items</code> or <code>justify-content</code> on the parent element (depending on its flex alignment) and you’re on your way.</p>
+<p>You may be wondering what the <code>vertical-align</code> property does. The answer is “jack squat, except on an HTML table.” Never heard of HTML tables? That’s because they’re not cool. If you use them you can expect to be ostracized from the development community forever. Why? Because, much like the Spice Girls, they were way too popular in the 90’s and everyone got sick of them.</p>
+<p>Some people claim that <code>vertical-align</code> also works on inline elements. These people are liars. You should run away from them.</p>
+<h3 id="2100-of-what-exactly">2 — <code>100%</code> of what, exactly?</h3>
+<p>You may think that setting the <code>width</code> property to <code>100%</code> on any element will make it fill the entire horizontal space allotted to its parent element. But sometimes it won’t. Sorry, newbie.</p>
+<p>First of all, this doesn’t work for inline elements (like <code>&lt;span&gt;</code> and <code>&lt;i&gt;</code>) and certain table elements. Second of all, it doesn’t work if its parent’s width isn’t explicitly specified — so good luck making it work inside an element that’s all funky-dory with flexbox. And lastly, <code>margin</code> properties are applied on top of the calculated width, so if your element has a margin on the left side, it’s gonna jut out like Aunt Marge’s pregnant belly.</p>
+<figure><img src="/blog/img/hamster-roll.gif"
+    alt="Fat hamster doesn&#39;t fit"><figcaption>
+      <h4>Trying to fit your content into a dynamically-sized div</h4>
+    </figcaption>
+</figure>
+
+<p>Just save yourself some trouble and make really small websites. Hopefully you won’t have to make anything that’s 100% of anything else.</p>
+<h3 id="3if-you-float-you-will-eventually-sink">3 — If you <code>float</code>, you will eventually <code>sink</code></h3>
+<p>Here’s a trick question for you:</p>
+<blockquote>
+<p>I have three sibling <code>&lt;div&gt;</code>s. The first one is positioned with <code>float: left</code>. The middle one is positioned with <code>float: right</code>. The last one, like the first, is positioned with <code>float: left</code>. Is this last <code>&lt;div&gt;</code>:</p>
+</blockquote>
+<blockquote>
+<p>A) Aligned horizontally with the first two, but after both of them?</p>
+</blockquote>
+<blockquote>
+<p>B) On the row after the first two, on the far left side?</p>
+</blockquote>
+<blockquote>
+<p>C) On the row after the first two, on the far right side?</p>
+</blockquote>
+<p>Think about it for a minute. Pop open your IDE of choice and try it, if you want.</p>
+<p>The answer, as you may have discovered, is actually <em>D) None of the above</em>. The last div appears just to the right of the first one. That’s right, CSS will blatantly ignore the stated order of your HTML elements and just do whatever the heck it wants. Or, <a href="https://www.w3.org/TR/CSS2/visuren.html#floats">as the CSS spec states</a>:</p>
+<blockquote>
+<p>[…] CSS cares nothing for your whims. Nothing for your dreams. Nothing for your foolish allocations of space and time and meaning. To discover CSS is to discover a space void of progress, a universe with no moral absolutes where your carefully-planned DOM structure is just a scream into the endless void. […] Nowhere shall this sublimity of chaos be more evident than in the interaction of such properties as <code>float</code>, <code>clear</code>, and <code>display</code>. You may say their names. You may vainly wish to invoke their powers. But tread lightly, because <strong>you cannot control them</strong>.</p>
+</blockquote>
+<blockquote>
+<p>Thus let it be written.</p>
+</blockquote>
+<h3 id="4you-cant-learn-your-way-out-of-css-problems">4 — You can’t learn your way out of CSS problems</h3>
+<p>As every seasoned web developer knows, CSS isn’t implemented according to a specification of rigid, predictable rules. If it were, we would all just learn the rules and go on to lead happy and successful lives. Rather, it’s built with a clever <em>O(N log N)</em> complexity algorithm at the core which ensures that the only correlative to your success with any one problem is the amount of time you’ve already spent messing around. That is, there’s no hard-and-fast rule about when to use <code>white-space: nowrap</code>, but multiple studies have found that it’s far more likely to work during the fifth hour of debugging than the first. And don’t bother trying to outsmart it: CSS can tell when you’re just going through the motions (cycling through properties, trying different values for <code>display</code> and <code>position</code>). The clock doesn’t start until you’re really upset.</p>
+<p>In the course of your career you may meet people who self-identify as “CSS gurus.” They can solve styling problems instantly and they smile as they rattle off nonsensical reasons for why things work the way they do (they may use mystical phrases like “stacking context” and “clearfix” — these are minor deities of the CSS underworld). You should know that there’s nothing supernatural about these people. Through repeated exposure, meditation and self-flagellation they have learned to internalize enormous amounts of frustration in order to overclock CSS’s complexity algorithm. In other words, they experience the same amount of anger and hopelessness in five minutes of CSS debugging that you experience over several hours. In all likelihood, they aren’t smiling at you; their face is broken from the strain. Most of them will die of a triple heart attack by the time they’re 40.</p>
+<h3 id="5z-index-isnt-a-real-css-attribute">5 — <code>z-index</code> isn’t a real CSS attribute</h3>
+<p>The first few times you stumble upon the <code>z-index</code> attribute, you’ll brighten immediately. “Wow!” you’ll think. “This solves all my problems!” After three hours wondering why it doesn’t do anything, you’ll realize that you were wrong. <code>z-index</code> isn’t a functioning CSS property. It’s a cruel joke.</p>
+<figure><img src="/blog/img/chair-fallen.gif"
+    alt="Man falling off chair"><figcaption>
+      <h4>&#34;Maybe z-index will work this time.&#34;</h4>
+    </figcaption>
+</figure>
+
+<p>Some believe that the maintainers of CSS penciled <code>z-index</code> into the spec in order to explore its possible use for situations where multiple elements share the same space; unfortunately, it is said, they never got around to specifying its behavior and it was only left in the documentation so that people would stop asking for it.</p>
+<p>I find this legend to be a little too benevolent. During the centuries-long history of the curation of CSS, not a single maintainer has ever showed any interest in improving its usefulness (or in listening to its user base). It’s more plausible to me that <code>z-index</code> is a sort of never-ending rickroll, a prank call to every developer who tries their hand at styling web pages. I can see the maintainers now, mentoring young and talented developers, asking, “Have you tried <code>z-index</code>?” and then scurrying off red-faced to a bathroom stall to burst into fits of private laughter.</p>
+<h3 id="6css-doesnt-stand-for-cascading-style-sheets">6 — CSS doesn’t stand for “Cascading Style Sheets”</h3>
+<p>Yes, you read that right. The whole “Cascading Style Sheets” rumor started with a rather dull article on The Onion that got picked up by Hacker News, shared, republished and remixed until the original was forgotten. The phrase has become such a central part of the discourse on CSS that even professional developers and conference presenters — people who ought to know better — propagate it endlessly.</p>
+<p>CSS actually stands for “Ceaseless Screaming of the Sinner.” Contrary to popular belief, it predates the Internet by centuries. It was invented as a side project by Johann Wolfgang von Goethe while he was writing <em>Faust</em>, and he originally intended to integrate it into the play as the dramatic system of punishment administered to the condemned in his imagined hell. However, he ultimately abandoned the project when it proved to be so bleak and dismal that he feared it would ruin the entire play.</p>
+<p>When Tim Berners-Lee invented the Internet a few hundred years later, as we all know, he did so in a tremendous hurry because he wanted to finish it before Y2K and the Dot-Com crash could destroy it. Lacking the time to compose a decent page styling mechanism, he grabbed the closest document he had on hand — a carbon-copy set of Goethe’s collected papers — and used the ancient system it described. His only changes were to translate each selector and property from German into English. If you want to see this Version 1 in its original form, you can look at the stylesheets for <a href="http://craigslist.org">craigslist.org</a>, which, due to an unfortunate combination of now-forbidden styles on its <code>&lt;body&gt;</code> tag, is cursed to forever look like a geocities site hacked together in a single weekend by an ascetic monk.</p>
+<h3 id="7css-is-a-raging-battle-in-the-heart-of-the-abyss">7 — CSS is a raging battle in the heart of the abyss</h3>
+<p>If you become part of a modern web project more than six months old, you’ll probably discover several competing legions of CSS. There will be a couple of stylesheets from Bootstrap, a few from jQuery Mobile, a CSS reset, a bunch of Angular plugins, and hundreds of styles that are custom to the project. Do these styles work together harmoniously? Consult the following equation to calculate the probability:</p>
+<blockquote>
+<p>x = <em>nope</em>.</p>
+</blockquote>
+<p>Those stylesheets are fighting tooth and nail for every last scrap of DOM. Only through exceptionally specific selectors and heavy-handed application of the <code>!important</code> hammer are the project’s maintainers able to keep order. And every time they write a new <code>&lt;a&gt;</code> or <code>&lt;span&gt;</code>, they again have to duke it out for its <code>color</code>, <code>font-size</code>, <code>padding</code>, and <code>outline</code>.</p>
+<p>You may find that leaving this battle unattended can have serious consequences. Many times I’ve left work after finally getting a page to look right, only to return the next morning and find that an entire <code>&lt;aside&gt;</code> has disappeared (and only in Internet Explorer, famed for being the first piece of software to break every single Geneva Convention).</p>
+<p>The sooner you learn this the better: CSS is both violent and ruthless. It doesn’t wait for commands and doesn’t respond to oversight. The longer you allow it to fester, the more aberrations it will produce. You cannot overpower it, but you may be able to outlast it. And if you can’t, maybe it’s time to transition into something less demanding, like embedded systems or financial programming.</p>
+<h3 id="8css-has-a-secret-menu">8 — CSS has a secret menu</h3>
+<p>Have you ever ordered something from the secret menu at In-N-Out Burger? You probably discovered the reason that the menu is secret: it isn’t very good. For example, if you order fries “animal style”, they will literally shake the dandruff from a small rabbit onto your fries before you get them. True story.</p>
+<p>CSS also has a secret menu, and it’s also not very good. For example, you’re probably familiar with these:</p>
+<p><code>height: 17.4px;</code></p>
+<p><code>height: 2em;</code></p>
+<p><code>height: 50%;</code></p>
+<p>And you may even have heard of this:</p>
+<p><code>height: 25vh;</code></p>
+<p>Which, like <code>z-index</code>, is more of a cruel joke than a functioning attribute. But have you heard of these?</p>
+<p><code>height: unset;</code></p>
+<p><code>height: inherit;</code></p>
+<p><code>height: There standeth Minos horribly, and snarls; examines the transgressions at the entrance; judges, and sends according as he girds him. (The Inferno, Canto V);</code></p>
+<p>I think it’s pretty obvious what each of these does. Needless to say, if you find yourself in a position where you need to use them, you’ve done something wrong already. You should go back and refactor your career.</p>
+<hr>
+<p>With any luck, this list of CSS gotchas will save you some trouble the next time you have to style a web page. Good luck!</p>
+
+</div>
+
+    
+<footer class='entry-footer'>
+  
+    
+      
+      
+
+<div class='categories'>
+  <span class='category-icon'>
+    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M22,19a2,2,0,0,1-2,2H4a2,2,0,0,1-2-2V5A2,2,0,0,1,4,3H9l2,3h9a2,2,0,0,1,2,2Z"/>
+  
+</svg>
+
+  </span>
+  <span class='screen-reader'>Categories: </span><a class='category' href='/blog/categories/satire'>satire</a></div>
+
+    
+  
+    
+      
+      
+
+<div class='tags'>
+  <span class='tag-icon'>
+    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M20.59,13.41l-7.17,7.17a2,2,0,0,1-2.83,0L2,12V2H12l8.59,8.59A2,2,0,0,1,20.59,13.41Z"/>
+  <line x1="7" y1="7" x2="7" y2="7"/>
+  
+</svg>
+
+  </span>
+  <span class='screen-reader'>Tags: </span><a class='tag' href='/blog/tags/css'>css</a>, <a class='tag' href='/blog/tags/front-end'>front end</a></div>
+
+    
+  
+</footer>
+
+
+  </article>
+
+  
+    
+<nav class='entry-nav'>
+  <div class='entry-nav-links'><div class='prev-entry'>
+      <a href='http://isaaclyman.com/blog/posts/if-doctors-were-like-coders/'>
+        <span aria-hidden='true'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="20" y1="12" x2="4" y2="12"/>
+  <polyline points="10 18 4 12 10 6"/>
+  
+</svg>
+ Previous</span>
+        <span class='screen-reader'>Previous post: </span>If doctors were like coders</a>
+    </div><div class='next-entry'>
+      <a href='http://isaaclyman.com/blog/posts/choosing-a-job-title/'>
+        <span class='screen-reader'>Next post: </span>Choosing a job title<span aria-hidden='true'>Next <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="4" y1="12" x2="20" y2="12"/>
+  <polyline points="14 6 20 12 14 18"/>
+  
+</svg>
+</span>
+      </a>
+    </div></div>
+</nav>
+
+
+  
+
+  
+    <div class='comments-container'>
+  
+</div>
+
+  
+</main>
+
+    <footer id='footer' class='footer-container'>
+      <div class='footer'>
+        <div class='social'>
+  <nav aria-label='Social Menu'>
+    <ul class='social-menu'></ul>
+  </nav>
+</div>
+
+        <div class='copyright'>
+          <p>© 2017 by Isaac Lyman. Site powered by Hugo and GitHub Pages.</p>
+
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <script src='/blog/js/main.af838dd5.js'></script>
+  
+    <script src='/blog/js/custom.js'></script>
+  
+
+</body>
+
+</html>
+

@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<meta name='description' content='You can find all the code for this series on GitHub.
+Kryptos 3 is going to require more code than anything else so far. It&rsquo;s encoded using both the types of transposition we covered in Part 2, plus a twist.
+It&rsquo;s written out with a rectangle size of 86 and a block size of 7. The columns are stacked. A keyed columnar cipher is applied with the key &lsquo;KRYPTOS&rsquo;. (KRYPTOS is seven characters long, which is why our block size is 7.'>
+
+<meta property='og:title' content='Solving the CIA Kryptos code in TypeScript (Part 3) • Minimum Viable Blog'>
+<meta property='og:description' content='You can find all the code for this series on GitHub.
+Kryptos 3 is going to require more code than anything else so far. It&rsquo;s encoded using both the types of transposition we covered in Part 2, plus a twist.
+It&rsquo;s written out with a rectangle size of 86 and a block size of 7. The columns are stacked. A keyed columnar cipher is applied with the key &lsquo;KRYPTOS&rsquo;. (KRYPTOS is seven characters long, which is why our block size is 7.'>
+<meta property='og:url' content='http://isaaclyman.com/blog/posts/kryptos-3/'>
+<meta property='og:site_name' content='Minimum Viable Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts'><meta property='article:tag' content='kryptos'><meta property='article:published_time' content='2024-01-26T09:15:46-07:00'/><meta property='article:modified_time' content='2024-01-26T09:15:46-07:00'/>
+
+<meta name="generator" content="Hugo 0.124.1">
+
+  <title>Solving the CIA Kryptos code in TypeScript (Part 3) • Minimum Viable Blog</title>
+  <link rel='canonical' href='http://isaaclyman.com/blog/posts/kryptos-3/'>
+  
+  <link rel='icon' href='/blog/favicon.png'>
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Ubuntu:400,400i,700&subset=latin'>
+<link rel='stylesheet' href='/blog/css/main.d02777fd.css'>
+
+  <link rel='stylesheet' href='/blog/css/custom.css'>
+
+  <link rel='stylesheet' href='/blog/css/print.css'>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QX2T3WXRC9"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-QX2T3WXRC9', { 'anonymize_ip': false });
+}
+</script>
+
+
+</head>
+
+
+<body class='page'>
+  <div class='site'>
+    <header id='header' class='header-container'>
+      <div class='site-header'>
+        <nav id='navmenu' aria-label='Main Menu'>
+  <ul class='main-menu'>
+    
+    <li>
+      <a href='/blog/posts/' 
+        
+      >{ Archive }</a>
+    </li>
+    
+    <li>
+      <a href='/blog/posts/introduction' 
+        
+      >{ Contact }</a>
+    </li>
+    
+    <li>
+      <a href='/blog/index.xml' 
+        
+      >{ RSS }</a>
+    </li>
+    
+  </ul>
+</nav>
+
+        <div class='site-info'>
+          
+          <p class='site-title title'>Minimum Viable Blog</p>
+          
+          <p class='site-description'>Software construction, opinion, and self</p>
+        </div>
+      </div>
+    </header>
+
+
+<main class='main'>
+  <article lang='en' class='entry'>
+    <header class='entry-header'>
+  <div class='entry-info'>
+    <p class="entry-genre">
+      Technology
+    </p>
+    <h1 class='entry-title title'>Solving the CIA Kryptos code in TypeScript (Part 3)</h1>
+    
+  </div>
+  
+<div class='meta'>
+  <span class='posted-on'>
+    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+  <line x1="16" y1="2" x2="16" y2="6"/>
+  <line x1="8" y1="2" x2="8" y2="6"/>
+  <line x1="3" y1="10" x2="21" y2="10"/>
+  
+</svg>
+
+    <span class='screen-reader'>Posted on </span>
+    <time class='date' datetime='2024-01-26T09:15:46-07:00'>Jan 26, 2024</time>
+  </span>
+  
+  
+  <span class='reading-time'>
+    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <circle cx="12" cy="12" r="10"/>
+  <polyline points="12 6 12 12 15 15"/> 
+  
+</svg>
+
+    14 mins read
+  </span>
+  
+</div>
+
+
+</header>
+
+    <div class='entry-content'>
+  <p><em>You can find all the code for this series <a href="https://github.com/isaaclyman/kryptos-typescript">on GitHub</a>.</em></p>
+<p>Kryptos 3 is going to require more code than anything else so far. It&rsquo;s encoded using both the types of transposition we covered in Part 2, plus a twist.</p>
+<ol>
+<li>It&rsquo;s written out with a rectangle size of 86 and a block size of 7.</li>
+<li>The columns are stacked.</li>
+<li>A keyed columnar cipher is applied with the key &lsquo;KRYPTOS&rsquo;. (KRYPTOS is seven characters long, which is why our block size is 7.)</li>
+<li>The route transposition is completed: each line is read top to bottom, from the leftmost characters to the rightmost characters.</li>
+<li>The encrypted message is reversed. (That&rsquo;s the twist.)</li>
+</ol>
+<p>We&rsquo;ll need to combine both pieces of transposition code to make this happen.</p>
+<h2 id="updating-the-route-transposition-code">Updating the route transposition code</h2>
+<p>You&rsquo;ll notice the columnar transposition is (rudely) inserted right in the middle of the route transposition! We need to break the route transposition into steps: one step to arrange the message in stacked columns, then another step to read it out (and vice versa).</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">function</span> chunk&lt;<span style="color:#ff79c6">T</span>&gt;(array: <span style="color:#8be9fd">T</span>[], chunkSize: <span style="color:#8be9fd">number</span>)<span style="color:#ff79c6">:</span> T[][] {
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> result: <span style="color:#8be9fd">T</span>[][] <span style="color:#ff79c6">=</span> [];
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">for</span> (<span style="color:#8be9fd;font-style:italic">let</span> i <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>; i <span style="color:#ff79c6">&lt;</span> array.length; i <span style="color:#ff79c6">+=</span> chunkSize) {
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">const</span> chunk <span style="color:#ff79c6">=</span> array.slice(i, i <span style="color:#ff79c6">+</span> chunkSize);
+</span></span><span style="display:flex;"><span>      result.push(chunk);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">return</span> result;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">function</span> routeEncryptArrange(message: <span style="color:#8be9fd">string</span>, rectangleSize: <span style="color:#8be9fd">number</span>, blockSize: <span style="color:#8be9fd">number</span>)<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">string</span>[] {
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> messageChars <span style="color:#ff79c6">=</span> message.split(<span style="color:#f1fa8c">&#39;&#39;</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> messageLines <span style="color:#ff79c6">=</span> chunk(messageChars, rectangleSize);
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> chunkedLines <span style="color:#ff79c6">=</span> messageLines.map(line <span style="color:#ff79c6">=&gt;</span> chunk(line, blockSize));
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> allChunks <span style="color:#ff79c6">=</span> chunkedLines.flat();
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> finalChunk <span style="color:#ff79c6">=</span> allChunks.pop();
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> mainChunkSizes <span style="color:#ff79c6">=</span> allChunks.map(chunk <span style="color:#ff79c6">=&gt;</span> chunk.length);
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> oddChunkSize <span style="color:#ff79c6">=</span> mainChunkSizes.find(chunkSize <span style="color:#ff79c6">=&gt;</span> chunkSize <span style="color:#ff79c6">!==</span> blockSize);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">if</span> (
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">typeof</span> oddChunkSize <span style="color:#ff79c6">===</span> <span style="color:#f1fa8c">&#39;number&#39;</span> <span style="color:#ff79c6">&amp;&amp;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">Array</span>.isArray(finalChunk) <span style="color:#ff79c6">&amp;&amp;</span>
+</span></span><span style="display:flex;"><span>    finalChunk.length <span style="color:#ff79c6">!==</span> oddChunkSize <span style="color:#ff79c6">&amp;&amp;</span>
+</span></span><span style="display:flex;"><span>    finalChunk.length <span style="color:#ff79c6">!==</span> blockSize
+</span></span><span style="display:flex;"><span>  ) {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> (finalChunk.length <span style="color:#ff79c6">&lt;</span> oddChunkSize) {
+</span></span><span style="display:flex;"><span>      finalChunk.push(...<span style="color:#f1fa8c">&#39;Q&#39;</span>.repeat(oddChunkSize <span style="color:#ff79c6">-</span> finalChunk.length));
+</span></span><span style="display:flex;"><span>    } <span style="color:#ff79c6">else</span> {
+</span></span><span style="display:flex;"><span>      finalChunk.push(...<span style="color:#f1fa8c">&#39;Q&#39;</span>.repeat(blockSize <span style="color:#ff79c6">-</span> finalChunk.length));
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> stackedLines: <span style="color:#8be9fd">string</span>[][] <span style="color:#ff79c6">=</span> [];
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> blocksPerLine <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">Math</span>.ceil(rectangleSize <span style="color:#ff79c6">/</span> blockSize);
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">for</span> (<span style="color:#8be9fd;font-style:italic">let</span> blockIx <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>; blockIx <span style="color:#ff79c6">&lt;</span> blocksPerLine; blockIx<span style="color:#ff79c6">++</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">const</span> numberOfRows <span style="color:#ff79c6">=</span> chunkedLines.length;
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">for</span> (<span style="color:#8be9fd;font-style:italic">let</span> rowIx <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>; rowIx <span style="color:#ff79c6">&lt;</span> numberOfRows; rowIx<span style="color:#ff79c6">++</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">const</span> encryptedRowIx <span style="color:#ff79c6">=</span> rowIx <span style="color:#ff79c6">+</span> (blockIx <span style="color:#ff79c6">*</span> numberOfRows);
+</span></span><span style="display:flex;"><span>      stackedLines[encryptedRowIx] <span style="color:#ff79c6">=</span> chunkedLines[rowIx][blockIx];
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">return</span> stackedLines.filter(line <span style="color:#ff79c6">=&gt;</span> <span style="color:#8be9fd;font-style:italic">Array</span>.isArray(line)).map(line <span style="color:#ff79c6">=&gt;</span> line.join(<span style="color:#f1fa8c">&#39;&#39;</span>));
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">function</span> routeEncryptReadOut(stackedLines: <span style="color:#8be9fd">string</span>[], blockSize: <span style="color:#8be9fd">number</span>)<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">string</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> encryptedChars: <span style="color:#8be9fd">string</span>[] <span style="color:#ff79c6">=</span> [];
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">for</span> (<span style="color:#8be9fd;font-style:italic">let</span> charIx <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>; charIx <span style="color:#ff79c6">&lt;</span> blockSize; charIx<span style="color:#ff79c6">++</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">for</span> (<span style="color:#8be9fd;font-style:italic">let</span> rowIx <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>; rowIx <span style="color:#ff79c6">&lt;</span> stackedLines.length; rowIx<span style="color:#ff79c6">++</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">if</span> (<span style="color:#ff79c6">typeof</span> stackedLines[rowIx] <span style="color:#ff79c6">!==</span> <span style="color:#f1fa8c">&#39;string&#39;</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">continue</span>;
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">const</span> char <span style="color:#ff79c6">=</span> stackedLines[rowIx][charIx];
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">if</span> (<span style="color:#ff79c6">typeof</span> char <span style="color:#ff79c6">===</span> <span style="color:#f1fa8c">&#39;string&#39;</span>) {
+</span></span><span style="display:flex;"><span>        encryptedChars.push(char);
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">return</span> encryptedChars.join(<span style="color:#f1fa8c">&#39;&#39;</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">function</span> routeDecryptReadIn(encrypted: <span style="color:#8be9fd">string</span>, rectangleSize: <span style="color:#8be9fd">number</span>, blockSize: <span style="color:#8be9fd">number</span>)<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">string</span>[] {
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> numberOfRows <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">Math</span>.ceil(encrypted.length <span style="color:#ff79c6">/</span> rectangleSize);
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> chunksPerRow <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">Math</span>.ceil(rectangleSize <span style="color:#ff79c6">/</span> blockSize);
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> lastRowLength <span style="color:#ff79c6">=</span> encrypted.length <span style="color:#ff79c6">%</span> rectangleSize;
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> lastRowChunks <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">Math</span>.ceil(lastRowLength <span style="color:#ff79c6">/</span> blockSize);
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> totalChunks <span style="color:#ff79c6">=</span> (chunksPerRow <span style="color:#ff79c6">*</span> (numberOfRows <span style="color:#ff79c6">-</span> <span style="color:#bd93f9">1</span>)) <span style="color:#ff79c6">+</span> lastRowChunks;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> lastChunkSize <span style="color:#ff79c6">=</span> lastRowLength <span style="color:#ff79c6">%</span> blockSize;
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> oddChunkSize <span style="color:#ff79c6">=</span> rectangleSize <span style="color:#ff79c6">%</span> blockSize;
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">let</span> numberOfShortVLines: <span style="color:#8be9fd">number</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">if</span> (oddChunkSize <span style="color:#ff79c6">!==</span> blockSize) {
+</span></span><span style="display:flex;"><span>    numberOfShortVLines <span style="color:#ff79c6">=</span> blockSize <span style="color:#ff79c6">-</span> oddChunkSize;
+</span></span><span style="display:flex;"><span>  } <span style="color:#ff79c6">else</span> <span style="color:#ff79c6">if</span> (lastChunkSize <span style="color:#ff79c6">!==</span> blockSize) {
+</span></span><span style="display:flex;"><span>    numberOfShortVLines <span style="color:#ff79c6">=</span> blockSize <span style="color:#ff79c6">-</span> lastChunkSize;
+</span></span><span style="display:flex;"><span>  } <span style="color:#ff79c6">else</span> {
+</span></span><span style="display:flex;"><span>    numberOfShortVLines <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> numberOfLongVLines <span style="color:#ff79c6">=</span> blockSize <span style="color:#ff79c6">-</span> numberOfShortVLines;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> longVLineLength <span style="color:#ff79c6">=</span> totalChunks;
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> shortVLineLength <span style="color:#ff79c6">=</span> totalChunks <span style="color:#ff79c6">-</span>
+</span></span><span style="display:flex;"><span>    ((oddChunkSize <span style="color:#ff79c6">!==</span> blockSize <span style="color:#ff79c6">?</span> numberOfRows <span style="color:#ff79c6">-</span> 1 : <span style="color:#8be9fd">0</span>) <span style="color:#ff79c6">+</span>
+</span></span><span style="display:flex;"><span>     (lastChunkSize <span style="color:#ff79c6">!==</span> blockSize <span style="color:#ff79c6">?</span> 1 : <span style="color:#8be9fd">0</span>));
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> stackedLines: <span style="color:#8be9fd">string</span>[][] <span style="color:#ff79c6">=</span> [];
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">let</span> encryptedIx <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">for</span> (<span style="color:#8be9fd;font-style:italic">let</span> vLineIx <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>; vLineIx <span style="color:#ff79c6">&lt;</span> blockSize; vLineIx<span style="color:#ff79c6">++</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">const</span> currentVLineLength <span style="color:#ff79c6">=</span> vLineIx <span style="color:#ff79c6">&lt;</span> numberOfLongVLines <span style="color:#ff79c6">?</span>
+</span></span><span style="display:flex;"><span>      longVLineLength :
+</span></span><span style="display:flex;"><span>      <span style="color:#8be9fd">shortVLineLength</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">for</span> (<span style="color:#8be9fd;font-style:italic">let</span> rowIx <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>; rowIx <span style="color:#ff79c6">&lt;</span> currentVLineLength; rowIx<span style="color:#ff79c6">++</span>) {
+</span></span><span style="display:flex;"><span>      stackedLines[rowIx] <span style="color:#ff79c6">??=</span> [];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      stackedLines[rowIx][vLineIx] <span style="color:#ff79c6">=</span> encrypted[encryptedIx<span style="color:#ff79c6">++</span>];
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">return</span> stackedLines.filter(line <span style="color:#ff79c6">=&gt;</span> <span style="color:#8be9fd;font-style:italic">Array</span>.isArray(line)).map(line <span style="color:#ff79c6">=&gt;</span> line.join(<span style="color:#f1fa8c">&#39;&#39;</span>));
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">function</span> routeDecryptUnarrange(stackedLines: <span style="color:#8be9fd">string</span>[], rectangleSize: <span style="color:#8be9fd">number</span>, blockSize: <span style="color:#8be9fd">number</span>)<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">string</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> messageLength <span style="color:#ff79c6">=</span> stackedLines.join(<span style="color:#f1fa8c">&#39;&#39;</span>).length;
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> numberOfRows <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">Math</span>.ceil(messageLength <span style="color:#ff79c6">/</span> rectangleSize);
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> blocksPerRow <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">Math</span>.ceil(rectangleSize <span style="color:#ff79c6">/</span> blockSize);
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> lastRowLength <span style="color:#ff79c6">=</span> messageLength <span style="color:#ff79c6">%</span> rectangleSize;
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> lastRowBlocks <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">Math</span>.ceil(lastRowLength <span style="color:#ff79c6">/</span> blockSize);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> messageLines: <span style="color:#8be9fd">string</span>[][] <span style="color:#ff79c6">=</span> [];
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">let</span> stackedLineIx <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">for</span> (<span style="color:#8be9fd;font-style:italic">let</span> columnIx <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>; columnIx <span style="color:#ff79c6">&lt;</span> blocksPerRow; columnIx<span style="color:#ff79c6">++</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">const</span> rowsInBlock <span style="color:#ff79c6">=</span> columnIx <span style="color:#ff79c6">&lt;</span> lastRowBlocks <span style="color:#ff79c6">?</span> numberOfRows : <span style="color:#8be9fd">numberOfRows</span> <span style="color:#ff79c6">-</span> <span style="color:#bd93f9">1</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">for</span> (<span style="color:#8be9fd;font-style:italic">let</span> rowIx <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>; rowIx <span style="color:#ff79c6">&lt;</span> rowsInBlock; rowIx<span style="color:#ff79c6">++</span>) {
+</span></span><span style="display:flex;"><span>      messageLines[rowIx] <span style="color:#ff79c6">??=</span> [];
+</span></span><span style="display:flex;"><span>      messageLines[rowIx].push(stackedLines[stackedLineIx<span style="color:#ff79c6">++</span>]);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">return</span> messageLines.flat().join(<span style="color:#f1fa8c">&#39;&#39;</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">const</span> rectangleSize <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">15</span>;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">const</span> blockSize <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">4</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">const</span> arrangedToEncrypt <span style="color:#ff79c6">=</span> routeEncryptArrange(
+</span></span><span style="display:flex;"><span>  <span style="color:#f1fa8c">&#39;THEFITNESSGRAMPACERTESTISAMULTISTAGEAEROBICCAPACITYTEST&#39;</span>,
+</span></span><span style="display:flex;"><span>  rectangleSize,
+</span></span><span style="display:flex;"><span>  blockSize
+</span></span><span style="display:flex;"><span>);
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">const</span> encrypted <span style="color:#ff79c6">=</span> routeEncryptReadOut(
+</span></span><span style="display:flex;"><span>  arrangedToEncrypt,
+</span></span><span style="display:flex;"><span>  blockSize
+</span></span><span style="display:flex;"><span>);
+</span></span><span style="display:flex;"><span>console.log(encrypted);
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">// &gt; TAIPITGTSIRSAUCHCSATEEYSSOTMLCEETCNSATGABQPTAFRAIETEERMI
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">const</span> arrangedToDecrypt <span style="color:#ff79c6">=</span> routeDecryptReadIn(
+</span></span><span style="display:flex;"><span>  encrypted,
+</span></span><span style="display:flex;"><span>  rectangleSize,
+</span></span><span style="display:flex;"><span>  blockSize
+</span></span><span style="display:flex;"><span>);
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">const</span> decrypted <span style="color:#ff79c6">=</span> routeDecryptUnarrange(
+</span></span><span style="display:flex;"><span>  arrangedToDecrypt,
+</span></span><span style="display:flex;"><span>  rectangleSize,
+</span></span><span style="display:flex;"><span>  blockSize
+</span></span><span style="display:flex;"><span>);
+</span></span><span style="display:flex;"><span>console.log(decrypted);
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">// &gt; THEFITNESSGRAMPACERTESTISAMULTISTAGEAEROBICCAPACITYTESTQ
+</span></span></span></code></pre></div><h2 id="updating-the-columnar-transposition-code">Updating the columnar transposition code</h2>
+<p>Now we need to modify the columnar transposition code so it can take an array of prearranged strings instead of a joined, unspaced string. You may have noticed how the columnar transposition and the route transposition have the same final step: reading out lines of characters from top to bottom, left to right. We can omit that step from the columnar transposition, since the second step of the route transposition will handle it.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">function</span> chunk&lt;<span style="color:#ff79c6">T</span>&gt;(array: <span style="color:#8be9fd">T</span>[], chunkSize: <span style="color:#8be9fd">number</span>)<span style="color:#ff79c6">:</span> T[][] {
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> result: <span style="color:#8be9fd">T</span>[][] <span style="color:#ff79c6">=</span> [];
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">for</span> (<span style="color:#8be9fd;font-style:italic">let</span> i <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>; i <span style="color:#ff79c6">&lt;</span> array.length; i <span style="color:#ff79c6">+=</span> chunkSize) {
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">const</span> chunk <span style="color:#ff79c6">=</span> array.slice(i, i <span style="color:#ff79c6">+</span> chunkSize);
+</span></span><span style="display:flex;"><span>      result.push(chunk);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">return</span> result;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">function</span> columnarEncrypt(stackedLines: <span style="color:#8be9fd">string</span>[], key: <span style="color:#8be9fd">string</span>)<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">string</span>[] {
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> keyChars <span style="color:#ff79c6">=</span> key.split(<span style="color:#f1fa8c">&#39;&#39;</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> sortedKey <span style="color:#ff79c6">=</span> keyChars.toSorted();
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> positionNumbers <span style="color:#ff79c6">=</span> keyChars.map(char <span style="color:#ff79c6">=&gt;</span> sortedKey.indexOf(char));
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> encryptedRows<span style="color:#ff79c6">:</span> (<span style="color:#8be9fd">string</span> <span style="color:#ff79c6">|</span> <span style="color:#ff79c6">null</span>)[][] <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">Array</span>(stackedLines.length)
+</span></span><span style="display:flex;"><span>    .fill(<span style="color:#ff79c6">null</span>)
+</span></span><span style="display:flex;"><span>    .map(_ <span style="color:#ff79c6">=&gt;</span> <span style="color:#8be9fd;font-style:italic">Array</span>(key.length).fill(<span style="color:#ff79c6">null</span>).map(_ <span style="color:#ff79c6">=&gt;</span> <span style="color:#ff79c6">null</span>));
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">for</span> (<span style="color:#ff79c6">const</span> orderedColumnIx <span style="color:#ff79c6">in</span> keyChars) {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">const</span> messageColumnIx <span style="color:#ff79c6">=</span> positionNumbers.indexOf(<span style="color:#8be9fd;font-style:italic">Number</span>(orderedColumnIx));
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">for</span> (<span style="color:#ff79c6">const</span> rowIx <span style="color:#ff79c6">in</span> stackedLines) {
+</span></span><span style="display:flex;"><span>      encryptedRows[rowIx][orderedColumnIx] <span style="color:#ff79c6">=</span> stackedLines[rowIx][messageColumnIx] <span style="color:#ff79c6">??</span> <span style="color:#f1fa8c">&#39; &#39;</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">return</span> encryptedRows.map(row <span style="color:#ff79c6">=&gt;</span> row.join(<span style="color:#f1fa8c">&#39;&#39;</span>));
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">function</span> columnarDecrypt(stackedLines: <span style="color:#8be9fd">string</span>[], key: <span style="color:#8be9fd">string</span>)<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">string</span>[] {
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> keyChars <span style="color:#ff79c6">=</span> key.split(<span style="color:#f1fa8c">&#39;&#39;</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> sortedKey <span style="color:#ff79c6">=</span> keyChars.toSorted();
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> positionNumbers <span style="color:#ff79c6">=</span> keyChars.map(char <span style="color:#ff79c6">=&gt;</span> sortedKey.indexOf(char));
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> encryptedRows<span style="color:#ff79c6">:</span> (<span style="color:#8be9fd">string</span> <span style="color:#ff79c6">|</span> <span style="color:#ff79c6">null</span>)[][] <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">Array</span>(stackedLines.length)
+</span></span><span style="display:flex;"><span>    .fill(<span style="color:#ff79c6">null</span>)
+</span></span><span style="display:flex;"><span>    .map(_ <span style="color:#ff79c6">=&gt;</span> <span style="color:#8be9fd;font-style:italic">Array</span>(key.length).fill(<span style="color:#ff79c6">null</span>).map(_ <span style="color:#ff79c6">=&gt;</span> <span style="color:#ff79c6">null</span>));
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">for</span> (<span style="color:#ff79c6">const</span> messageColumnIx <span style="color:#ff79c6">in</span> keyChars) {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">const</span> orderedColumnIx <span style="color:#ff79c6">=</span> positionNumbers.indexOf(<span style="color:#8be9fd;font-style:italic">Number</span>(messageColumnIx));
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">for</span> (<span style="color:#ff79c6">const</span> rowIx <span style="color:#ff79c6">in</span> stackedLines) {
+</span></span><span style="display:flex;"><span>      encryptedRows[rowIx][orderedColumnIx] <span style="color:#ff79c6">=</span> stackedLines[rowIx][messageColumnIx] <span style="color:#ff79c6">??</span> <span style="color:#f1fa8c">&#39; &#39;</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">return</span> encryptedRows.map(row <span style="color:#ff79c6">=&gt;</span> row.join(<span style="color:#f1fa8c">&#39;&#39;</span>));
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">const</span> key <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#39;HYDRATE&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">const</span> message <span style="color:#ff79c6">=</span> [
+</span></span><span style="display:flex;"><span>  <span style="color:#f1fa8c">&#39;ILOVEWA&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f1fa8c">&#39;TER&#39;</span>
+</span></span><span style="display:flex;"><span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">const</span> encrypted <span style="color:#ff79c6">=</span> columnarEncrypt(message, key);
+</span></span><span style="display:flex;"><span>console.log(encrypted);
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">// &gt; [&#34;EOAIVWL&#34;, &#34; R T  E&#34;]
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">const</span> decrypted <span style="color:#ff79c6">=</span> columnarDecrypt(encrypted, key);
+</span></span><span style="display:flex;"><span>console.log(decrypted);
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">// &gt; [&#34;ILOVEWA&#34;, &#34;TER    &#34;]
+</span></span></span></code></pre></div><p>Why are there spaces in this version? Because position is important. R has to be in the second column after encryption, not the first, or the decryption process will break.</p>
+<h2 id="putting-it-all-together">Putting it all together</h2>
+<p>It would be great if we could just call these functions in order to encrypt and decrypt Kryptos 3. However, there&rsquo;s one more obstacle. Since we&rsquo;re dealing with shuffled-up columns after the <code>columnarEncrypt</code> method is called, the longest vertical lines won&rsquo;t always be the leftmost ones. We need to inspect the key to know which lines are long and which ones are short. Check out <code>routeDecryptReadIn</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">function</span> chunk&lt;<span style="color:#ff79c6">T</span>&gt;(array: <span style="color:#8be9fd">T</span>[], chunkSize: <span style="color:#8be9fd">number</span>)<span style="color:#ff79c6">:</span> T[][] {
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> result: <span style="color:#8be9fd">T</span>[][] <span style="color:#ff79c6">=</span> [];
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">for</span> (<span style="color:#8be9fd;font-style:italic">let</span> i <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>; i <span style="color:#ff79c6">&lt;</span> array.length; i <span style="color:#ff79c6">+=</span> chunkSize) {
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">const</span> chunk <span style="color:#ff79c6">=</span> array.slice(i, i <span style="color:#ff79c6">+</span> chunkSize);
+</span></span><span style="display:flex;"><span>      result.push(chunk);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">return</span> result;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">function</span> columnarEncrypt(stackedLines: <span style="color:#8be9fd">string</span>[], key: <span style="color:#8be9fd">string</span>)<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">string</span>[] {
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> keyChars <span style="color:#ff79c6">=</span> key.split(<span style="color:#f1fa8c">&#39;&#39;</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> sortedKey <span style="color:#ff79c6">=</span> keyChars.toSorted();
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> positionNumbers <span style="color:#ff79c6">=</span> keyChars.map(char <span style="color:#ff79c6">=&gt;</span> sortedKey.indexOf(char));
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> encryptedRows<span style="color:#ff79c6">:</span> (<span style="color:#8be9fd">string</span> <span style="color:#ff79c6">|</span> <span style="color:#ff79c6">null</span>)[][] <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">Array</span>(stackedLines.length)
+</span></span><span style="display:flex;"><span>    .fill(<span style="color:#ff79c6">null</span>)
+</span></span><span style="display:flex;"><span>    .map(_ <span style="color:#ff79c6">=&gt;</span> <span style="color:#8be9fd;font-style:italic">Array</span>(key.length).fill(<span style="color:#ff79c6">null</span>).map(_ <span style="color:#ff79c6">=&gt;</span> <span style="color:#ff79c6">null</span>));
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">for</span> (<span style="color:#ff79c6">const</span> orderedColumnIx <span style="color:#ff79c6">in</span> keyChars) {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">const</span> messageColumnIx <span style="color:#ff79c6">=</span> positionNumbers.indexOf(<span style="color:#8be9fd;font-style:italic">Number</span>(orderedColumnIx));
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">for</span> (<span style="color:#ff79c6">const</span> rowIx <span style="color:#ff79c6">in</span> stackedLines) {
+</span></span><span style="display:flex;"><span>      encryptedRows[rowIx][orderedColumnIx] <span style="color:#ff79c6">=</span> stackedLines[rowIx][messageColumnIx] <span style="color:#ff79c6">??</span> <span style="color:#f1fa8c">&#39; &#39;</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">return</span> encryptedRows.map(row <span style="color:#ff79c6">=&gt;</span> row.join(<span style="color:#f1fa8c">&#39;&#39;</span>));
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">function</span> columnarDecrypt(stackedLines: <span style="color:#8be9fd">string</span>[], key: <span style="color:#8be9fd">string</span>)<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">string</span>[] {
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> keyChars <span style="color:#ff79c6">=</span> key.split(<span style="color:#f1fa8c">&#39;&#39;</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> sortedKey <span style="color:#ff79c6">=</span> keyChars.toSorted();
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> positionNumbers <span style="color:#ff79c6">=</span> keyChars.map(char <span style="color:#ff79c6">=&gt;</span> sortedKey.indexOf(char));
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> encryptedRows<span style="color:#ff79c6">:</span> (<span style="color:#8be9fd">string</span> <span style="color:#ff79c6">|</span> <span style="color:#ff79c6">null</span>)[][] <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">Array</span>(stackedLines.length)
+</span></span><span style="display:flex;"><span>    .fill(<span style="color:#ff79c6">null</span>)
+</span></span><span style="display:flex;"><span>    .map(_ <span style="color:#ff79c6">=&gt;</span> <span style="color:#8be9fd;font-style:italic">Array</span>(key.length).fill(<span style="color:#ff79c6">null</span>).map(_ <span style="color:#ff79c6">=&gt;</span> <span style="color:#ff79c6">null</span>));
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">for</span> (<span style="color:#ff79c6">const</span> messageColumnIx <span style="color:#ff79c6">in</span> keyChars) {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">const</span> orderedColumnIx <span style="color:#ff79c6">=</span> positionNumbers.indexOf(<span style="color:#8be9fd;font-style:italic">Number</span>(messageColumnIx));
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">for</span> (<span style="color:#ff79c6">const</span> rowIx <span style="color:#ff79c6">in</span> stackedLines) {
+</span></span><span style="display:flex;"><span>      encryptedRows[rowIx][orderedColumnIx] <span style="color:#ff79c6">=</span> stackedLines[rowIx][messageColumnIx] <span style="color:#ff79c6">??</span> <span style="color:#f1fa8c">&#39; &#39;</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">return</span> encryptedRows.map(row <span style="color:#ff79c6">=&gt;</span> row.join(<span style="color:#f1fa8c">&#39;&#39;</span>));
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">function</span> routeEncryptArrange(message: <span style="color:#8be9fd">string</span>, rectangleSize: <span style="color:#8be9fd">number</span>, blockSize: <span style="color:#8be9fd">number</span>)<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">string</span>[] {
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> messageChars <span style="color:#ff79c6">=</span> message.split(<span style="color:#f1fa8c">&#39;&#39;</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> messageLines <span style="color:#ff79c6">=</span> chunk(messageChars, rectangleSize);
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> chunkedLines <span style="color:#ff79c6">=</span> messageLines.map(line <span style="color:#ff79c6">=&gt;</span> chunk(line, blockSize));
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> allChunks <span style="color:#ff79c6">=</span> chunkedLines.flat();
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> finalChunk <span style="color:#ff79c6">=</span> allChunks.pop();
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> mainChunkSizes <span style="color:#ff79c6">=</span> allChunks.map(chunk <span style="color:#ff79c6">=&gt;</span> chunk.length);
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> oddChunkSize <span style="color:#ff79c6">=</span> mainChunkSizes.find(chunkSize <span style="color:#ff79c6">=&gt;</span> chunkSize <span style="color:#ff79c6">!==</span> blockSize);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">if</span> (
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">typeof</span> oddChunkSize <span style="color:#ff79c6">===</span> <span style="color:#f1fa8c">&#39;number&#39;</span> <span style="color:#ff79c6">&amp;&amp;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">Array</span>.isArray(finalChunk) <span style="color:#ff79c6">&amp;&amp;</span>
+</span></span><span style="display:flex;"><span>    finalChunk.length <span style="color:#ff79c6">!==</span> oddChunkSize <span style="color:#ff79c6">&amp;&amp;</span>
+</span></span><span style="display:flex;"><span>    finalChunk.length <span style="color:#ff79c6">!==</span> blockSize
+</span></span><span style="display:flex;"><span>  ) {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> (finalChunk.length <span style="color:#ff79c6">&lt;</span> oddChunkSize) {
+</span></span><span style="display:flex;"><span>      finalChunk.push(...<span style="color:#f1fa8c">&#39;Q&#39;</span>.repeat(oddChunkSize <span style="color:#ff79c6">-</span> finalChunk.length));
+</span></span><span style="display:flex;"><span>    } <span style="color:#ff79c6">else</span> {
+</span></span><span style="display:flex;"><span>      finalChunk.push(...<span style="color:#f1fa8c">&#39;Q&#39;</span>.repeat(blockSize <span style="color:#ff79c6">-</span> finalChunk.length));
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> stackedLines: <span style="color:#8be9fd">string</span>[][] <span style="color:#ff79c6">=</span> [];
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> blocksPerLine <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">Math</span>.ceil(rectangleSize <span style="color:#ff79c6">/</span> blockSize);
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">for</span> (<span style="color:#8be9fd;font-style:italic">let</span> blockIx <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>; blockIx <span style="color:#ff79c6">&lt;</span> blocksPerLine; blockIx<span style="color:#ff79c6">++</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">const</span> numberOfRows <span style="color:#ff79c6">=</span> chunkedLines.length;
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">for</span> (<span style="color:#8be9fd;font-style:italic">let</span> rowIx <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>; rowIx <span style="color:#ff79c6">&lt;</span> numberOfRows; rowIx<span style="color:#ff79c6">++</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">const</span> encryptedRowIx <span style="color:#ff79c6">=</span> rowIx <span style="color:#ff79c6">+</span> (blockIx <span style="color:#ff79c6">*</span> numberOfRows);
+</span></span><span style="display:flex;"><span>      stackedLines[encryptedRowIx] <span style="color:#ff79c6">=</span> chunkedLines[rowIx][blockIx];
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">return</span> stackedLines.filter(line <span style="color:#ff79c6">=&gt;</span> <span style="color:#8be9fd;font-style:italic">Array</span>.isArray(line)).map(line <span style="color:#ff79c6">=&gt;</span> line.join(<span style="color:#f1fa8c">&#39;&#39;</span>));
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">function</span> routeEncryptReadOut(stackedLines: <span style="color:#8be9fd">string</span>[], blockSize: <span style="color:#8be9fd">number</span>)<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">string</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> encryptedChars: <span style="color:#8be9fd">string</span>[] <span style="color:#ff79c6">=</span> [];
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">for</span> (<span style="color:#8be9fd;font-style:italic">let</span> charIx <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>; charIx <span style="color:#ff79c6">&lt;</span> blockSize; charIx<span style="color:#ff79c6">++</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">for</span> (<span style="color:#8be9fd;font-style:italic">let</span> rowIx <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>; rowIx <span style="color:#ff79c6">&lt;</span> stackedLines.length; rowIx<span style="color:#ff79c6">++</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">if</span> (<span style="color:#ff79c6">typeof</span> stackedLines[rowIx] <span style="color:#ff79c6">!==</span> <span style="color:#f1fa8c">&#39;string&#39;</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">continue</span>;
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">const</span> char <span style="color:#ff79c6">=</span> stackedLines[rowIx][charIx];
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">if</span> (<span style="color:#ff79c6">typeof</span> char <span style="color:#ff79c6">===</span> <span style="color:#f1fa8c">&#39;string&#39;</span> <span style="color:#ff79c6">&amp;&amp;</span> char <span style="color:#ff79c6">!==</span> <span style="color:#f1fa8c">&#39; &#39;</span>) {
+</span></span><span style="display:flex;"><span>        encryptedChars.push(char);
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">return</span> encryptedChars.join(<span style="color:#f1fa8c">&#39;&#39;</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">function</span> routeDecryptReadIn(encrypted: <span style="color:#8be9fd">string</span>, rectangleSize: <span style="color:#8be9fd">number</span>, key: <span style="color:#8be9fd">string</span>)<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">string</span>[] {
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> numberOfRows <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">Math</span>.ceil(encrypted.length <span style="color:#ff79c6">/</span> rectangleSize);
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> blockSize <span style="color:#ff79c6">=</span> key.length;
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> chunksPerRow <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">Math</span>.ceil(rectangleSize <span style="color:#ff79c6">/</span> blockSize);
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> lastRowLength <span style="color:#ff79c6">=</span> encrypted.length <span style="color:#ff79c6">%</span> rectangleSize;
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> lastRowChunks <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">Math</span>.ceil(lastRowLength <span style="color:#ff79c6">/</span> blockSize);
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> totalChunks <span style="color:#ff79c6">=</span> (chunksPerRow <span style="color:#ff79c6">*</span> (numberOfRows <span style="color:#ff79c6">-</span> <span style="color:#bd93f9">1</span>)) <span style="color:#ff79c6">+</span> lastRowChunks;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> lastChunkSize <span style="color:#ff79c6">=</span> (lastRowLength <span style="color:#ff79c6">%</span> blockSize) <span style="color:#ff79c6">||</span> blockSize;
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> oddChunkSize <span style="color:#ff79c6">=</span> rectangleSize <span style="color:#ff79c6">%</span> blockSize;
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">let</span> numberOfShortVLines: <span style="color:#8be9fd">number</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">if</span> (oddChunkSize <span style="color:#ff79c6">!==</span> blockSize) {
+</span></span><span style="display:flex;"><span>    numberOfShortVLines <span style="color:#ff79c6">=</span> blockSize <span style="color:#ff79c6">-</span> oddChunkSize;
+</span></span><span style="display:flex;"><span>  } <span style="color:#ff79c6">else</span> <span style="color:#ff79c6">if</span> (lastChunkSize <span style="color:#ff79c6">!==</span> blockSize) {
+</span></span><span style="display:flex;"><span>    numberOfShortVLines <span style="color:#ff79c6">=</span> blockSize <span style="color:#ff79c6">-</span> lastChunkSize;
+</span></span><span style="display:flex;"><span>  } <span style="color:#ff79c6">else</span> {
+</span></span><span style="display:flex;"><span>    numberOfShortVLines <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> numberOfLongVLines <span style="color:#ff79c6">=</span> blockSize <span style="color:#ff79c6">-</span> numberOfShortVLines;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> longVLineLength <span style="color:#ff79c6">=</span> totalChunks;
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> shortVLineLength <span style="color:#ff79c6">=</span> totalChunks <span style="color:#ff79c6">-</span>
+</span></span><span style="display:flex;"><span>    ((oddChunkSize <span style="color:#ff79c6">!==</span> blockSize <span style="color:#ff79c6">?</span> numberOfRows <span style="color:#ff79c6">-</span> 1 : <span style="color:#8be9fd">0</span>) <span style="color:#ff79c6">+</span>
+</span></span><span style="display:flex;"><span>     (lastChunkSize <span style="color:#ff79c6">!==</span> blockSize <span style="color:#ff79c6">?</span> 1 : <span style="color:#8be9fd">0</span>));
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> stackedLines: <span style="color:#8be9fd">string</span>[][] <span style="color:#ff79c6">=</span> [];
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">let</span> encryptedIx <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">// New code to inspect the key so we can detect long vs.
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>  <span style="color:#6272a4">//  short lines.
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>  <span style="color:#ff79c6">const</span> keyChars <span style="color:#ff79c6">=</span> key.split(<span style="color:#f1fa8c">&#39;&#39;</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> sortedKey <span style="color:#ff79c6">=</span> keyChars.toSorted();
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> positionNumbers <span style="color:#ff79c6">=</span> keyChars.map(char <span style="color:#ff79c6">=&gt;</span> sortedKey.indexOf(char));
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">for</span> (<span style="color:#8be9fd;font-style:italic">let</span> vLineIx <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>; vLineIx <span style="color:#ff79c6">&lt;</span> blockSize; vLineIx<span style="color:#ff79c6">++</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">const</span> transposedVLineIx <span style="color:#ff79c6">=</span> positionNumbers.indexOf(vLineIx);
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">const</span> currentVLineLength <span style="color:#ff79c6">=</span> transposedVLineIx <span style="color:#ff79c6">&lt;</span> numberOfLongVLines <span style="color:#ff79c6">?</span>
+</span></span><span style="display:flex;"><span>      longVLineLength :
+</span></span><span style="display:flex;"><span>      <span style="color:#8be9fd">shortVLineLength</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">// Updated to add spaces in the empty spots on a short line
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">for</span> (<span style="color:#8be9fd;font-style:italic">let</span> rowIx <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>; rowIx <span style="color:#ff79c6">&lt;</span> longVLineLength; rowIx<span style="color:#ff79c6">++</span>) {
+</span></span><span style="display:flex;"><span>      stackedLines[rowIx] <span style="color:#ff79c6">??=</span> [];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      stackedLines[rowIx][vLineIx] <span style="color:#ff79c6">=</span> rowIx <span style="color:#ff79c6">&lt;</span> currentVLineLength <span style="color:#ff79c6">?</span> encrypted[encryptedIx<span style="color:#ff79c6">++</span>] <span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39; &#39;</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">return</span> stackedLines.filter(line <span style="color:#ff79c6">=&gt;</span> <span style="color:#8be9fd;font-style:italic">Array</span>.isArray(line)).map(line <span style="color:#ff79c6">=&gt;</span> line.join(<span style="color:#f1fa8c">&#39;&#39;</span>));
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">function</span> routeDecryptUnarrange(stackedLines: <span style="color:#8be9fd">string</span>[], rectangleSize: <span style="color:#8be9fd">number</span>, blockSize: <span style="color:#8be9fd">number</span>)<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">string</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">// Remove any empty space, we don&#39;t need it anymore
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>  stackedLines <span style="color:#ff79c6">=</span> stackedLines.map(line <span style="color:#ff79c6">=&gt;</span> line.replace(<span style="color:#f1fa8c">/ /g</span>, <span style="color:#f1fa8c">&#39;&#39;</span>));
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> messageLength <span style="color:#ff79c6">=</span> stackedLines.join(<span style="color:#f1fa8c">&#39;&#39;</span>).length;
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> numberOfRows <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">Math</span>.ceil(messageLength <span style="color:#ff79c6">/</span> rectangleSize);
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> blocksPerRow <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">Math</span>.ceil(rectangleSize <span style="color:#ff79c6">/</span> blockSize);
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> lastRowLength <span style="color:#ff79c6">=</span> messageLength <span style="color:#ff79c6">%</span> rectangleSize;
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> lastRowBlocks <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">Math</span>.ceil(lastRowLength <span style="color:#ff79c6">/</span> blockSize);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> messageLines: <span style="color:#8be9fd">string</span>[][] <span style="color:#ff79c6">=</span> [];
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">let</span> stackedLineIx <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">// For each column of blocks...
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>  <span style="color:#ff79c6">for</span> (<span style="color:#8be9fd;font-style:italic">let</span> columnIx <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>; columnIx <span style="color:#ff79c6">&lt;</span> blocksPerRow; columnIx<span style="color:#ff79c6">++</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">const</span> rowsInBlock <span style="color:#ff79c6">=</span> columnIx <span style="color:#ff79c6">&lt;</span> lastRowBlocks <span style="color:#ff79c6">?</span> numberOfRows : <span style="color:#8be9fd">numberOfRows</span> <span style="color:#ff79c6">-</span> <span style="color:#bd93f9">1</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">// For each row in the column...
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">for</span> (<span style="color:#8be9fd;font-style:italic">let</span> rowIx <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>; rowIx <span style="color:#ff79c6">&lt;</span> rowsInBlock; rowIx<span style="color:#ff79c6">++</span>) {
+</span></span><span style="display:flex;"><span>      messageLines[rowIx] <span style="color:#ff79c6">??=</span> [];
+</span></span><span style="display:flex;"><span>      messageLines[rowIx].push(stackedLines[stackedLineIx<span style="color:#ff79c6">++</span>]);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">return</span> messageLines.flat().join(<span style="color:#f1fa8c">&#39;&#39;</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">const</span> message <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#39;THEREAREMOREHYDROGENATOMSINAWATERMOLECULETHANSTARSINTHESOLARSYSTEM&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">const</span> key <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#39;PLANETS&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">const</span> rectangleSize <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">15</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">const</span> arrangedToEncrypt <span style="color:#ff79c6">=</span> routeEncryptArrange(message, rectangleSize, key.length);
+</span></span><span style="display:flex;"><span>console.log(arrangedToEncrypt);
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">/* &gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">[
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">  &#34;THEREAR&#34;, &#34;ROGENAT&#34;, &#34;TERMOLE&#34;, &#34;STARSIN&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">  &#34;SYSTEMQ&#34;, &#34;EMOREHY&#34;, &#34;OMSINAW&#34;, &#34;CULETHA&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">  &#34;THESOLA&#34;, &#34;D&#34;, &#34;A&#34;, &#34;N&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">  &#34;R&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">]
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">*/</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">const</span> columnarEncrypted <span style="color:#ff79c6">=</span> columnarEncrypt(arrangedToEncrypt, key);
+</span></span><span style="display:flex;"><span>console.log(columnarEncrypted);
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">/* &gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">[
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">  &#34;EEHRTRA&#34;, &#34;GNOERTA&#34;, &#34;ROEMTEL&#34;, &#34;ASTRSNI&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">  &#34;SEYTSQM&#34;, &#34;OEMREYH&#34;, &#34;SNMIOWA&#34;, &#34;LTUECAH&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">  &#34;EOHSTAL&#34;, &#34;    D  &#34;, &#34;    A  &#34;, &#34;    N  &#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">  &#34;    R  &#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">]
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">*/</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">const</span> encrypted <span style="color:#ff79c6">=</span> routeEncryptReadOut(columnarEncrypted, key.length);
+</span></span><span style="display:flex;"><span>console.log(encrypted);
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">/* &gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">EGRASOSLEENOSEENTOHOETYMMUHREMRTRIESTRTSSEOCTDANRRTENQYWAAAALIMHAHL
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">*/</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">const</span> arrangedToDecrypt <span style="color:#ff79c6">=</span> routeDecryptReadIn(encrypted, rectangleSize, key);
+</span></span><span style="display:flex;"><span>console.log(arrangedToDecrypt);
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">/* &gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">[
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">  &#34;EEHRTRA&#34;, &#34;GNOERTA&#34;, &#34;ROEMTEL&#34;, &#34;ASTRSNI&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">  &#34;SEYTSQM&#34;, &#34;OEMREYH&#34;, &#34;SNMIOWA&#34;, &#34;LTUECAH&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">  &#34;EOHSTAL&#34;, &#34;    D  &#34;, &#34;    A  &#34;, &#34;    N  &#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">  &#34;    R  &#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">]
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">*/</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">const</span> columnarDecrypted <span style="color:#ff79c6">=</span> columnarDecrypt(arrangedToDecrypt, key);
+</span></span><span style="display:flex;"><span>console.log(columnarDecrypted);
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">/* &gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">[
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">  &#34;THEREAR&#34;, &#34;ROGENAT&#34;, &#34;TERMOLE&#34;, &#34;STARSIN&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">  &#34;SYSTEMQ&#34;, &#34;EMOREHY&#34;, &#34;OMSINAW&#34;, &#34;CULETHA&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">  &#34;THESOLA&#34;, &#34;D      &#34;, &#34;A      &#34;, &#34;N      &#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">  &#34;R      &#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">]
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">*/</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">const</span> decrypted <span style="color:#ff79c6">=</span> routeDecryptUnarrange(columnarDecrypted, rectangleSize, key.length);
+</span></span><span style="display:flex;"><span>console.log(decrypted);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">/* &gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">THEREAREMOREHYDROGENATOMSINAWATERMOLECULETHANSTARSINTHESOLARSYSTEMQ
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">*/</span>
+</span></span></code></pre></div><p>Seems stable! There&rsquo;s a padding Q at the end, but that&rsquo;s expected.</p>
+<p>Let&rsquo;s see if it can handle Kryptos 3.</p>
+<h2 id="solving-kryptos-3">Solving Kryptos 3</h2>
+<p>The source text of Kryptos 3 is:</p>
+<pre tabindex="0"><code>ENDYAHROHNLSRHEOCPTEOIBIDYSHNAIA
+CHTNREYULDSLLSLLNOHSNOSMRWXMNE
+TPRNGATIHNRARPESLNNELEBLPIIACAE
+WMTWNDITEENRAHCTENEUDRETNHAEOE
+TFOLSEDTIWENHAEIOYTEYQHEENCTAYCR
+EIFTBRSPAMHHEWENATAMATEGYEERLB
+TEEFOASFIOTUETUAEOTOARMAEERTNRTI
+BSEDDNIAAHTTMSTEWPIEROAGRIEWFEB
+AECTDDHILCEIHSITEGOEAOSDDRYDLORIT
+RKLMLEHAGTDHARDPNEOHMGFMFEUHE
+ECDMRIPFEIMEHNLSSTTRTVDOHW?
+</code></pre><p>Let&rsquo;s plug it in! Don&rsquo;t forget that it&rsquo;s reversed.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">function</span> chunk&lt;<span style="color:#ff79c6">T</span>&gt;(array: <span style="color:#8be9fd">T</span>[], chunkSize: <span style="color:#8be9fd">number</span>)<span style="color:#ff79c6">:</span> T[][] {
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> result: <span style="color:#8be9fd">T</span>[][] <span style="color:#ff79c6">=</span> [];
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">for</span> (<span style="color:#8be9fd;font-style:italic">let</span> i <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>; i <span style="color:#ff79c6">&lt;</span> array.length; i <span style="color:#ff79c6">+=</span> chunkSize) {
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">const</span> chunk <span style="color:#ff79c6">=</span> array.slice(i, i <span style="color:#ff79c6">+</span> chunkSize);
+</span></span><span style="display:flex;"><span>      result.push(chunk);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">return</span> result;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">function</span> columnarEncrypt(stackedLines: <span style="color:#8be9fd">string</span>[], key: <span style="color:#8be9fd">string</span>)<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">string</span>[] {
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> keyChars <span style="color:#ff79c6">=</span> key.split(<span style="color:#f1fa8c">&#39;&#39;</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> sortedKey <span style="color:#ff79c6">=</span> keyChars.toSorted();
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> positionNumbers <span style="color:#ff79c6">=</span> keyChars.map(char <span style="color:#ff79c6">=&gt;</span> sortedKey.indexOf(char));
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> encryptedRows<span style="color:#ff79c6">:</span> (<span style="color:#8be9fd">string</span> <span style="color:#ff79c6">|</span> <span style="color:#ff79c6">null</span>)[][] <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">Array</span>(stackedLines.length)
+</span></span><span style="display:flex;"><span>    .fill(<span style="color:#ff79c6">null</span>)
+</span></span><span style="display:flex;"><span>    .map(_ <span style="color:#ff79c6">=&gt;</span> <span style="color:#8be9fd;font-style:italic">Array</span>(key.length).fill(<span style="color:#ff79c6">null</span>).map(_ <span style="color:#ff79c6">=&gt;</span> <span style="color:#ff79c6">null</span>));
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">for</span> (<span style="color:#ff79c6">const</span> orderedColumnIx <span style="color:#ff79c6">in</span> keyChars) {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">const</span> messageColumnIx <span style="color:#ff79c6">=</span> positionNumbers.indexOf(<span style="color:#8be9fd;font-style:italic">Number</span>(orderedColumnIx));
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">for</span> (<span style="color:#ff79c6">const</span> rowIx <span style="color:#ff79c6">in</span> stackedLines) {
+</span></span><span style="display:flex;"><span>      encryptedRows[rowIx][orderedColumnIx] <span style="color:#ff79c6">=</span> stackedLines[rowIx][messageColumnIx] <span style="color:#ff79c6">??</span> <span style="color:#f1fa8c">&#39; &#39;</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">return</span> encryptedRows.map(row <span style="color:#ff79c6">=&gt;</span> row.join(<span style="color:#f1fa8c">&#39;&#39;</span>));
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">function</span> columnarDecrypt(stackedLines: <span style="color:#8be9fd">string</span>[], key: <span style="color:#8be9fd">string</span>)<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">string</span>[] {
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> keyChars <span style="color:#ff79c6">=</span> key.split(<span style="color:#f1fa8c">&#39;&#39;</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> sortedKey <span style="color:#ff79c6">=</span> keyChars.toSorted();
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> positionNumbers <span style="color:#ff79c6">=</span> keyChars.map(char <span style="color:#ff79c6">=&gt;</span> sortedKey.indexOf(char));
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> encryptedRows<span style="color:#ff79c6">:</span> (<span style="color:#8be9fd">string</span> <span style="color:#ff79c6">|</span> <span style="color:#ff79c6">null</span>)[][] <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">Array</span>(stackedLines.length)
+</span></span><span style="display:flex;"><span>    .fill(<span style="color:#ff79c6">null</span>)
+</span></span><span style="display:flex;"><span>    .map(_ <span style="color:#ff79c6">=&gt;</span> <span style="color:#8be9fd;font-style:italic">Array</span>(key.length).fill(<span style="color:#ff79c6">null</span>).map(_ <span style="color:#ff79c6">=&gt;</span> <span style="color:#ff79c6">null</span>));
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">for</span> (<span style="color:#ff79c6">const</span> messageColumnIx <span style="color:#ff79c6">in</span> keyChars) {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">const</span> orderedColumnIx <span style="color:#ff79c6">=</span> positionNumbers.indexOf(<span style="color:#8be9fd;font-style:italic">Number</span>(messageColumnIx));
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">for</span> (<span style="color:#ff79c6">const</span> rowIx <span style="color:#ff79c6">in</span> stackedLines) {
+</span></span><span style="display:flex;"><span>      encryptedRows[rowIx][orderedColumnIx] <span style="color:#ff79c6">=</span> stackedLines[rowIx][messageColumnIx] <span style="color:#ff79c6">??</span> <span style="color:#f1fa8c">&#39; &#39;</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">return</span> encryptedRows.map(row <span style="color:#ff79c6">=&gt;</span> row.join(<span style="color:#f1fa8c">&#39;&#39;</span>));
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">function</span> routeEncryptArrange(message: <span style="color:#8be9fd">string</span>, rectangleSize: <span style="color:#8be9fd">number</span>, blockSize: <span style="color:#8be9fd">number</span>)<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">string</span>[] {
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> messageChars <span style="color:#ff79c6">=</span> message.split(<span style="color:#f1fa8c">&#39;&#39;</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> messageLines <span style="color:#ff79c6">=</span> chunk(messageChars, rectangleSize);
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> chunkedLines <span style="color:#ff79c6">=</span> messageLines.map(line <span style="color:#ff79c6">=&gt;</span> chunk(line, blockSize));
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> allChunks <span style="color:#ff79c6">=</span> chunkedLines.flat();
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> finalChunk <span style="color:#ff79c6">=</span> allChunks.pop();
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> mainChunkSizes <span style="color:#ff79c6">=</span> allChunks.map(chunk <span style="color:#ff79c6">=&gt;</span> chunk.length);
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> oddChunkSize <span style="color:#ff79c6">=</span> mainChunkSizes.find(chunkSize <span style="color:#ff79c6">=&gt;</span> chunkSize <span style="color:#ff79c6">!==</span> blockSize);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">if</span> (
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">typeof</span> oddChunkSize <span style="color:#ff79c6">===</span> <span style="color:#f1fa8c">&#39;number&#39;</span> <span style="color:#ff79c6">&amp;&amp;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">Array</span>.isArray(finalChunk) <span style="color:#ff79c6">&amp;&amp;</span>
+</span></span><span style="display:flex;"><span>    finalChunk.length <span style="color:#ff79c6">!==</span> oddChunkSize <span style="color:#ff79c6">&amp;&amp;</span>
+</span></span><span style="display:flex;"><span>    finalChunk.length <span style="color:#ff79c6">!==</span> blockSize
+</span></span><span style="display:flex;"><span>  ) {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> (finalChunk.length <span style="color:#ff79c6">&lt;</span> oddChunkSize) {
+</span></span><span style="display:flex;"><span>      finalChunk.push(...<span style="color:#f1fa8c">&#39;Q&#39;</span>.repeat(oddChunkSize <span style="color:#ff79c6">-</span> finalChunk.length));
+</span></span><span style="display:flex;"><span>    } <span style="color:#ff79c6">else</span> {
+</span></span><span style="display:flex;"><span>      finalChunk.push(...<span style="color:#f1fa8c">&#39;Q&#39;</span>.repeat(blockSize <span style="color:#ff79c6">-</span> finalChunk.length));
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> stackedLines: <span style="color:#8be9fd">string</span>[][] <span style="color:#ff79c6">=</span> [];
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> blocksPerLine <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">Math</span>.ceil(rectangleSize <span style="color:#ff79c6">/</span> blockSize);
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">for</span> (<span style="color:#8be9fd;font-style:italic">let</span> blockIx <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>; blockIx <span style="color:#ff79c6">&lt;</span> blocksPerLine; blockIx<span style="color:#ff79c6">++</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">const</span> numberOfRows <span style="color:#ff79c6">=</span> chunkedLines.length;
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">for</span> (<span style="color:#8be9fd;font-style:italic">let</span> rowIx <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>; rowIx <span style="color:#ff79c6">&lt;</span> numberOfRows; rowIx<span style="color:#ff79c6">++</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">const</span> encryptedRowIx <span style="color:#ff79c6">=</span> rowIx <span style="color:#ff79c6">+</span> (blockIx <span style="color:#ff79c6">*</span> numberOfRows);
+</span></span><span style="display:flex;"><span>      stackedLines[encryptedRowIx] <span style="color:#ff79c6">=</span> chunkedLines[rowIx][blockIx];
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">return</span> stackedLines.filter(line <span style="color:#ff79c6">=&gt;</span> <span style="color:#8be9fd;font-style:italic">Array</span>.isArray(line)).map(line <span style="color:#ff79c6">=&gt;</span> line.join(<span style="color:#f1fa8c">&#39;&#39;</span>));
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">function</span> routeEncryptReadOut(stackedLines: <span style="color:#8be9fd">string</span>[], blockSize: <span style="color:#8be9fd">number</span>)<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">string</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> encryptedChars: <span style="color:#8be9fd">string</span>[] <span style="color:#ff79c6">=</span> [];
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">for</span> (<span style="color:#8be9fd;font-style:italic">let</span> charIx <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>; charIx <span style="color:#ff79c6">&lt;</span> blockSize; charIx<span style="color:#ff79c6">++</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">for</span> (<span style="color:#8be9fd;font-style:italic">let</span> rowIx <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>; rowIx <span style="color:#ff79c6">&lt;</span> stackedLines.length; rowIx<span style="color:#ff79c6">++</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">if</span> (<span style="color:#ff79c6">typeof</span> stackedLines[rowIx] <span style="color:#ff79c6">!==</span> <span style="color:#f1fa8c">&#39;string&#39;</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">continue</span>;
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">const</span> char <span style="color:#ff79c6">=</span> stackedLines[rowIx][charIx];
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">if</span> (<span style="color:#ff79c6">typeof</span> char <span style="color:#ff79c6">===</span> <span style="color:#f1fa8c">&#39;string&#39;</span> <span style="color:#ff79c6">&amp;&amp;</span> char <span style="color:#ff79c6">!==</span> <span style="color:#f1fa8c">&#39; &#39;</span>) {
+</span></span><span style="display:flex;"><span>        encryptedChars.push(char);
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">return</span> encryptedChars.join(<span style="color:#f1fa8c">&#39;&#39;</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">function</span> routeDecryptReadIn(encrypted: <span style="color:#8be9fd">string</span>, rectangleSize: <span style="color:#8be9fd">number</span>, key: <span style="color:#8be9fd">string</span>)<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">string</span>[] {
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> numberOfRows <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">Math</span>.ceil(encrypted.length <span style="color:#ff79c6">/</span> rectangleSize);
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> blockSize <span style="color:#ff79c6">=</span> key.length;
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> chunksPerRow <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">Math</span>.ceil(rectangleSize <span style="color:#ff79c6">/</span> blockSize);
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> lastRowLength <span style="color:#ff79c6">=</span> encrypted.length <span style="color:#ff79c6">%</span> rectangleSize;
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> lastRowChunks <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">Math</span>.ceil(lastRowLength <span style="color:#ff79c6">/</span> blockSize);
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> totalChunks <span style="color:#ff79c6">=</span> (chunksPerRow <span style="color:#ff79c6">*</span> (numberOfRows <span style="color:#ff79c6">-</span> <span style="color:#bd93f9">1</span>)) <span style="color:#ff79c6">+</span> lastRowChunks;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> lastChunkSize <span style="color:#ff79c6">=</span> (lastRowLength <span style="color:#ff79c6">%</span> blockSize) <span style="color:#ff79c6">||</span> blockSize;
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> oddChunkSize <span style="color:#ff79c6">=</span> rectangleSize <span style="color:#ff79c6">%</span> blockSize;
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">let</span> numberOfShortVLines: <span style="color:#8be9fd">number</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">if</span> (oddChunkSize <span style="color:#ff79c6">!==</span> blockSize) {
+</span></span><span style="display:flex;"><span>    numberOfShortVLines <span style="color:#ff79c6">=</span> blockSize <span style="color:#ff79c6">-</span> oddChunkSize;
+</span></span><span style="display:flex;"><span>  } <span style="color:#ff79c6">else</span> <span style="color:#ff79c6">if</span> (lastChunkSize <span style="color:#ff79c6">!==</span> blockSize) {
+</span></span><span style="display:flex;"><span>    numberOfShortVLines <span style="color:#ff79c6">=</span> blockSize <span style="color:#ff79c6">-</span> lastChunkSize;
+</span></span><span style="display:flex;"><span>  } <span style="color:#ff79c6">else</span> {
+</span></span><span style="display:flex;"><span>    numberOfShortVLines <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> numberOfLongVLines <span style="color:#ff79c6">=</span> blockSize <span style="color:#ff79c6">-</span> numberOfShortVLines;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> longVLineLength <span style="color:#ff79c6">=</span> totalChunks;
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> shortVLineLength <span style="color:#ff79c6">=</span> totalChunks <span style="color:#ff79c6">-</span>
+</span></span><span style="display:flex;"><span>    ((oddChunkSize <span style="color:#ff79c6">!==</span> blockSize <span style="color:#ff79c6">?</span> numberOfRows <span style="color:#ff79c6">-</span> 1 : <span style="color:#8be9fd">0</span>) <span style="color:#ff79c6">+</span>
+</span></span><span style="display:flex;"><span>     (lastChunkSize <span style="color:#ff79c6">!==</span> blockSize <span style="color:#ff79c6">?</span> 1 : <span style="color:#8be9fd">0</span>));
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> stackedLines: <span style="color:#8be9fd">string</span>[][] <span style="color:#ff79c6">=</span> [];
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">let</span> encryptedIx <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">// New code to inspect the key so we can detect long vs.
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>  <span style="color:#6272a4">//  short lines.
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>  <span style="color:#ff79c6">const</span> keyChars <span style="color:#ff79c6">=</span> key.split(<span style="color:#f1fa8c">&#39;&#39;</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> sortedKey <span style="color:#ff79c6">=</span> keyChars.toSorted();
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> positionNumbers <span style="color:#ff79c6">=</span> keyChars.map(char <span style="color:#ff79c6">=&gt;</span> sortedKey.indexOf(char));
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">for</span> (<span style="color:#8be9fd;font-style:italic">let</span> vLineIx <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>; vLineIx <span style="color:#ff79c6">&lt;</span> blockSize; vLineIx<span style="color:#ff79c6">++</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">const</span> transposedVLineIx <span style="color:#ff79c6">=</span> positionNumbers.indexOf(vLineIx);
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">const</span> currentVLineLength <span style="color:#ff79c6">=</span> transposedVLineIx <span style="color:#ff79c6">&lt;</span> numberOfLongVLines <span style="color:#ff79c6">?</span>
+</span></span><span style="display:flex;"><span>      longVLineLength :
+</span></span><span style="display:flex;"><span>      <span style="color:#8be9fd">shortVLineLength</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">// Updated to add spaces in the empty spots on a short line
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">for</span> (<span style="color:#8be9fd;font-style:italic">let</span> rowIx <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>; rowIx <span style="color:#ff79c6">&lt;</span> longVLineLength; rowIx<span style="color:#ff79c6">++</span>) {
+</span></span><span style="display:flex;"><span>      stackedLines[rowIx] <span style="color:#ff79c6">??=</span> [];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      stackedLines[rowIx][vLineIx] <span style="color:#ff79c6">=</span> rowIx <span style="color:#ff79c6">&lt;</span> currentVLineLength <span style="color:#ff79c6">?</span> encrypted[encryptedIx<span style="color:#ff79c6">++</span>] <span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39; &#39;</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">return</span> stackedLines.filter(line <span style="color:#ff79c6">=&gt;</span> <span style="color:#8be9fd;font-style:italic">Array</span>.isArray(line)).map(line <span style="color:#ff79c6">=&gt;</span> line.join(<span style="color:#f1fa8c">&#39;&#39;</span>));
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">function</span> routeDecryptUnarrange(stackedLines: <span style="color:#8be9fd">string</span>[], rectangleSize: <span style="color:#8be9fd">number</span>, blockSize: <span style="color:#8be9fd">number</span>)<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">string</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">// Remove any empty space, we don&#39;t need it anymore
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>  stackedLines <span style="color:#ff79c6">=</span> stackedLines.map(line <span style="color:#ff79c6">=&gt;</span> line.replace(<span style="color:#f1fa8c">/ /g</span>, <span style="color:#f1fa8c">&#39;&#39;</span>));
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> messageLength <span style="color:#ff79c6">=</span> stackedLines.join(<span style="color:#f1fa8c">&#39;&#39;</span>).length;
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> numberOfRows <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">Math</span>.ceil(messageLength <span style="color:#ff79c6">/</span> rectangleSize);
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> blocksPerRow <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">Math</span>.ceil(rectangleSize <span style="color:#ff79c6">/</span> blockSize);
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> lastRowLength <span style="color:#ff79c6">=</span> messageLength <span style="color:#ff79c6">%</span> rectangleSize;
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> lastRowBlocks <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">Math</span>.ceil(lastRowLength <span style="color:#ff79c6">/</span> blockSize);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> messageLines: <span style="color:#8be9fd">string</span>[][] <span style="color:#ff79c6">=</span> [];
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">let</span> stackedLineIx <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">// For each column of blocks...
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>  <span style="color:#ff79c6">for</span> (<span style="color:#8be9fd;font-style:italic">let</span> columnIx <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>; columnIx <span style="color:#ff79c6">&lt;</span> blocksPerRow; columnIx<span style="color:#ff79c6">++</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">const</span> rowsInBlock <span style="color:#ff79c6">=</span> columnIx <span style="color:#ff79c6">&lt;</span> lastRowBlocks <span style="color:#ff79c6">?</span> numberOfRows : <span style="color:#8be9fd">numberOfRows</span> <span style="color:#ff79c6">-</span> <span style="color:#bd93f9">1</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">// For each row in the column...
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">for</span> (<span style="color:#8be9fd;font-style:italic">let</span> rowIx <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>; rowIx <span style="color:#ff79c6">&lt;</span> rowsInBlock; rowIx<span style="color:#ff79c6">++</span>) {
+</span></span><span style="display:flex;"><span>      messageLines[rowIx] <span style="color:#ff79c6">??=</span> [];
+</span></span><span style="display:flex;"><span>      messageLines[rowIx].push(stackedLines[stackedLineIx<span style="color:#ff79c6">++</span>]);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">return</span> messageLines.flat().join(<span style="color:#f1fa8c">&#39;&#39;</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">const</span> encrypted <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#39;ENDYAHROHNLSRHEOCPTEOIBIDYSHNAIACHTNREYULDSLLSLLNOHSNOSMRWXMNETPRNGATIHNRARPESLNNELEBLPIIACAEWMTWNDITEENRAHCTENEUDRETNHAEOETFOLSEDTIWENHAEIOYTEYQHEENCTAYCREIFTBRSPAMHHEWENATAMATEGYEERLBTEEFOASFIOTUETUAEOTOARMAEERTNRTIBSEDDNIAAHTTMSTEWPIEROAGRIEWFEBAECTDDHILCEIHSITEGOEAOSDDRYDLORITRKLMLEHAGTDHARDPNEOHMGFMFEUHEECDMRIPFEIMEHNLSSTTRTVDOHW?&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">const</span> key <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#39;KRYPTOS&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">const</span> rectangleSize <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">86</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">const</span> unreversed <span style="color:#ff79c6">=</span> encrypted.split(<span style="color:#f1fa8c">&#39;&#39;</span>).reverse().join(<span style="color:#f1fa8c">&#39;&#39;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">const</span> arrangedToDecrypt <span style="color:#ff79c6">=</span> routeDecryptReadIn(unreversed, rectangleSize, key);
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">const</span> columnarDecrypted <span style="color:#ff79c6">=</span> columnarDecrypt(arrangedToDecrypt, key);
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">const</span> decrypted <span style="color:#ff79c6">=</span> routeDecryptUnarrange(columnarDecrypted, rectangleSize, key.length);
+</span></span><span style="display:flex;"><span>console.log(decrypted);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">/* &gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">?SLOWLYDESPARATLYSLOWLYTHEREMAINSOFPASSAGEDEBRISTHATENCUMBEREDTHELOWERPARTOFTHEDOORWAYWASREMOVEDWITHTREMBLINGHANDSIMADEATINYBREACHINTHEUPPERLEFTHANDCORNERANDTHENWIDENINGTHEHOLEALITTLEIINSERTEDTHECANDLEANDPEEREDINTHEHOTAIRESCAPINGFROMTHECHAMBERCAUSEDTHEFLAMETOFLICKERBUTPRESENTLYDETAILSOFTHEROOMWITHINEMERGEDFROMTHEMISTXCANYOUSEEANYTHINGQ
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">*/</span>
+</span></span></code></pre></div><p>The message is:</p>
+<pre tabindex="0"><code>? SLOWLY DESPARATLY SLOWLY THE REMAINS OF PASSAGE DEBRIS
+THAT ENCUMBERED THE LOWER PART OF THE DOORWAY
+WAS REMOVED WITH TREMBLING HANDS
+I MADE A TINY BREACH IN THE UPPER LEFT HAND CORNER
+AND THEN WIDENING THE HOLE A LITTLE
+INSERTED THE CANDLE AND PEERED IN
+THE HOT AIR ESCAPING FROM THE CHAMBER
+CAUSED THE FLAME TO FLICKER
+BUT PRESENTLY DETAILS OF THE ROOM WITHIN
+EMERGED FROM THE MIST X
+CAN YOU SEE ANYTHING Q
+</code></pre><p>Presumably, the question mark should go at the end of the passage, not the beginning.</p>
+<p>There you go! Kryptos 3, the message that stumped codebreakers for years, decoded in under 200 lines of TypeScript.</p>
+<p>In the next post, we&rsquo;ll throw a few things at Kryptos 4 and see how it holds up.</p>
+<h2 id="acknowledgments">Acknowledgments</h2>
+<p>Thanks to the following, who made this series possible:</p>
+<ul>
+<li>The NSA: <a href="https://www.nsa.gov/portals/75/documents/news-features/declassified-documents/cia-kryptos-sculpture/KRYPTOS_Summary.pdf">The CIA Kryptos Sculpture (Declassified)</a></li>
+<li>UC San Diego: <a href="https://mathweb.ucsd.edu/~crypto/Projects/KarlWang/index2.html">The Kryptos Sculpture Solutions</a></li>
+<li>Wikipedia: <a href="https://en.wikipedia.org/wiki/Kryptos">Kryptos</a></li>
+</ul>
+
+</div>
+
+    
+<footer class='entry-footer'>
+  
+    
+      
+      
+
+<div class='categories'>
+  <span class='category-icon'>
+    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M22,19a2,2,0,0,1-2,2H4a2,2,0,0,1-2-2V5A2,2,0,0,1,4,3H9l2,3h9a2,2,0,0,1,2,2Z"/>
+  
+</svg>
+
+  </span>
+  <span class='screen-reader'>Categories: </span><a class='category' href='/blog/categories/development'>development</a></div>
+
+    
+  
+    
+      
+      
+
+<div class='tags'>
+  <span class='tag-icon'>
+    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M20.59,13.41l-7.17,7.17a2,2,0,0,1-2.83,0L2,12V2H12l8.59,8.59A2,2,0,0,1,20.59,13.41Z"/>
+  <line x1="7" y1="7" x2="7" y2="7"/>
+  
+</svg>
+
+  </span>
+  <span class='screen-reader'>Tags: </span><a class='tag' href='/blog/tags/kryptos'>kryptos</a></div>
+
+    
+  
+</footer>
+
+
+  </article>
+
+  
+    
+<nav class='entry-nav'>
+  <div class='entry-nav-links'><div class='prev-entry'>
+      <a href='http://isaaclyman.com/blog/posts/kryptos-2/'>
+        <span aria-hidden='true'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="20" y1="12" x2="4" y2="12"/>
+  <polyline points="10 18 4 12 10 6"/>
+  
+</svg>
+ Previous</span>
+        <span class='screen-reader'>Previous post: </span>Solving the CIA Kryptos code in TypeScript (Part 2)</a>
+    </div><div class='next-entry'>
+      <a href='http://isaaclyman.com/blog/posts/kryptos-4/'>
+        <span class='screen-reader'>Next post: </span>Solving the CIA Kryptos code in TypeScript (Part 4)<span aria-hidden='true'>Next <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="4" y1="12" x2="20" y2="12"/>
+  <polyline points="14 6 20 12 14 18"/>
+  
+</svg>
+</span>
+      </a>
+    </div></div>
+</nav>
+
+
+  
+
+  
+    <div class='comments-container'>
+  
+</div>
+
+  
+</main>
+
+    <footer id='footer' class='footer-container'>
+      <div class='footer'>
+        <div class='social'>
+  <nav aria-label='Social Menu'>
+    <ul class='social-menu'></ul>
+  </nav>
+</div>
+
+        <div class='copyright'>
+          <p>© 2017 by Isaac Lyman. Site powered by Hugo and GitHub Pages.</p>
+
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <script src='/blog/js/main.af838dd5.js'></script>
+  
+    <script src='/blog/js/custom.js'></script>
+  
+
+</body>
+
+</html>
+

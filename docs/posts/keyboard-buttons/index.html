@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<meta name='description' content='Building a software keyboard is almost always a Bad Idea. The keyboards that come installed with our phones and tablets represent years of institutional knowledge and are fine-tuned for user experience and accessibility. A good keyboard is something you never have to think about, and it takes a significant investment to get there.
+However, there are cases where you have no choice but to render your own. For example, in my mobile word game Sootly, each key on the keyboard has an animated, multi-color background representing clues for the puzzle you&rsquo;re solving.'>
+
+<meta property='og:title' content='A keyboard is not a list of buttons • Minimum Viable Blog'>
+<meta property='og:description' content='Building a software keyboard is almost always a Bad Idea. The keyboards that come installed with our phones and tablets represent years of institutional knowledge and are fine-tuned for user experience and accessibility. A good keyboard is something you never have to think about, and it takes a significant investment to get there.
+However, there are cases where you have no choice but to render your own. For example, in my mobile word game Sootly, each key on the keyboard has an animated, multi-color background representing clues for the puzzle you&rsquo;re solving.'>
+<meta property='og:url' content='http://isaaclyman.com/blog/posts/keyboard-buttons/'>
+<meta property='og:site_name' content='Minimum Viable Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts'><meta property='article:published_time' content='2022-11-15T11:51:53-07:00'/><meta property='article:modified_time' content='2022-11-15T11:51:53-07:00'/>
+
+<meta name="generator" content="Hugo 0.124.1">
+
+  <title>A keyboard is not a list of buttons • Minimum Viable Blog</title>
+  <link rel='canonical' href='http://isaaclyman.com/blog/posts/keyboard-buttons/'>
+  
+  <link rel='icon' href='/blog/favicon.png'>
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Ubuntu:400,400i,700&subset=latin'>
+<link rel='stylesheet' href='/blog/css/main.d02777fd.css'>
+
+  <link rel='stylesheet' href='/blog/css/custom.css'>
+
+  <link rel='stylesheet' href='/blog/css/print.css'>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QX2T3WXRC9"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-QX2T3WXRC9', { 'anonymize_ip': false });
+}
+</script>
+
+
+</head>
+
+
+<body class='page'>
+  <div class='site'>
+    <header id='header' class='header-container'>
+      <div class='site-header'>
+        <nav id='navmenu' aria-label='Main Menu'>
+  <ul class='main-menu'>
+    
+    <li>
+      <a href='/blog/posts/' 
+        
+      >{ Archive }</a>
+    </li>
+    
+    <li>
+      <a href='/blog/posts/introduction' 
+        
+      >{ Contact }</a>
+    </li>
+    
+    <li>
+      <a href='/blog/index.xml' 
+        
+      >{ RSS }</a>
+    </li>
+    
+  </ul>
+</nav>
+
+        <div class='site-info'>
+          
+          <p class='site-title title'>Minimum Viable Blog</p>
+          
+          <p class='site-description'>Software construction, opinion, and self</p>
+        </div>
+      </div>
+    </header>
+
+
+<main class='main'>
+  <article lang='en' class='entry'>
+    <header class='entry-header'>
+  <div class='entry-info'>
+    <p class="entry-genre">
+      Technology
+    </p>
+    <h1 class='entry-title title'>A keyboard is not a list of buttons</h1>
+    
+  </div>
+  
+<div class='meta'>
+  <span class='posted-on'>
+    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+  <line x1="16" y1="2" x2="16" y2="6"/>
+  <line x1="8" y1="2" x2="8" y2="6"/>
+  <line x1="3" y1="10" x2="21" y2="10"/>
+  
+</svg>
+
+    <span class='screen-reader'>Posted on </span>
+    <time class='date' datetime='2022-11-15T11:51:53-07:00'>Nov 15, 2022</time>
+  </span>
+  
+  
+  <span class='reading-time'>
+    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <circle cx="12" cy="12" r="10"/>
+  <polyline points="12 6 12 12 15 15"/> 
+  
+</svg>
+
+    6 mins read
+  </span>
+  
+</div>
+
+
+</header>
+
+    <div class='entry-content'>
+  <p>Building a software keyboard is almost always a Bad Idea. The keyboards that come installed with our phones and tablets represent years of institutional knowledge and are fine-tuned for user experience and accessibility. A good keyboard is something you never have to think about, and it takes a significant investment to get there.</p>
+<p>However, there are cases where you have no choice but to render your own. For example, in <a href="https://sootly.isaaclyman.com/install">my mobile word game Sootly</a>, each key on the keyboard has an animated, multi-color background representing clues for the puzzle you&rsquo;re solving. In the first version of the app, I shipped a keyboard that consisted of little more than three rows of buttons in a QWERTY layout, with gutters next to A and L, plus Backspace and Submit buttons on the third row.</p>
+<figure><img src="/blog/img/key_basic.jpeg"
+    alt="A simple keyboard with letter keys but no numbers, symbols, or space bar">
+</figure>
+
+<p>This technically worked. The game was playable. It was fun, even. But the keyboard never felt quite right; you had to pay close attention to it and sometimes it felt like a letter was getting missed. Why was that? There was nothing wrong with the buttons, to be clear. They all worked perfectly: tap a button, get a letter. But still, you could never quite get to the point where the keyboard disappeared into the experience, like with a native keyboard.</p>
+<p>Eventually I got a clue, thanks to some feedback from my brother. I spent the next couple of weeks focused on rebuilding the keyboard and finally got it to a point where it feels natural. Here&rsquo;s what I learned along the way.</p>
+<h2 id="1---keys-shouldnt-have-margins">1 - Keys shouldn&rsquo;t have margins</h2>
+<p>Typically when you&rsquo;re putting buttons side-by-side there&rsquo;s an instinct to separate them. It looks nicer; nobody likes to see a row of buttons smushed together like one big pea pod. But on a keyboard, that instinct can lead to poor UX. People type on touch screens with high speed and low accuracy. If they type the wrong letter, that&rsquo;s a typo; they&rsquo;ll blame themselves. But if they tap the margin between two keys and nothing happens, they&rsquo;ll blame the keyboard.</p>
+<p>Take a look at this iPhone keyboard:</p>
+<figure><img src="/blog/img/key_iphone.jpeg"
+    alt="A standard iPhone keyboard">
+</figure>
+
+<p>While there is <em>visual</em> separation between the keys, that&rsquo;s pure paint. There&rsquo;s actually not a single pixel you can tap within the rectangular keyboard area that doesn&rsquo;t result in a keypress. If you try to tap the margin between two keys, it maps to the nearest key.</p>
+<p>This may seem obvious, but the implementation is counterintuitive if you&rsquo;ve never done it before. Probably the easiest solution in HTML or Flutter is to set margins to 0 and use thick borders (either transparent or the same color as the background).</p>
+<figure><img src="/blog/img/key_borders.jpeg"
+    alt="An iPhone keyboard with lines emphasizing the borders between keys and the text &#39;Borders, not margins&#39;">
+</figure>
+
+<h2 id="2---a-and-l-should-extend-horizontally">2 - A and L should extend horizontally</h2>
+<p>The first row of a QWERTY keyboard has 10 letters while the second row only has 9. Software keyboards compensate for this by putting a gutter on both sides of the second row, roughly one-half the width of a key.</p>
+<p><sup>Hardware keyboards have a much smaller margin on the left side than the right, with A nearly below Q. L and P hardly overlap at all! But hardware keyboards have loads of physical feedback that software keyboards don&rsquo;t, and the ergonomics are different anyway because you don&rsquo;t use a physical keyboard with only your thumbs.</sup></p>
+<figure><img src="/blog/img/key_gutter.jpeg"
+    alt="A keyboard with the empty space to the left of A and the right of L outlined, each labeled &#39;gutter&#39;">
+</figure>
+
+<p>This gutter, importantly, is not a dead zone! There are no dead zones on an ideal keyboard. If you tap the gutter to the left of A, you get an A. To the right of L, an L. Smartphone users are conditioned to sacrifice accuracy for speed wherever possible, which means keys on the edges habitually receive less attention than keys in the center. And since A and L aren&rsquo;t flush with the edge of the screen (which acts a tactile guiderail on other rows) extended tap targets in the gutter area will save a lot of attempted keypresses from getting lost.</p>
+<p>The best solution here is platform-dependent, but for my money, filling the gutters with invisible buttons (or any rectangles that can register a tap) and mapping them to A and L is sufficient.</p>
+<h2 id="3---the-top-row-should-have-a-bumper">3 - The top row should have a bumper</h2>
+<p>As if the A/L gutter wasn&rsquo;t forgiving enough, there&rsquo;s another functional gutter on software keyboards just above the top row. Most modern software keyboards disguise this as a &ldquo;suggestion strip,&rdquo; but make no mistake, it&rsquo;s part of the keyboard.</p>
+<figure><img src="/blog/img/key_suggestionstrip.jpeg"
+    alt="An iPhone keyboard. The text &#39;What a&#39; has been entered in an input and the suggestion strip above the keys reads &#39;time, great, good&#39;">
+</figure>
+
+<p>Try this: type the word <strong>WHAT</strong> in your favorite messaging app but instead of the T, tap whatever suggestion lies right above it. There&rsquo;s no room for hesitation here—you need to tap just as fast as you would if you were typing the word naturally. On my iPhone, I still get a T. The keyboard knows I&rsquo;m in the middle of typing a word, so it appropriates the suggestion strip as an extension of keys Q through P.</p>
+<p>This may seem like a small thing but I&rsquo;ve been amazed at the difference it makes. Adding this top-row bumper made my custom keyboard go from &ldquo;mostly functional&rdquo; to &ldquo;effortless.&rdquo; On a typical software keyboard there&rsquo;s a bumper underneath the bottom row as well, but since my keyboard doesn&rsquo;t have a space bar there&rsquo;s less of a need for that.</p>
+<p>The implementation: in my Flutter app, I used a row of invisible gesture detectors laid out just above the top row in an equivalent configuration. On web, I might have preferred to use an absolute-positioned element in each key to achieve the same effect.</p>
+<figure><img src="/blog/img/key_bumper.jpeg"
+    alt="A keyboard with an extended area above the top row of keys outlined in red and labeled &#39;invisible bumper&#39;">
+</figure>
+
+<h2 id="4---per-key-processing-should-be-fast">4 - Per-key processing should be FAST</h2>
+<p>Maybe it&rsquo;s (again) obvious, but keyboard buttons have to be significantly faster than regular buttons. Users will tolerate as much as 250 milliseconds between the time they tap an action button and when the app delivers visual feedback. On a software keyboard, that would be unacceptable. Even 100ms of per-key latency makes the keyboard feel jittery. While it&rsquo;s true that the average smartphone user only types about 200 characters per minute—one character per 300 milliseconds—the delay between tap and response isn&rsquo;t the whole story. Typing is a continuous feedback loop between thumbs, keyboard, screen, eyes, and brain, one that&rsquo;s automatic to smartphone users. We type the end of a word before our eyes have registered the beginning. Even a small delay from tap to response can force the user to mentally rewind the loop, a jarring experience most of us are familiar with from the occasions when our phone or computer gets momentarily overwhelmed and we have to stop typing and wait for it to catch up.</p>
+<p>Shaving milliseconds off keyboard response time is a worthwhile endeavor. This is bog-standard optimization work. If you can figure out where you&rsquo;re spending the most cycles, you can streamline them, schedule them for later, or offload them to another thread to keep the UI responsive.</p>
+<h2 id="a-keyboard-is-a-deceptively-large-live-tap-zone">A keyboard is a deceptively large live tap zone</h2>
+<p>There&rsquo;s a lot more that goes into a good software keyboard, more than I could possibly be aware of after such a short time. The above are minimum requirements to make a keyboard feel usable. High-quality software keyboards also use autocorrection, AI modeling, and round after round of usability testing to ensure they feel natural and produce the keypresses the user expects, even if they&rsquo;re not necessarily what the user tapped on.</p>
+<p>The best keyboard is the one the user brings with them. But hopefully, if I haven&rsquo;t scared you off of building your own, I&rsquo;ve at least given you a few guidelines to make it better.</p>
+
+</div>
+
+    
+<footer class='entry-footer'>
+  
+    
+      
+      
+
+<div class='categories'>
+  <span class='category-icon'>
+    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M22,19a2,2,0,0,1-2,2H4a2,2,0,0,1-2-2V5A2,2,0,0,1,4,3H9l2,3h9a2,2,0,0,1,2,2Z"/>
+  
+</svg>
+
+  </span>
+  <span class='screen-reader'>Categories: </span><a class='category' href='/blog/categories/product'>product</a></div>
+
+    
+  
+    
+  
+</footer>
+
+
+  </article>
+
+  
+    
+<nav class='entry-nav'>
+  <div class='entry-nav-links'><div class='prev-entry'>
+      <a href='http://isaaclyman.com/blog/posts/credit-card-microchip/'>
+        <span aria-hidden='true'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="20" y1="12" x2="4" y2="12"/>
+  <polyline points="10 18 4 12 10 6"/>
+  
+</svg>
+ Previous</span>
+        <span class='screen-reader'>Previous post: </span>Credit card chips and encryption in plain JavaScript</a>
+    </div><div class='next-entry'>
+      <a href='http://isaaclyman.com/blog/posts/wordle-competitors/'>
+        <span class='screen-reader'>Next post: </span>Wordle spinoffs and competitors, ranked<span aria-hidden='true'>Next <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="4" y1="12" x2="20" y2="12"/>
+  <polyline points="14 6 20 12 14 18"/>
+  
+</svg>
+</span>
+      </a>
+    </div></div>
+</nav>
+
+
+  
+
+  
+    <div class='comments-container'>
+  
+</div>
+
+  
+</main>
+
+    <footer id='footer' class='footer-container'>
+      <div class='footer'>
+        <div class='social'>
+  <nav aria-label='Social Menu'>
+    <ul class='social-menu'></ul>
+  </nav>
+</div>
+
+        <div class='copyright'>
+          <p>© 2017 by Isaac Lyman. Site powered by Hugo and GitHub Pages.</p>
+
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <script src='/blog/js/main.af838dd5.js'></script>
+  
+    <script src='/blog/js/custom.js'></script>
+  
+
+</body>
+
+</html>
+

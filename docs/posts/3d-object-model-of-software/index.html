@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<meta name='description' content='Software projects are most efficient when, at any given time, each contributor is focused on a different concern. Like objects in 3D space, projects can be said to have surface area and volume:
+Surface area represents the number of opportunities to contribute—that is, how many people could efficiently work on the project at the same time. Volume represents the knowledge space of the project (measured, perhaps, in the total number of productive person-hours spent on it).'>
+
+<meta property='og:title' content='The 3D object model of software construction • Minimum Viable Blog'>
+<meta property='og:description' content='Software projects are most efficient when, at any given time, each contributor is focused on a different concern. Like objects in 3D space, projects can be said to have surface area and volume:
+Surface area represents the number of opportunities to contribute—that is, how many people could efficiently work on the project at the same time. Volume represents the knowledge space of the project (measured, perhaps, in the total number of productive person-hours spent on it).'>
+<meta property='og:url' content='http://isaaclyman.com/blog/posts/3d-object-model-of-software/'>
+<meta property='og:site_name' content='Minimum Viable Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts'><meta property='article:published_time' content='2023-11-20T11:00:28-07:00'/><meta property='article:modified_time' content='2023-11-20T11:00:28-07:00'/>
+
+<meta name="generator" content="Hugo 0.124.1">
+
+  <title>The 3D object model of software construction • Minimum Viable Blog</title>
+  <link rel='canonical' href='http://isaaclyman.com/blog/posts/3d-object-model-of-software/'>
+  
+  <link rel='icon' href='/blog/favicon.png'>
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Ubuntu:400,400i,700&subset=latin'>
+<link rel='stylesheet' href='/blog/css/main.d02777fd.css'>
+
+  <link rel='stylesheet' href='/blog/css/custom.css'>
+
+  <link rel='stylesheet' href='/blog/css/print.css'>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QX2T3WXRC9"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-QX2T3WXRC9', { 'anonymize_ip': false });
+}
+</script>
+
+
+</head>
+
+
+<body class='page'>
+  <div class='site'>
+    <header id='header' class='header-container'>
+      <div class='site-header'>
+        <nav id='navmenu' aria-label='Main Menu'>
+  <ul class='main-menu'>
+    
+    <li>
+      <a href='/blog/posts/' 
+        
+      >{ Archive }</a>
+    </li>
+    
+    <li>
+      <a href='/blog/posts/introduction' 
+        
+      >{ Contact }</a>
+    </li>
+    
+    <li>
+      <a href='/blog/index.xml' 
+        
+      >{ RSS }</a>
+    </li>
+    
+  </ul>
+</nav>
+
+        <div class='site-info'>
+          
+          <p class='site-title title'>Minimum Viable Blog</p>
+          
+          <p class='site-description'>Software construction, opinion, and self</p>
+        </div>
+      </div>
+    </header>
+
+
+<main class='main'>
+  <article lang='en' class='entry'>
+    <header class='entry-header'>
+  <div class='entry-info'>
+    <p class="entry-genre">
+      Technology
+    </p>
+    <h1 class='entry-title title'>The 3D object model of software construction</h1>
+    
+  </div>
+  
+<div class='meta'>
+  <span class='posted-on'>
+    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+  <line x1="16" y1="2" x2="16" y2="6"/>
+  <line x1="8" y1="2" x2="8" y2="6"/>
+  <line x1="3" y1="10" x2="21" y2="10"/>
+  
+</svg>
+
+    <span class='screen-reader'>Posted on </span>
+    <time class='date' datetime='2023-11-20T11:00:28-07:00'>Nov 20, 2023</time>
+  </span>
+  
+  
+  <span class='reading-time'>
+    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <circle cx="12" cy="12" r="10"/>
+  <polyline points="12 6 12 12 15 15"/> 
+  
+</svg>
+
+    8 mins read
+  </span>
+  
+</div>
+
+
+</header>
+
+    <div class='entry-content'>
+  <p>Software projects are most efficient when, at any given time, each contributor is focused on a different concern. Like objects in 3D space, projects can be said to have <em>surface area</em> and <em>volume</em>:</p>
+<ul>
+<li><em>Surface area</em> represents the number of opportunities to contribute—that is, how many people could efficiently work on the project at the same time.</li>
+<li><em>Volume</em> represents the knowledge space of the project (measured, perhaps, in the total number of productive person-hours spent on it). Divided by the number of contributors, it also measures the theoretical limit (relative to the project as a whole) on any single contributor&rsquo;s ability to make an extraordinary impact.</li>
+</ul>
+<p>As projects grow, they inevitably increase across both measures—but not evenly. A perfect sphere has the smallest possible surface-area-to-volume ratio: that&rsquo;s a project where a few well-tenured contributors will outperform any other team configuration, meaning that hiring wouldn&rsquo;t increase productivity or efficiency. A flattened cuboid, on the other hand, has a large surface-area-to-volume ratio: there are many different opportunities to contribute, and hiring will usually increase speed of delivery, but increasing headcount will eventually yield diminishing returns as the space becomes too limited for each contributor to spread their wings. Thus, projects with the same scope may have very different shapes.</p>
+<p><sup>For teams that practice pair programming, two developers can be counted as a single, highly efficient contributor.</sup></p>
+<p>Following are four theories about software development that proceed from this analogy.</p>
+<h3 id="1-starting-a-project">1. Starting a project</h3>
+<p>Theory: <strong>Every starting-from-zero project should have exactly two people assigned to it for the first eight weeks. Those two people are an engineer and a product manager.</strong></p>
+<p>A brand new software project, like a marble, is very small and has a minimal surface-area-to-volume ratio. One motivated developer can make incredible progress in a very short time; another developer would only slow the project down or end up waiting around while the first developer works on initial project setup, architecture, and creation of patterns.</p>
+<blockquote>
+<p>What one programmer can do in one month, two programmers can do in two months.</p>
+<p>— Fred Brooks</p>
+</blockquote>
+<p>To mitigate the risk of the developer making progress in the wrong direction, the product manager&rsquo;s role is to map out the scope of the project and continuously negotiate the feature set. They also lead out on collaborating with pilot clients, testing and validating early iterations, and building a prioritized backlog.</p>
+<p>Only when a project actually <em>does something</em> is it reasonable to assign more people. Ideally, it should do several things. It should also have had a chance to fail if any of its core assumptions were faulty. Every project is an experiment until proven otherwise. Part of the logic of assigning minimal staff to it for a while is to avoid overspending on something that won&rsquo;t yield fruit.</p>
+<h3 id="2-growing-the-team">2. Growing the team</h3>
+<p>Theory: <strong>Individual contributors have the clearest picture of what roles should be added to a project.</strong></p>
+<p>It&rsquo;s important to be thoughtful about adding more people to a project as it grows. Headcount is often assigned to projects based on extraneous criteria such as profitability, corporate strategy, or contract deadlines. This approach to staffing is based on wishful thinking, not sound methodology.</p>
+<blockquote>
+<p>Adding [human resources] to a late software project makes it later.</p>
+<p>— Brooks&rsquo;s Law</p>
+</blockquote>
+<p>The 3D object model of software development insists that we assign headcount for one reason only: efficiency. This can mean different things in context, but at the very least, adding a role of type X when there&rsquo;s an existing bottleneck of type Y won&rsquo;t do much for productivity.</p>
+<p>Every development cycle has bottlenecks, but many are only visible from the ground.</p>
+<ul>
+<li>If a product manager is working frequent overtime, it may appear that another product manager is needed to partner with them. But maybe they&rsquo;re spending all their time fielding support tickets because the software has a high rate of defects. In this case, another product manager would be less helpful than a QA engineer.</li>
+<li>If features are spending too long in development, it may seem like the solution is to hire more developers. But the problem could be that developers are having to wait several days for UI prototypes to be finished, or that the features are underspecified and they have to jockey for time with an overscheduled product manager to nail down the details. In these cases, more designers or product managers, respectively, are needed.</li>
+</ul>
+<p>To discover these bottlenecks, it&rsquo;s essential to talk to the people closest to them: individual contributors. Any hiring decision made without this information is no better than a guess.</p>
+<h3 id="3-building-connected-projects">3. Building connected projects</h3>
+<p>Theory: <strong>The size, composition, and hierarchy of a software team is a software-architectural decision, not a human resource decision.</strong></p>
+<p>Choices about the structure of a software team invariably affect the projects they ship.</p>
+<blockquote>
+<p>Any organization that designs a system (defined broadly) will produce a design whose structure is a copy of the organization&rsquo;s communication structure.</p>
+<p>— Conway&rsquo;s Law</p>
+</blockquote>
+<p>When you split a product team in two, you&rsquo;re incentivizing them to create two different products. Whether those products <em>appear</em> unified to the end user is a consequence of how well the teams communicate with each other. When you combine two teams into one, you&rsquo;re incentivizing them (albeit in competition with other constraints) to combine their products. When you form a centralized &ldquo;core UI&rdquo; or &ldquo;platform&rdquo; team, you&rsquo;re incentivizing those teams to ship discrete products to other teams, which become end users—for better <em>and</em> for worse. These incentives can be overcome, but only by well-defined rules and continuous incentives.</p>
+<p>Teams, by nature, create and defend their own opportunities to contribute (surface area) and their own tight-knit knowledge space (volume). When their projects must interact, the quality and reliability of the interaction largely depends on how difficult it is for contributors on different projects to ask each other for favors.</p>
+<p>Teams working on interdependent projects can only be effectively organized by someone who has a mental model of each project&rsquo;s structure, shape, and interaction points. Trying to force teams of one&rsquo;s preferred shape onto projects with completely different shapes is, in a real sense, no different than trying to put a round peg in a square hole.</p>
+<h3 id="4-building-long-term-value">4. Building long-term value</h3>
+<p>Theory: <strong>Growth is never value-neutral; it either adds consumer value or subtracts from it.</strong></p>
+<p>A project with a simple shape is easy for a customer to understand and use, but that doesn&rsquo;t mean it provides ideal value, or even any value at all.</p>
+<blockquote>
+<p>Every program attempts to expand until it can read mail. Those programs which cannot so expand are replaced by ones which can.</p>
+<p>— Zawinski&rsquo;s Law</p>
+</blockquote>
+<p>Some customers prefer software that does one thing well, but most will gravitate to a one-stop shop. Nearly all software products are pathologically incapable of communicating with each other, so one mediocre product that manages an entire process typically requires less effort to use than five spectacular products that each manage a single step.</p>
+<p>In the 3D object model of software, consumer value can be thought of in terms of congruence between a customer&rsquo;s process (also a 3D object of sorts) and a project&rsquo;s knowledge space. Each customer may have a different process, but if they&rsquo;re rational, they&rsquo;ll prefer whatever software has the most similar shape and the same or larger size. Processes appear continuous when you&rsquo;re in them; you can&rsquo;t easily persuade a customer to slice their process into multiple pieces for the sake of adopting your software. Therefore, every process should be considered holistically.</p>
+<p>Planning new features for a project is a matter of two driving goals: matching the average customer process more closely (shape), and increasing the knowledge space of the project so it can accommodate a greater number of differences between processes (volume). An increase in volume without a change in shape creates value for all customers, since processes tend to evolve over time, but every change in shape either makes the project more congruent with the average customer process or less so. This is one reason why customer collaboration and functional empathy are so important.</p>
+<p>Changes in shape and volume can come in many forms. Running ads in a product, for example, is a risky proposition because &ldquo;viewing ads&rdquo; isn&rsquo;t part of anyone&rsquo;s process. The presence of ads always decreases customer value, which isn&rsquo;t to say it&rsquo;s always self-defeating; the revenue opportunity may justify the addition of unsightly vertices to the project&rsquo;s shape. But if a project&rsquo;s entire revenue comes from advertising, it&rsquo;s destined to take on the shape of its advertisers&rsquo; process rather than its users&rsquo;, which will make it less competitive. Collecting and selling user data is risky for the same reasons.</p>
+<p>The Platonic ideal of any project is something that perfectly matches its users&rsquo; needs without any unnecessary volume. This has never been achieved. But it can only be approximated when the user and the payer are the same person.</p>
+<p>A project that completely covers its target market&rsquo;s processes, variations included, will nonetheless face pressure to grow. There may be opportunities to do so by addressing new customers with very similar needs. However, there are more and easier opportunities to grow in the short term by sacrificing customer value for profit. When a project&rsquo;s only remaining options are to stop growing or sell off its own competitiveness for parts, it becomes a sinking ship. Vendor lock-in and lack of competition are the only forces that can keep its customers on board after that.</p>
+<h3 id="modeling-success">Modeling success</h3>
+<p>Like any model, the 3D object model is imperfect and reductive. There are many factors outside of it that contribute to project success or failure: sales and marketing, willingness to pay, market power, pricing, <a href="https://toot.cafe/@isaaclyman/111371799497096731">organizational competence</a>, turnover, and so on. But it&rsquo;s a useful tool for thinking about software in terms of the internal (what it does, how it&rsquo;s used, and who builds it) rather than the external (what we believe about it and how it sells). This is important because the internal factors are more often ignored, yet more easily controlled.</p>
+
+</div>
+
+    
+<footer class='entry-footer'>
+  
+    
+      
+      
+
+<div class='categories'>
+  <span class='category-icon'>
+    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M22,19a2,2,0,0,1-2,2H4a2,2,0,0,1-2-2V5A2,2,0,0,1,4,3H9l2,3h9a2,2,0,0,1,2,2Z"/>
+  
+</svg>
+
+  </span>
+  <span class='screen-reader'>Categories: </span><a class='category' href='/blog/categories/development'>development</a></div>
+
+    
+  
+    
+  
+</footer>
+
+
+  </article>
+
+  
+    
+<nav class='entry-nav'>
+  <div class='entry-nav-links'><div class='prev-entry'>
+      <a href='http://isaaclyman.com/blog/posts/engineering-didnt-work-out/'>
+        <span aria-hidden='true'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="20" y1="12" x2="4" y2="12"/>
+  <polyline points="10 18 4 12 10 6"/>
+  
+</svg>
+ Previous</span>
+        <span class='screen-reader'>Previous post: </span>So software engineering isn&#39;t working out for you</a>
+    </div><div class='next-entry'>
+      <a href='http://isaaclyman.com/blog/posts/software-upgrades-2023/'>
+        <span class='screen-reader'>Next post: </span>My top home software upgrades<span aria-hidden='true'>Next <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="4" y1="12" x2="20" y2="12"/>
+  <polyline points="14 6 20 12 14 18"/>
+  
+</svg>
+</span>
+      </a>
+    </div></div>
+</nav>
+
+
+  
+
+  
+    <div class='comments-container'>
+  
+</div>
+
+  
+</main>
+
+    <footer id='footer' class='footer-container'>
+      <div class='footer'>
+        <div class='social'>
+  <nav aria-label='Social Menu'>
+    <ul class='social-menu'></ul>
+  </nav>
+</div>
+
+        <div class='copyright'>
+          <p>© 2017 by Isaac Lyman. Site powered by Hugo and GitHub Pages.</p>
+
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <script src='/blog/js/main.af838dd5.js'></script>
+  
+    <script src='/blog/js/custom.js'></script>
+  
+
+</body>
+
+</html>
+

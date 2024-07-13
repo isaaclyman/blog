@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<meta name='description' content='Classic pipelines are out, YAML pipelines are in. Azure DevOps (ADO) has adopted a pipelines-as-code philosophy that will be their build and release strategy for the foreseeable future. There&rsquo;s a lot to appreciate about the new pipelines, though they are a bit of a mental adjustment and the transition is anything but automatic&mdash;I took a few weeks converting all of ours, though there were some special obstacles in our case that hopefully you won&rsquo;t have to deal with.'>
+
+<meta property='og:title' content='YAML Pipelines in Azure DevOps: tips and advice • Minimum Viable Blog'>
+<meta property='og:description' content='Classic pipelines are out, YAML pipelines are in. Azure DevOps (ADO) has adopted a pipelines-as-code philosophy that will be their build and release strategy for the foreseeable future. There&rsquo;s a lot to appreciate about the new pipelines, though they are a bit of a mental adjustment and the transition is anything but automatic&mdash;I took a few weeks converting all of ours, though there were some special obstacles in our case that hopefully you won&rsquo;t have to deal with.'>
+<meta property='og:url' content='http://isaaclyman.com/blog/posts/ado-yaml-pipelines/'>
+<meta property='og:site_name' content='Minimum Viable Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts'><meta property='article:published_time' content='2022-05-09T20:02:10-06:00'/><meta property='article:modified_time' content='2022-05-09T20:02:10-06:00'/>
+
+<meta name="generator" content="Hugo 0.124.1">
+
+  <title>YAML Pipelines in Azure DevOps: tips and advice • Minimum Viable Blog</title>
+  <link rel='canonical' href='http://isaaclyman.com/blog/posts/ado-yaml-pipelines/'>
+  
+  <link rel='icon' href='/blog/favicon.png'>
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Ubuntu:400,400i,700&subset=latin'>
+<link rel='stylesheet' href='/blog/css/main.d02777fd.css'>
+
+  <link rel='stylesheet' href='/blog/css/custom.css'>
+
+  <link rel='stylesheet' href='/blog/css/print.css'>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QX2T3WXRC9"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-QX2T3WXRC9', { 'anonymize_ip': false });
+}
+</script>
+
+
+</head>
+
+
+<body class='page'>
+  <div class='site'>
+    <header id='header' class='header-container'>
+      <div class='site-header'>
+        <nav id='navmenu' aria-label='Main Menu'>
+  <ul class='main-menu'>
+    
+    <li>
+      <a href='/blog/posts/' 
+        
+      >{ Archive }</a>
+    </li>
+    
+    <li>
+      <a href='/blog/posts/introduction' 
+        
+      >{ Contact }</a>
+    </li>
+    
+    <li>
+      <a href='/blog/index.xml' 
+        
+      >{ RSS }</a>
+    </li>
+    
+  </ul>
+</nav>
+
+        <div class='site-info'>
+          
+          <p class='site-title title'>Minimum Viable Blog</p>
+          
+          <p class='site-description'>Software construction, opinion, and self</p>
+        </div>
+      </div>
+    </header>
+
+
+<main class='main'>
+  <article lang='en' class='entry'>
+    <header class='entry-header'>
+  <div class='entry-info'>
+    <p class="entry-genre">
+      Technology
+    </p>
+    <h1 class='entry-title title'>YAML Pipelines in Azure DevOps: tips and advice</h1>
+    
+  </div>
+  
+<div class='meta'>
+  <span class='posted-on'>
+    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+  <line x1="16" y1="2" x2="16" y2="6"/>
+  <line x1="8" y1="2" x2="8" y2="6"/>
+  <line x1="3" y1="10" x2="21" y2="10"/>
+  
+</svg>
+
+    <span class='screen-reader'>Posted on </span>
+    <time class='date' datetime='2022-05-09T20:02:10-06:00'>May 9, 2022</time>
+  </span>
+  
+  
+  <span class='reading-time'>
+    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <circle cx="12" cy="12" r="10"/>
+  <polyline points="12 6 12 12 15 15"/> 
+  
+</svg>
+
+    11 mins read
+  </span>
+  
+</div>
+
+
+</header>
+
+    <div class='entry-content'>
+  <p>Classic pipelines are out, YAML pipelines are in. Azure DevOps (ADO) has adopted a pipelines-as-code philosophy that will be their build <em>and</em> release strategy for the foreseeable future. There&rsquo;s a lot to appreciate about the new pipelines, though they are a bit of a mental adjustment and the transition is anything but automatic&mdash;I took a few weeks converting all of ours, though there were some special obstacles in our case that hopefully you won&rsquo;t have to deal with.</p>
+<p>The documentation on YAML pipelines is pretty thorough, but like most documentation it&rsquo;s got a few blind spots. The goal of this post is to be the heads-up I wish I&rsquo;d had before diving in. I&rsquo;ll cover the main concepts and implementation details I&rsquo;ve learned along the way.</p>
+<ul>
+<li><a href="/blog/posts/ado-yaml-pipelines/#yaml-pipelines-an-overview">YAML Pipelines: an overview</a></li>
+<li><a href="/blog/posts/ado-yaml-pipelines/#why-yaml-pipelines">Why YAML pipelines?</a></li>
+<li><a href="/blog/posts/ado-yaml-pipelines/#copy-yaml-steps-from-the-classic-ui">Copy YAML steps from the classic UI</a></li>
+<li><a href="/blog/posts/ado-yaml-pipelines/#no-more-releases-page-no-more-deployment-groups">No more Releases page, no more Deployment Groups</a></li>
+<li><a href="/blog/posts/ado-yaml-pipelines/#templates-are-your-bread-and-butter">Templates are your bread and butter</a></li>
+<li><a href="/blog/posts/ado-yaml-pipelines/#three-types-of-variable-interpolation">Three types of variable interpolation</a></li>
+<li><a href="/blog/posts/ado-yaml-pipelines/#top-level-parameters">Top-level parameters</a></li>
+<li><a href="/blog/posts/ado-yaml-pipelines/#always-declare-your-triggers-and-artifacts">Always declare your triggers and artifacts</a></li>
+<li><a href="/blog/posts/ado-yaml-pipelines/#never-trust-the-branch-selector-in-run-pipeline">Never trust the branch selector in Run Pipeline</a></li>
+<li><a href="/blog/posts/ado-yaml-pipelines/#variable-groups-are-a-must">Variable groups are a must</a></li>
+<li><a href="/blog/posts/ado-yaml-pipelines/#dont-overestimate-the-usedotnet-task">Don&rsquo;t overestimate the UseDotNet task</a></li>
+<li><a href="/blog/posts/ado-yaml-pipelines/#practice-one-off-deployments-ahead-of-time">Practice one-off deployments ahead of time</a></li>
+</ul>
+<h2 id="yaml-pipelines-an-overview">YAML Pipelines: an overview</h2>
+<p>A classic pipeline is a build or release created in the Azure DevOps web interface.</p>
+<p>A YAML pipeline is a text file committed to a Git repository. It supports <a href="https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started/pipelines-get-started?view=azure-devops#feature-availability">most of</a> the same features as a classic pipeline plus a few more. There are three &ldquo;missing&rdquo; features: deployment group jobs, task groups, and gates, and the first two have suitable&mdash;arguably better&mdash;replacements. As for gates, you may well find that the Environments page offers what you need.</p>
+<p>YAML pipelines can be used for both builds (creation of artifacts) and releases (deployment of artifacts). There are rumors that classic pipelines will be deprecated soon&mdash;there are also rumors that ADO will be deprecated entirely in favor of GitHub, but I&rsquo;m trying not to think about those. New features will be coming to YAML pipelines first, and there are a few YAML pipeline features I don&rsquo;t ever expect to see in classic pipelines.</p>
+<p>YAML is a configuration format that I would describe as &ldquo;JSON but like, more Python-ish.&rdquo; Here&rsquo;s a crash course:</p>
+<ul>
+<li>No quotes required for keys or basic string values</li>
+<li>Indentation matters</li>
+<li>Line order matters</li>
+<li>99% of what you write in a pipeline will either be an object or an array of objects
+<ul>
+<li>Object: a set of unique keys at the same indentation level</li>
+<li>Array of objects: each object begins with a dash, and all keys until the next dash are part of the same object.</li>
+</ul>
+</li>
+</ul>
+<p>And that&rsquo;s it, more or less. In no time at all you&rsquo;ll be looking at YAML and seeing JSON. Be sure to install the <a href="https://marketplace.visualstudio.com/items?itemName=ms-azure-devops.azure-pipelines">Azure Pipelines</a> VS Code extension to help with syntax (and follow the instructions in the README so it will know which files to kick in for).</p>
+<h2 id="why-yaml-pipelines">Why YAML pipelines?</h2>
+<p>These are all the advantages of YAML pipelines that I give a hoot about:</p>
+<ul>
+<li><strong>Versioning.</strong> YAML pipelines are code files in your version control so you get version history automatically.</li>
+<li><strong>Shareability.</strong> Code is text. If you have Good Text and want to share it, you can do so pretty much anywhere. Slack, email, Stack Overflow, Facebook, pastebin, a link to a file in your repository. Someone on the next team over wants to copy your build pipeline? Ctrl + C.</li>
+<li><strong>Atomic commits.</strong> If you commit your pipelines and your code to the same repository, you can update both at the same time. Any code change that necessitates a pipeline change can happen in the very same commit.</li>
+<li><strong>Templates.</strong> Task groups in ADO are great, but not as great as a magic text file that can (conditionally) render (parameterized) variables, tasks, stages, and more into any pipeline file you reference it from.</li>
+<li><strong>Top-level parameters.</strong> You can declare strongly-typed parameters in a pipeline file and they&rsquo;ll show up in the &ldquo;Run Pipeline&rdquo; pane. Parameters can be used in powerful ways, like omitting steps from a pipeline run or using a text input to choose the target environment for a release. More on this later.</li>
+<li><strong>Find and replace.</strong> Changing something that affects many different tasks, release stages, or pipelines is a huge pain in the classic UI. With YAML pipelines, it&rsquo;s often as easy as using the &ldquo;Find and Replace&rdquo; feature of your code editor.</li>
+<li><strong>Output variables.</strong> Classic pipelines sort of have output variables, but they&rsquo;re confusing to use and don&rsquo;t persist across pipeline stages. YAML pipelines allow you to output variables from one task and use them in a different task, job, or stage. (Note that there are, like, 9 different syntaxes for output variables depending on if you&rsquo;re using them in a <a href="https://docs.microsoft.com/en-us/azure/devops/pipelines/process/variables?view=azure-devops&tabs=yaml%2Cbatch#use-outputs-in-the-same-job">build</a> or <a href="https://docs.microsoft.com/en-us/azure/devops/pipelines/process/deployment-jobs?view=azure-devops#support-for-output-variables">deployment</a> job.)</li>
+</ul>
+<h2 id="copy-yaml-steps-from-the-classic-ui">Copy YAML steps from the classic UI</h2>
+<p>Every task in a classic pipeline has a button in the upper right-hand corner that says &ldquo;View YAML.&rdquo; Click this and it will spit out the YAML for that task. You can copy this into your pipeline file, make sure any variables are in place, and be on your way.</p>
+<p>Unfortunately there is <em>not a way</em> to convert an entire pipeline from classic to YAML. You have to do it one step at a time.</p>
+<h2 id="no-more-releases-page-no-more-deployment-groups">No more Releases page, no more Deployment Groups</h2>
+<p>All YAML pipelines live in the Pipelines page in ADO. They do not and cannot exist in the Releases page. The Releases page is useless to you if all your releases are YAML.</p>
+<p>You can set up a nested folder structure to organize your pipelines. Use a little foresight here; if one of your pipelines depends on the results of a different one (artifacts, for example), any change in the folder hierarchy will require a change to your YAML.</p>
+<p>On to Deployment Groups. YAML can&rsquo;t use your deployment groups, it doesn&rsquo;t care about your deployment groups, deployment groups are dead to you. Instead you&rsquo;ll use the Environments page. You can set up a virtual or physical machine to run a YAML pipeline by creating an Environment in ADO, adding a resource to that Environment, copying a Powershell script, running it in an administrator Powershell instance on your target machine, and answering a couple of prompts. (It will ask for an install location, the username and password the pipeline agent should use, and what tags to put on the resource. Tags are configurable later through the web interface but everything else is not, so take an extra moment to get it right the first time through.)</p>
+<h2 id="templates-are-your-bread-and-butter">Templates are your bread and butter</h2>
+<p>Start using <a href="https://docs.microsoft.com/en-us/azure/devops/pipelines/process/templates?view=azure-devops">YAML templates</a> right away. Templates, the functional replacements for Task Groups, are text files that define reusable YAML for different pipelines. The type of template I use most frequently has two top-level declarations: parameters and steps. Parameters are variables that are interpolated at compile time, well before the pipeline runs or even knows what it&rsquo;s doing; templates are likewise merged into your pipeline at compile time and don&rsquo;t even know they&rsquo;re templates after that. And steps are tasks that can be included at any point in any pipeline.</p>
+<p>The syntax of YAML can make long, complex pipelines very unwieldy and hard to read. I use templates to break them down into manageable chunks. I also use them to create standard stages, jobs, and groups so that deploying to a new environment only requires a few lines of code.</p>
+<p>You can use template parameters to customize and/or skip any part of a template.</p>
+<h2 id="three-types-of-variable-interpolation">Three types of variable interpolation</h2>
+<p>Keep <a href="https://docs.microsoft.com/en-us/azure/devops/pipelines/process/variables?view=azure-devops&tabs=yaml%2Cbatch#runtime-expression-syntax">this chart</a> handy, it&rsquo;s great.</p>
+<p>In order from most frequently to least frequently used:</p>
+<ul>
+<li>Use <code>$(macros)</code> to refer to variables from variable groups, the &ldquo;Variables&rdquo; menu in Run Pipeline, or the <code>variables</code> declaration in YAML.</li>
+<li>Use <code>${{ template expressions }}</code> to refer to parameters (<code>${{ parameters.parameterName }}</code>) or statically defined variables in your YAML (<code>${{ variables.varName }}</code>). Also use these to add <a href="https://docs.microsoft.com/en-us/azure/devops/pipelines/process/expressions?view=azure-devops#conditionally-run-a-step">conditional logic</a> to a pipeline or template.</li>
+<li>Use <code>$[ runtime expressions ]</code> to refer to things that are only available at runtime but a macro won&rsquo;t work for some reason.</li>
+</ul>
+<p>Remember that template and runtime expressions support <a href="https://docs.microsoft.com/en-us/azure/devops/pipelines/process/expressions?view=azure-devops#functions">functions</a>, should you need them.</p>
+<h2 id="top-level-parameters">Top-level parameters</h2>
+<p>If you use a <code>parameters</code> declaration in your top-level pipeline file, as opposed to a template, the parameters will appear in the Run Pipeline pane. The pipeline will refuse to run unless all parameters either have a default value or are populated by the user.</p>
+<p>Since parameters are interpolated at compile time and can be keys or values in your pipeline definition, this has some fun use cases. I&rsquo;ve created a couple of pipelines that <em>don&rsquo;t have a predefined runtime environment</em>. When you run the pipeline, you enter the name of an environment you want it to run on. This is good for ad-hoc stuff like reading out a file or fetching app logs. (Use with caution, obviously.)</p>
+<p>I also use top-level parameters to let the user of the pipeline skip certain tasks on a given pipeline run. Of course, you always have the option to skip entire stages through the Stages menu in Run Pipeline, but there are cases where a bit more granularity doesn&rsquo;t hurt.</p>
+<h2 id="always-declare-your-triggers-and-artifacts">Always declare your triggers and artifacts</h2>
+<p>If you expect that a pipeline will always be triggered manually, start off the YAML file like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#ff79c6">trigger</span>:
+</span></span><span style="display:flex;"><span>- none
+</span></span></code></pre></div><p>Otherwise it will run every time a new commit shows up in the repository. It&rsquo;s an odd default if you ask me.</p>
+<p>Also, if a pipeline job doesn&rsquo;t require any checked out code or artifacts, start it off like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#ff79c6">steps</span>:
+</span></span><span style="display:flex;"><span>- <span style="color:#ff79c6">checkout</span>: none
+</span></span><span style="display:flex;"><span>- <span style="color:#ff79c6">download</span>: none
+</span></span></code></pre></div><p>Otherwise it&rsquo;ll check out your repository and/or download all artifacts from the pipeline it depends on. That&rsquo;s a waste of time.</p>
+<h2 id="never-trust-the-branch-selector-in-run-pipeline">Never trust the branch selector in Run Pipeline</h2>
+<p>When you click Run Pipeline, you&rsquo;ll see a branch selector. This lets you select the branch your YAML pipeline will be pulled from. On a pipeline with <code>checkout</code> tasks, it also selects the branch your code will be checked out from.</p>
+<p>Importantly, this branch selector does <em>not</em> select the branch your pipeline artifacts will be taken from! This is counterintuitive. You may expect that if you select the <code>main</code> branch, you&rsquo;ll get artifacts from the last run of your build pipeline on the <code>main</code> branch. That isn&rsquo;t necessarily true. By default, ADO uses artifacts from the last successful pipeline run, even if that pipeline run checked out a different branch.</p>
+<p>I&rsquo;ve made a habit of clicking the Resources menu and manually choosing the pipeline artifacts I want for every manual pipeline run. I suggest you do the same.</p>
+<h2 id="variable-groups-are-a-must">Variable groups are a must</h2>
+<p>Variable Groups are named sets of variables that live in the Library page in ADO. They can be manually populated, cloned from another variable group, or pointed to an Azure Key Vault.</p>
+<p>The most important thing about variable groups is that they&rsquo;re easy to copy. You open the group, click Clone, change what needs to be changed, and you&rsquo;re done. This makes new deployments relatively painless. You can&rsquo;t do that with runtime variables, which is the Variables screen in Edit Pipeline.</p>
+<p>You can use multiple sets of variable groups in a YAML pipeline. If any of them declare the same variable, the last one will win. So you can do stuff like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#ff79c6">variables</span>:
+</span></span><span style="display:flex;"><span>- <span style="color:#ff79c6">group</span>: Basic Defaults
+</span></span><span style="display:flex;"><span>- <span style="color:#ff79c6">group</span>: Production Defaults
+</span></span><span style="display:flex;"><span>- <span style="color:#ff79c6">group</span>: MegaCorp Specific Variables
+</span></span></code></pre></div><p>MegaCorp Specific Variables beats Production Defaults beats Basic Defaults. Awesome.</p>
+<h2 id="dont-overestimate-the-usedotnet-task">Don&rsquo;t overestimate the UseDotNet task</h2>
+<p>UseDotNet is a built-in task that installs a specific version of .NET on the environment where the pipeline is running.</p>
+<p>Only use this to install .NET for use <em>by the pipeline, in a later task</em>. If you&rsquo;re deploying an application that uses .NET, this task isn&rsquo;t meant for that. Instead, you&rsquo;ll need to do one of two things:</p>
+<ul>
+<li>Do a <a href="https://docs.microsoft.com/en-us/dotnet/core/deploying/#publish-self-contained">self-contained deployment</a>. This is the easiest way to go.</li>
+<li>Bundle a .NET installer with your app and use the release pipeline to run it.</li>
+</ul>
+<p>If neither of these are possible, you <em>may</em> be lucky enough that you can mess with the inputs of the UseDotNet task and get a global install out of it. Keep your expectations low.</p>
+<h2 id="practice-one-off-deployments-ahead-of-time">Practice one-off deployments ahead of time</h2>
+<p>With classic pipelines, it was easy to skip a step for a particular deployment. You would edit the release, click the task, expand the command options, uncheck &ldquo;Enabled,&rdquo; save the release, and run it.</p>
+<p>With YAML pipelines it&rsquo;s almost as easy (but a little more intimidating). The process goes like this:</p>
+<ol>
+<li>Create a branch in your repo.</li>
+<li>Find the task you want to disable.</li>
+<li>Add <code>enabled: false</code> to the task definition.</li>
+<li>Commit the change.</li>
+<li>Push the branch to ADO.</li>
+<li>Select that branch when you run the pipeline.</li>
+</ol>
+<p>If the task in question doesn&rsquo;t live in a template file, you can even do this from the Edit Pipeline screen in ADO. It will give you the option to commit the change to a new branch. But life is better with templates, so this may not be a possibility most of the time.</p>
+
+</div>
+
+    
+<footer class='entry-footer'>
+  
+    
+      
+      
+
+<div class='categories'>
+  <span class='category-icon'>
+    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M22,19a2,2,0,0,1-2,2H4a2,2,0,0,1-2-2V5A2,2,0,0,1,4,3H9l2,3h9a2,2,0,0,1,2,2Z"/>
+  
+</svg>
+
+  </span>
+  <span class='screen-reader'>Categories: </span><a class='category' href='/blog/categories/development'>development</a></div>
+
+    
+  
+    
+  
+</footer>
+
+
+  </article>
+
+  
+    
+<nav class='entry-nav'>
+  <div class='entry-nav-links'><div class='prev-entry'>
+      <a href='http://isaaclyman.com/blog/posts/what-people-hear/'>
+        <span aria-hidden='true'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="20" y1="12" x2="4" y2="12"/>
+  <polyline points="10 18 4 12 10 6"/>
+  
+</svg>
+ Previous</span>
+        <span class='screen-reader'>Previous post: </span>Leadership and motivation</a>
+    </div><div class='next-entry'>
+      <a href='http://isaaclyman.com/blog/posts/unthink/'>
+        <span class='screen-reader'>Next post: </span>On forbidden knowledge and transformative thought<span aria-hidden='true'>Next <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="4" y1="12" x2="20" y2="12"/>
+  <polyline points="14 6 20 12 14 18"/>
+  
+</svg>
+</span>
+      </a>
+    </div></div>
+</nav>
+
+
+  
+
+  
+    <div class='comments-container'>
+  
+</div>
+
+  
+</main>
+
+    <footer id='footer' class='footer-container'>
+      <div class='footer'>
+        <div class='social'>
+  <nav aria-label='Social Menu'>
+    <ul class='social-menu'></ul>
+  </nav>
+</div>
+
+        <div class='copyright'>
+          <p>© 2017 by Isaac Lyman. Site powered by Hugo and GitHub Pages.</p>
+
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <script src='/blog/js/main.af838dd5.js'></script>
+  
+    <script src='/blog/js/custom.js'></script>
+  
+
+</body>
+
+</html>
+

@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<meta name='description' content='You can find all the code for this series on GitHub.
+On the campus of CIA headquarters in Virginia, United States, there&rsquo;s a 34-year-old sculpture called Kryptos. It somewhat resembles a heavy copper flag waving in the wind. Cut out of its surface are 1,736 uppercase ASCII characters split into four encrypted messages and a Vigenere cipher table.
+The first three messages were decrypted in the 1990s, first by the NSA and CIA, who didn&rsquo;t publicize their success, and then by a private-sector computer scientist, who did.'>
+
+<meta property='og:title' content='Solving the CIA Kryptos code in TypeScript (Part 1) • Minimum Viable Blog'>
+<meta property='og:description' content='You can find all the code for this series on GitHub.
+On the campus of CIA headquarters in Virginia, United States, there&rsquo;s a 34-year-old sculpture called Kryptos. It somewhat resembles a heavy copper flag waving in the wind. Cut out of its surface are 1,736 uppercase ASCII characters split into four encrypted messages and a Vigenere cipher table.
+The first three messages were decrypted in the 1990s, first by the NSA and CIA, who didn&rsquo;t publicize their success, and then by a private-sector computer scientist, who did.'>
+<meta property='og:url' content='http://isaaclyman.com/blog/posts/kryptos-1/'>
+<meta property='og:site_name' content='Minimum Viable Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts'><meta property='article:tag' content='kryptos'><meta property='article:published_time' content='2024-01-26T09:05:46-07:00'/><meta property='article:modified_time' content='2024-01-26T09:05:46-07:00'/>
+
+<meta name="generator" content="Hugo 0.124.1">
+
+  <title>Solving the CIA Kryptos code in TypeScript (Part 1) • Minimum Viable Blog</title>
+  <link rel='canonical' href='http://isaaclyman.com/blog/posts/kryptos-1/'>
+  
+  <link rel='icon' href='/blog/favicon.png'>
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Ubuntu:400,400i,700&subset=latin'>
+<link rel='stylesheet' href='/blog/css/main.d02777fd.css'>
+
+  <link rel='stylesheet' href='/blog/css/custom.css'>
+
+  <link rel='stylesheet' href='/blog/css/print.css'>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QX2T3WXRC9"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-QX2T3WXRC9', { 'anonymize_ip': false });
+}
+</script>
+
+
+</head>
+
+
+<body class='page'>
+  <div class='site'>
+    <header id='header' class='header-container'>
+      <div class='site-header'>
+        <nav id='navmenu' aria-label='Main Menu'>
+  <ul class='main-menu'>
+    
+    <li>
+      <a href='/blog/posts/' 
+        
+      >{ Archive }</a>
+    </li>
+    
+    <li>
+      <a href='/blog/posts/introduction' 
+        
+      >{ Contact }</a>
+    </li>
+    
+    <li>
+      <a href='/blog/index.xml' 
+        
+      >{ RSS }</a>
+    </li>
+    
+  </ul>
+</nav>
+
+        <div class='site-info'>
+          
+          <p class='site-title title'>Minimum Viable Blog</p>
+          
+          <p class='site-description'>Software construction, opinion, and self</p>
+        </div>
+      </div>
+    </header>
+
+
+<main class='main'>
+  <article lang='en' class='entry'>
+    <header class='entry-header'>
+  <div class='entry-info'>
+    <p class="entry-genre">
+      Technology
+    </p>
+    <h1 class='entry-title title'>Solving the CIA Kryptos code in TypeScript (Part 1)</h1>
+    
+  </div>
+  
+<div class='meta'>
+  <span class='posted-on'>
+    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+  <line x1="16" y1="2" x2="16" y2="6"/>
+  <line x1="8" y1="2" x2="8" y2="6"/>
+  <line x1="3" y1="10" x2="21" y2="10"/>
+  
+</svg>
+
+    <span class='screen-reader'>Posted on </span>
+    <time class='date' datetime='2024-01-26T09:05:46-07:00'>Jan 26, 2024</time>
+  </span>
+  
+  
+  <span class='reading-time'>
+    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <circle cx="12" cy="12" r="10"/>
+  <polyline points="12 6 12 12 15 15"/> 
+  
+</svg>
+
+    8 mins read
+  </span>
+  
+</div>
+
+
+</header>
+
+    <div class='entry-content'>
+  <p><em>You can find all the code for this series <a href="https://github.com/isaaclyman/kryptos-typescript">on GitHub</a>.</em></p>
+<p>On the campus of CIA headquarters in Virginia, United States, there&rsquo;s a 34-year-old sculpture called Kryptos. It somewhat resembles a heavy copper flag waving in the wind. Cut out of its surface are 1,736 uppercase ASCII characters split into four encrypted messages and a Vigenere cipher table.</p>
+<p>The first three messages were decrypted in the 1990s, first by the NSA and CIA, who didn&rsquo;t publicize their success, and then by a private-sector <a href="https://en.wikipedia.org/wiki/James_Gillogly">computer scientist</a>, who did. To this day, the fourth message hasn&rsquo;t been cracked.</p>
+<p>This raises a few interesting points. First, the U.S. government paid a quarter of a million dollars to have secret messages installed on their property, then paid at least two different teams of codebreakers to figure out what the messages said. I can&rsquo;t explain why, but I find that funny. Second, some or several government agencies probably <em>have</em> solved the fourth cipher and just haven&rsquo;t bothered to let us know, partially because secret-keeping is the <em>modus operandi</em> of the NSA/CIA, and partially because it&rsquo;s free advertising—they can get a wave of public interest (and a handful of new recruits) every few years just by dropping another &ldquo;clue.&rdquo; And third, we don&rsquo;t know for certain that the fourth message doesn&rsquo;t include the phrase &ldquo;CIA SUX&rdquo; or &ldquo;HOMER SIMPSON FOR PRESIDENT&rdquo;. It probably doesn&rsquo;t, but it could.</p>
+<p>Anyway, let&rsquo;s write some TypeScript code capable of decrypting and encrypting the first three messages, then make an attempt to solve the fourth one. (Keep your expectations nice and low, I don&rsquo;t have a Ph.D. in cryptanalysis.)</p>
+<h2 id="getting-started-basic-vigenere">Getting started: Basic vigenere</h2>
+<p>The first Kryptos message uses a Vigenere cipher. A standard Vigenere is pretty straightforward: you assign the numbers 0-25 to the letters A-Z, such that A=0, B=1, C=2, and so on. You translate your source message into these numbers. Then you pick a decryption key; any sequence of letters will do. You also translate the decryption key into numbers. And finally, for each index of the source message, you go to the same index in the decryption key and add both numbers together, then translate back to a letter. When you have a number greater than 25, you loop back around to 0—that is, modulo 26.</p>
+<p>For all you visual learners, here&rsquo;s how you&rsquo;d translate &ldquo;ILOVEWATER&rdquo; with the key &ldquo;HYDRATE&rdquo;:</p>
+<table>
+<thead>
+<tr>
+<th>Message</th>
+<th>I</th>
+<th>L</th>
+<th>O</th>
+<th>V</th>
+<th>E</th>
+<th>W</th>
+<th>A</th>
+<th>T</th>
+<th>E</th>
+<th>R</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>a=0 number (A)</td>
+<td>8</td>
+<td>11</td>
+<td>14</td>
+<td>21</td>
+<td>4</td>
+<td>22</td>
+<td>0</td>
+<td>19</td>
+<td>4</td>
+<td>17</td>
+</tr>
+<tr>
+<td>Key</td>
+<td>H</td>
+<td>Y</td>
+<td>D</td>
+<td>R</td>
+<td>A</td>
+<td>T</td>
+<td>E</td>
+<td>H</td>
+<td>Y</td>
+<td>D</td>
+</tr>
+<tr>
+<td>a=0 number (B)</td>
+<td>7</td>
+<td>24</td>
+<td>3</td>
+<td>17</td>
+<td>0</td>
+<td>19</td>
+<td>4</td>
+<td>7</td>
+<td>24</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Add A + B</td>
+<td>15</td>
+<td>35</td>
+<td>17</td>
+<td>38</td>
+<td>4</td>
+<td>41</td>
+<td>4</td>
+<td>26</td>
+<td>28</td>
+<td>20</td>
+</tr>
+<tr>
+<td>Modulo 26</td>
+<td>15</td>
+<td>9</td>
+<td>17</td>
+<td>12</td>
+<td>4</td>
+<td>15</td>
+<td>4</td>
+<td>0</td>
+<td>2</td>
+<td>20</td>
+</tr>
+<tr>
+<td>0=a letters</td>
+<td>P</td>
+<td>J</td>
+<td>R</td>
+<td>M</td>
+<td>E</td>
+<td>P</td>
+<td>E</td>
+<td>A</td>
+<td>C</td>
+<td>U</td>
+</tr>
+</tbody>
+</table>
+<p>So the encrypted message is PJRMEPEACU. To decrypt it, you&rsquo;d go the opposite direction:</p>
+<table>
+<thead>
+<tr>
+<th>Encrypted message</th>
+<th>P</th>
+<th>J</th>
+<th>R</th>
+<th>M</th>
+<th>E</th>
+<th>P</th>
+<th>E</th>
+<th>A</th>
+<th>C</th>
+<th>U</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>a=0 number (C)</td>
+<td>15</td>
+<td>9</td>
+<td>17</td>
+<td>12</td>
+<td>4</td>
+<td>15</td>
+<td>4</td>
+<td>0</td>
+<td>2</td>
+<td>20</td>
+</tr>
+<tr>
+<td>Key</td>
+<td>H</td>
+<td>Y</td>
+<td>D</td>
+<td>R</td>
+<td>A</td>
+<td>T</td>
+<td>E</td>
+<td>H</td>
+<td>Y</td>
+<td>D</td>
+</tr>
+<tr>
+<td>a=0 number (D)</td>
+<td>7</td>
+<td>24</td>
+<td>3</td>
+<td>17</td>
+<td>0</td>
+<td>19</td>
+<td>4</td>
+<td>7</td>
+<td>24</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Subtract C - D</td>
+<td>8</td>
+<td>-15</td>
+<td>14</td>
+<td>-5</td>
+<td>4</td>
+<td>-4</td>
+<td>0</td>
+<td>-7</td>
+<td>-22</td>
+<td>17</td>
+</tr>
+<tr>
+<td>If negative, add 26</td>
+<td>8</td>
+<td>11</td>
+<td>14</td>
+<td>21</td>
+<td>4</td>
+<td>22</td>
+<td>0</td>
+<td>19</td>
+<td>4</td>
+<td>17</td>
+</tr>
+<tr>
+<td>0=a letters</td>
+<td>I</td>
+<td>L</td>
+<td>O</td>
+<td>V</td>
+<td>E</td>
+<td>W</td>
+<td>A</td>
+<td>T</td>
+<td>E</td>
+<td>R</td>
+</tr>
+</tbody>
+</table>
+<p>As you can see, the Vigenere cipher isn&rsquo;t particularly strong, but most people wouldn&rsquo;t be able to crack it without the key.</p>
+<p>Here&rsquo;s how you&rsquo;d encrypt and decrypt in TypeScript:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#ff79c6">const</span> alphabet <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#39;ABCDEFGHIJKLMNOPQRSTUVWXYZ&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">function</span> vigEncrypt(message: <span style="color:#8be9fd">string</span>, key: <span style="color:#8be9fd">string</span>)<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">string</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> messageChars <span style="color:#ff79c6">=</span> message.toUpperCase().split(<span style="color:#f1fa8c">&#39;&#39;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">// For each character in the message...
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>  <span style="color:#8be9fd;font-style:italic">let</span> messageIx <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> encryptedChars <span style="color:#ff79c6">=</span> messageChars.map((messageChar) <span style="color:#ff79c6">=&gt;</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">// Traditionally you&#39;d remove spaces and symbols before encrypting to
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    <span style="color:#6272a4">//  make it harder to crack, but you don&#39;t have to.
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">if</span> (<span style="color:#ff79c6">!</span>alphabet.includes(messageChar)) {
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">return</span> messageChar;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">// Find the same index in the key, looping around if needed
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">const</span> keyIx <span style="color:#ff79c6">=</span> messageIx <span style="color:#ff79c6">%</span> key.length;
+</span></span><span style="display:flex;"><span>    messageIx<span style="color:#ff79c6">++</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">// Get the character at that index
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">const</span> keyChar <span style="color:#ff79c6">=</span> key[keyIx];
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">// Find its &#34;a=0&#34; number
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">const</span> keyNumber <span style="color:#ff79c6">=</span> alphabet.indexOf(keyChar);
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">// Find the &#34;a=0&#34; number of the original message character as well
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">const</span> messageNumber <span style="color:#ff79c6">=</span> alphabet.indexOf(messageChar);
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">// Add the numbers together, looping around if &gt;26
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">const</span> encryptedNumber <span style="color:#ff79c6">=</span> (messageNumber <span style="color:#ff79c6">+</span> keyNumber) <span style="color:#ff79c6">%</span> <span style="color:#bd93f9">26</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">// Get the letter corresponding to that number
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">const</span> encryptedChar <span style="color:#ff79c6">=</span> alphabet[encryptedNumber];
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">// That&#39;s our encrypted character!
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">return</span> encryptedChar;
+</span></span><span style="display:flex;"><span>  });
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">// Join all the encrypted characters together into one message
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>  <span style="color:#ff79c6">return</span> encryptedChars.join(<span style="color:#f1fa8c">&#39;&#39;</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">function</span> vigDecrypt(encrypted: <span style="color:#8be9fd">string</span>, key: <span style="color:#8be9fd">string</span>)<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">string</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> encryptedChars <span style="color:#ff79c6">=</span> encrypted.toUpperCase().split(<span style="color:#f1fa8c">&#39;&#39;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">// Now we simply reverse what we did above
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>  <span style="color:#8be9fd;font-style:italic">let</span> encryptedIx <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> messageChars <span style="color:#ff79c6">=</span> encryptedChars.map((encryptedChar) <span style="color:#ff79c6">=&gt;</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> (<span style="color:#ff79c6">!</span>alphabet.includes(encryptedChar)) {
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">return</span> encryptedChar;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">const</span> keyIx <span style="color:#ff79c6">=</span> encryptedIx <span style="color:#ff79c6">%</span> key.length;
+</span></span><span style="display:flex;"><span>    encryptedIx<span style="color:#ff79c6">++</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">const</span> keyChar <span style="color:#ff79c6">=</span> key[keyIx];
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">const</span> keyNumber <span style="color:#ff79c6">=</span> alphabet.indexOf(keyChar);
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">const</span> encryptedNumber <span style="color:#ff79c6">=</span> alphabet.indexOf(encryptedChar);
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">let</span> messageNumber <span style="color:#ff79c6">=</span> encryptedNumber <span style="color:#ff79c6">-</span> keyNumber;
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">// Special handling for negative numbers...
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">if</span> (messageNumber <span style="color:#ff79c6">&lt;</span> <span style="color:#bd93f9">0</span>) {
+</span></span><span style="display:flex;"><span>      messageNumber <span style="color:#ff79c6">=</span> alphabet.length <span style="color:#ff79c6">+</span> messageNumber;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">const</span> messageChar <span style="color:#ff79c6">=</span> alphabet[messageNumber];
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> messageChar;
+</span></span><span style="display:flex;"><span>  });
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">// Join all the decrypted characters together into one message
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>  <span style="color:#ff79c6">return</span> messageChars.join(<span style="color:#f1fa8c">&#39;&#39;</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">const</span> sourceMessage <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#39;PROGRAMMINGISFUN&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">const</span> key <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#39;EXCEPTFORJAVA&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">const</span> encrypted <span style="color:#ff79c6">=</span> vigEncrypt(sourceMessage, key);
+</span></span><span style="display:flex;"><span>console.log(encrypted); <span style="color:#6272a4">// &gt; TOQKGTRAZWGDSJRP
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">const</span> decrypted <span style="color:#ff79c6">=</span> vigDecrypt(encrypted, key);
+</span></span><span style="display:flex;"><span>console.log(decrypted); <span style="color:#6272a4">// &gt; PROGRAMMINGISFUN
+</span></span></span></code></pre></div><p>Nothing too crazy, right? But we&rsquo;re not there yet—Kryptos 1 has a trick up its sleeve.</p>
+<h2 id="kryptos-1-advanced-vigenere">Kryptos 1: Advanced vigenere</h2>
+<p>If you were sending an encrypted message and wanted to stump someone who&rsquo;s already familiar with Vigenere ciphers, what could you change to throw them off? You could pick a longer key or mess with the math, but Kryptos does something even more fun: it screws up the <em>alphabet</em>.</p>
+<p>The Kryptos alphabet is <code>KRYPTOSABCDEFGHIJLMNQUVWXZ</code>. That is, you start with the word KRYPTOS, then go through the alphabet from A to Z, skipping any letters that were already present in KRYPTOS. This means there&rsquo;s effectively a second key: the key that displaces and rearranges the alphabet. We can swap out our alphabet in the code above to build a Kryptos 1 encoder/decoder.</p>
+<p>The text of Kryptos 1 is:</p>
+<pre tabindex="0"><code>EMUFPHZLRFAXYUSDJKZLDKRNSHGNFIVJ
+YQTQUXQBQVYUVLLTREVJYQTMKYRDMFD
+</code></pre><p>And the key is <a href="https://en.wikipedia.org/wiki/Palimpsest">&ldquo;palimpsest&rdquo;</a>. Let&rsquo;s plug this into our TypeScript.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#ff79c6">const</span> alphabet <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#39;KRYPTOSABCDEFGHIJLMNQUVWXZ&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">function</span> vigDecrypt(encrypted: <span style="color:#8be9fd">string</span>, key: <span style="color:#8be9fd">string</span>)<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">string</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> encryptedChars <span style="color:#ff79c6">=</span> encrypted.toUpperCase().split(<span style="color:#f1fa8c">&#39;&#39;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">let</span> encryptedIx <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> messageChars <span style="color:#ff79c6">=</span> encryptedChars.map((encryptedChar) <span style="color:#ff79c6">=&gt;</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> (<span style="color:#ff79c6">!</span>alphabet.includes(encryptedChar)) {
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">return</span> encryptedChar;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">const</span> keyIx <span style="color:#ff79c6">=</span> encryptedIx <span style="color:#ff79c6">%</span> key.length;
+</span></span><span style="display:flex;"><span>    encryptedIx<span style="color:#ff79c6">++</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">const</span> keyChar <span style="color:#ff79c6">=</span> key[keyIx];
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">const</span> keyNumber <span style="color:#ff79c6">=</span> alphabet.indexOf(keyChar);
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">const</span> encryptedNumber <span style="color:#ff79c6">=</span> alphabet.indexOf(encryptedChar);
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">let</span> messageNumber <span style="color:#ff79c6">=</span> encryptedNumber <span style="color:#ff79c6">-</span> keyNumber;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> (messageNumber <span style="color:#ff79c6">&lt;</span> <span style="color:#bd93f9">0</span>) {
+</span></span><span style="display:flex;"><span>      messageNumber <span style="color:#ff79c6">=</span> alphabet.length <span style="color:#ff79c6">+</span> messageNumber;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">const</span> messageChar <span style="color:#ff79c6">=</span> alphabet[messageNumber];
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> messageChar;
+</span></span><span style="display:flex;"><span>  });
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">return</span> messageChars.join(<span style="color:#f1fa8c">&#39;&#39;</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">const</span> encrypted <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">`EMUFPHZLRFAXYUSDJKZLDKRNSHGNFIVJ
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">YQTQUXQBQVYUVLLTREVJYQTMKYRDMFD`</span>;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">const</span> key <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#39;PALIMPSEST&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">const</span> decrypted <span style="color:#ff79c6">=</span> vigDecrypt(encrypted, key);
+</span></span><span style="display:flex;"><span>console.log(decrypted);
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">/* &gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">BETWEENSUBTLESHADINGANDTHEABSENC
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">EOFLIGHTLIESTHENUANCEOFIQLUSION
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">*/</span>
+</span></span></code></pre></div><p>The message is &ldquo;BETWEEN SUBTLE SHADING AND THE ABSENCE OF LIGHT LIES THE NUANCE OF IQLUSION&rdquo;. The last word is an intentional misspelling of &ldquo;ILLUSION&rdquo;.</p>
+<p>What if we want to generate the special Kryptos alphabet instead of hard-coding it? That&rsquo;s easy enough:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#ff79c6">const</span> alphabetKey <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#39;KRYPTOS&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">const</span> standardAlphabet <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#39;ABCDEFGHIJKLMNOPQRSTUVWXYZ&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">const</span> alphabet <span style="color:#ff79c6">=</span> alphabetKey <span style="color:#ff79c6">+</span> standardAlphabet.split(<span style="color:#f1fa8c">&#39;&#39;</span>).filter(ch <span style="color:#ff79c6">=&gt;</span> <span style="color:#ff79c6">!</span>alphabetKey.includes(ch)).join(<span style="color:#f1fa8c">&#39;&#39;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">function</span> vigDecrypt(encrypted: <span style="color:#8be9fd">string</span>, key: <span style="color:#8be9fd">string</span>)<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">string</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> encryptedChars <span style="color:#ff79c6">=</span> encrypted.toUpperCase().split(<span style="color:#f1fa8c">&#39;&#39;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">let</span> encryptedIx <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> messageChars <span style="color:#ff79c6">=</span> encryptedChars.map((encryptedChar) <span style="color:#ff79c6">=&gt;</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> (<span style="color:#ff79c6">!</span>alphabet.includes(encryptedChar)) {
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">return</span> encryptedChar;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">const</span> keyIx <span style="color:#ff79c6">=</span> encryptedIx <span style="color:#ff79c6">%</span> key.length;
+</span></span><span style="display:flex;"><span>    encryptedIx<span style="color:#ff79c6">++</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">const</span> keyChar <span style="color:#ff79c6">=</span> key[keyIx];
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">const</span> keyNumber <span style="color:#ff79c6">=</span> alphabet.indexOf(keyChar);
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">const</span> encryptedNumber <span style="color:#ff79c6">=</span> alphabet.indexOf(encryptedChar);
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">let</span> messageNumber <span style="color:#ff79c6">=</span> encryptedNumber <span style="color:#ff79c6">-</span> keyNumber;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> (messageNumber <span style="color:#ff79c6">&lt;</span> <span style="color:#bd93f9">0</span>) {
+</span></span><span style="display:flex;"><span>      messageNumber <span style="color:#ff79c6">=</span> alphabet.length <span style="color:#ff79c6">+</span> messageNumber;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">const</span> messageChar <span style="color:#ff79c6">=</span> alphabet[messageNumber];
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> messageChar;
+</span></span><span style="display:flex;"><span>  });
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">return</span> messageChars.join(<span style="color:#f1fa8c">&#39;&#39;</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">const</span> encrypted <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">`EMUFPHZLRFAXYUSDJKZLDKRNSHGNFIVJ
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">YQTQUXQBQVYUVLLTREVJYQTMKYRDMFD`</span>;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">const</span> key <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#39;PALIMPSEST&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">const</span> decrypted <span style="color:#ff79c6">=</span> vigDecrypt(encrypted, key);
+</span></span><span style="display:flex;"><span>console.log(decrypted);
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">/* &gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">BETWEENSUBTLESHADINGANDTHEABSENC
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">EOFLIGHTLIESTHENUANCEOFIQLUSION
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">*/</span>
+</span></span></code></pre></div><p>Only a couple of extra lines, and now we can play with different alphabet keys and cipher keys.</p>
+<h2 id="kryptos-2-vigenere-again">Kryptos 2: Vigenere (again)</h2>
+<p>Kryptos 2 is encrypted using the same method as Kryptos 1. The only difference is the key: instead of &ldquo;palimpsest&rdquo;, it uses <a href="https://en.wikipedia.org/wiki/Abscissa_and_ordinate">&ldquo;abscissa&rdquo;</a>.</p>
+<p>The text of Kryptos 2 is:</p>
+<pre tabindex="0"><code>VFPJUDEEHZWETZYVGWHKKQETGFQJNCE
+GGWHKK?DQMCPFQZDQMMIAGPFXHQRLG
+TIMVMZJANQLVKQEDAGDVFRPJUNGEUNA
+QZGZLECGYUXUEENJTBJLBQCRTBJDFHRR
+YIZETKZEMVDUFKSJHKFWHKUWQLSZFTI
+HHDDDUVH?DWKBFUFPWNTDFIYCUQZERE
+EVLDKFEZMOQQJLTTUGSYQPFEUNLAVIDX
+FLGGTEZ?FKZBSFDQVGOGIPUFXHHDRKF
+FHQNTGPUAECNUVPDJMQCLQUMUNEDFQ
+ELZZVRRGKFFVOEEXBDMVPNFQXEZLGRE
+DNQFMPNZGLFLPMRJQYALMGNUVPDXVKP
+DQUMEBEDMHDAFMJGZNUPLGEWJLLAETG
+</code></pre><p>Let&rsquo;s plug it in!</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#ff79c6">const</span> alphabetKey <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#39;KRYPTOS&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">const</span> standardAlphabet <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#39;ABCDEFGHIJKLMNOPQRSTUVWXYZ&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">const</span> alphabet <span style="color:#ff79c6">=</span> alphabetKey <span style="color:#ff79c6">+</span> standardAlphabet.split(<span style="color:#f1fa8c">&#39;&#39;</span>).filter(ch <span style="color:#ff79c6">=&gt;</span> <span style="color:#ff79c6">!</span>alphabetKey.includes(ch)).join(<span style="color:#f1fa8c">&#39;&#39;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">function</span> vigDecrypt(encrypted: <span style="color:#8be9fd">string</span>, key: <span style="color:#8be9fd">string</span>)<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">string</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> encryptedChars <span style="color:#ff79c6">=</span> encrypted.toUpperCase().split(<span style="color:#f1fa8c">&#39;&#39;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">let</span> encryptedIx <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> messageChars <span style="color:#ff79c6">=</span> encryptedChars.map((encryptedChar) <span style="color:#ff79c6">=&gt;</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> (<span style="color:#ff79c6">!</span>alphabet.includes(encryptedChar)) {
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">return</span> encryptedChar;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">const</span> keyIx <span style="color:#ff79c6">=</span> encryptedIx <span style="color:#ff79c6">%</span> key.length;
+</span></span><span style="display:flex;"><span>    encryptedIx<span style="color:#ff79c6">++</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">const</span> keyChar <span style="color:#ff79c6">=</span> key[keyIx];
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">const</span> keyNumber <span style="color:#ff79c6">=</span> alphabet.indexOf(keyChar);
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">const</span> encryptedNumber <span style="color:#ff79c6">=</span> alphabet.indexOf(encryptedChar);
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">let</span> messageNumber <span style="color:#ff79c6">=</span> encryptedNumber <span style="color:#ff79c6">-</span> keyNumber;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> (messageNumber <span style="color:#ff79c6">&lt;</span> <span style="color:#bd93f9">0</span>) {
+</span></span><span style="display:flex;"><span>      messageNumber <span style="color:#ff79c6">=</span> alphabet.length <span style="color:#ff79c6">+</span> messageNumber;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">const</span> messageChar <span style="color:#ff79c6">=</span> alphabet[messageNumber];
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> messageChar;
+</span></span><span style="display:flex;"><span>  });
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">return</span> messageChars.join(<span style="color:#f1fa8c">&#39;&#39;</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">const</span> encrypted <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">`VFPJUDEEHZWETZYVGWHKKQETGFQJNCE
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">GGWHKK?DQMCPFQZDQMMIAGPFXHQRLG
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">TIMVMZJANQLVKQEDAGDVFRPJUNGEUNA
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">QZGZLECGYUXUEENJTBJLBQCRTBJDFHRR
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">YIZETKZEMVDUFKSJHKFWHKUWQLSZFTI
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">HHDDDUVH?DWKBFUFPWNTDFIYCUQZERE
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">EVLDKFEZMOQQJLTTUGSYQPFEUNLAVIDX
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">FLGGTEZ?FKZBSFDQVGOGIPUFXHHDRKF
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">FHQNTGPUAECNUVPDJMQCLQUMUNEDFQ
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">ELZZVRRGKFFVOEEXBDMVPNFQXEZLGRE
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">DNQFMPNZGLFLPMRJQYALMGNUVPDXVKP
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">DQUMEBEDMHDAFMJGZNUPLGEWJLLAETG`</span>;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">const</span> key <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#39;ABSCISSA&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">const</span> decrypted <span style="color:#ff79c6">=</span> vigDecrypt(encrypted, key);
+</span></span><span style="display:flex;"><span>console.log(decrypted);
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">/* &gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">ITWASTOTALLYINVISIBLEHOWSTHATPO
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">SSIBLE?THEYUSEDTHEEARTHSMAGNET
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">ICFIELDXTHEINFORMATIONWASGATHER
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">EDANDTRANSMITTEDUNDERGRUUNDTOANU
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">NKNOWNLOCATIONXDOESLANGLEYKNOWA
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">BOUTTHIS?THEYSHOULDITSBURIEDOUT
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">THERESOMEWHEREXWHOKNOWSTHEEXACTL
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">OCATION?ONLYWWTHISWASHISLASTMES
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">SAGEXTHIRTYEIGHTDEGREESFIFTYSE
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">VENMINUTESSIXPOINTFIVESECONDSNO
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">RTHSEVENTYSEVENDEGREESEIGHTMINU
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">TESFORTYFOURSECONDSWESTIDBYROWS
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">*/</span>
+</span></span></code></pre></div><p>The message is:</p>
+<pre tabindex="0"><code>IT WAS TOTALLY INVISIBLE HOWS THAT POSSIBLE?
+THEY USED THE EARTHS MAGENTIC FIELD X
+THE INFORMATION WAS GATHERED AND TRANSMITTED UNDERGRUUND
+TO AN UNKNOWN LOCATION X
+DOES LANGLEY KNOW ABOUT THIS?
+THEY SHOULD ITS BURIED OUT THERE SOMEWHERE X
+WHO KNOWS THE EXACT LOCATION?
+ONLY WW THIS WAS HIS LAST MESSAGE X
+THIRTY EIGHT DEGREES FIFTY SEVEN MINUTES
+SIX POINT FIVE SECONDS NORTH
+SEVENTY SEVEN DEGREES EIGHT MINUTES FOURTY FOUR SECONDS WEST
+ID BY ROWS
+</code></pre><p>However, it&rsquo;s now known that the sculptor left out a letter for aesthetic reasons. The last snippet <code>EWJLLAETG</code> should be <code>ESWJLLAETG</code>, so the last line of the message is &ldquo;X LAYER TWO&rdquo;, not &ldquo;ID BY ROWS&rdquo;. Not that it makes the message any less cryptic.</p>
+<p>Ready for part 2? It continues in the next post.</p>
+<h2 id="acknowledgments">Acknowledgments</h2>
+<p>Thanks to the following, who made this series possible:</p>
+<ul>
+<li>The NSA: <a href="https://www.nsa.gov/portals/75/documents/news-features/declassified-documents/cia-kryptos-sculpture/KRYPTOS_Summary.pdf">The CIA Kryptos Sculpture (Declassified)</a></li>
+<li>UC San Diego: <a href="https://mathweb.ucsd.edu/~crypto/Projects/KarlWang/index2.html">The Kryptos Sculpture Solutions</a></li>
+<li>Wikipedia: <a href="https://en.wikipedia.org/wiki/Kryptos">Kryptos</a>, <a href="https://en.wikipedia.org/wiki/Vigen%C3%A8re_cipher">Vigenere</a></li>
+</ul>
+
+</div>
+
+    
+<footer class='entry-footer'>
+  
+    
+      
+      
+
+<div class='categories'>
+  <span class='category-icon'>
+    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M22,19a2,2,0,0,1-2,2H4a2,2,0,0,1-2-2V5A2,2,0,0,1,4,3H9l2,3h9a2,2,0,0,1,2,2Z"/>
+  
+</svg>
+
+  </span>
+  <span class='screen-reader'>Categories: </span><a class='category' href='/blog/categories/development'>development</a></div>
+
+    
+  
+    
+      
+      
+
+<div class='tags'>
+  <span class='tag-icon'>
+    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M20.59,13.41l-7.17,7.17a2,2,0,0,1-2.83,0L2,12V2H12l8.59,8.59A2,2,0,0,1,20.59,13.41Z"/>
+  <line x1="7" y1="7" x2="7" y2="7"/>
+  
+</svg>
+
+  </span>
+  <span class='screen-reader'>Tags: </span><a class='tag' href='/blog/tags/kryptos'>kryptos</a></div>
+
+    
+  
+</footer>
+
+
+  </article>
+
+  
+    
+<nav class='entry-nav'>
+  <div class='entry-nav-links'><div class='prev-entry'>
+      <a href='http://isaaclyman.com/blog/posts/misunderstanding-yoda/'>
+        <span aria-hidden='true'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="20" y1="12" x2="4" y2="12"/>
+  <polyline points="10 18 4 12 10 6"/>
+  
+</svg>
+ Previous</span>
+        <span class='screen-reader'>Previous post: </span>Misunderstanding Yoda</a>
+    </div><div class='next-entry'>
+      <a href='http://isaaclyman.com/blog/posts/kryptos-2/'>
+        <span class='screen-reader'>Next post: </span>Solving the CIA Kryptos code in TypeScript (Part 2)<span aria-hidden='true'>Next <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="4" y1="12" x2="20" y2="12"/>
+  <polyline points="14 6 20 12 14 18"/>
+  
+</svg>
+</span>
+      </a>
+    </div></div>
+</nav>
+
+
+  
+
+  
+    <div class='comments-container'>
+  
+</div>
+
+  
+</main>
+
+    <footer id='footer' class='footer-container'>
+      <div class='footer'>
+        <div class='social'>
+  <nav aria-label='Social Menu'>
+    <ul class='social-menu'></ul>
+  </nav>
+</div>
+
+        <div class='copyright'>
+          <p>© 2017 by Isaac Lyman. Site powered by Hugo and GitHub Pages.</p>
+
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <script src='/blog/js/main.af838dd5.js'></script>
+  
+    <script src='/blog/js/custom.js'></script>
+  
+
+</body>
+
+</html>
+

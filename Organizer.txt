@@ -1,6 +1,7 @@
 # GENRES
 Apps
 Belief
+Bikes
 Business
 Food
 Literature
@@ -31,6 +32,7 @@ resume
 software construction
 
 # CATEGORIES
+bikes
 business
 career
 development

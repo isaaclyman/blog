@@ -30,6 +30,7 @@ javascript
 productivity
 projects
 resume
+rust
 software construction
 
 # CATEGORIES

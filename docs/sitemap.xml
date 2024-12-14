@@ -3,13 +3,25 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://isaaclyman.com/blog/posts/</loc>
-    <lastmod>2024-12-01T09:32:42-07:00</lastmod>
+    <lastmod>2024-12-13T19:27:41-07:00</lastmod>
   </url><url>
     <loc>http://isaaclyman.com/blog/categories/</loc>
-    <lastmod>2024-12-01T09:32:42-07:00</lastmod>
+    <lastmod>2024-12-13T19:27:41-07:00</lastmod>
+  </url><url>
+    <loc>http://isaaclyman.com/blog/categories/development/</loc>
+    <lastmod>2024-12-13T19:27:41-07:00</lastmod>
   </url><url>
     <loc>http://isaaclyman.com/blog/</loc>
-    <lastmod>2024-12-01T09:32:42-07:00</lastmod>
+    <lastmod>2024-12-13T19:27:41-07:00</lastmod>
+  </url><url>
+    <loc>http://isaaclyman.com/blog/tags/rust/</loc>
+    <lastmod>2024-12-13T19:27:41-07:00</lastmod>
+  </url><url>
+    <loc>http://isaaclyman.com/blog/posts/rust-ownership-short/</loc>
+    <lastmod>2024-12-13T19:27:41-07:00</lastmod>
+  </url><url>
+    <loc>http://isaaclyman.com/blog/tags/</loc>
+    <lastmod>2024-12-13T19:27:41-07:00</lastmod>
   </url><url>
     <loc>http://isaaclyman.com/blog/categories/philosophy/</loc>
     <lastmod>2024-12-01T09:32:42-07:00</lastmod>
@@ -21,9 +33,6 @@
     <lastmod>2024-09-16T08:36:24-06:00</lastmod>
   </url><url>
     <loc>http://isaaclyman.com/blog/tags/projects/</loc>
-    <lastmod>2024-09-16T08:36:24-06:00</lastmod>
-  </url><url>
-    <loc>http://isaaclyman.com/blog/tags/</loc>
     <lastmod>2024-09-16T08:36:24-06:00</lastmod>
   </url><url>
     <loc>http://isaaclyman.com/blog/categories/technology/</loc>
@@ -52,9 +61,6 @@
   </url><url>
     <loc>http://isaaclyman.com/blog/posts/ebikes/</loc>
     <lastmod>2024-04-18T09:10:21-06:00</lastmod>
-  </url><url>
-    <loc>http://isaaclyman.com/blog/categories/development/</loc>
-    <lastmod>2024-01-26T09:20:46-07:00</lastmod>
   </url><url>
     <loc>http://isaaclyman.com/blog/tags/kryptos/</loc>
     <lastmod>2024-01-26T09:20:46-07:00</lastmod>

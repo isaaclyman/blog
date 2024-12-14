@@ -155,7 +155,7 @@ if (!doNotTrack) {
 <li>You&rsquo;re writing a private method and always taking ownership of the value makes sense in context of its extremely limited and well-understood usage.</li>
 <li>You need to destroy the value—cast it into the fire!—and you know why.</li>
 </ul>
-<p>The Rust book refers to the first two options as &ldquo;borrowing&rdquo; and this last option as &ldquo;taking ownership&rdquo; or &ldquo;moving.&rdquo; I propose we call it &ldquo;stealing&rdquo; instead. That makes the consequences a little clearer. When you define a parameter, your choices are &ldquo;borrow&rdquo; or &ldquo;steal.&rdquo; Borrowing is super duper normal; the <code>&amp;</code> syntax doesn&rsquo;t mean you&rsquo;re doing anything weird or special. Stealing is a little less normal, but hey, gotta do what you gotta do.</p>
+<p>The Rust book refers to the first two options (look at it, modify it) as &ldquo;borrowing&rdquo; and this last option (decide when it dies) as &ldquo;taking ownership&rdquo; or &ldquo;moving.&rdquo; I propose we call it &ldquo;stealing&rdquo; instead. That makes the consequences a little clearer. When you define a parameter, your choices are &ldquo;borrow&rdquo; or &ldquo;steal.&rdquo; Borrowing is super duper normal; the <code>&amp;</code> syntax doesn&rsquo;t mean you&rsquo;re doing anything weird or special. Stealing is a little less normal, but hey, gotta do what you gotta do.</p>
 
 </div>
 

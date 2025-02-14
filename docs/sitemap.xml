@@ -3,15 +3,21 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://isaaclyman.com/blog/posts/</loc>
-    <lastmod>2024-12-13T19:27:41-07:00</lastmod>
+    <lastmod>2025-02-13T17:52:19-07:00</lastmod>
+  </url><url>
+    <loc>http://isaaclyman.com/blog/posts/marxist-horror/</loc>
+    <lastmod>2025-02-13T17:52:19-07:00</lastmod>
   </url><url>
     <loc>http://isaaclyman.com/blog/categories/</loc>
-    <lastmod>2024-12-13T19:27:41-07:00</lastmod>
+    <lastmod>2025-02-13T17:52:19-07:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/categories/development/</loc>
-    <lastmod>2024-12-13T19:27:41-07:00</lastmod>
+    <loc>http://isaaclyman.com/blog/categories/literature/</loc>
+    <lastmod>2025-02-13T17:52:19-07:00</lastmod>
   </url><url>
     <loc>http://isaaclyman.com/blog/</loc>
+    <lastmod>2025-02-13T17:52:19-07:00</lastmod>
+  </url><url>
+    <loc>http://isaaclyman.com/blog/categories/development/</loc>
     <lastmod>2024-12-13T19:27:41-07:00</lastmod>
   </url><url>
     <loc>http://isaaclyman.com/blog/tags/rust/</loc>
@@ -184,9 +190,6 @@
   </url><url>
     <loc>http://isaaclyman.com/blog/posts/cloud-workstations/</loc>
     <lastmod>2022-04-16T10:14:15-06:00</lastmod>
-  </url><url>
-    <loc>http://isaaclyman.com/blog/categories/literature/</loc>
-    <lastmod>2022-04-12T15:29:22-06:00</lastmod>
   </url><url>
     <loc>http://isaaclyman.com/blog/posts/bad-poetry/</loc>
     <lastmod>2022-04-12T15:29:22-06:00</lastmod>

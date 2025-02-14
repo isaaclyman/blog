@@ -9,8 +9,15 @@
     <managingEditor>map[host:isaaclyman.com username:blog] (Isaac Lyman)</managingEditor>
     <webMaster>map[host:isaaclyman.com username:blog] (Isaac Lyman)</webMaster>
     <copyright>© 2017 by Isaac Lyman. Site powered by Hugo and GitHub Pages.</copyright>
-    <lastBuildDate>Fri, 13 Dec 2024 19:27:41 -0700</lastBuildDate>
+    <lastBuildDate>Thu, 13 Feb 2025 17:52:19 -0700</lastBuildDate>
     <atom:link href="http://isaaclyman.com/blog/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Literature</title>
+      <link>http://isaaclyman.com/blog/categories/literature/</link>
+      <pubDate>Thu, 13 Feb 2025 17:52:19 -0700</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
+      <guid>http://isaaclyman.com/blog/categories/literature/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Development</title>
       <link>http://isaaclyman.com/blog/categories/development/</link>
@@ -79,13 +86,6 @@
       <link>http://isaaclyman.com/blog/categories/self/</link>
       <pubDate>Fri, 26 May 2023 16:26:54 -0600</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
       <guid>http://isaaclyman.com/blog/categories/self/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Literature</title>
-      <link>http://isaaclyman.com/blog/categories/literature/</link>
-      <pubDate>Tue, 12 Apr 2022 15:29:22 -0600</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/categories/literature/</guid>
       <description></description>
     </item>
     <item>

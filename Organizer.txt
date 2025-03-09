@@ -23,7 +23,6 @@ code quality
 csharp
 css
 edward
-food
 front end
 health
 javascript
@@ -39,6 +38,7 @@ business
 career
 development
 documentation
+food
 literature
 philosophy
 politics

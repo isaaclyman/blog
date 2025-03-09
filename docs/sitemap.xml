@@ -3,7 +3,10 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://isaaclyman.com/blog/posts/</loc>
-    <lastmod>2025-02-13T17:52:19-07:00</lastmod>
+    <lastmod>2025-03-08T18:07:00-07:00</lastmod>
+  </url><url>
+    <loc>http://isaaclyman.com/blog/</loc>
+    <lastmod>2025-03-08T18:07:00-07:00</lastmod>
   </url><url>
     <loc>http://isaaclyman.com/blog/posts/marxist-horror/</loc>
     <lastmod>2025-02-13T17:52:19-07:00</lastmod>
@@ -12,9 +15,6 @@
     <lastmod>2025-02-13T17:52:19-07:00</lastmod>
   </url><url>
     <loc>http://isaaclyman.com/blog/categories/literature/</loc>
-    <lastmod>2025-02-13T17:52:19-07:00</lastmod>
-  </url><url>
-    <loc>http://isaaclyman.com/blog/</loc>
     <lastmod>2025-02-13T17:52:19-07:00</lastmod>
   </url><url>
     <loc>http://isaaclyman.com/blog/categories/development/</loc>
@@ -262,9 +262,6 @@
   </url><url>
     <loc>http://isaaclyman.com/blog/tags/software-construction/</loc>
     <lastmod>2020-02-11T08:22:35-07:00</lastmod>
-  </url><url>
-    <loc>http://isaaclyman.com/blog/tags/food/</loc>
-    <lastmod>2019-11-29T10:13:55-07:00</lastmod>
   </url><url>
     <loc>http://isaaclyman.com/blog/posts/10-burger-commandments/</loc>
     <lastmod>2019-11-29T10:13:55-07:00</lastmod>

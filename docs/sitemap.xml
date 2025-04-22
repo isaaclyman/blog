@@ -3,13 +3,19 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://isaaclyman.com/blog/posts/</loc>
-    <lastmod>2025-03-12T11:50:49-06:00</lastmod>
-  </url><url>
-    <loc>http://isaaclyman.com/blog/</loc>
-    <lastmod>2025-03-12T11:50:49-06:00</lastmod>
+    <lastmod>2025-04-21T20:34:21-06:00</lastmod>
   </url><url>
     <loc>http://isaaclyman.com/blog/categories/</loc>
-    <lastmod>2025-03-08T18:07:00-07:00</lastmod>
+    <lastmod>2025-04-21T20:34:21-06:00</lastmod>
+  </url><url>
+    <loc>http://isaaclyman.com/blog/categories/development/</loc>
+    <lastmod>2025-04-21T20:34:21-06:00</lastmod>
+  </url><url>
+    <loc>http://isaaclyman.com/blog/posts/laws/</loc>
+    <lastmod>2025-04-21T20:34:21-06:00</lastmod>
+  </url><url>
+    <loc>http://isaaclyman.com/blog/</loc>
+    <lastmod>2025-04-21T20:34:21-06:00</lastmod>
   </url><url>
     <loc>http://isaaclyman.com/blog/categories/food/</loc>
     <lastmod>2025-03-08T18:07:00-07:00</lastmod>
@@ -22,9 +28,6 @@
   </url><url>
     <loc>http://isaaclyman.com/blog/categories/literature/</loc>
     <lastmod>2025-02-13T17:52:19-07:00</lastmod>
-  </url><url>
-    <loc>http://isaaclyman.com/blog/categories/development/</loc>
-    <lastmod>2024-12-13T19:27:41-07:00</lastmod>
   </url><url>
     <loc>http://isaaclyman.com/blog/tags/rust/</loc>
     <lastmod>2024-12-13T19:27:41-07:00</lastmod>

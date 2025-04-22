@@ -219,3 +219,7 @@ a.page-link {
   font-size: 0.8em;
   text-decoration: none;
 }
+
+blockquote em {
+  font-style: normal;
+}

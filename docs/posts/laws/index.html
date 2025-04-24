@@ -139,6 +139,7 @@ if (!doNotTrack) {
 <li><a href="/blog/posts/laws/#hanlons-razor-assume-stupidity-rather-than-malice">Hanlon&rsquo;s Razor (assume stupidity rather than malice)</a></li>
 <li><a href="/blog/posts/laws/#hofstadters-law-it-takes-longer-than-you-expect">Hofstadter&rsquo;s Law (it takes longer than you expect)</a></li>
 <li><a href="/blog/posts/laws/#law-of-resource-allocation-efficiency-vs-effectiveness">Law of Resource Allocation (efficiency vs. effectiveness)</a></li>
+<li><a href="/blog/posts/laws/#locality-of-behavior-code-should-be-easy-to-understand-in-small-doses">Locality of Behavior (code should be easy to understand in small doses)</a></li>
 <li><a href="/blog/posts/laws/#no-silver-bullet-all-tasks-involve-irreducible-complexity">No Silver Bullet (all tasks involve irreducible complexity)</a></li>
 <li><a href="/blog/posts/laws/#parkinsons-law-work-expands-to-fill-time">Parkinson&rsquo;s Law (work expands to fill time)</a></li>
 <li><a href="/blog/posts/laws/#posiwid-systems-do-what-theyre-supposed-to">POSIWID (systems do what they&rsquo;re supposed to)</a></li>
@@ -250,6 +251,14 @@ if (!doNotTrack) {
 <p><strong>Original context:</strong> Engineering.</p>
 <p><strong>Caveats:</strong> None.</p>
 <p><strong>What it means:</strong> Efficiency and effectiveness are in tension. A perfectly efficient system (one where resources like time, money, and energy are never wasted) can&rsquo;t handle unforeseen problems because there&rsquo;s no extra capacity. A perfectly effective system (one where everyone&rsquo;s needs are met and problems are resolved quickly) always uses more resources than it needs.</p>
+<h2 id="locality-of-behavior-code-should-be-easy-to-understand-in-small-doses">Locality of Behavior (code should be easy to understand in small doses)</h2>
+<blockquote>
+<p>The primary feature for easy maintenance is locality: Locality is that characteristic of source code that enables a programmer to understand that source by looking at only a small portion of it.</p>
+<p>– Richard P. Gabriel, &ldquo;Patterns of Software: Tales from the Software Community&rdquo; (1996)</p>
+</blockquote>
+<p><strong>Original context:</strong> Software development.</p>
+<p><strong>Caveats:</strong> None.</p>
+<p><strong>What it means:</strong> The only way to make your code easy to read (and therefore easy to maintain) is to keep each logical piece of it as topical and self-contained as possible. If a programmer can&rsquo;t predict the behavior of a method without hunting down ten related files, or if it depends on implicit or &ldquo;magical&rdquo; behavior not suggested in the code, it&rsquo;s not maintainable.</p>
 <h2 id="no-silver-bullet-all-tasks-involve-irreducible-complexity">No Silver Bullet (all tasks involve irreducible complexity)</h2>
 <blockquote>
 <p>There is no single development, in either technology or management technique, which by itself promises even one order of magnitude improvement in productivity, in reliability, in simplicity.</p>

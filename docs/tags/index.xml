@@ -9,8 +9,15 @@
     <managingEditor>map[host:isaaclyman.com username:blog] (Isaac Lyman)</managingEditor>
     <webMaster>map[host:isaaclyman.com username:blog] (Isaac Lyman)</webMaster>
     <copyright>© 2017 by Isaac Lyman. Site powered by Hugo and GitHub Pages.</copyright>
-    <lastBuildDate>Fri, 13 Dec 2024 19:27:41 -0700</lastBuildDate>
+    <lastBuildDate>Mon, 28 Apr 2025 08:50:08 -0600</lastBuildDate>
     <atom:link href="http://isaaclyman.com/blog/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Health</title>
+      <link>http://isaaclyman.com/blog/tags/health/</link>
+      <pubDate>Mon, 28 Apr 2025 08:50:08 -0600</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
+      <guid>http://isaaclyman.com/blog/tags/health/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Rust</title>
       <link>http://isaaclyman.com/blog/tags/rust/</link>
@@ -23,13 +30,6 @@
       <link>http://isaaclyman.com/blog/tags/projects/</link>
       <pubDate>Mon, 16 Sep 2024 08:36:24 -0600</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
       <guid>http://isaaclyman.com/blog/tags/projects/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Health</title>
-      <link>http://isaaclyman.com/blog/tags/health/</link>
-      <pubDate>Sun, 08 Sep 2024 10:40:25 -0600</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/tags/health/</guid>
       <description></description>
     </item>
     <item>

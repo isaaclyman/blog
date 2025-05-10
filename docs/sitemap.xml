@@ -3,10 +3,25 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://isaaclyman.com/blog/posts/</loc>
-    <lastmod>2025-05-07T08:15:29-06:00</lastmod>
+    <lastmod>2025-05-10T10:10:48-06:00</lastmod>
+  </url><url>
+    <loc>http://isaaclyman.com/blog/categories/</loc>
+    <lastmod>2025-05-10T10:10:48-06:00</lastmod>
+  </url><url>
+    <loc>http://isaaclyman.com/blog/tags/cold/</loc>
+    <lastmod>2025-05-10T10:10:48-06:00</lastmod>
+  </url><url>
+    <loc>http://isaaclyman.com/blog/posts/cold/</loc>
+    <lastmod>2025-05-10T10:10:48-06:00</lastmod>
   </url><url>
     <loc>http://isaaclyman.com/blog/</loc>
-    <lastmod>2025-05-07T08:15:29-06:00</lastmod>
+    <lastmod>2025-05-10T10:10:48-06:00</lastmod>
+  </url><url>
+    <loc>http://isaaclyman.com/blog/categories/self/</loc>
+    <lastmod>2025-05-10T10:10:48-06:00</lastmod>
+  </url><url>
+    <loc>http://isaaclyman.com/blog/tags/</loc>
+    <lastmod>2025-05-10T10:10:48-06:00</lastmod>
   </url><url>
     <loc>http://isaaclyman.com/blog/posts/500m-turbotero/</loc>
     <lastmod>2025-04-28T08:50:08-06:00</lastmod>
@@ -14,13 +29,7 @@
     <loc>http://isaaclyman.com/blog/categories/bikes/</loc>
     <lastmod>2025-04-28T08:50:08-06:00</lastmod>
   </url><url>
-    <loc>http://isaaclyman.com/blog/categories/</loc>
-    <lastmod>2025-04-28T08:50:08-06:00</lastmod>
-  </url><url>
     <loc>http://isaaclyman.com/blog/tags/health/</loc>
-    <lastmod>2025-04-28T08:50:08-06:00</lastmod>
-  </url><url>
-    <loc>http://isaaclyman.com/blog/tags/</loc>
     <lastmod>2025-04-28T08:50:08-06:00</lastmod>
   </url><url>
     <loc>http://isaaclyman.com/blog/categories/development/</loc>
@@ -159,9 +168,6 @@
     <lastmod>2023-06-04T10:41:39-06:00</lastmod>
   </url><url>
     <loc>http://isaaclyman.com/blog/posts/beard-products/</loc>
-    <lastmod>2023-05-26T16:26:54-06:00</lastmod>
-  </url><url>
-    <loc>http://isaaclyman.com/blog/categories/self/</loc>
     <lastmod>2023-05-26T16:26:54-06:00</lastmod>
   </url><url>
     <loc>http://isaaclyman.com/blog/posts/peak-programming-languages/</loc>

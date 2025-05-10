@@ -41,6 +41,7 @@ development
 documentation
 food
 literature
+mental-health
 philosophy
 politics
 product

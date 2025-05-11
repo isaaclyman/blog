@@ -26,7 +26,9 @@ css
 edward
 front end
 health
+horror
 javascript
+obsessions
 productivity
 projects
 resume

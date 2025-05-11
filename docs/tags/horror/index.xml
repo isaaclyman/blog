@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Literature on Minimum Viable Blog</title>
-    <link>http://isaaclyman.com/blog/categories/literature/</link>
-    <description>Recent content in Literature on Minimum Viable Blog</description>
+    <title>Horror on Minimum Viable Blog</title>
+    <link>http://isaaclyman.com/blog/tags/horror/</link>
+    <description>Recent content in Horror on Minimum Viable Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <managingEditor>map[host:isaaclyman.com username:blog] (Isaac Lyman)</managingEditor>
     <webMaster>map[host:isaaclyman.com username:blog] (Isaac Lyman)</webMaster>
     <copyright>© 2017 by Isaac Lyman. Site powered by Hugo and GitHub Pages.</copyright>
     <lastBuildDate>Sun, 11 May 2025 11:50:49 -0600</lastBuildDate>
-    <atom:link href="http://isaaclyman.com/blog/categories/literature/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://isaaclyman.com/blog/tags/horror/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How to get obsessed with cosmic horror</title>
       <link>http://isaaclyman.com/blog/posts/cosmic-horror/</link>
@@ -24,13 +24,6 @@
       <pubDate>Thu, 13 Feb 2025 17:52:19 -0700</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
       <guid>http://isaaclyman.com/blog/posts/marxist-horror/</guid>
       <description>Suppose Gregor Samsa had awoken to find himself a &amp;ldquo;horrible vermin&amp;rdquo; and the entire thrust of the story had been his efforts to communicate to his family that it was still him, it was Gregor, and as readers we felt certain they would take good care of him if they knew.&#xA;Suppose there were some emotional or physical journey Gregor had to complete in order to become human again. Suppose there were a concerted scientific effort to discover what his affliction was and reverse it.</description>
-    </item>
-    <item>
-      <title>The hallmarks of bad poetry</title>
-      <link>http://isaaclyman.com/blog/posts/bad-poetry/</link>
-      <pubDate>Tue, 12 Apr 2022 15:29:22 -0600</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/posts/bad-poetry/</guid>
-      <description>Most people misunderstand what poetry is for. If someone you know from church or work shares a poem they wrote, you almost have to start cringing before you read it lest you be overwhelmed by the artlessness of the first stanza and die suddenly. You already know the poetic form is going to be an excuse for them to overshare, get weepy, commit crimes against the English language, or string together clichés as if they were profound.</description>
     </item>
   </channel>
 </rss>

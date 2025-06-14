@@ -9,20 +9,20 @@
     <managingEditor>map[host:isaaclyman.com username:blog] (Isaac Lyman)</managingEditor>
     <webMaster>map[host:isaaclyman.com username:blog] (Isaac Lyman)</webMaster>
     <copyright>© 2017 by Isaac Lyman. Site powered by Hugo and GitHub Pages.</copyright>
-    <lastBuildDate>Sun, 11 May 2025 11:50:49 -0600</lastBuildDate>
+    <lastBuildDate>Sat, 14 Jun 2025 11:43:23 -0600</lastBuildDate>
     <atom:link href="http://isaaclyman.com/blog/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Self</title>
+      <link>http://isaaclyman.com/blog/categories/self/</link>
+      <pubDate>Sat, 14 Jun 2025 11:43:23 -0600</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
+      <guid>http://isaaclyman.com/blog/categories/self/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Literature</title>
       <link>http://isaaclyman.com/blog/categories/literature/</link>
       <pubDate>Sun, 11 May 2025 11:50:49 -0600</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
       <guid>http://isaaclyman.com/blog/categories/literature/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Self</title>
-      <link>http://isaaclyman.com/blog/categories/self/</link>
-      <pubDate>Sat, 10 May 2025 10:10:48 -0600</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/categories/self/</guid>
       <description></description>
     </item>
     <item>

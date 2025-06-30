@@ -9,12 +9,19 @@
     <managingEditor>map[host:isaaclyman.com username:blog] (Isaac Lyman)</managingEditor>
     <webMaster>map[host:isaaclyman.com username:blog] (Isaac Lyman)</webMaster>
     <copyright>© 2017 by Isaac Lyman. Site powered by Hugo and GitHub Pages.</copyright>
-    <lastBuildDate>Sat, 14 Jun 2025 11:43:23 -0600</lastBuildDate>
+    <lastBuildDate>Sun, 29 Jun 2025 08:57:17 -0600</lastBuildDate>
     <atom:link href="http://isaaclyman.com/blog/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Philosophy</title>
+      <link>http://isaaclyman.com/blog/categories/philosophy/</link>
+      <pubDate>Sun, 29 Jun 2025 08:57:17 -0600</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
+      <guid>http://isaaclyman.com/blog/categories/philosophy/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Self</title>
       <link>http://isaaclyman.com/blog/categories/self/</link>
-      <pubDate>Sat, 14 Jun 2025 11:43:23 -0600</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
+      <pubDate>Sun, 29 Jun 2025 08:57:17 -0600</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
       <guid>http://isaaclyman.com/blog/categories/self/</guid>
       <description></description>
     </item>
@@ -44,13 +51,6 @@
       <link>http://isaaclyman.com/blog/categories/food/</link>
       <pubDate>Sat, 08 Mar 2025 18:07:00 -0700</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
       <guid>http://isaaclyman.com/blog/categories/food/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Philosophy</title>
-      <link>http://isaaclyman.com/blog/categories/philosophy/</link>
-      <pubDate>Sun, 01 Dec 2024 09:32:42 -0700</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/categories/philosophy/</guid>
       <description></description>
     </item>
     <item>

@@ -1,6 +1,5 @@
 # GENRES
 Apps
-Belief
 Bikes
 Business
 Career

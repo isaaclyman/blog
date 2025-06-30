@@ -3,16 +3,22 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://isaaclyman.com/blog/posts/</loc>
-    <lastmod>2025-06-14T11:43:23-06:00</lastmod>
+    <lastmod>2025-06-29T08:57:17-06:00</lastmod>
+  </url><url>
+    <loc>http://isaaclyman.com/blog/posts/believe-vs-perform/</loc>
+    <lastmod>2025-06-29T08:57:17-06:00</lastmod>
   </url><url>
     <loc>http://isaaclyman.com/blog/categories/</loc>
-    <lastmod>2025-06-14T11:43:23-06:00</lastmod>
+    <lastmod>2025-06-29T08:57:17-06:00</lastmod>
   </url><url>
     <loc>http://isaaclyman.com/blog/</loc>
-    <lastmod>2025-06-14T11:43:23-06:00</lastmod>
+    <lastmod>2025-06-29T08:57:17-06:00</lastmod>
+  </url><url>
+    <loc>http://isaaclyman.com/blog/categories/philosophy/</loc>
+    <lastmod>2025-06-29T08:57:17-06:00</lastmod>
   </url><url>
     <loc>http://isaaclyman.com/blog/categories/self/</loc>
-    <lastmod>2025-06-14T11:43:23-06:00</lastmod>
+    <lastmod>2025-06-29T08:57:17-06:00</lastmod>
   </url><url>
     <loc>http://isaaclyman.com/blog/posts/the-behavioral-question/</loc>
     <lastmod>2025-06-14T11:43:23-06:00</lastmod>
@@ -67,9 +73,6 @@
   </url><url>
     <loc>http://isaaclyman.com/blog/posts/rust-borrowing/</loc>
     <lastmod>2024-12-13T19:27:41-07:00</lastmod>
-  </url><url>
-    <loc>http://isaaclyman.com/blog/categories/philosophy/</loc>
-    <lastmod>2024-12-01T09:32:42-07:00</lastmod>
   </url><url>
     <loc>http://isaaclyman.com/blog/posts/absurdists-playground/</loc>
     <lastmod>2024-12-01T09:32:42-07:00</lastmod>

@@ -9,8 +9,15 @@
     <managingEditor>map[host:isaaclyman.com username:blog] (Isaac Lyman)</managingEditor>
     <webMaster>map[host:isaaclyman.com username:blog] (Isaac Lyman)</webMaster>
     <copyright>© 2017 by Isaac Lyman. Site powered by Hugo and GitHub Pages.</copyright>
-    <lastBuildDate>Fri, 08 Aug 2025 15:18:47 -0600</lastBuildDate>
+    <lastBuildDate>Sun, 09 Nov 2025 12:59:02 -0700</lastBuildDate>
     <atom:link href="http://isaaclyman.com/blog/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Self</title>
+      <link>http://isaaclyman.com/blog/categories/self/</link>
+      <pubDate>Sun, 09 Nov 2025 12:59:02 -0700</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
+      <guid>http://isaaclyman.com/blog/categories/self/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Mental-Health</title>
       <link>http://isaaclyman.com/blog/categories/mental-health/</link>
@@ -23,13 +30,6 @@
       <link>http://isaaclyman.com/blog/categories/philosophy/</link>
       <pubDate>Sun, 29 Jun 2025 08:57:17 -0600</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
       <guid>http://isaaclyman.com/blog/categories/philosophy/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Self</title>
-      <link>http://isaaclyman.com/blog/categories/self/</link>
-      <pubDate>Sun, 29 Jun 2025 08:57:17 -0600</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/categories/self/</guid>
       <description></description>
     </item>
     <item>

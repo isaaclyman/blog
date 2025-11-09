@@ -33,6 +33,7 @@ projects
 resume
 rust
 software construction
+unserious
 
 # CATEGORIES
 bikes

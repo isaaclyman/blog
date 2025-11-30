@@ -177,7 +177,7 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span>  (<span style="color:#bd93f9">2</span>, <span style="color:#bd93f9">2</span>) (<span style="color:#bd93f9">3</span>, <span style="color:#bd93f9">1</span>)
 </span></span><span style="display:flex;"><span>  (<span style="color:#bd93f9">3</span>, <span style="color:#bd93f9">2</span>)
 </span></span><span style="display:flex;"><span>]
-</span></span></code></pre></div><p>(I stripped out some of the symbols to make this easier to scan.)</p>
+</span></span></code></pre></div><p><sup>I stripped out some of the symbols to make this easier to scan.</sup></p>
 <p>Wow. Kind of beautiful, isn&rsquo;t it?</p>
 <p>My first epiphany was:</p>
 <blockquote>
@@ -204,7 +204,7 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">return</span> rows[y][x];
 </span></span><span style="display:flex;"><span>    });
 </span></span><span style="display:flex;"><span>  });
-</span></span></code></pre></div><p>(<code>Iterable.generate</code> takes two arguments: the length of the iterable you want to generate, and a function that accepts an index and returns the corresponding element.)</p>
+</span></span></code></pre></div><p><sup><code>Iterable.generate</code> takes two arguments: the length of the iterable you want to generate, and a function that accepts an index and returns the corresponding element.</sup></p>
 <p>The problem is that, starting on the fourth diagonal, we don&rsquo;t start counting at 0. The first coordinate there is <code>(1, 2)</code>. Also starting on the fourth diagonal, we lose the nice pattern where each diagonal is an element longer than the previous one. This sucks.</p>
 <p>After talking it over with my math-smart wife and puttering around the kitchen for a while, I had my next epiphany:</p>
 <blockquote>
@@ -258,7 +258,7 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> map((row) <span style="color:#ff79c6">=&gt;</span> row.toList().reversed).uphillDiagonals;
 </span></span><span style="display:flex;"><span>  }
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>(<code>iterable.elementAt(index)</code> is equivalent to <code>array[index]</code>.)</p>
+</span></span></code></pre></div><p><sup><code>iterable.elementAt(index)</code> is equivalent to <code>array[index]</code>.</sup></p>
 <p>He did it in under 50 lines of code! He did it without any <code>if</code> statements or <code>for</code> loops! The crowd goes hog wild! They blow the roof clean off! It&rsquo;s blood and popcorn from wall to wall!</p>
 <p>✅ Diagonal view</p>
 <h2 id="back-to-regular-mundane-horrors">Back to regular, mundane horrors</h2>
@@ -273,7 +273,7 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> map((row) <span style="color:#ff79c6">=&gt;</span> row.toList().reversed).uphillDiagonals;
 </span></span><span style="display:flex;"><span>  }
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>(In a Dart extension method, you don&rsquo;t ever need to write <code>this.</code>. So <code>map()</code> refers to the <code>map</code> method of <code>Iterable&lt;Iterable&lt;T&gt;&gt;</code>, which does exactly what you&rsquo;d think. Sigh&hellip;I love Dart so much.)</p>
+</span></span></code></pre></div><p><sup>In a Dart extension method, you don&rsquo;t ever need to write <code>this.</code>. So <code>map()</code> refers to the <code>.map</code> method of <code>Iterable&lt;Iterable&lt;T&gt;&gt;</code>, which does exactly what you&rsquo;d think. Sigh&hellip;I love Dart so much.</sup></p>
 <p>This <em>felt</em> right to me as soon as I thought of it, but I had to sit cross-eyed for a few minutes before I was sure. I wrote some unit tests to double-check, too. It&rsquo;s legit.</p>
 <p>✅ Diagonal view (the other kind)</p>
 <p>And that&rsquo;s all the directions I can think of! Good night.</p>

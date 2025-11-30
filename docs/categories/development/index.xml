@@ -9,8 +9,15 @@
     <managingEditor>map[host:isaaclyman.com username:blog] (Isaac Lyman)</managingEditor>
     <webMaster>map[host:isaaclyman.com username:blog] (Isaac Lyman)</webMaster>
     <copyright>© 2017 by Isaac Lyman. Site powered by Hugo and GitHub Pages.</copyright>
-    <lastBuildDate>Mon, 21 Apr 2025 20:34:21 -0600</lastBuildDate>
+    <lastBuildDate>Sat, 29 Nov 2025 19:39:37 -0700</lastBuildDate>
     <atom:link href="http://isaaclyman.com/blog/categories/development/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Diagonals of two-dimensional arrays</title>
+      <link>http://isaaclyman.com/blog/posts/two-dimensional-diagonals/</link>
+      <pubDate>Sat, 29 Nov 2025 19:39:37 -0700</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
+      <guid>http://isaaclyman.com/blog/posts/two-dimensional-diagonals/</guid>
+      <description>Today I had an interesting problem to solve. For a given two-dimensional array (or matrix), I needed to construct some efficient views into the data from multiple angles.&#xA;Rows! final List&amp;lt;List&amp;lt;int&amp;gt;&amp;gt; rows = [ [1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12], ]; This is an example of the data I was starting with. You might call it an &amp;ldquo;array of rows.&amp;rdquo; In terms of tabular data, the indices of the outer array are the rows, and the indices of each inner array are the columns.</description>
+    </item>
     <item>
       <title>Laws for software engineers</title>
       <link>http://isaaclyman.com/blog/posts/laws/</link>

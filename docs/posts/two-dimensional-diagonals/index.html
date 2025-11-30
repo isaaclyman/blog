@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<meta name='description' content='Today I had an interesting problem to solve. For a given two-dimensional array (or matrix), I needed to construct some efficient views into the data from multiple angles.
+Rows! final List&lt;List&lt;int&gt;&gt; rows = [ [1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12], ]; This is an example of the data I was starting with. You might call it an &ldquo;array of rows.&rdquo; In terms of tabular data, the indices of the outer array are the rows, and the indices of each inner array are the columns.'>
+
+<meta property='og:title' content='Diagonals of two-dimensional arrays • Minimum Viable Blog'>
+<meta property='og:description' content='Today I had an interesting problem to solve. For a given two-dimensional array (or matrix), I needed to construct some efficient views into the data from multiple angles.
+Rows! final List&lt;List&lt;int&gt;&gt; rows = [ [1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12], ]; This is an example of the data I was starting with. You might call it an &ldquo;array of rows.&rdquo; In terms of tabular data, the indices of the outer array are the rows, and the indices of each inner array are the columns.'>
+<meta property='og:url' content='http://isaaclyman.com/blog/posts/two-dimensional-diagonals/'>
+<meta property='og:site_name' content='Minimum Viable Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts'><meta property='article:tag' content='dart'><meta property='article:published_time' content='2025-11-29T19:39:37-07:00'/><meta property='article:modified_time' content='2025-11-29T19:39:37-07:00'/>
+
+<meta name="generator" content="Hugo 0.124.1">
+
+  <title>Diagonals of two-dimensional arrays • Minimum Viable Blog</title>
+  <link rel='canonical' href='http://isaaclyman.com/blog/posts/two-dimensional-diagonals/'>
+  
+  <link rel='icon' href='/blog/favicon.png'>
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Ubuntu:400,400i,700&subset=latin'>
+<link rel='stylesheet' href='/blog/css/main.d02777fd.css'>
+
+  <link rel='stylesheet' href='/blog/css/custom.css'>
+
+  <link rel='stylesheet' href='/blog/css/print.css'>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QX2T3WXRC9"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-QX2T3WXRC9', { 'anonymize_ip': false });
+}
+</script>
+
+
+</head>
+
+
+<body class='page'>
+  <div class='site'>
+    <header id='header' class='header-container'>
+      <div class='site-header'>
+        <nav id='navmenu' aria-label='Main Menu'>
+  <ul class='main-menu'>
+    
+    <li>
+      <a href='/blog/posts/' 
+        
+      >{ Archive }</a>
+    </li>
+    
+    <li>
+      <a href='/blog/posts/introduction' 
+        
+      >{ Contact }</a>
+    </li>
+    
+    <li>
+      <a href='/blog/index.xml' 
+        
+      >{ RSS }</a>
+    </li>
+    
+  </ul>
+</nav>
+
+        <div class='site-info'>
+          
+          <p class='site-title title'>Minimum Viable Blog</p>
+          
+          <p class='site-description'>Software construction, opinion, and self</p>
+        </div>
+      </div>
+    </header>
+
+
+<main class='main'>
+  <article lang='en' class='entry'>
+    <header class='entry-header'>
+  <div class='entry-info'>
+    <p class="entry-genre">
+      Technology
+    </p>
+    <h1 class='entry-title title'>Diagonals of two-dimensional arrays</h1>
+    
+  </div>
+  
+<div class='meta'>
+  <span class='posted-on'>
+    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+  <line x1="16" y1="2" x2="16" y2="6"/>
+  <line x1="8" y1="2" x2="8" y2="6"/>
+  <line x1="3" y1="10" x2="21" y2="10"/>
+  
+</svg>
+
+    <span class='screen-reader'>Posted on </span>
+    <time class='date' datetime='2025-11-29T19:39:37-07:00'>Nov 29, 2025</time>
+  </span>
+  
+  
+  <span class='reading-time'>
+    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <circle cx="12" cy="12" r="10"/>
+  <polyline points="12 6 12 12 15 15"/> 
+  
+</svg>
+
+    7 mins read
+  </span>
+  
+</div>
+
+
+</header>
+
+    <div class='entry-content'>
+  <p>Today I had an interesting problem to solve. For a given two-dimensional array (or matrix), I needed to construct some efficient views into the data from multiple angles.</p>
+<h2 id="rows">Rows!</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-dart" data-lang="dart"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">final</span> List<span style="color:#ff79c6">&lt;</span>List<span style="color:#ff79c6">&lt;</span><span style="color:#8be9fd">int</span><span style="color:#ff79c6">&gt;&gt;</span> rows <span style="color:#ff79c6">=</span> [
+</span></span><span style="display:flex;"><span>  [<span style="color:#bd93f9">1</span>, <span style="color:#bd93f9">2</span>, <span style="color:#bd93f9">3</span>, <span style="color:#bd93f9">4</span>],
+</span></span><span style="display:flex;"><span>  [<span style="color:#bd93f9">5</span>, <span style="color:#bd93f9">6</span>, <span style="color:#bd93f9">7</span>, <span style="color:#bd93f9">8</span>],
+</span></span><span style="display:flex;"><span>  [<span style="color:#bd93f9">9</span>, <span style="color:#bd93f9">10</span>, <span style="color:#bd93f9">11</span>, <span style="color:#bd93f9">12</span>],
+</span></span><span style="display:flex;"><span>];
+</span></span></code></pre></div><p>This is an example of the data I was starting with. You might call it an &ldquo;array of rows.&rdquo; In terms of tabular data, the indices of the outer array are the rows, and the indices of each inner array are the columns. Ignore that for now; the code block says it best.</p>
+<p>Another way to describe this is a <em>horizontal view</em>. Since the data in its canonical form already fits this view, let&rsquo;s check that off.</p>
+<p>✅ Horizontal view</p>
+<h2 id="columns">Columns!</h2>
+<p>The next thing I needed was a vertical view.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-dart" data-lang="dart"><span style="display:flex;"><span><span style="color:#6272a4">// Desired output
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>[
+</span></span><span style="display:flex;"><span>  [<span style="color:#bd93f9">1</span>, <span style="color:#bd93f9">5</span>, <span style="color:#bd93f9">9</span>],
+</span></span><span style="display:flex;"><span>  [<span style="color:#bd93f9">2</span>, <span style="color:#bd93f9">6</span>, <span style="color:#bd93f9">10</span>],
+</span></span><span style="display:flex;"><span>  [<span style="color:#bd93f9">3</span>, <span style="color:#bd93f9">7</span>, <span style="color:#bd93f9">11</span>],
+</span></span><span style="display:flex;"><span>  [<span style="color:#bd93f9">4</span>, <span style="color:#bd93f9">8</span>, <span style="color:#bd93f9">12</span>]
+</span></span><span style="display:flex;"><span>]
+</span></span></code></pre></div><p>This array contains the same data, but in inverted access order. The indices of the outer array are the columns, and the indices of each inner array are the rows. The code block no longer looks like the data! In Dart, constructing this view is easy:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-dart" data-lang="dart"><span style="display:flex;"><span><span style="color:#ff79c6">import</span> <span style="color:#f1fa8c">&#39;package:collection/collection.dart&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">final</span> Iterable<span style="color:#ff79c6">&lt;</span>Iterable<span style="color:#ff79c6">&lt;</span><span style="color:#8be9fd">int</span><span style="color:#ff79c6">&gt;&gt;</span> cols <span style="color:#ff79c6">=</span> IterableZip(rows);
+</span></span></code></pre></div><p><code>IterableZip</code> is often just called <code>zip</code> in other languages (or their respective functional programming libraries). It accepts a list of two or more iterables (a.k.a. enumerables or lists), then on each iteration N, it emits the Nth element of each iterable, all packed together in a new iterable. Lazy evaluation keeps this lightweight and efficient.</p>
+<p>✅ Vertical view</p>
+<h2 id="eldritch-horrors">Eldritch horrors!</h2>
+<p>The last thing I needed was a <em>diagonal</em> view (&hellip;dear god). Like this:</p>
+<figure><img src="/blog/img/matrix_diagonal.jpg"
+    alt="A 4-wide, 3-high matrix consisting of numbers 1 through 12 in order from left to right, then top to bottom. A diagonal line starting on the left side is drawn upwards through the 1, then another one from the left side up through 2 and 5, a third through 9 and 6 and 3, and so on until all the digits have been struck through.">
+</figure>
+
+<p>Or, as a code block:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-dart" data-lang="dart"><span style="display:flex;"><span><span style="color:#6272a4">// Desired output
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>[
+</span></span><span style="display:flex;"><span>  [<span style="color:#bd93f9">1</span>],
+</span></span><span style="display:flex;"><span>  [<span style="color:#bd93f9">5</span>, <span style="color:#bd93f9">2</span>],
+</span></span><span style="display:flex;"><span>  [<span style="color:#bd93f9">9</span>, <span style="color:#bd93f9">6</span>, <span style="color:#bd93f9">3</span>],
+</span></span><span style="display:flex;"><span>  [<span style="color:#bd93f9">10</span>, <span style="color:#bd93f9">7</span>, <span style="color:#bd93f9">4</span>],
+</span></span><span style="display:flex;"><span>  [<span style="color:#bd93f9">11</span>, <span style="color:#bd93f9">8</span>],
+</span></span><span style="display:flex;"><span>  [<span style="color:#bd93f9">12</span>]
+</span></span><span style="display:flex;"><span>]
+</span></span></code></pre></div><p>This turned out to be a bit of a head-scratcher. (I&rsquo;m sure a mathematician could solve it instantly, but I&rsquo;m not one of those.) The first thing I needed to do was consider how the diagonal view corresponded to the original data—how the coordinates of the original would be transposed.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-dart" data-lang="dart"><span style="display:flex;"><span><span style="color:#6272a4">// Desired output, in terms of coordinates 
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">//  from the original data
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>[
+</span></span><span style="display:flex;"><span>  (<span style="color:#bd93f9">0</span>, <span style="color:#bd93f9">0</span>)
+</span></span><span style="display:flex;"><span>  (<span style="color:#bd93f9">0</span>, <span style="color:#bd93f9">1</span>) (<span style="color:#bd93f9">1</span>, <span style="color:#bd93f9">0</span>)
+</span></span><span style="display:flex;"><span>  (<span style="color:#bd93f9">0</span>, <span style="color:#bd93f9">2</span>) (<span style="color:#bd93f9">1</span>, <span style="color:#bd93f9">1</span>) (<span style="color:#bd93f9">2</span>, <span style="color:#bd93f9">0</span>)
+</span></span><span style="display:flex;"><span>  (<span style="color:#bd93f9">1</span>, <span style="color:#bd93f9">2</span>) (<span style="color:#bd93f9">2</span>, <span style="color:#bd93f9">1</span>) (<span style="color:#bd93f9">3</span>, <span style="color:#bd93f9">0</span>)
+</span></span><span style="display:flex;"><span>  (<span style="color:#bd93f9">2</span>, <span style="color:#bd93f9">2</span>) (<span style="color:#bd93f9">3</span>, <span style="color:#bd93f9">1</span>)
+</span></span><span style="display:flex;"><span>  (<span style="color:#bd93f9">3</span>, <span style="color:#bd93f9">2</span>)
+</span></span><span style="display:flex;"><span>]
+</span></span></code></pre></div><p>(I stripped out some of the symbols to make this easier to scan.)</p>
+<p>Wow. Kind of beautiful, isn&rsquo;t it?</p>
+<p>My first epiphany was:</p>
+<blockquote>
+<p>All the coordinates on each diagonal have the same sum, and that sum is the index of the diagonal (in the array of all diagonals).</p>
+</blockquote>
+<p>So if you know how many diagonals there are, you can simply write a loop, and your index in the loop will tell you what each set of coordinates needs to sum to.</p>
+<p>That&rsquo;s great, but sums are destructive. How do you know which numbers to use, out of all the numbers that add up to your target?</p>
+<p>Well, for the first few diagonals, you can just calculate all possibilities: start iterating at 0, count up to the sum, and then stop. For each iteration, your index in the loop is your X coordinate, and the distance to the sum is your Y coordinate.</p>
+<p>But wait. Earlier I said &ldquo;if you know how many diagonals there are.&rdquo; How do we know how many diagonals there are, for a matrix of a given size?</p>
+<p>Turns out it&rsquo;s <a href="https://math.stackexchange.com/questions/2865964/how-to-prove-that-the-number-of-diagonals-of-a-m-times-n-matrix-is-mn-1">really easy</a>: <code>width + height - 1</code>. That works for all matrixes of all sizes.</p>
+<p>So here&rsquo;s an approach that will generate correct values for the first few diagonals, but not the rest:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-dart" data-lang="dart"><span style="display:flex;"><span><span style="color:#6272a4">// WRONG: This doesn&#39;t work, but it&#39;s a start
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span><span style="color:#8be9fd;font-style:italic">final</span> width <span style="color:#ff79c6">=</span> cols.length;
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">final</span> height <span style="color:#ff79c6">=</span> rows.length;
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">final</span> Iterable<span style="color:#ff79c6">&lt;</span>Iterable<span style="color:#ff79c6">&lt;</span><span style="color:#8be9fd">int</span><span style="color:#ff79c6">&gt;&gt;</span> diagonals <span style="color:#ff79c6">=</span>
+</span></span><span style="display:flex;"><span>  Iterable.generate(width <span style="color:#ff79c6">+</span> height <span style="color:#ff79c6">-</span> <span style="color:#bd93f9">1</span>, (diagonalIx) <span style="color:#ff79c6">=&gt;</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">final</span> sum <span style="color:#ff79c6">=</span> diagonalIx; <span style="color:#6272a4">// I ♡ unnecessary variables
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">// For any positive integer N, there are N+1 pairs of integers &gt;= 0
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    <span style="color:#6272a4">//  (including reversed pairs) that add up to N
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">return</span> Iterable.generate(sum <span style="color:#ff79c6">+</span> <span style="color:#bd93f9">1</span>, (coordinateIx) <span style="color:#ff79c6">=&gt;</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#8be9fd;font-style:italic">final</span> x <span style="color:#ff79c6">=</span> coordinateIx;
+</span></span><span style="display:flex;"><span>      <span style="color:#8be9fd;font-style:italic">final</span> y <span style="color:#ff79c6">=</span> sum <span style="color:#ff79c6">-</span> coordinateIx;
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">return</span> rows[y][x];
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>  });
+</span></span></code></pre></div><p>(<code>Iterable.generate</code> takes two arguments: the length of the iterable you want to generate, and a function that accepts an index and returns the corresponding element.)</p>
+<p>The problem is that, starting on the fourth diagonal, we don&rsquo;t start counting at 0. The first coordinate there is <code>(1, 2)</code>. Also starting on the fourth diagonal, we lose the nice pattern where each diagonal is an element longer than the previous one. This sucks.</p>
+<p>After talking it over with my math-smart wife and puttering around the kitchen for a while, I had my next epiphany:</p>
+<blockquote>
+<p>We know the size of the matrix. But if we assume it&rsquo;s infinite, both rightward and downward, the length of a diagonal of index N would always be N+1. In other words, the first diagonal would have one element, the second would have two, and so on forever. And each diagonal would contain all the pairs of coordinates that sum to N. Once we have those, we can skip all the coordinates that fall outside the real (finite) matrix, and we&rsquo;ll be left with just the correct ones.</p>
+</blockquote>
+<p>And this was followed shortly by another:</p>
+<blockquote>
+<p>If the number of coordinates in the (infinite) diagonal is greater than the <em>width or height</em> of the (finite) matrix, the difference will be the number of coordinates to exclude. The difference between the diagonal size and the <em>height</em> of the matrix will also be the starting point of the first coordinate&rsquo;s X value.</p>
+</blockquote>
+<p>Let me explain that better. Our original data set has 6 diagonals (go ahead, scroll up and count &rsquo;em). The sixth &ldquo;infinite diagonal&rdquo; would have 6 elements in it, but it only needs one (the number <code>12</code> at coordinates <code>(3, 2)</code>). Since the matrix has a width of 4 and a height of 3, we know there are <code>6 - 4 = 2</code> elements out of bounds on the right, and <code>6 - 3 = 3</code> elements out of bounds on the bottom. This makes sense because the matrix is wider than it is tall, so we run out of space vertically before we run out of space horizontally.</p>
+<p>As luck would have it, <code>3 + 2 = 5</code>, which is the exact number of elements we need to remove from the &ldquo;infinite diagonal.&rdquo; And since there were 3 elements out of bounds vertically, 3 will be the X value of the first coordinate. So the first coordinate will be <code>(3, 2)</code> (because the <em>index</em> of this diagonal is 5, so all coordinate pairs need to sum to that), and then we&rsquo;ll stop because we have enough coordinates.</p>
+<p>Here&rsquo;s what this looks like as a nice, reusable Dart extension:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-dart" data-lang="dart"><span style="display:flex;"><span><span style="color:#ff79c6">import</span> <span style="color:#f1fa8c">&#39;dart:math&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>extension DiagonalEx<span style="color:#ff79c6">&lt;</span>T<span style="color:#ff79c6">&gt;</span> on Iterable<span style="color:#ff79c6">&lt;</span>Iterable<span style="color:#ff79c6">&lt;</span>T<span style="color:#ff79c6">&gt;&gt;</span> {
+</span></span><span style="display:flex;"><span>  Iterable<span style="color:#ff79c6">&lt;</span>Iterable<span style="color:#ff79c6">&lt;</span>T<span style="color:#ff79c6">&gt;&gt;</span> <span style="color:#8be9fd;font-style:italic">get</span> uphillDiagonals {
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">final</span> rows <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">this</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">final</span> height <span style="color:#ff79c6">=</span> rows.length;
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">final</span> width <span style="color:#ff79c6">=</span> rows.first.length;
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">final</span> numberOfDiagonals <span style="color:#ff79c6">=</span> height <span style="color:#ff79c6">+</span> width <span style="color:#ff79c6">-</span> <span style="color:#bd93f9">1</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> Iterable.generate(numberOfDiagonals, (diagonalIx) {
+</span></span><span style="display:flex;"><span>      <span style="color:#6272a4">// Start by assuming the grid extends from (0, 0) to (Infinity, Infinity)
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>      <span style="color:#8be9fd;font-style:italic">final</span> numberOfCellsInInfiniteDiagonal <span style="color:#ff79c6">=</span> diagonalIx <span style="color:#ff79c6">+</span> <span style="color:#bd93f9">1</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#6272a4">// Then use the height and width to count the cells out of bounds
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>      <span style="color:#8be9fd;font-style:italic">final</span> cellsOutOfHorizontalBound <span style="color:#ff79c6">=</span> max(
+</span></span><span style="display:flex;"><span>        <span style="color:#bd93f9">0</span>,
+</span></span><span style="display:flex;"><span>        numberOfCellsInInfiniteDiagonal <span style="color:#ff79c6">-</span> width,
+</span></span><span style="display:flex;"><span>      );
+</span></span><span style="display:flex;"><span>      <span style="color:#8be9fd;font-style:italic">final</span> cellsOutOfVerticalBound <span style="color:#ff79c6">=</span> max(
+</span></span><span style="display:flex;"><span>        <span style="color:#bd93f9">0</span>,
+</span></span><span style="display:flex;"><span>        numberOfCellsInInfiniteDiagonal <span style="color:#ff79c6">-</span> height,
+</span></span><span style="display:flex;"><span>      );
+</span></span><span style="display:flex;"><span>      <span style="color:#8be9fd;font-style:italic">final</span> numberOfCellsInBounds <span style="color:#ff79c6">=</span>
+</span></span><span style="display:flex;"><span>          numberOfCellsInInfiniteDiagonal <span style="color:#ff79c6">-</span>
+</span></span><span style="display:flex;"><span>          (cellsOutOfHorizontalBound <span style="color:#ff79c6">+</span> cellsOutOfVerticalBound);
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">return</span> Iterable.generate(numberOfCellsInBounds, (coordinateIx) {
+</span></span><span style="display:flex;"><span>        <span style="color:#8be9fd;font-style:italic">final</span> coordSum <span style="color:#ff79c6">=</span> diagonalIx;
+</span></span><span style="display:flex;"><span>        <span style="color:#8be9fd;font-style:italic">final</span> startColX <span style="color:#ff79c6">=</span> cellsOutOfVerticalBound;
+</span></span><span style="display:flex;"><span>        <span style="color:#8be9fd;font-style:italic">final</span> colX <span style="color:#ff79c6">=</span> startColX <span style="color:#ff79c6">+</span> coordinateIx;
+</span></span><span style="display:flex;"><span>        <span style="color:#8be9fd;font-style:italic">final</span> rowY <span style="color:#ff79c6">=</span> coordSum <span style="color:#ff79c6">-</span> colX;
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> rows.elementAt(rowY).elementAt(colX);
+</span></span><span style="display:flex;"><span>      });
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">// Don&#39;t read this part yet, it&#39;s a surprise
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>  Iterable<span style="color:#ff79c6">&lt;</span>Iterable<span style="color:#ff79c6">&lt;</span>T<span style="color:#ff79c6">&gt;&gt;</span> <span style="color:#8be9fd;font-style:italic">get</span> downhillDiagonals {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> map((row) <span style="color:#ff79c6">=&gt;</span> row.toList().reversed).uphillDiagonals;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>(<code>iterable.elementAt(index)</code> is equivalent to <code>array[index]</code>.)</p>
+<p>He did it in under 50 lines of code! He did it without any <code>if</code> statements or <code>for</code> loops! The crowd goes hog wild! They blow the roof clean off! It&rsquo;s blood and popcorn from wall to wall!</p>
+<p>✅ Diagonal view</p>
+<h2 id="back-to-regular-mundane-horrors">Back to regular, mundane horrors</h2>
+<p>Astute readers may note there&rsquo;s more than one direction to be diagonal about. We&rsquo;ve only solved ↗ uphill diagonals. What about ↘ downhill diagonals?</p>
+<p>Luckily, we don&rsquo;t need to implement that one, because downhill diagonals are just uphill diagonals in a mirror. Reverse each row of data and use the method you&rsquo;ve already got.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-dart" data-lang="dart"><span style="display:flex;"><span><span style="color:#ff79c6">import</span> <span style="color:#f1fa8c">&#39;dart:math&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>extension DiagonalEx<span style="color:#ff79c6">&lt;</span>T<span style="color:#ff79c6">&gt;</span> on Iterable<span style="color:#ff79c6">&lt;</span>Iterable<span style="color:#ff79c6">&lt;</span>T<span style="color:#ff79c6">&gt;&gt;</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">// ...
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>
+</span></span><span style="display:flex;"><span>  Iterable<span style="color:#ff79c6">&lt;</span>Iterable<span style="color:#ff79c6">&lt;</span>T<span style="color:#ff79c6">&gt;&gt;</span> <span style="color:#8be9fd;font-style:italic">get</span> downhillDiagonals {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> map((row) <span style="color:#ff79c6">=&gt;</span> row.toList().reversed).uphillDiagonals;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>(In a Dart extension method, you don&rsquo;t ever need to write <code>this.</code>. So <code>map()</code> refers to the <code>map</code> method of <code>Iterable&lt;Iterable&lt;T&gt;&gt;</code>, which does exactly what you&rsquo;d think. Sigh&hellip;I love Dart so much.)</p>
+<p>This <em>felt</em> right to me as soon as I thought of it, but I had to sit cross-eyed for a few minutes before I was sure. I wrote some unit tests to double-check, too. It&rsquo;s legit.</p>
+<p>✅ Diagonal view (the other kind)</p>
+<p>And that&rsquo;s all the directions I can think of! Good night.</p>
+
+</div>
+
+    
+<footer class='entry-footer'>
+  
+    
+      
+      
+
+<div class='categories'>
+  <span class='category-icon'>
+    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M22,19a2,2,0,0,1-2,2H4a2,2,0,0,1-2-2V5A2,2,0,0,1,4,3H9l2,3h9a2,2,0,0,1,2,2Z"/>
+  
+</svg>
+
+  </span>
+  <span class='screen-reader'>Categories: </span><a class='category' href='/blog/categories/development'>development</a></div>
+
+    
+  
+    
+      
+      
+
+<div class='tags'>
+  <span class='tag-icon'>
+    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M20.59,13.41l-7.17,7.17a2,2,0,0,1-2.83,0L2,12V2H12l8.59,8.59A2,2,0,0,1,20.59,13.41Z"/>
+  <line x1="7" y1="7" x2="7" y2="7"/>
+  
+</svg>
+
+  </span>
+  <span class='screen-reader'>Tags: </span><a class='tag' href='/blog/tags/dart'>dart</a></div>
+
+    
+  
+</footer>
+
+
+  </article>
+
+  
+    
+<nav class='entry-nav'>
+  <div class='entry-nav-links'><div class='prev-entry'>
+      <a href='http://isaaclyman.com/blog/posts/different/'>
+        <span aria-hidden='true'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="20" y1="12" x2="4" y2="12"/>
+  <polyline points="10 18 4 12 10 6"/>
+  
+</svg>
+ Previous</span>
+        <span class='screen-reader'>Previous post: </span>Things I didn&#39;t know were different until I saw them next to each other</a>
+    </div></div>
+</nav>
+
+
+  
+
+  
+    <div class='comments-container'>
+  
+</div>
+
+  
+</main>
+
+    <footer id='footer' class='footer-container'>
+      <div class='footer'>
+        <div class='social'>
+  <nav aria-label='Social Menu'>
+    <ul class='social-menu'></ul>
+  </nav>
+</div>
+
+        <div class='copyright'>
+          <p>© 2017 by Isaac Lyman. Site powered by Hugo and GitHub Pages.</p>
+
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <script src='/blog/js/main.af838dd5.js'></script>
+  
+    <script src='/blog/js/custom.js'></script>
+  
+
+</body>
+
+</html>
+

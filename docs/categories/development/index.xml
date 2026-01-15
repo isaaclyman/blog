@@ -9,8 +9,15 @@
     <managingEditor>map[host:isaaclyman.com username:blog] (Isaac Lyman)</managingEditor>
     <webMaster>map[host:isaaclyman.com username:blog] (Isaac Lyman)</webMaster>
     <copyright>© 2017 by Isaac Lyman. Site powered by Hugo and GitHub Pages.</copyright>
-    <lastBuildDate>Sat, 29 Nov 2025 19:39:37 -0700</lastBuildDate>
+    <lastBuildDate>Wed, 14 Jan 2026 15:47:55 -0700</lastBuildDate>
     <atom:link href="http://isaaclyman.com/blog/categories/development/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Random distributions in programming and video games</title>
+      <link>http://isaaclyman.com/blog/posts/random-distributions/</link>
+      <pubDate>Wed, 14 Jan 2026 15:47:55 -0700</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
+      <guid>http://isaaclyman.com/blog/posts/random-distributions/</guid>
+      <description>Uniform distribution If you roll a 20-sided die (commonly called a d20), there&amp;rsquo;s an equal chance of rolling any number between 1 and 20. Over the course of infinite rolls, you&amp;rsquo;ll roll about the same number of 1s, 2s, 3s, and so on. That&amp;rsquo;s called a &amp;ldquo;uniform distribution.&amp;rdquo; This d20, popularized by Dungeons and Dragons, is the best and worst thing to happen to tabletop gaming: the best because it creates moments of triumph and despair in otherwise ho-hum games, and the worst because it creates periods of boredom in otherwise exciting games.</description>
+    </item>
     <item>
       <title>Diagonals of two-dimensional arrays</title>
       <link>http://isaaclyman.com/blog/posts/two-dimensional-diagonals/</link>

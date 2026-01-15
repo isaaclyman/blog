@@ -114,7 +114,7 @@ if (!doNotTrack) {
   
 </svg>
 
-    8 mins read
+    9 mins read
   </span>
   
 </div>
@@ -125,7 +125,7 @@ if (!doNotTrack) {
     <div class='entry-content'>
   <h2 id="uniform-distribution">Uniform distribution</h2>
 <p>If you roll a 20-sided die (commonly called a d20), there&rsquo;s an equal chance of rolling any number between 1 and 20. Over the course of infinite rolls, you&rsquo;ll roll about the same number of 1s, 2s, 3s, and so on. That&rsquo;s called a &ldquo;uniform distribution.&rdquo; The d20, popularized by Dungeons and Dragons, is the best and worst thing to happen to tabletop gaming: the best because it creates moments of triumph and despair in otherwise ho-hum games, and the worst because it creates periods of boredom in otherwise exciting games.</p>
-<p>I&rsquo;ve heard the d20 described as &ldquo;swingy.&rdquo; That&rsquo;s a good way to think about it: you&rsquo;re equally as likely to roll a 20 (extraordinary success) as a 1 (devastating failure) or a 9 (mediocre result). Your &ldquo;luck&rdquo; is constantly swinging around. In fact, luck is barely relevant. If you roll three 20s in a row you might feel unstoppable, but three 20s is no less likely than three 10s. You could go a whole session without seeing a 20, or it could be the only thing you roll. No wonder tabletop gamers develop so many superstitions.</p>
+<p>I&rsquo;ve heard the d20 described as &ldquo;swingy.&rdquo; That&rsquo;s a good way to think about it: you&rsquo;re equally as likely to roll a 20 (extraordinary success) as a 1 (devastating failure) or a 9 (mediocre result). Your &ldquo;luck&rdquo; is constantly swinging around. In fact, luck is barely relevant. If you roll three 20s in a row you might feel unstoppable, but three 20s is no less likely than three 10s. You could go a whole session without seeing a 20, or it could be the only thing you roll. True randomness is only uniform on a large scale; one person rolling one die at one table isn&rsquo;t guaranteed any kind of fairness. No wonder tabletop gamers develop so many superstitions.</p>
 <p>A d20 is easy to simulate in basically every programming language:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-dart" data-lang="dart"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">final</span> rnd <span style="color:#ff79c6">=</span> Random();
 </span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">final</span> d20 <span style="color:#ff79c6">=</span> rnd.nextInt(<span style="color:#bd93f9">20</span>) <span style="color:#ff79c6">+</span> <span style="color:#bd93f9">1</span>;
@@ -150,9 +150,9 @@ if (!doNotTrack) {
 </figure>
 
 <p>A triangular distribution is what you get if you roll two d10 dice instead of a single d20. The highest possible result is still 20, but you&rsquo;re <em>ten times</em> as likely to roll an 11, because there&rsquo;s only one way for the dice to add up to 20 (10 + 10) and ten ways for them to add up to 11 (10 + 1, 9 + 2, etc.). This feels more natural. Just like in real life, it&rsquo;s rare for things to go as poorly as possible or as well as possible. Most of the time they&rsquo;re closer to mediocre. A triangular distribution still &ldquo;feels&rdquo; random, but it also feels fair.</p>
-<p>For my money, this should be the default in games. Middling results should be the norm. Spectacular results, for better or worse, should be rare. You should be able to strategize based on the <a href="https://en.wikipedia.org/wiki/Mediocrity_principle">mediocrity principle</a>.</p>
+<p>For my money, some version of this should be the default in games. Middling results should be the norm. Spectacular results, for better or worse, should be rare. You should be able to strategize based on the <a href="https://en.wikipedia.org/wiki/Mediocrity_principle">mediocrity principle</a>.</p>
 <p>This is a little more complicated to code, but it introduces a technique you can use for any distribution you like: rejection sampling. In short, you plot your desired distribution on a two-dimensional graph, then generate two (uniform) random numbers, <em>x</em> and <em>y</em>, as coordinates on the same graph. If they&rsquo;re outside the distribution, you reject them and try again. If they&rsquo;re inside it, you keep <em>x</em>.</p>
-<p><sup>Of course, for a triangular distribution you can just generate 2d10 and add them together, but that technique doesn&rsquo;t generalize.</sup></p>
+<p><sup>Of course, for one kind of triangular distribution you can just generate 2d10 and add them together, but that technique doesn&rsquo;t generalize.</sup></p>
 <p>Let&rsquo;s say you want a random decimal number between 0 and 1, but you want the value <code>0.5</code> to be twice as likely as either <code>0</code> or <code>1</code>, with linear probability in between. You could plot the distribution curve like this:</p>
 <figure><img src="/blog/img/dist_triangle_double.png"
     alt="A cartesian graph in quadrant I. The X axis goes from 0 to 1, with a mark at 0.5, as does the Y axis. A house shape is drawn so that its peak is at x=0.5 and y=1, and its eaves are at y=0.5, x=0 and 1, and shaded green from the roof down to the X axis.">
@@ -206,7 +206,7 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">return</span> possibleValues.removeLast(); <span style="color:#6272a4">// You may know this function as pop()
 </span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>}
-</span></span></code></pre></div><p>It&rsquo;s still a uniform distribution. It&rsquo;s still, for most intents and purposes, random. But normal random number generators sometimes produce bullshit like <code>1 1 1 1 1 1 1 1 1 1 1 1</code>, which isn&rsquo;t fun for anyone, whereas this one makes sure your luck balances out before long.</p>
+</span></span></code></pre></div><p>It&rsquo;s still a uniform distribution. It&rsquo;s still, for most intents and purposes, random. But normal random number generators sometimes produce bullshit like <code>1 1 1 1 1 1 1 1 1 1 1 1</code>, which isn&rsquo;t fun for anyone, whereas this one makes sure your luck balances out in the short term.</p>
 <p>If you want a slightly less constrained version, there are a couple ways to do it:</p>
 <ol>
 <li>Double up the starting array so each number comes up twice per cycle. You&rsquo;ll still get an even distribution across 40 calls, but a streak of good or bad luck can last a bit longer.</li>

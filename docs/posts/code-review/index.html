@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<meta name='description' content='A lot of teams procrastinate code review, phone it in, or get stuck in endless back-and-forth on every PR. Let&rsquo;s talk about why.
+Myth #1 Myth: Code review is difficult because it&rsquo;s boring and pull requests are too long.
+Fact: Code review is difficult because it duplicates the cognitive work of programming without all the intermediate steps.
+Engineers tend to dislike reviewing code. Instead of just accepting it as an unpleasant part of the job, we should ask why.'>
+
+<meta property='og:title' content='Myth vs. Fact: why is code review so hard? • Minimum Viable Blog'>
+<meta property='og:description' content='A lot of teams procrastinate code review, phone it in, or get stuck in endless back-and-forth on every PR. Let&rsquo;s talk about why.
+Myth #1 Myth: Code review is difficult because it&rsquo;s boring and pull requests are too long.
+Fact: Code review is difficult because it duplicates the cognitive work of programming without all the intermediate steps.
+Engineers tend to dislike reviewing code. Instead of just accepting it as an unpleasant part of the job, we should ask why.'>
+<meta property='og:url' content='http://isaaclyman.com/blog/posts/code-review/'>
+<meta property='og:site_name' content='Minimum Viable Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts'><meta property='article:tag' content='software construction'><meta property='article:published_time' content='2026-03-23T16:32:19-06:00'/><meta property='article:modified_time' content='2026-03-23T16:32:19-06:00'/>
+
+<meta name="generator" content="Hugo 0.124.1">
+
+  <title>Myth vs. Fact: why is code review so hard? • Minimum Viable Blog</title>
+  <link rel='canonical' href='http://isaaclyman.com/blog/posts/code-review/'>
+  
+  <link rel='icon' href='/blog/favicon.png'>
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Ubuntu:400,400i,700&subset=latin'>
+<link rel='stylesheet' href='/blog/css/main.d02777fd.css'>
+
+  <link rel='stylesheet' href='/blog/css/custom.css'>
+
+  <link rel='stylesheet' href='/blog/css/print.css'>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QX2T3WXRC9"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-QX2T3WXRC9', { 'anonymize_ip': false });
+}
+</script>
+
+
+</head>
+
+
+<body class='page'>
+  <div class='site'>
+    <header id='header' class='header-container'>
+      <div class='site-header'>
+        <nav id='navmenu' aria-label='Main Menu'>
+  <ul class='main-menu'>
+    
+    <li>
+      <a href='/blog/posts/' 
+        
+      >{ Archive }</a>
+    </li>
+    
+    <li>
+      <a href='/blog/posts/introduction' 
+        
+      >{ Contact }</a>
+    </li>
+    
+    <li>
+      <a href='/blog/index.xml' 
+        
+      >{ RSS }</a>
+    </li>
+    
+  </ul>
+</nav>
+
+        <div class='site-info'>
+          
+          <p class='site-title title'>Minimum Viable Blog</p>
+          
+          <p class='site-description'>Software construction, opinion, and self</p>
+        </div>
+      </div>
+    </header>
+
+
+<main class='main'>
+  <article lang='en' class='entry'>
+    <header class='entry-header'>
+  <div class='entry-info'>
+    <p class="entry-genre">
+      Technology
+    </p>
+    <h1 class='entry-title title'>Myth vs. Fact: why is code review so hard?</h1>
+    
+  </div>
+  
+<div class='meta'>
+  <span class='posted-on'>
+    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+  <line x1="16" y1="2" x2="16" y2="6"/>
+  <line x1="8" y1="2" x2="8" y2="6"/>
+  <line x1="3" y1="10" x2="21" y2="10"/>
+  
+</svg>
+
+    <span class='screen-reader'>Posted on </span>
+    <time class='date' datetime='2026-03-23T16:32:19-06:00'>Mar 23, 2026</time>
+  </span>
+  
+  
+  <span class='reading-time'>
+    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <circle cx="12" cy="12" r="10"/>
+  <polyline points="12 6 12 12 15 15"/> 
+  
+</svg>
+
+    8 mins read
+  </span>
+  
+</div>
+
+
+</header>
+
+    <div class='entry-content'>
+  <p>A lot of teams procrastinate code review, phone it in, or get stuck in endless back-and-forth on every PR. Let&rsquo;s talk about why.</p>
+<h3 id="myth-1">Myth #1</h3>
+<blockquote>
+<p>Myth: <em>Code review is difficult because it&rsquo;s boring and pull requests are too long.</em></p>
+<p>Fact: <em>Code review is difficult because it duplicates the cognitive work of programming without all the intermediate steps.</em></p>
+</blockquote>
+<p>Engineers tend to dislike reviewing code. Instead of just accepting it as an unpleasant part of the job, we should ask why.</p>
+<p>Let&rsquo;s start with the most common misconception: it&rsquo;s not about PR length. Some teams have discovered that establishing a norm of smaller PRs leads to faster review times and less mental fatigue, and I wholeheartedly support this, but it&rsquo;s not the PR length alone that brings these benefits. It&rsquo;s the fact that when engineers are encouraged to submit shorter PRs, they compensate by doing more work to organize and document each PR.</p>
+<p>Suppose you need to make a code change that, in its ideal form, comes in around 1000 lines. If your team has established a norm of PRs being 200 SLOC or less, you&rsquo;ll need at least five PRs, and if you want those PRs to make sense as individual units, you&rsquo;ll have to do a lot more storytelling:</p>
+<ul>
+<li>This PR updates the database with new columns; here&rsquo;s what they&rsquo;re for.</li>
+<li>This PR updates DTO classes so the data in those columns can be sent over the wire.</li>
+<li>This PR refactors a service to incorporate the new data into its calculations.</li>
+<li>Etc.</li>
+</ul>
+<p>Small PRs are easier to review because they make code authors explain themselves better—step by step, at a finer grain. Without that explanation, the code reviewer has to try to to reconstruct all the reasoning and context that went into the PR. This abstract guessing game can easily take <em>more</em> mental energy than it took to actually write the code. We think of code review as a quick checkbox task, but the way many teams approach it, it&rsquo;s the most mentally taxing thing they do.</p>
+<p>When you code, you spend most of your time researching. You clarify requirements, explore the relevant parts of the codebase, read documentation, try out different approaches, and finally land on a solution you like. When you&rsquo;re finished, the code you submit is a two-dimensional snapshot of N-dimensional context. It&rsquo;s lossy compression. The snapshot can be projected back into a model, but unless information is provided by other means, there will be significant gaps.</p>
+<p>There are several ways to narrow those gaps:</p>
+<ul>
+<li>Split up large PRs into smaller ones (perhaps targeting a feature branch).</li>
+<li>Document and share ahead of time what problem you&rsquo;re solving, how you&rsquo;re solving it, and why you chose that approach.</li>
+<li>Leave comments throughout your own PRs, explaining your thought process around less obvious changes.</li>
+<li>Use pair programming or mob programming to share context as you build.</li>
+<li>Use interactive rebasing (or the equivalent in your source control tool of choice) to rearrange commits and make PRs reviewable in small chunks.</li>
+</ul>
+<p>We can make code review easier for each other, and we should. Shorter PRs are just one way to accomplish that.</p>
+<h3 id="myth-2">Myth #2</h3>
+<blockquote>
+<p>Myth: <em>The primary purpose of code review is to block bad code from getting into the application.</em></p>
+<p>Fact: <em>The primary purpose of code review is to align the team.</em></p>
+</blockquote>
+<p>Don&rsquo;t get me wrong, it&rsquo;s important to look out for each other&rsquo;s mistakes. Security vulnerabilities and critical bugs are often caught in code review, and they should be, though it&rsquo;s better to catch them earlier—more on that in a moment.</p>
+<p>Code review&rsquo;s <em>primary</em> purpose, though, the purpose that consistently brings the most value, is alignment. Code review is a mechanism by which a team affirms:</p>
+<ul>
+<li>We understand what changes are being made.</li>
+<li>We understand why these changes are being made.</li>
+<li>We can commit to maintaining this code.</li>
+</ul>
+<p>Note that there&rsquo;s nothing here about agreement. Agreement and alignment are different things. Team members may disagree about how to solve a problem, but if they share an understanding of the problem, along with the pros and cons of different approaches, they can commit to an imperfect solution and move forward anyway. That&rsquo;s alignment.</p>
+<p>A secondary purpose of code review is mentorship. Team members can use it to teach techniques, share ideas, and deepen each other&rsquo;s knowledge of both the immediate context of the application and broader technologies (e.g. programming languages). One of the best kinds of code review comments is, &ldquo;I think we could shave off several lines of code by using this technique/feature/class: [link].&rdquo; Code review shouldn&rsquo;t be the only place this happens, or even the main place, but it shouldn&rsquo;t be discounted either—the things you learn from PR comments tend to stick with you, since by default they&rsquo;re relevant, hands-on, and immediately actionable.</p>
+<p>This mindset simplifies code review. The reviewer&rsquo;s most important job is to make sure they understand all the <em>whats</em> and <em>whys</em>, which can be done at a high level, without necessarily reading every line of code. Their second job is to lift and teach each other, which often happens at a lower level of abstraction, but still above the level of semicolons and off-by-one errors. Their final job is to watch for mistakes: this is their most difficult but least important job, and they share it with several other people (quality engineers, product owners, UX designers) and tools (linters, compilers, unit and integration tests, vulnerability scanners, etc.).</p>
+<h3 id="myth-3">Myth #3</h3>
+<blockquote>
+<p>Myth: <em>Code review is the ultimate gatekeeper of software quality.</em></p>
+<p>Fact: <em>Code review is at its best when it&rsquo;s a formality. On its own, it will always be insufficient to the task of protecting a codebase.</em></p>
+</blockquote>
+<p>Pull requests should rarely be a surprise. Not every quick win or behind-the-scenes improvement needs to be announced, but most of the time, the team should know well in advance what&rsquo;s coming. By the time someone&rsquo;s submitting code, the only remaining unknowns should be implementation details, the general approach having already been aligned on.</p>
+<p>But even when the team knows what&rsquo;s coming, and even when the submitter provides context and documents their work, there&rsquo;s still an essential knowledge gap between the code author and the reviewer. One of them wrote the code; the other is just looking at it. That gap may be larger or smaller, but I would argue it can&rsquo;t be erased completely.</p>
+<p>The force bridging that gap is <em>trust</em>. You can&rsquo;t collaborate on software with people you don&rsquo;t trust. It&rsquo;s not blind trust—we watch out for each other&rsquo;s mistakes, we challenge each other&rsquo;s misconceptions, we never rely on trust alone—but depending on the day, the PR, or the application, it can still be substantial. A malicious teammate will have myriad opportunities to sneak in problematic code over the course of a project, and no code review process can completely prevent that, nor should it try to. Approaching every code review as if the author might be a saboteur is incredibly inefficient, not to mention hostile.</p>
+<p>It&rsquo;s up to the code reviewer how much trust they&rsquo;re comfortable with, but as I mentioned earlier, their review should be one of several (human and automated) safeguards. And even in ideal circumstances, the &ldquo;trust gap&rdquo; can&rsquo;t be optimized out; it <em>is</em> the optimization. At the end of the day, the code author has to be acting in good faith. They have to be committed to writing solid, high-quality code, or the codebase&rsquo;s standards will inevitably drift over time. The world&rsquo;s best code reviewer is no match for the world&rsquo;s worst programmer.</p>
+<p>So if code review isn&rsquo;t the ultimate gatekeeper, what is? That depends on the problem you&rsquo;re trying to solve.</p>
+<p>If too many bugs are making it to production, the right response is to invest more in QA. If features repeatedly don&rsquo;t satisfy specifications, the product owner needs to tighten their collaboration with engineering. If security vulnerabilities are frequently overlooked, the team needs to do more <a href="https://www.threatmodelingmanifesto.org">threat modeling</a> or hire a pentester.</p>
+<p>Code review is valuable. No one&rsquo;s saying it isn&rsquo;t. But it&rsquo;s a small cog in a big machine.</p>
+<h3 id="myth-4">Myth #4</h3>
+<blockquote>
+<p>Myth: <em>Code review solves a lot of problems when you do it right.</em></p>
+<p>Fact: <em>Code review is supplemental to every meaningful outcome. It&rsquo;s not a powerful enough tool to solve problems on its own.</em></p>
+</blockquote>
+<p>This myth covers a lot of the same ground as the previous one, but it&rsquo;s worth emphasizing.</p>
+<p>Try this mental exercise: ask yourself (or your team) how you would work differently if code review were outlawed. Maybe you would:</p>
+<ul>
+<li>Pair program more frequently.</li>
+<li>Plan your changes more carefully and collaboratively.</li>
+<li>Do more to address technical debt, like regularly setting aside time to refactor.</li>
+<li>Collaborate more closely with QA and Product during the development process.</li>
+<li>Document the team&rsquo;s technical standards more clearly.</li>
+<li>Be more proactive about teaching and training junior team members.</li>
+<li>Write more automated tests and integrate better static analysis tools.</li>
+</ul>
+<p>Whatever you came up with, you should do it. Full stop. You&rsquo;ll get better results than you get from code review.</p>
+<p>The value of code review is largely in its versatility. A good code reviewer can catch mistakes in a huge number of categories. But it&rsquo;s also inefficient: for most of those categories, there&rsquo;s a more effective, less exhausting way to keep watch. Finding that way is the work of technical leadership, and the work is never done.</p>
+<p>Code review is a safeguard, yes, but it&rsquo;s also the failure mode of a hundred other safeguards. If we pay attention, it can tell us where our processes fall short.</p>
+<h3 id="conclusion">Conclusion</h3>
+<p>Code review is often exhausting, but it doesn&rsquo;t have to be if everyone does their part: if code authors provide ample context and documentation, reviewers know their priorities, and the team invests in effective guardrails. As the team&rsquo;s processes improve, code review gets faster and easier.</p>
+
+</div>
+
+    
+<footer class='entry-footer'>
+  
+    
+      
+      
+
+<div class='categories'>
+  <span class='category-icon'>
+    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M22,19a2,2,0,0,1-2,2H4a2,2,0,0,1-2-2V5A2,2,0,0,1,4,3H9l2,3h9a2,2,0,0,1,2,2Z"/>
+  
+</svg>
+
+  </span>
+  <span class='screen-reader'>Categories: </span><a class='category' href='/blog/categories/development'>development</a></div>
+
+    
+  
+    
+      
+      
+
+<div class='tags'>
+  <span class='tag-icon'>
+    <svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M20.59,13.41l-7.17,7.17a2,2,0,0,1-2.83,0L2,12V2H12l8.59,8.59A2,2,0,0,1,20.59,13.41Z"/>
+  <line x1="7" y1="7" x2="7" y2="7"/>
+  
+</svg>
+
+  </span>
+  <span class='screen-reader'>Tags: </span><a class='tag' href='/blog/tags/software-construction'>software construction</a></div>
+
+    
+  
+</footer>
+
+
+  </article>
+
+  
+    
+<nav class='entry-nav'>
+  <div class='entry-nav-links'><div class='prev-entry'>
+      <a href='http://isaaclyman.com/blog/posts/coding-without-ai/'>
+        <span aria-hidden='true'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="20" y1="12" x2="4" y2="12"/>
+  <polyline points="10 18 4 12 10 6"/>
+  
+</svg>
+ Previous</span>
+        <span class='screen-reader'>Previous post: </span>Coding without AI: a revolutionary new way to work</a>
+    </div></div>
+</nav>
+
+
+  
+
+  
+    <div class='comments-container'>
+  
+</div>
+
+  
+</main>
+
+    <footer id='footer' class='footer-container'>
+      <div class='footer'>
+        <div class='social'>
+  <nav aria-label='Social Menu'>
+    <ul class='social-menu'></ul>
+  </nav>
+</div>
+
+        <div class='copyright'>
+          <p>© 2017 by Isaac Lyman. Site powered by Hugo and GitHub Pages.</p>
+
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <script src='/blog/js/main.af838dd5.js'></script>
+  
+    <script src='/blog/js/custom.js'></script>
+  
+
+</body>
+
+</html>
+

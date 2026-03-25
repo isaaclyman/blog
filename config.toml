@@ -1,6 +1,6 @@
 baseURL = "http://isaaclyman.com/blog"
 title = "Minimum Viable Blog"
-copyright = "© 2017 by Isaac Lyman. Site powered by Hugo and GitHub Pages."
+copyright = "© 2026 by Isaac Lyman. No AI-generated content has ever appeared on this blog."
 publishDir = "docs"
 
 theme = "minimo"

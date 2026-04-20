@@ -9,8 +9,15 @@
     <managingEditor>map[host:isaaclyman.com username:blog] (Isaac Lyman)</managingEditor>
     <webMaster>map[host:isaaclyman.com username:blog] (Isaac Lyman)</webMaster>
     <copyright>© 2026 by Isaac Lyman. No AI-generated content has ever appeared on this blog.</copyright>
-    <lastBuildDate>Mon, 23 Mar 2026 16:32:19 -0600</lastBuildDate>
+    <lastBuildDate>Mon, 20 Apr 2026 07:40:11 -0600</lastBuildDate>
     <atom:link href="http://isaaclyman.com/blog/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Five laws of generative AI</title>
+      <link>http://isaaclyman.com/blog/posts/five-laws-of-ai/</link>
+      <pubDate>Mon, 20 Apr 2026 07:40:11 -0600</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
+      <guid>http://isaaclyman.com/blog/posts/five-laws-of-ai/</guid>
+      <description>These laws have some exceptions, but I&amp;rsquo;ve found them broadly useful for navigating the current hype wave, and nearly always correct.&#xA;AI is a firehose of mediocrity. AI&amp;rsquo;s advantages can&amp;rsquo;t be disentangled from its flaws. It&amp;rsquo;s never &amp;ldquo;just&amp;rdquo; AI. The term is more important than the definition. The promise is more important than the reality. For the purposes of this post, &amp;ldquo;AI&amp;rdquo; means generative AI.&#xA;I&amp;rsquo;ve added a few brief thoughts on each law below.</description>
+    </item>
     <item>
       <title>Myth vs. Fact: why is code review so hard?</title>
       <link>http://isaaclyman.com/blog/posts/code-review/</link>

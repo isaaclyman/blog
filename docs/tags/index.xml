@@ -9,8 +9,15 @@
     <managingEditor>map[host:isaaclyman.com username:blog] (Isaac Lyman)</managingEditor>
     <webMaster>map[host:isaaclyman.com username:blog] (Isaac Lyman)</webMaster>
     <copyright>© 2026 by Isaac Lyman. No AI-generated content has ever appeared on this blog.</copyright>
-    <lastBuildDate>Mon, 23 Mar 2026 16:32:19 -0600</lastBuildDate>
+    <lastBuildDate>Tue, 19 May 2026 11:27:17 -0600</lastBuildDate>
     <atom:link href="http://isaaclyman.com/blog/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Productivity</title>
+      <link>http://isaaclyman.com/blog/tags/productivity/</link>
+      <pubDate>Tue, 19 May 2026 11:27:17 -0600</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
+      <guid>http://isaaclyman.com/blog/tags/productivity/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Software Construction</title>
       <link>http://isaaclyman.com/blog/tags/software-construction/</link>
@@ -86,13 +93,6 @@
       <link>http://isaaclyman.com/blog/tags/kryptos/</link>
       <pubDate>Fri, 26 Jan 2024 09:20:46 -0700</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
       <guid>http://isaaclyman.com/blog/tags/kryptos/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Productivity</title>
-      <link>http://isaaclyman.com/blog/tags/productivity/</link>
-      <pubDate>Wed, 22 Nov 2023 18:19:25 -0700</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/tags/productivity/</guid>
       <description></description>
     </item>
     <item>

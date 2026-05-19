@@ -3,16 +3,28 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://isaaclyman.com/blog/posts/</loc>
-    <lastmod>2026-05-15T13:27:17-06:00</lastmod>
+    <lastmod>2026-05-19T11:27:17-06:00</lastmod>
+  </url><url>
+    <loc>http://isaaclyman.com/blog/categories/</loc>
+    <lastmod>2026-05-19T11:27:17-06:00</lastmod>
   </url><url>
     <loc>http://isaaclyman.com/blog/</loc>
-    <lastmod>2026-05-15T13:27:17-06:00</lastmod>
+    <lastmod>2026-05-19T11:27:17-06:00</lastmod>
+  </url><url>
+    <loc>http://isaaclyman.com/blog/tags/productivity/</loc>
+    <lastmod>2026-05-19T11:27:17-06:00</lastmod>
+  </url><url>
+    <loc>http://isaaclyman.com/blog/categories/self/</loc>
+    <lastmod>2026-05-19T11:27:17-06:00</lastmod>
+  </url><url>
+    <loc>http://isaaclyman.com/blog/tags/</loc>
+    <lastmod>2026-05-19T11:27:17-06:00</lastmod>
+  </url><url>
+    <loc>http://isaaclyman.com/blog/posts/there-is-no-genius/</loc>
+    <lastmod>2026-05-19T11:27:17-06:00</lastmod>
   </url><url>
     <loc>http://isaaclyman.com/blog/posts/five-laws-of-ai/</loc>
     <lastmod>2026-04-20T07:40:11-06:00</lastmod>
-  </url><url>
-    <loc>http://isaaclyman.com/blog/categories/</loc>
-    <lastmod>2026-03-23T16:32:19-06:00</lastmod>
   </url><url>
     <loc>http://isaaclyman.com/blog/categories/development/</loc>
     <lastmod>2026-03-23T16:32:19-06:00</lastmod>
@@ -21,9 +33,6 @@
     <lastmod>2026-03-23T16:32:19-06:00</lastmod>
   </url><url>
     <loc>http://isaaclyman.com/blog/tags/software-construction/</loc>
-    <lastmod>2026-03-23T16:32:19-06:00</lastmod>
-  </url><url>
-    <loc>http://isaaclyman.com/blog/tags/</loc>
     <lastmod>2026-03-23T16:32:19-06:00</lastmod>
   </url><url>
     <loc>http://isaaclyman.com/blog/posts/coding-without-ai/</loc>
@@ -40,9 +49,6 @@
   </url><url>
     <loc>http://isaaclyman.com/blog/posts/two-dimensional-diagonals/</loc>
     <lastmod>2025-11-29T19:39:37-07:00</lastmod>
-  </url><url>
-    <loc>http://isaaclyman.com/blog/categories/self/</loc>
-    <lastmod>2025-11-09T12:59:02-07:00</lastmod>
   </url><url>
     <loc>http://isaaclyman.com/blog/posts/different/</loc>
     <lastmod>2025-11-09T12:59:02-07:00</lastmod>
@@ -168,9 +174,6 @@
     <lastmod>2023-11-22T18:19:25-07:00</lastmod>
   </url><url>
     <loc>http://isaaclyman.com/blog/categories/product/</loc>
-    <lastmod>2023-11-22T18:19:25-07:00</lastmod>
-  </url><url>
-    <loc>http://isaaclyman.com/blog/tags/productivity/</loc>
     <lastmod>2023-11-22T18:19:25-07:00</lastmod>
   </url><url>
     <loc>http://isaaclyman.com/blog/posts/3d-object-model-of-software/</loc>

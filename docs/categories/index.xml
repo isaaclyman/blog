@@ -9,20 +9,20 @@
     <managingEditor>map[host:isaaclyman.com username:blog] (Isaac Lyman)</managingEditor>
     <webMaster>map[host:isaaclyman.com username:blog] (Isaac Lyman)</webMaster>
     <copyright>© 2026 by Isaac Lyman. No AI-generated content has ever appeared on this blog.</copyright>
-    <lastBuildDate>Mon, 23 Mar 2026 16:32:19 -0600</lastBuildDate>
+    <lastBuildDate>Tue, 19 May 2026 11:27:17 -0600</lastBuildDate>
     <atom:link href="http://isaaclyman.com/blog/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Self</title>
+      <link>http://isaaclyman.com/blog/categories/self/</link>
+      <pubDate>Tue, 19 May 2026 11:27:17 -0600</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
+      <guid>http://isaaclyman.com/blog/categories/self/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Development</title>
       <link>http://isaaclyman.com/blog/categories/development/</link>
       <pubDate>Mon, 23 Mar 2026 16:32:19 -0600</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
       <guid>http://isaaclyman.com/blog/categories/development/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Self</title>
-      <link>http://isaaclyman.com/blog/categories/self/</link>
-      <pubDate>Sun, 09 Nov 2025 12:59:02 -0700</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/categories/self/</guid>
       <description></description>
     </item>
     <item>

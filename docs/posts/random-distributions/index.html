@@ -220,7 +220,20 @@ if (!doNotTrack) {
 </figure>
 
 <p>And I know all the formulas are right there on Wikipedia. But I haven&rsquo;t taken a math class since high school calculus, so I can&rsquo;t read them, and all the relevant Stack Overflow answers assume you know how to invert a CDF, which sounds like a sex thing. If you can write a function that accepts a σ and returns a normally-distributed random double, please send it over, I&rsquo;d love to use it.</p>
-<h2 id="returning-to-xcom-2">Returning to XCOM 2</h2>
+<p>UPDATE: Big thanks to <a href="https://social.coop/@eamon/117310770897855196">a friend on Mastodon</a> who pointed me to an easy way to simulate this without advanced math: add up N random numbers in the interval (N=3 seems to be <a href="https://en.wikipedia.org/wiki/Bates_distribution">the floor</a>), then divide by N:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-dart" data-lang="dart"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">final</span> rnd <span style="color:#ff79c6">=</span> Random();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd">double</span> nextDoubleGaussian() {
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">final</span> n <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">4</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd">double</span> uniformSum <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>;
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">for</span> (<span style="color:#8be9fd;font-style:italic">var</span> i <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>; i <span style="color:#ff79c6">&lt;</span> n; i<span style="color:#ff79c6">++</span>) {
+</span></span><span style="display:flex;"><span>    uniformSum <span style="color:#ff79c6">+=</span> rnd.nextDouble();
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">return</span> uniformSum <span style="color:#ff79c6">/</span> n;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="returning-to-xcom-2">Returning to XCOM 2</h2>
 <p>I know XCOM 2 isn&rsquo;t actually a bad game. It encourages a specific play style which I just can&rsquo;t make myself adopt. But I think it would be an even better game if it used a curved distribution to determine hits and misses, even if the displayed percentages were curved as well and the difference were purely cosmetic. When a game says you have a 90% chance of success, failure should feel <em>rare</em>—or, at least, it should only happen 1 in 10 times <em>in practice</em>, not just in mathematical theory.</p>
 <p>That&rsquo;s my wish for game devs: stop using the uniform RNG built into your programming language unless you can articulate why. Triangular distributions aren&rsquo;t hard to generate, and they feel more natural and fair. And if you really do need a uniform distribution, make sure it balances out on a reasonable timescale.</p>
 

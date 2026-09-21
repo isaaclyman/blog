@@ -9,20 +9,20 @@
     <managingEditor>map[host:isaaclyman.com username:blog] (Isaac Lyman)</managingEditor>
     <webMaster>map[host:isaaclyman.com username:blog] (Isaac Lyman)</webMaster>
     <copyright>© 2026 by Isaac Lyman. No AI-generated content has ever appeared on this blog.</copyright>
-    <lastBuildDate>Tue, 19 May 2026 11:27:17 -0600</lastBuildDate>
+    <lastBuildDate>Mon, 21 Sep 2026 09:49:10 -0600</lastBuildDate>
     <atom:link href="http://isaaclyman.com/blog/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Software Construction</title>
+      <link>http://isaaclyman.com/blog/tags/software-construction/</link>
+      <pubDate>Mon, 21 Sep 2026 09:49:10 -0600</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
+      <guid>http://isaaclyman.com/blog/tags/software-construction/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Productivity</title>
       <link>http://isaaclyman.com/blog/tags/productivity/</link>
       <pubDate>Tue, 19 May 2026 11:27:17 -0600</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
       <guid>http://isaaclyman.com/blog/tags/productivity/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Software Construction</title>
-      <link>http://isaaclyman.com/blog/tags/software-construction/</link>
-      <pubDate>Mon, 23 Mar 2026 16:32:19 -0600</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
-      <guid>http://isaaclyman.com/blog/tags/software-construction/</guid>
       <description></description>
     </item>
     <item>

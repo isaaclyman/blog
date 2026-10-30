@@ -9,8 +9,15 @@
     <managingEditor>map[host:isaaclyman.com username:blog] (Isaac Lyman)</managingEditor>
     <webMaster>map[host:isaaclyman.com username:blog] (Isaac Lyman)</webMaster>
     <copyright>© 2026 by Isaac Lyman. No AI-generated content has ever appeared on this blog.</copyright>
-    <lastBuildDate>Mon, 21 Sep 2026 09:49:10 -0600</lastBuildDate>
+    <lastBuildDate>Fri, 30 Oct 2026 09:18:11 -0600</lastBuildDate>
     <atom:link href="http://isaaclyman.com/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Why do people say AI codegen has improved?</title>
+      <link>http://isaaclyman.com/blog/posts/why-people-say-ai-has-improved/</link>
+      <pubDate>Fri, 30 Oct 2026 09:18:11 -0600</pubDate><author>map[host:isaaclyman.com username:blog] (Isaac Lyman)</author>
+      <guid>http://isaaclyman.com/blog/posts/why-people-say-ai-has-improved/</guid>
+      <description>Since at least 2023, there’s been a persistent trend of people saying that “AI code generation is much better now than it was six months ago.” There are multiple possible reasons why someone might say this, and a neutral observer should consider all of them.&#xA;I don’t believe the phenomenon can be fully explained by any one reason. Rather, I believe all of these reasons have, to varying extents, played a role.</description>
+    </item>
     <item>
       <title>Four essential laws of programming</title>
       <link>http://isaaclyman.com/blog/posts/essential-laws/</link>

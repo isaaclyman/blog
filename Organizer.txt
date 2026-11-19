@@ -25,6 +25,7 @@ css
 dart
 edward
 front end
+gen-ai
 health
 horror
 javascript
